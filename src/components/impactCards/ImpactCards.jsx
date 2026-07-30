@@ -47,15 +47,22 @@ const MOBILE_VISIBLE = 1;
 const getVisibleCount = () => (window.innerWidth <= 768 ? MOBILE_VISIBLE : DESKTOP_VISIBLE);
 
 /**
- * ZakatImpact
+ * ZakatImpact / ImpactCards
  *
  * Props:
- *   title  {string}   – section heading (optional override)
- *   cards  {Array}    – array of { title, amount, description, donateLink }
+ *   title           {string} – section heading (optional override)
+ *   cards           {Array}  – array of { title, amount, description, donateLink }
+ *   backgroundColor {string} – section background color (default: "#22582d",
+ *                               the original dark green). Pass any color/hex
+ *                               to reuse this same component on other pages
+ *                               with a different section background — e.g.
+ *                               "#0B212A" for the dark navy used on the
+ *                               Emergency Relief - Lebanon page.
  */
 export default function ImpactCards({
   title = "CHOOSE WHERE YOUR ZAKAT MAKES AN IMPACT",
   cards = DEFAULT_CARDS,
+  backgroundColor = "#22582d",
 }) {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth <= 768 : false
@@ -168,7 +175,7 @@ export default function ImpactCards({
   const trackCount = track.length;
 
   return (
-    <section className="zi" ref={sectionRef}>
+    <section className="zi" ref={sectionRef} style={{ background: backgroundColor }}>
       {/* ── Section heading ── */}
       <h2 className="zi__title">{title}</h2>
 

@@ -4,6 +4,7 @@ import Footer from "../components/Footer/Footer";
 import backgroundImage from "../assets/img/home/background.png";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
+import ImpactCards from "../components/impactCards/ImpactCards";
 import DonatinCards from "../components/DonatinCards/DonatinCards";
 import InfoSection from "../components/InfoSection/InfoSection";
 
@@ -42,6 +43,16 @@ const EmergencyReliefLebanon = () => {
              ]}
               image ='' 
               />
+               <ImpactCards
+                        title="YOUR GENEROSITY CAN BRING COMFORT IN THEIR DARKEST HOUR"
+                        backgroundColor="#0B212A"
+                        cards={[
+                               { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
+                               { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
+                               { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                               ]}
+                          />
+    
       <ImpactSection1 />
       <Newsletter />
       <Footer />

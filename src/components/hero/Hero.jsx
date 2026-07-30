@@ -48,9 +48,26 @@ const Hero = ({
   // appears under the heading instead of the usual description + button.
   cardContent,
 
+  // By default, `cardContent` REPLACES the description (matches pages
+  // like "Lebanon Emergency"). Set this to true on pages like "Apna
+  // Ghar" that need title + description + card all shown together —
+  // the description then renders above the card instead of being hidden.
+  showDescriptionWithCard = false,
+
   // Some campaign pages (e.g. "Lebanon Emergency") use a heavier,
   // bold green title instead of the default thin navy homepage style.
   boldTitle = false,
+
+  // Optional per-page override for the title's color (e.g. "#FFFFFF"
+  // for a page like "Apna Ghar" where the hero sits over a dark photo
+  // background and needs a white title instead of the usual green).
+  // Applied as an inline style, so when omitted every other page keeps
+  // its existing color from the CSS exactly as before — nothing else changes.
+  titleColor,
+
+  // Same idea, for the description paragraph (e.g. "#FFFFFF" on the
+  // same dark-background pages). Omitted = untouched on every other page.
+  descriptionColor,
 
   children,
 
@@ -62,6 +79,8 @@ const Hero = ({
   const hasRightImage = showRightImage && !!heroImage;
   const hasSecondaryButton = !!(secondaryButtonText || secondaryButtonLink);
   const titleClassName = `hero-title${boldTitle ? " hero-title--bold" : ""}`;
+  const titleStyle = titleColor ? { color: titleColor } : undefined;
+  const descriptionStyle = descriptionColor ? { color: descriptionColor } : undefined;
   const isEmergencyStyle = boldTitle || !!cardContent;
   const textSectionClassName = `hero-text-section${isEmergencyStyle ? " hero-text-section--emergency" : ""}`;
 
@@ -111,12 +130,17 @@ const Hero = ({
 
   const renderTextBlock = () => (
     <>
-      <h1 className={titleClassName}>{title}</h1>
+      <h1 className={titleClassName} style={titleStyle}>{title}</h1>
       {cardContent ? (
-        <div className="hero-card-wrapper">{cardContent}</div>
+        <>
+          {showDescriptionWithCard && description && (
+            <p className="hero-description" style={descriptionStyle}>{description}</p>
+          )}
+          <div className="hero-card-wrapper">{cardContent}</div>
+        </>
       ) : (
         <>
-          <p className="hero-description">{description}</p>
+          <p className="hero-description" style={descriptionStyle}>{description}</p>
           {renderButtons()}
         </>
       )}
@@ -171,8 +195,16 @@ const Hero = ({
               customContent
             ) : (
               <>
+                {/* Mobile intentionally does NOT apply titleStyle/descriptionStyle —
+                    the mobile hero background is always white/cream (see hero.css),
+                    so a white override color (used e.g. on Apna Ghar for the dark
+                    desktop photo background) would be invisible here. Mobile keeps
+                    its normal green/black CSS colors regardless of what's passed in. */}
                 <h1 className={titleClassName}>{title}</h1>
                 {cardContent ? (
+                  /* Mobile always shows title + card only when cardContent is
+                     present (showDescriptionWithCard is a desktop-only behavior) —
+                     keeps the mobile card compact instead of pushing it down. */
                   <div className="hero-card-wrapper">{cardContent}</div>
                 ) : (
                   <>
