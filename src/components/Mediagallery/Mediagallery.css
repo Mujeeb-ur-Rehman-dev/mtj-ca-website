@@ -1,0 +1,129 @@
+/* ============================================================
+   MEDIA GALLERY — 2-up (1-up mobile) infinite image slider
+   Background color sampled from the reference:
+     --e-global-color-dca390b: #2E1013
+   ============================================================ */
+
+.mg {
+  background: #2E1013;
+  padding: 0 0 40px;
+}
+
+.mg__title {
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: #FFFAEE;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  padding: 30px 20px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25); /* matches the subtle
+    double/offset print look on other bold headings on this site */
+}
+
+/* ── sliding track ── */
+.mg__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.mg__track {
+  display: flex;
+}
+
+.mg__slide {
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.mg__slide-inner {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.mg__slide-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* static fallback grid — used when there are too few images to loop */
+.mg__static-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ── pagination controls ── */
+.mg__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.mg__arrow {
+  background: none;
+  border: none;
+  color: #FFFAEE;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+  padding: 4px 10px;
+  transition: opacity 0.2s ease;
+}
+
+.mg__arrow:hover {
+  opacity: 1;
+}
+
+.mg__dots {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.mg__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 250, 238, 0.35);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.mg__dot--active {
+  background: #FFFAEE;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .mg__title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mg__title {
+    font-size: 26px;
+    padding: 24px 16px;
+  }
+
+  .mg__slide-inner {
+    aspect-ratio: 4 / 3;
+  }
+
+  .mg__static-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mg__controls {
+    margin-top: 18px;
+    gap: 16px;
+  }
+}

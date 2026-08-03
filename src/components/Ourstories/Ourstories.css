@@ -1,0 +1,171 @@
+/* ============================================================
+   OUR STORIES — scalloped stamp-border blog/story section
+   ============================================================ */
+
+.ost {
+  background: #FFFAEE;
+  padding: 40px 24px;
+}
+
+/* The scalloped green border is a background IMAGE (path passed via
+   the `borderImage` prop) stretched to fill this box — same pattern
+   used elsewhere on the site for stamp-border sections. Height comes
+   from the content (min-height as a floor), the image stretches to
+   match via background-size: 100% 100%, so nothing is ever clipped. */
+.ost__stamp {
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 500px;
+  background-color: #22582D; /* fallback if borderImage hasn't loaded/been set yet */
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ost__inner {
+  padding: 60px 70px;
+}
+
+.ost__title {
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: 38px;
+  font-weight: 900;
+  color: #0B1410; /* was green — reference title is near-black/dark navy */
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 20px;
+  text-shadow: 2px 2px 0 rgba(255, 250, 238, 0.5); /* subtle offset "stamped ink" look, matches other bold headings on the site */
+}
+
+/* ── Filter tabs ── */
+.ost__tabs {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.ost__tab {
+  background: none;
+  border: none;
+  font-family: "Rink", "Inter", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #9a9a9a; /* was dark navy at 0.6 opacity — reference uses a real grey for inactive tabs */
+  cursor: pointer;
+  padding: 4px 2px;
+  transition: color 0.2s ease;
+}
+
+.ost__tab--active,
+.ost__tab:hover {
+  color: #0B1410; /* was opacity:1 on green-tinted navy — reference active tab is solid near-black */
+}
+
+/* ── Post grid ── */
+.ost__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 24px;
+}
+
+.ost__card {
+  cursor: pointer;
+}
+
+.ost__card-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9.3;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.ost__card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ost__card:hover .ost__card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.ost__card-title {
+  font-family: "Rink", "Inter", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0B212A;
+  line-height: 1.35;
+  margin: 0 0 10px;
+}
+
+.ost__card-meta {
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 13px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .ost__inner {
+    padding: 44px 36px;
+  }
+
+  .ost__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .ost {
+    padding: 20px 12px;
+  }
+
+  .ost__stamp {
+    min-height: 0;
+  }
+
+  .ost__inner {
+    padding: 22px 16px 24px;
+  }
+
+  .ost__title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .ost__tabs {
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+  .ost__tab {
+    font-size: 14px;
+  }
+
+  .ost__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 100%;
+  }
+
+  .ost__card-img-wrap {
+    margin-bottom: 12px;
+  }
+
+  .ost__card-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .ost__card-meta {
+    font-size: 13px;
+  }
+}
