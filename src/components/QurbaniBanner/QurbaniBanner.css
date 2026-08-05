@@ -1,0 +1,258 @@
+/* ==========================================================
+   QurbaniBanner — Seasonal/Promotional Top Banner
+   Matches mtjfoundation.ca "pr-top-banner-zakat" layout
+   ========================================================== */
+
+.qurbani-banner {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  color: var(--color-white);
+  padding: var(--space-100) 0 var(--space-80);
+}
+
+/* Semi-transparent overlay for text readability */
+.qurbani-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(11, 33, 42, 0.88) 0%,
+    rgba(11, 33, 42, 0.55) 45%,
+    rgba(11, 33, 42, 0.15) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Mobile-only background (hidden by default, shown in media query) */
+.qurbani-banner__mobile-bg {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.qurbani-banner__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.qurbani-banner__content {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+/* Center alignment variant */
+.qurbani-banner--center .qurbani-banner__content {
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+}
+
+/* Eyebrow label (small uppercase label above title) */
+.qurbani-banner__eyebrow {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  padding: 6px 16px;
+  border: 1.5px solid rgba(216, 184, 97, 0.45);
+  border-radius: 999px;
+  background-color: rgba(216, 184, 97, 0.08);
+}
+
+.qurbani-banner--center .qurbani-banner__eyebrow {
+  align-self: center;
+}
+
+/* Main title */
+.qurbani-banner__title {
+  font-size: clamp(36px, 5.2vw, 62px);
+  font-weight: 800;
+  line-height: 1.08;
+  margin: 0;
+  color: var(--color-white);
+  letter-spacing: -0.01em;
+}
+
+/* Description */
+.qurbani-banner__desc {
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  max-width: 640px;
+}
+
+/* CTA buttons row */
+.qurbani-banner__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-24);
+  margin-top: var(--space-12);
+}
+
+.qurbani-banner--center .qurbani-banner__cta {
+  justify-content: center;
+}
+
+/* Primary donate button (uses btn-donate-animated from base.css) */
+.qurbani-banner__btn-primary .btn-donate-content {
+  font-size: 17px;
+  padding: 14px 30px;
+}
+
+/* Secondary "Learn More" text link with arrow */
+.qurbani-banner__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 12px 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease),
+    gap 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.qurbani-banner__btn-secondary:hover,
+.qurbani-banner__btn-secondary:focus-visible {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  gap: 14px;
+}
+
+.qurbani-banner__btn-arrow {
+  transition: transform 0.25s var(--ease);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.qurbani-banner__btn-secondary:hover .qurbani-banner__btn-arrow {
+  transform: translateX(3px);
+}
+
+/* ==========================================================
+   Tablet (md — 768px and below)
+   ========================================================== */
+@media (max-width: 991px) {
+  .qurbani-banner {
+    min-height: 460px;
+    padding: var(--space-80) 0 var(--space-64);
+  }
+
+  .qurbani-banner__content {
+    max-width: 620px;
+    gap: var(--space-16);
+  }
+
+  .qurbani-banner__cta {
+    gap: var(--space-20);
+  }
+}
+
+/* ==========================================================
+   Mobile (<= 767px)
+   Use independent mobile-cropped background image + different overlay
+   ========================================================== */
+@media (max-width: 767px) {
+  .qurbani-banner {
+    min-height: auto;
+    padding: var(--space-48) 0 var(--space-56);
+    background-image: none !important; /* disable desktop bg on mobile */
+    background-color: var(--color-900);
+  }
+
+  /* Show dedicated mobile background image if provided */
+  .qurbani-banner__mobile-bg {
+    display: block;
+  }
+
+  .qurbani-banner__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 33, 42, 0.55) 0%,
+      rgba(11, 33, 42, 0.92) 65%,
+      rgba(11, 33, 42, 0.98) 100%
+    );
+  }
+
+  .qurbani-banner__content {
+    max-width: 100%;
+    gap: var(--space-14);
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .qurbani-banner__eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    padding: 5px 12px;
+  }
+
+  .qurbani-banner__title {
+    font-size: 34px;
+    line-height: 1.12;
+  }
+
+  .qurbani-banner__desc {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .qurbani-banner__cta {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: var(--space-12);
+    margin-top: var(--space-8);
+  }
+
+  .qurbani-banner__btn-primary {
+    width: 100%;
+  }
+
+  .qurbani-banner__btn-primary .btn-donate-animated {
+    width: 100%;
+  }
+
+  .qurbani-banner__btn-secondary {
+    padding: 10px 0;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 430px) {
+  .qurbani-banner {
+    padding: var(--space-40) 0 var(--space-48);
+  }
+
+  .qurbani-banner__title {
+    font-size: 28px;
+  }
+
+  .qurbani-banner__cta .btn-donate-content {
+    font-size: 15px;
+    padding: 12px 22px;
+  }
+}

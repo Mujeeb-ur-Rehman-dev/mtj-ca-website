@@ -41,6 +41,12 @@ function Card({ c }) {
 
 export default function CategoryCarousel({
   className = "",
+  title = (
+    <>
+      Ready to Make a Difference? <br /> Act Today
+    </>
+  ),
+  description = "Provide food, clean water or emergency relief, where needed most. Your support brings care, relief, and dignity to those struggling every day.",
   categories = CATEGORIES,
   visibleDesktop = VISIBLE,
   visibleMobile = 1,
@@ -51,6 +57,7 @@ export default function CategoryCarousel({
   mobileCarousel = true,
   showControls = true,
   autoplayMobile = true,
+  sectionStyle = {},
 }) {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth <= 768 : false
@@ -159,15 +166,13 @@ export default function CategoryCarousel({
 
   if (!canLoop) {
     return (
-      <section className={`categories ${className}`.trim()} ref={sectionRef}>
-        <h2>
-          Ready to Make a Difference? <br /> Act Today
-        </h2>
-        <p>
-          Provide food, clean water or emergency relief, where needed most.
-          Your support brings care, relief, and dignity to those struggling
-          every day.
-        </p>
+      <section
+        className={`categories ${className}`.trim()}
+        ref={sectionRef}
+        style={sectionStyle}
+      >
+        <h2>{title}</h2>
+        <p>{description}</p>
         <div className="categories__grid">
           {categories.map((c) => (
             <Card c={c} key={c.title} />
@@ -186,15 +191,13 @@ export default function CategoryCarousel({
   const trackCount = track.length;
 
   return (
-    <section className={`categories ${className}`.trim()} ref={sectionRef}>
-      <h2>
-        Ready to Make a Difference? <br /> Act Today
-      </h2>
-      <p>
-        Provide food, clean water or emergency relief, where needed most.
-        Your support brings care, relief, and dignity to those struggling
-        every day.
-      </p>
+    <section
+      className={`categories ${className}`.trim()}
+      ref={sectionRef}
+      style={sectionStyle}
+    >
+      <h2>{title}</h2>
+      <p>{description}</p>
 
       <div className="categories__viewport">
         <div

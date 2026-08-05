@@ -42,6 +42,9 @@ const Hero = ({
   // When provided, this REPLACES title/description/buttons entirely.
   customContent,
 
+  // Optional wrapper class for page-specific custom content layouts.
+  customContentClassName = "",
+
   // Renders BELOW the title, in place of description + buttons
   // (title stays visible). Use this for pages like "Lebanon Emergency"
   // where a donation card (amount tiers, one-time/monthly tabs, etc.)
@@ -82,7 +85,7 @@ const Hero = ({
   const titleStyle = titleColor ? { color: titleColor } : undefined;
   const descriptionStyle = descriptionColor ? { color: descriptionColor } : undefined;
   const isEmergencyStyle = boldTitle || !!cardContent;
-  const textSectionClassName = `hero-text-section${isEmergencyStyle ? " hero-text-section--emergency" : ""}`;
+  const textSectionClassName = `hero-text-section${isEmergencyStyle ? " hero-text-section--emergency" : ""}${customContent ? " hero-text-section--custom" : ""}`;
 
   const goTo = (link) => {
     if (!link) return;
@@ -160,7 +163,13 @@ const Hero = ({
         <div className={`hero-content-inner${!hasRightImage ? " hero-content-inner--no-image" : ""}`}>
           {/* Left Text/Form Section */}
           <div className={textSectionClassName}>
-            {customContent ? customContent : renderTextBlock()}
+            {customContent ? (
+              <div className={`hero-custom-content ${customContentClassName}`.trim()}>
+                {customContent}
+              </div>
+            ) : (
+              renderTextBlock()
+            )}
           </div>
 
           {/* Right Image Section — only rendered when a heroImage is given */}
@@ -192,7 +201,9 @@ const Hero = ({
           {/* Text/Form Section */}
           <div className="hero-text-section">
             {customContent ? (
-              customContent
+              <div className={`hero-custom-content ${customContentClassName}`.trim()}>
+                {customContent}
+              </div>
             ) : (
               <>
                 {/* Mobile intentionally does NOT apply titleStyle/descriptionStyle —
