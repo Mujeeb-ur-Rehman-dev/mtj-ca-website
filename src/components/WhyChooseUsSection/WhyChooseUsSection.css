@@ -27,42 +27,54 @@
   gap: 16px;
 }
 
-/* Stamp Border Outer Envelope */
-.stamp-card-container {
+/* Perfect Stamp Card Edge Styling */
+.stamp-card {
   position: relative;
   background-color: #fcf9ee;
-  padding: 14px;
+  padding: 12px;
   box-sizing: border-box;
 
-  /* Perfect Postage Stamp Edge Masking */
-  --s: 8px; /* Circle radius cut */
-  --g: 6px; /* Gap distance */
+  /* Semicircular Cutouts on Borders */
+  --circle-radius: 7px;
+  --circle-spacing: 18px;
+
+  /* Top, Bottom, Left & Right Scalloped Stamp Edge */
+  background-image: 
+    radial-gradient(circle at top, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px)),
+    radial-gradient(circle at bottom, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px)),
+    radial-gradient(circle at left, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px)),
+    radial-gradient(circle at right, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px));
   
-  -webkit-mask: 
-    radial-gradient(var(--s) at 50% 0, #0000 99%, #000) 0 0 / calc(2 * var(--s) + var(--g)) var(--s) repeat-x,
-    radial-gradient(var(--s) at 50% 100%, #0000 99%, #000) 0 100% / calc(2 * var(--s) + var(--g)) var(--s) repeat-x,
-    radial-gradient(var(--s) at 0 50%, #0000 99%, #000) 0 0 / var(--s) calc(2 * var(--s) + var(--g)) repeat-y,
-    radial-gradient(var(--s) at 100% 50%, #0000 99%, #000) 100% 0 / var(--s) calc(2 * var(--s) + var(--g)) repeat-y,
-    linear-gradient(#000 0 0) padding-box;
-  
-  mask: 
-    radial-gradient(var(--s) at 50% 0, #0000 99%, #000) 0 0 / calc(2 * var(--s) + var(--g)) var(--s) repeat-x,
-    radial-gradient(var(--s) at 50% 100%, #0000 99%, #000) 0 100% / calc(2 * var(--s) + var(--g)) var(--s) repeat-x,
-    radial-gradient(var(--s) at 0 50%, #0000 99%, #000) 0 0 / var(--s) calc(2 * var(--s) + var(--g)) repeat-y,
-    radial-gradient(var(--s) at 100% 50%, #0000 99%, #000) 100% 0 / var(--s) calc(2 * var(--s) + var(--g)) repeat-y,
-    linear-gradient(#000 0 0) padding-box;
+  background-position: 
+    top center, 
+    bottom center, 
+    left center, 
+    right center;
+
+  background-size: 
+    var(--circle-spacing) var(--circle-radius), 
+    var(--circle-spacing) var(--circle-radius), 
+    var(--circle-radius) var(--circle-spacing), 
+    var(--circle-radius) var(--circle-spacing);
+
+  background-repeat: 
+    repeat-x, 
+    repeat-x, 
+    repeat-y, 
+    repeat-y;
 }
 
-/* Card Inner Content Area */
-.stamp-card {
+/* Inner Content Area (Solid Background) */
+.stamp-card-content {
   background-color: #fcf9ee;
-  padding: 24px 14px;
+  padding: 24px 16px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 380px;
   box-sizing: border-box;
+  height: 100%;
 }
 
 .stamp-card-title {
@@ -107,11 +119,9 @@
   background: transparent;
   border: none;
   color: #719e83;
+  font-size: 1.8rem;
   cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0 8px;
   transition: color 0.2s ease;
 }
 
@@ -139,15 +149,8 @@
   transform: scale(1.2);
 }
 
-/* Responsive Styles */
-@media (max-width: 992px) {
-  .different-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-
-@media (max-width: 640px) {
+/* Mobile Responsive Rule: Hide Grid and Show 1 Card Slider */
+@media (max-width: 768px) {
   .different-section {
     padding: 40px 16px;
   }
@@ -163,11 +166,11 @@
 
   .different-mobile-wrapper {
     display: block;
-    max-width: 360px;
+    max-width: 340px;
     margin: 0 auto;
   }
 
-  .stamp-card {
+  .stamp-card-content {
     min-height: 350px;
     padding: 20px 12px;
   }

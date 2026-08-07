@@ -34,7 +34,7 @@
   margin: 0;
   color: #04243a;
   font-family: "Finder", "Inter", Arial, sans-serif;
-  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-size: 2rem;
   line-height: 0.95;
   font-weight: 900;
   text-transform: uppercase;

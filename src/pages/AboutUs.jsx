@@ -1,15 +1,15 @@
 import React from "react";
 import Hero from "../components/hero/Hero";
-import VideoSection from "../components/VideoSection/VideoSection";
 import Footer from "../components/Footer/Footer";
 import backgroundImage from "../assets/img/zakat/hero/background-img.png";
 import mobileImg from "../assets/img/AboutUs/mobileImg.png";
 import heroImage from "../assets/img/AboutUs/heroImage.png";
 import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
-import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import AboutVisionMission from "../components/AboutVisionMission/AboutVisionMission";
 import WhyChooseUsSection from "../components/WhyChooseUsSection/WhyChooseUsSection";
+import OurStorySection from "../components/OurStorySection/OurStorySection";
+import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
 
 const AboutUs = () => {
   return (
@@ -25,6 +25,7 @@ const AboutUs = () => {
       />
       <AboutVisionMission />
       <WhyChooseUsSection/>
+       <OurStorySection/>
       <CategoryCarousel
         className="about-category-carousel"
         title={
@@ -42,8 +43,7 @@ const AboutUs = () => {
           "--category-active-dot-color": "#fff5f4",
         }}
       />
-      <ImpactSection1 />
-      <VideoSection />
+       <FAQAccordion/>
       <Newsletter />
       <Footer />
     </>

@@ -84,18 +84,10 @@
    (.pr-top-banner-zakat top banner section, kit-5 globals)
    ============================================================ */
 
-/* Kit-5 global colors used below:
-   --color-navy:  #0B212A   (heading color, desktop)
-   --color-green: #22582D   (heading color, mobile variant)
-   --color-primary: #4EB848
-   --color-secondary: #FCB514
-   --color-text: #312D2D
-*/
-
 .hero-section {
   position: relative;
   width: 100%;
-  min-height: 724px; /* matches .pr-top-banner-zakat min-height */
+  min-height: 724px;
   margin-top: 92px;
   background-color: #fff9f0;
   background-size: 100% 100%;
@@ -137,7 +129,7 @@
 /* Hero Content - Desktop & Mobile */
 .hero-content {
   width: 100%;
-  max-width: 1220px; /* matches .elementor-section-boxed > .elementor-container max-width */
+  max-width: 1220px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -160,14 +152,10 @@
   justify-content: space-between;
 }
 
-/* When no right-side image is given, let the left column take the
-   full width instead of being squeezed to 415px next to empty space */
 .hero-content-inner--no-image .hero-text-section {
   max-width: 600px;
 }
 
-/* Button group — supports a single button or a primary + secondary
-   pair (e.g. "Donate Now" + "Zakat Now") side by side */
 .hero-button-group {
   display: flex;
   flex-wrap: wrap;
@@ -175,14 +163,6 @@
   align-items: center;
 }
 
-/* Hero's Donate button — scoped to `.hero-donate-btn` only (set via
-   Button's `buttonClass` prop from Hero.jsx), so this does NOT affect
-   the same Button component used elsewhere (e.g. the navbar), which
-   keeps its own default classes untouched.
-   `size="lg"` on the Button already sets bigger padding/font-size via
-   its own CSS variables — these rules just guarantee the sizing and
-   hover swap always apply here, in case anything else on the page
-   was overriding them with higher specificity. */
 .hero-donate-btn-group {
   pointer-events: auto;
 }
@@ -199,7 +179,7 @@
   background-image: var(--hover-img) !important;
 }
 
-/* Secondary button styles: green background, no hover */
+/* Secondary button styles */
 .hero-secondary-btn .btn-donate-content {
   background-image: var(--hover-img) !important;
   background-size: 100%;
@@ -211,13 +191,12 @@
   background-image: var(--hover-img) !important;
 }
 
-/* Wrapper for `cardContent` (e.g. the Lebanon Emergency-style donation
-   card) — sits below the title in place of description + buttons */
 .hero-card-wrapper {
   margin-top: 24px;
   width: 100%;
 }
 
+/* Reports Hero Styles */
 .reports-hero {
   min-height: 680px;
   padding: 72px 40px;
@@ -234,7 +213,8 @@
   align-items: center;
 }
 
-.hero-reports-custom-content {
+.hero-reports-custom-content,
+.reports-hero-custom-content {
   width: 100%;
   display: flex;
   align-items: center;
@@ -242,85 +222,17 @@
   min-height: 320px;
 }
 
-.hero-reports-card {
-  width: min(430px, 100%);
-  min-height: 360px;
-  background: rgba(248, 246, 237, 0.95);
-  padding: 28px 30px;
-  box-sizing: border-box;
-  /* border: 4px solid #101010; */
-  /* box-shadow: 8px 8px 0 #111111; */
-  display: flex;
-  align-items: center;
-}
-
-.hero-reports-card-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.hero-reports-title {
-  margin: 0;
-  font-size: 34px;
-  line-height: 1.12;
-  font-weight: 900;
-  color: #0c1c13;
-  text-transform: uppercase;
-}
-
-.hero-reports-description {
-  margin: 0;
-  font-size: 20px;
-  line-height: 1.5;
-  color: #1a1a1a;
-  font-weight: 500;
-}
-
-.hero-reports-button-wrap {
-  margin-top: 4px;
-}
-
-.hero-reports-button .btn-donate-content {
-  min-height: auto !important;
-  padding: 14px 28px !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  background-color: #22582D !important;
-}
-
-.reports-hero {
-  min-height: 680px;
-  padding: 72px 40px;
-  background-size: cover;
-  background-position: center center;
-}
-
-.reports-hero .hero-content {
-  max-width: 1380px;
-}
-
-.reports-hero .hero-content-inner {
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.reports-hero-custom-content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 420px;
-}
-
+.hero-reports-card,
 .reports-hero-card {
   width: min(430px, 100%);
   background: #f6f0e2;
   padding: 30px 28px 28px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
+.hero-reports-card-inner,
 .reports-hero-card-inner {
   display: flex;
   flex-direction: column;
@@ -328,29 +240,33 @@
   gap: 18px;
 }
 
+.hero-reports-title,
 .reports-hero-card-title {
   margin: 0;
-  font-size: 34px;
-  line-height: 1.1;
-  font-weight: 900;
-  color: #1a1a1a;
+  font-size: 50px;
+  line-height: 1.2em;
+  font-weight: 400;
+  color: #22582D;
   text-transform: uppercase;
-  font-family: "Rink", "Inter", Arial, sans-serif;
+  font-family: "Finder", Sans-serif;
 }
 
+.hero-reports-description,
 .reports-hero-card-text {
   margin: 0;
-  font-size: 22px;
-  line-height: 1.45;
+  font-size: 20px;
+  line-height: 1.5;
   color: #1a1a1a;
   font-weight: 500;
   font-family: "Neueleiden", "Inter", Arial, sans-serif;
 }
 
+.hero-reports-button-wrap,
 .reports-hero-button-wrap {
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
+.hero-reports-button .btn-donate-content,
 .reports-hero-button .btn-donate-content {
   min-height: auto !important;
   padding: 14px 28px !important;
@@ -367,14 +283,7 @@
   width: 100%;
 }
 
-.hero-blog-custom-content {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 320px;
-}
-
+/* Blog Hero Styles */
 .blog-hero {
   min-height: 680px;
   padding: 72px 40px;
@@ -391,7 +300,18 @@
   align-items: center;
 }
 
+.hero-blog-custom-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 320px;
+}
+
 .hero-blog-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: min(520px, 100%);
   min-height: 340px;
   background: rgba(247, 243, 236, 0.92);
@@ -400,108 +320,6 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(122, 44, 44, 0.08);
-}
-
-.hero-blog-card-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.hero-blog-date {
-  font-size: 15px;
-  color: #7f7669;
-  font-weight: 500;
-}
-
-.hero-blog-card-text {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.45;
-  color: #0d1419;
-  font-weight: 500;
-}
-
-.hero-blog-button-wrap {
-  margin-top: 4px;
-}
-
-.hero-blog-button .btn-donate-content {
-  min-height: auto !important;
-  padding: 14px 28px !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  background-color: #22582D !important;
-}
-
-.hero-blog-custom-content {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 320px;
-}
-
-.hero-blog-card {
-  width: min(520px, 100%);
-  min-height: 340px;
-  background: rgba(247, 243, 236, 0.92);
-  padding: 28px;
-  box-sizing: border-box;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(4px);
-}
-
-.hero-blog-card-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.hero-blog-date {
-  font-size: 15px;
-  color: #7f7669;
-  font-weight: 500;
-}
-
-.hero-blog-card-text {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.45;
-  color: #0d1419;
-  font-weight: 500;
-}
-
-.hero-blog-button-wrap {
-  margin-top: 4px;
-}
-
-.hero-blog-button .btn-donate-content {
-  min-height: auto !important;
-  padding: 14px 28px !important;
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  background-color: #22582D !important;
-}
-
-.hero-blog-custom-content {
-  width: 100%;
-}
-
-.hero-blog-card {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: min(520px, 100%);
-  min-height: 340px;
-  background: rgba(247, 243, 236, 0.92);
-  padding: 28px;
-  box-sizing: border-box;
-  border-radius: 0;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(4px);
 }
 
 .hero-blog-card-inner {
@@ -541,9 +359,7 @@
 /* Left Text Section (Desktop) */
 .hero-text-section {
   flex: 1;
-  max-width: 415px; /* matches elementor-element-9d09a0d width */
-  /* Defensive: hard-cap children to this column width even if a
-     child element tries to render wider (e.g. long unbroken text) */
+  max-width: 415px;
   min-width: 0;
 }
 
@@ -557,9 +373,6 @@
   margin: 0 0 30px 0;
 }
 
-/* Bold green title variant — used on campaign/emergency pages
-   (e.g. "Lebanon Emergency") that use a heavier display style
-   instead of the default thin navy homepage title */
 .hero-title--bold {
   font-family: "Rink", "Arial Black", "Inter", Arial, sans-serif;
   font-weight: 900;
@@ -567,9 +380,6 @@
   text-transform: uppercase;
 }
 
-/* Desktop-only spacing fix for the emergency/boldTitle card:
-   the real site starts the text block noticeably further from the
-   top and left of the stamp border than the default hero layout. */
 @media (min-width: 769px) {
   .hero-text-section--emergency {
     margin-top: 50px;
@@ -577,7 +387,7 @@
   }
 
   .hero-text-section--emergency .hero-description {
-    font-weight: 400; /* the real site's paragraph is lighter than the default 600 */
+    font-weight: 400;
   }
 }
 
@@ -588,8 +398,7 @@
   color: #000000;
   line-height: 28px;
   margin: 0 0 30px 0;
-  max-width: 415px; /* redundant safeguard so description never overflows
-                        the text column width regardless of parent context */
+  max-width: 415px;
 }
 
 .hero-image-section {
@@ -611,7 +420,7 @@
   z-index: 20;
 }
 
-/* Tablet (matches Elementor tablet breakpoint, <=1024px / <=1350px container) */
+/* Tablet */
 @media (max-width: 1350px) {
   .hero-section {
     min-height: 500px;
@@ -645,6 +454,8 @@
     min-height: auto;
     padding: 20px;
     margin-top: 14px;
+    justify-content: center;
+    text-align: left;
   }
 
   .hero-blog-card-text {
@@ -652,11 +463,11 @@
   }
 
   .hero-section {
-    padding: 0 20px 0 20px; /* keep side padding for text; image will bleed past this */
+    padding: 0 20px 0 20px;
     min-height: auto;
     background-color: #ffffff;
     background-image: none !important;
-    overflow-x: hidden; /* safety net for the 100vw full-bleed image wrapper below */
+    overflow-x: hidden;
   }
 
   .hero-content-inner {
@@ -669,9 +480,6 @@
     max-width: 100%;
   }
 
-  /* Hero Image Wrapper with Stamp Border (Mobile) —
-     bleeds edge-to-edge by cancelling the section's side padding,
-     matching the website where the image touches both screen edges. */
   .hero-image-wrapper {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -700,14 +508,9 @@
   }
 
   .hero-title {
-    font-size: 32px; /* matches mobile heading breakpoint */
-    color: #22582D; /* WP mobile hero variant uses dark green instead of navy */
+    font-size: 32px;
+    color: #22582D;
     text-align: center;
-  }
-
-  .hero-blog-card {
-    justify-content: center;
-    text-align: left;
   }
 
   .hero-title--bold {
@@ -723,13 +526,13 @@
 
   .hero-card-wrapper {
     margin-top: 20px;
-    text-align: left; /* card content shouldn't inherit the centered mobile text-align */
+    text-align: left;
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    padding: 0 10px 20px 10px; /* matches .elementor-element-b20f4e5 mobile section padding */
+    padding: 0 10px 20px 10px;
   }
 
   .hero-title {

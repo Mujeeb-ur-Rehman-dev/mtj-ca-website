@@ -23,7 +23,11 @@ const AboutVisionMission = () => {
         <div className="about-vision-mission__col">
           <h2 className="about-vision-mission__title">OUR MISSION</h2>
           <h3 className="about-vision-mission__subtitle">What We Strive For</h3>
-          <p className="about-vision-mission__text">
+          {/* FIX: this line was using the plain `__text` class, same as
+              the paragraph below it — but it should match the Vision
+              column's bold `__tagline` treatment, since both are the
+              same "bold one-liner right after the subtitle" element. */}
+          <p className="about-vision-mission__tagline">
             To serve humanity by providing education, healthcare, shelter,
             clean water, and livelihood opportunities—ensuring no one is left
             behind.
