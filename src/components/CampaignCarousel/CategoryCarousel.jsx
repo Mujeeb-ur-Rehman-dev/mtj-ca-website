@@ -154,7 +154,7 @@ export default function CategoryCarousel({
 
   // mobile-only auto-advance, matching the live site — pauses/restarts
   // cleanly whenever the person manually navigates (start changes)
-  const autoplayActive = canLoop && isMobile && autoplayMobile;
+  const autoplayActive = canLoop && autoplayMobile;
   useEffect(() => {
     if (!autoplayActive) return;
     autoplayTimer.current = setInterval(() => {
