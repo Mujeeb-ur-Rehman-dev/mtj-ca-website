@@ -5,22 +5,12 @@ import mobileBackground from '../../assets/img/home/mbl-background.png';
 
 const Hero = ({
   className = "",
-
-  // Background
   backgroundImage,
-
-  // Right-side image (desktop)
   heroImage,
   showRightImage = true,
-
-  // Mobile-only image
   mobileImage,
-
-  // Left column text content
   title,
   description,
-
-  // Primary button
   buttonText,
   buttonLink,
   hideButton = false,
