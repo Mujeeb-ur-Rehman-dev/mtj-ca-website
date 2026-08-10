@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CategoryCarousel.css";
 import WaterReliefImg from "../../assets/img/campaigncarousel/water-relief.webp";
 import PalestineImg from "../../assets/img/campaigncarousel/palestine-emergency-relief.webp";
@@ -6,30 +7,40 @@ import EducationImg from "../../assets/img/campaigncarousel/education.webp";
 import HealthcareImg from "../../assets/img/campaigncarousel/healthcare.webp";
 
 const CATEGORIES = [
-  { title: "Water Relief", image: WaterReliefImg },
-  { title: "Palestine Emergency Relief", image: PalestineImg },
-  { title: "Education", image: EducationImg },
-  { title: "Healthcare", image: HealthcareImg },
+  { title: "Water Relief", image: WaterReliefImg, path: "/clean-water" },
+  { title: "Palestine Emergency Relief", image: PalestineImg, path: "/palestine-relief" },
+  { title: "Education", image: EducationImg, path: "/education" },
+  { title: "Healthcare", image: HealthcareImg, path: "/medical-care-health" },
 ];
 
 const VISIBLE = 3;
 const AUTOPLAY_MS = 4000; // mobile-only auto-advance interval, matches live site
 
-function Card({ c }) {
-  const handleViewClick = () => {
-    // Placeholder for actual navigation logic
-    console.log(`View ${c.title}`);
+function Card({ c, onNavigate }) {
+  const handleViewClick = (e) => {
+    e.stopPropagation();
+    if (c?.path) {
+      onNavigate(c.path);
+    } else {
+      console.log(`View ${c.title}`);
+    }
+  };
+
+  const handleCardClick = () => {
+    if (c?.path) {
+      onNavigate(c.path);
+    }
   };
 
   return (
-    <div className="categories__card">
+    <div className="categories__card" onClick={handleCardClick}>
       <div className="categories__card-overlay"></div>
       <img src={c.image} alt={c.title} />
       <div className="categories__label">
         <span>{c.title}</span>
         <button
           aria-label={`View ${c.title}`}
-          onClick={handleViewClick}
+          onClick={(e) => handleViewClick(e)}
           onMouseDown={(e) => e.stopPropagation()}
         >
           →
@@ -86,6 +97,7 @@ export default function CategoryCarousel({
   const snapTimeout = useRef(null);
   const autoplayTimer = useRef(null);
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   const resetToStart = () => {
     clearTimeout(snapTimeout.current);
@@ -147,6 +159,11 @@ export default function CategoryCarousel({
 
   const goTo = (i) => {
     clearTimeout(snapTimeout.current);
+    const category = categories[i];
+    if (category?.path) {
+      navigate(category.path);
+      return;
+    }
     setAnimate(true);
     setIndex(visibleCount + i);
     setStart(i);
@@ -175,7 +192,7 @@ export default function CategoryCarousel({
         <p>{description}</p>
         <div className="categories__grid">
           {categories.map((c) => (
-            <Card c={c} key={c.title} />
+              <Card c={c} key={c.title} onNavigate={navigate} />
           ))}
         </div>
       </section>
@@ -214,7 +231,7 @@ export default function CategoryCarousel({
               key={`${c.title}-${i}`}
               style={{ width: `${100 / trackCount}%` }}
             >
-              <Card c={c} />
+              <Card c={c} onNavigate={navigate} />
             </div>
           ))}
         </div>

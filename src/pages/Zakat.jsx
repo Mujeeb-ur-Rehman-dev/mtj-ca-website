@@ -7,6 +7,8 @@ import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import InfoSection from "../components/InfoSection/InfoSection";
 import ImpactCards from "../components/impactCards/ImpactCards";
+import { impactCardsData } from "../components/data/impactCardsData";
+import {zakatImpactStats } from "../components/data/impactSectionData";
 import infoRightImage from "../assets/img/zakat/InfoSection/info-right-img.png"
 import CalculatorCta from "../components/calculatorcta/CalculatorCta";
 import Footer from "../components/Footer/Footer";
@@ -22,7 +24,7 @@ const Zakat = () => {
         description="Through MTJF, your Zakat becomes food for the hungry, care for the sick, and clean water for the thirsty. This is mercy in action, connecting us as one Ummah."
         buttonText="Donate Now"
         buttonLink="#donate"
-        secondaryButtonText="Zakat Now"
+        secondaryButtonText="Calculate Zakat"
         secondaryButtonLink="#donate"
       />
       <InfoSection
@@ -37,15 +39,25 @@ const Zakat = () => {
       buttonText="Donate Now"
       buttonLink="#donate"
       />
-     
+      <ImpactCards
+        title="CHOOSE WHERE YOUR ZAKAT MAKES AN IMPACT"
+        cards={[
+           impactCardsData[2],
+           impactCardsData[0],
+          impactCardsData[1],
+          ]}
+      />
       <CalculatorCta 
       title={"ZAKAT CALCULATOR"}
       description={"Not sure how much Zakat you owe? Our Zakat calculator makes it simple. Every Muslim who meets the nisab (minimum threshold of wealth) is required to give 2.5% of their savings in Zakat each year. To calculate the exact amount, enter your details, see the amount, and give with confidence, knowing your Zakat will support families eligible to receive it."}
       buttonText={"Zakat Calculator"} 
        
        />
-        <ImpactCards />
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={zakatImpactStats}
+        eyebrow="How Your Donations Help"
+        title="The Impact of our work"
+      />
       <Newsletter />
       <Footer/>
     </>

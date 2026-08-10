@@ -3,10 +3,13 @@ import Hero from "../components/hero/Hero";
 import Footer from "../components/Footer/Footer";
 import backgroundImage from "../assets/img/home/background.png";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
+import { lebanonImpactStats } from "../components/data/impactSectionData";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import ImpactCards from "../components/impactCards/ImpactCards";
 import DonatinCards from "../components/DonatinCards/DonatinCards";
 import InfoSection from "../components/InfoSection/InfoSection";
+
+const lebanonStats = lebanonImpactStats;
 
 const EmergencyReliefLebanon = () => {
   return (
@@ -47,13 +50,18 @@ const EmergencyReliefLebanon = () => {
                         title="YOUR GENEROSITY CAN BRING COMFORT IN THEIR DARKEST HOUR"
                         backgroundColor="#0B212A"
                         cards={[
+                               { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
                                { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
                                { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                               { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
                                ]}
                           />
     
-      <ImpactSection1 />
+       <ImpactSection1
+         stats={lebanonStats}
+         desktopVisibleCount={3}
+         eyebrow="How Your Donation Helps"
+         title="Why your donation matters"
+       />
       <Newsletter />
       <Footer />
     </>

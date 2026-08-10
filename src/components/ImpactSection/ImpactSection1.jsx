@@ -1,32 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ImpactSection1.css";
-import HelpImg from "../../assets/img/impacts/icons/icon-help.svg";
-import MedicineImg from "../../assets/img/impacts/icons/icon-medicine.svg";
-import WaterImg from "../../assets/img/impacts/icons/icon-water.svg";
-import ScholarImg from "../../assets/img/impacts/icons/icon-scholarship.svg";
-import RationImg from "../../assets/img/impacts/icons/icon-ration.svg";
-import WomenImg from "../../assets/img/impacts/icons/icon-women.svg";
-import OrphanImg from "../../assets/img/impacts/icons/icon-orphan.svg";
-import HealthImg from "../../assets/img/impacts/icons/icon-medicine.svg";
 import impactBgImage from "../../assets/img/impacts/background/background.png";
-
-const ALL_STATS = [
-  { icon: HelpImg,     value: "100,000+", label: "People helped during the floods in Pakistan" },
-  { icon: MedicineImg, value: "500,000+", label: "Free tests and medicines provided" },
-  { icon: WaterImg,    value: "350,000+", label: "People given access to clean water" },
-  { icon: ScholarImg,  value: "10,000+",  label: "Scholarships gifted to students" },
-  { icon: RationImg,   value: "50,000+",  label: "Ration bags delivered" },
-  { icon: WomenImg,    value: "600+",     label: "Women trained in income-generating skills" },
-  { icon: OrphanImg,   value: "400",      label: "Orphans sponsored in Gaza" },
-  { icon: HealthImg,   value: "400,000+", label: "People helped in Gaza" },
-];
+import { impactSectionData } from "../data/impactSectionData";
 
 // how many stat cards are visible at once per breakpoint — matches the
 // live site's 4 / 2 / 1 column layout at desktop / tablet / mobile
-function getVisibleCount(width) {
+function getVisibleCount(width, desktopVisibleCount = 4) {
   if (width <= 767) return 1;
   if (width <= 960) return 2;
-  return 4;
+  return desktopVisibleCount;
 }
 
 function StatCard({ s }) {
@@ -47,19 +29,22 @@ function StatCard({ s }) {
 
 export default function ImpactSection1({
   className = "",
-  stats = ALL_STATS,
+  stats = impactSectionData,
   showDots = true,
+  desktopVisibleCount = 4,
+  eyebrow = "Our Work For Humanity",
+  title = "THE IMPACT OF YOUR DONATIONS",
 }) {
   const [visibleCount, setVisibleCount] = useState(() =>
-    typeof window !== "undefined" ? getVisibleCount(window.innerWidth) : 4
+    typeof window !== "undefined" ? getVisibleCount(window.innerWidth, desktopVisibleCount) : desktopVisibleCount
   );
 
   useEffect(() => {
-    const handleResize = () => setVisibleCount(getVisibleCount(window.innerWidth));
+    const handleResize = () => setVisibleCount(getVisibleCount(window.innerWidth, desktopVisibleCount));
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [desktopVisibleCount]);
 
   const total = stats.length;
 
@@ -157,8 +142,8 @@ export default function ImpactSection1({
 
         <div className="impact__content">
           <div className="impact__header">
-            <p className="impact__eyebrow">Our Work For Humanity</p>
-            <h2 className="impact__title">THE IMPACT OF YOUR DONATIONS</h2>
+            <p className="impact__eyebrow">{eyebrow}</p>
+            <h2 className="impact__title">{title}</h2>
           </div>
 
           <div className="impact__viewport">

@@ -6,6 +6,7 @@ import backgroundImage from "../assets/img/home/background.png";
 import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
+import { impactSectionData, generalImpactStats } from "../components/data/impactSectionData";
 
 const PrivacyPolicy = () => {
   return (
@@ -19,7 +20,7 @@ const PrivacyPolicy = () => {
         buttonLink="#donate"
       />
       <CategoryCarousel />
-      <ImpactSection1 />
+    
       <VideoSection />
       <Newsletter />
       <Footer />

@@ -7,6 +7,7 @@ import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import DonatinCards from "../components/DonatinCards/DonatinCards";
+import { impactSectionData, rationImpactStats } from "../components/data/impactSectionData";
 
 const RationProgram = () => {
   return (
@@ -21,7 +22,11 @@ const RationProgram = () => {
         customContent={<DonatinCards title="Provide Food Security" />}
       />
       <CategoryCarousel />
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={rationImpactStats}
+        eyebrow="Ration Program"
+        title="PROVIDING FOOD SECURITY"
+      />
       <VideoSection />
       <Newsletter />
       <Footer />

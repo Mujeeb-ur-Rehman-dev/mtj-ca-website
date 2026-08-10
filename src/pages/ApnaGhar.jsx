@@ -9,6 +9,7 @@ import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import InfoSection from "../components/InfoSection/InfoSection";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
 import MediaGallery from "../components/Mediagallery/Mediagallery";
+import { impactSectionData, apnaGharImpactStats } from "../components/data/impactSectionData";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import galleryImg2 from "../assets/img/ApnaGhar/galleryImg2.jpg";
 import galleryImg3 from "../assets/img/ApnaGhar/galleryImg3.jpg";
@@ -75,7 +76,11 @@ const ApnaGhar = () => {
           { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
         ]}
       />
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={apnaGharImpactStats}
+        eyebrow="Apna Ghar"
+        title="BUILDING HOMES, REBUILDING LIVES"
+      />
       <FAQAccordion />
       <MediaGallery
         title="MEDIA GALLERY"

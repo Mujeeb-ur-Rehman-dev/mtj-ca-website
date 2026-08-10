@@ -11,6 +11,7 @@ import InfoSection from "../components/InfoSection/InfoSection";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
+import { impactSectionData, kasbImpactStats } from "../components/data/impactSectionData";
 
 const KASB = () => {
   return (
@@ -60,7 +61,11 @@ const KASB = () => {
                                          { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
                                         ]}
                                         />  
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={kasbImpactStats}
+        eyebrow="KASB Vocational Training"
+        title="SKILLS THAT CREATE OPPORTUNITIES"
+      />
        <FAQAccordion />
       <Newsletter />
       <Footer />

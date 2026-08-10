@@ -11,6 +11,7 @@ import Newsletter from "../components/NewsletterSignup/Newsletter";
 import mobileImg from "../assets/img/FoodRelief/mobileImg.png";
 import heroImage from "../assets/img/FoodRelief/heroImage.png";
 import InfoSection from "../components/InfoSection/InfoSection";
+import { impactSectionData, foodReliefImpactStats } from "../components/data/impactSectionData";
 
 const FoodRelief = () => {
   return (
@@ -59,7 +60,11 @@ const FoodRelief = () => {
                                    { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
                                   ]}
                                   />                        
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={foodReliefImpactStats}
+        eyebrow="Food Relief Program"
+        title="HELP FEED PEOPLE IN NEED"
+      />
       <FAQAccordion />
        <Newsletter />
       <Footer />

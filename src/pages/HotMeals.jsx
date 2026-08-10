@@ -9,6 +9,8 @@ import heroImage from "../assets/img/HotMeals/heroImage.png";
 import InfoSection from "../components/InfoSection/InfoSection";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
+import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
+import { impactSectionData, hotMealsImpactStats } from "../components/data/impactSectionData";
 
 const HotMeals = () => {
   return (
@@ -53,7 +55,12 @@ const HotMeals = () => {
                                                { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
                                                { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
                                               ]}/> 
-      <FAQAccordion />                                                                             
+      <ImpactSection1
+        stats={hotMealsImpactStats}
+        eyebrow="Hot Meal Initiative"
+        title="FEEDING OUR NEIGHBOURS"
+      />
+        <FAQAccordion />
       <Newsletter />
       <Footer />
     </>

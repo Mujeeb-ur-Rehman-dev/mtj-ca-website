@@ -6,6 +6,7 @@ import backgroundImage from "../assets/img/home/background.png";
 import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
+import { impactSectionData, automatedGivingImpactStats } from "../components/data/impactSectionData";
 
 const AutomatedGiving = () => {
   return (
@@ -19,7 +20,11 @@ const AutomatedGiving = () => {
         buttonLink="#donate"
       />
       <CategoryCarousel />
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={automatedGivingImpactStats}
+        eyebrow="Automated Giving"
+        title="SUSTAINED IMPACT THROUGH REGULAR GIVING"
+      />
       <VideoSection />
       <Newsletter />
       <Footer />

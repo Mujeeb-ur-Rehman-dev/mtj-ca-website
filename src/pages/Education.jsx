@@ -10,6 +10,7 @@ import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import ImpactCards from "../components/impactCards/ImpactCards";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
+import { impactSectionData, educationImpactStats } from "../components/data/impactSectionData";
 
 const Education = () => {
   return (
@@ -53,7 +54,11 @@ const Education = () => {
           { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
           { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
         ]} />
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={educationImpactStats}
+        eyebrow="Vocational Training"
+        title="SKILLS THAT TRANSFORM LIVES"
+      />
         <FAQAccordion />    
       <Newsletter />
       <Footer />

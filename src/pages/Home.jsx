@@ -9,6 +9,7 @@ import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
+import { impactSectionData } from "../components/data/impactSectionData";
 
 // Sample impact cards data (exactly 4 cards as in reference)
 const impactCardsData = [
@@ -50,7 +51,11 @@ const Home = () => {
         buttonVariant="maroon"
       />
       <CategoryCarousel />
-      <ImpactSection1/>
+      <ImpactSection1
+        stats={impactSectionData}
+        eyebrow="Our Work For Humanity"
+        title="The Impact of Your Donations"
+      />
       {/* <FAQAccordion /> */}
       <VideoSection />
       <Newsletter/>

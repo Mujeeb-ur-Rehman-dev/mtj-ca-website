@@ -10,6 +10,7 @@ import ImpactCards from "../components/impactCards/ImpactCards";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import InfoSection from "../components/InfoSection/InfoSection";
+import { medicalCareImpactStats } from "../components/data/impactSectionData";
 
 const MedicalCareHealth = () => {
   return (
@@ -58,7 +59,11 @@ const MedicalCareHealth = () => {
                                    { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
                                   ]}
                                   /> 
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={medicalCareImpactStats}
+        eyebrow="Medical Care"
+        title="HEALTHCARE WHERE IT'S NEEDED MOST"
+      />
        <FAQAccordion />
       <Newsletter />
       <Footer />

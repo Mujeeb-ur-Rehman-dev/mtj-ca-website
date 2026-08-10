@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../components/hero/Hero";
 import ImpactCards from "../components/impactCards/ImpactCards";
+import { impactCardsData } from "../components/data/impactCardsData";
 import Footer from "../components/Footer/Footer";
 import backgroundImage from "../assets/img/sadaqahJariyah/backgroun-image.png";
 import heroImage from "../assets/img/sadaqahJariyah/hero-image.png";
@@ -9,6 +10,7 @@ import infoRightImage from "../assets/img/sadaqahJariyah/info-image.png"
 import InfoSection from "../components/InfoSection/InfoSection";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
+import { impactSectionData, sadaqahImpactStats } from "../components/data/impactSectionData";
 
 const Sadaqah = () => {
   return (
@@ -18,8 +20,8 @@ const Sadaqah = () => {
         mobileImage={mobileImg}  
         heroImage={heroImage}
         title="Sadaqah"
-        description="Give Sadaqah and earn blessings while helping those in need. Your generosity can change lives forever."
-        buttonText="Donate Now"
+        description="For a parent who can’t fill the table, relief is a simple meal. For a child who’s sick, it’s access to medical care. For a family drinking unsafe water, it’s a clean source nearby. Your Sadaqah is that relief."
+        buttonText="Give Sadaqah"
         buttonLink="#donate"
       />
       <InfoSection
@@ -34,8 +36,19 @@ const Sadaqah = () => {
        ]}
         image ={infoRightImage} 
         />
-       <ImpactCards />
-         <ImpactSection1 />
+         <ImpactCards
+               title="Choose Where Your Sadaqah Makes an Impact"
+             cards={[
+                        impactCardsData[2],
+                        impactCardsData[0],
+                       impactCardsData[1],
+                       ]}
+             />
+          <ImpactSection1
+            stats={sadaqahImpactStats}
+            eyebrow="How Your Donations Help"
+            title="The Impact of our work"
+          />
       <Newsletter />
       <Footer />
     </>

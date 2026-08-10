@@ -1,16 +1,17 @@
 /* ═══════════════════════════════════════════════════════
    DONATION CARD — matches the tabbed "One-time / Monthly"
    donation amount picker used on emergency/campaign pages
+   (colors sampled from the live "Lebanon Emergency" reference)
    ═══════════════════════════════════════════════════════ */
 
 .dcard {
   width: 100%;
   max-width: 420px;
   background: #ffffff;
-  border: 1px solid #e2e2e2;
-  border-radius: 16px;
+  /* was a plain gray border — the real card has a green outline */
+  border: 2px solid #1E7A3C;
+  border-radius: 14px;
   padding: 18px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
 }
 
@@ -45,6 +46,16 @@
   color: #2e7d32;
 }
 
+/* Reference screenshots show a blue focus ring around the active tab —
+   this is the browser's default :focus-visible outline (captured mid
+   keyboard/click interaction), not a permanent style, so it's left as
+   the native outline rather than hardcoded, and will appear the same
+   way when a user actually tabs to/clicks the button. */
+.dcard__tab:focus-visible {
+  outline: 2px solid #4A90E2;
+  outline-offset: 1px;
+}
+
 .dcard__tab-icon {
   color: #d43a3a;
   font-size: 13px;
@@ -59,13 +70,28 @@
   margin: 0 0 16px;
 }
 
-/* ── Options list ── */
+/* ═══════════════════════════════════════════════════════
+   ONE-TIME — vertical list, amount + description
+   ═══════════════════════════════════════════════════════ */
 .dcard__options {
   display: flex;
   flex-direction: column;
   border: 1px solid #e2e2e2;
   border-radius: 10px;
   overflow: hidden;
+}
+
+/* the standalone "Other amount" row under the Monthly grid isn't part
+   of a bordered list — it's its own full-width bordered row */
+.dcard__options--standalone {
+  border: none;
+  border-radius: 0;
+  margin-top: 12px;
+}
+
+.dcard__options--standalone .dcard__option {
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
 }
 
 .dcard__option {
@@ -132,6 +158,23 @@
   flex-shrink: 0;
 }
 
+/* ── "Other amount" — currency + dropdown chevron on the right,
+   e.g. "ALL ⌄" ── */
+.dcard__currency-select {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.dcard__chevron {
+  font-size: 10px;
+  color: #888;
+}
+
 /* ── Other amount input ── */
 .dcard__other-input {
   border: none;
@@ -145,6 +188,41 @@
 
 .dcard__other-input::placeholder {
   color: #888;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MONTHLY — 2-column grid of plain amount pills, no description
+   ═══════════════════════════════════════════════════════ */
+.dcard__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.dcard__pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.dcard__pill:hover {
+  background: #f7f7f7;
+}
+
+.dcard__pill--selected {
+  background: #eaf6ea;
+  border: 2px solid #4caf50;
+  color: #2e7d32;
 }
 
 /* ── Donate button ── */
@@ -174,8 +252,16 @@
     padding: 16px;
   }
 
+  .dcard__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .dcard__option-amount {
     font-size: 17px;
+  }
+
+  .dcard__pill {
+    font-size: 14px;
   }
 
   .dcard__btn {

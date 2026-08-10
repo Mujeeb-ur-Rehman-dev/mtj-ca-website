@@ -9,6 +9,7 @@ import ImpactCards from "../components/impactCards/ImpactCards";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import InfoSection from "../components/InfoSection/InfoSection";
+import { impactSectionData, palestineImpactStats } from "../components/data/impactSectionData";
 
 const PalestineRelief = () => {
   return (
@@ -47,12 +48,17 @@ const PalestineRelief = () => {
                    title="YOUR GENEROSITY CAN BRING COMFORT IN THEIR DARKEST HOUR"
                    backgroundColor="#0B212A"
                     cards={[
-                             { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-                             { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                             { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                             { title: "Food Distribution", amount: "$95", description: "Provide a food parcel with essential staples such as rice, lentils, oil, tea, and canned foods.", donateLink: "#donate" },
+                             { title: "School Kits", amount: "$175", description: "Help five children continue learning with school bags and educational supplies.", donateLink: "#donate" },
+                             { title: "Family Support", amount: "$475", description: "Provide five families with monthly food parcels filled with essential household staples.", donateLink: "#donate" },
                             ]}
                             />               
-      <ImpactSection1 />
+      <ImpactSection1
+        stats={palestineImpactStats}
+        desktopVisibleCount={3}
+        eyebrow="How Your Donation Helps"
+        title="The Impact of our work"
+      />
       <Newsletter />
       <Footer />
     </>
