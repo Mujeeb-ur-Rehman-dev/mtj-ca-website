@@ -66,7 +66,11 @@ const ApnaGhar = () => {
         ]}
         image=''
       />
-      <VideoSection />
+      <VideoSection
+        videoId="xN6Gdwjg8cU"
+        title="Together for Humanity | Support Those in Need"
+        channel="MTJ Foundation Canada"
+      />
       <ImpactCards
         title="HOW YOU CAN HELP"
         backgroundColor="#0B212A"

@@ -46,7 +46,11 @@ const CleanWater = () => {
                 "Your support is vital for their survival. MTJ Foundation has installed 150+ hand pumps and supports long-term solutions like filtration plants, so families can drink safely, live with dignity, and have clean water anytime they need it.",
               ]}
               image='' />
-               <VideoSection />
+                <VideoSection
+                  videoId="TdPtNLrEwYo"
+                  title="Molana Tariq Jamil Foundation Clean Water Project"
+                  channel="MTJ Foundation Canada"
+                />
                  <ImpactCards
                        title="how you can help"
                        backgroundColor="#0B212A"

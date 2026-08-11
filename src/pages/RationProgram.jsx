@@ -27,7 +27,11 @@ const RationProgram = () => {
         eyebrow="Ration Program"
         title="PROVIDING FOOD SECURITY"
       />
-      <VideoSection />
+      <VideoSection
+        videoId="KPg1Ux3juAU"
+        title="How we are Fighting Hunger in Pakistan"
+        channel="MTJ Foundation Canada"
+      />
       <Newsletter />
       <Footer />
     </>

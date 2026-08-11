@@ -51,7 +51,11 @@ const KASB = () => {
                           ]}
                                     image ='' 
                                     />
-      <VideoSection />
+      <VideoSection
+        videoId="xN6Gdwjg8cU"
+        title="Together for Humanity | Support Those in Need"
+        channel="MTJ Foundation Canada"
+      />
           <ImpactCards
                                title="how you can help"
                                backgroundColor="#0B212A"

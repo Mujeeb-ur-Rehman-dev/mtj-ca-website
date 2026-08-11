@@ -25,7 +25,11 @@ const ContactUs = () => {
         eyebrow="Our Work For Humanity"
         title="THE IMPACT OF YOUR DONATIONS"
       />
-      <VideoSection />
+      <VideoSection
+        videoId="KPg1Ux3juAU"
+        title="How we are Fighting Hunger in Pakistan"
+        channel="MTJ Foundation Canada"
+      />
       <Newsletter />
       <Footer />
     </>

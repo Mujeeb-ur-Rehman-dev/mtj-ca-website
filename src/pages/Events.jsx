@@ -20,7 +20,11 @@ const Events = () => {
         buttonLink="#donate"
       />
       <CategoryCarousel />
-      <VideoSection />
+      <VideoSection
+        videoId="KPg1Ux3juAU"
+        title="How we are Fighting Hunger in Pakistan"
+        channel="MTJ Foundation Canada"
+      />
       <Newsletter />
       <Footer />
     </>

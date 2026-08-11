@@ -50,14 +50,19 @@ const SriLankaFloods = () => {
                               ]}
                                image ='' 
                                />
-      <VideoSection />
+      <VideoSection
+        videoId="KPg1Ux3juAU"
+        title="Together for Humanity | Support Those in Need"
+        channel="MTJ Foundation Canada"
+      />
           <ImpactCards
                           title="how you can help"
                           backgroundColor="#0B212A"
                            cards={[
-                                    { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-                                    { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                                    { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                                    { title: "Support One Family", amount: "$35", description: "Ration pack includes rice, flour, oil, canned goods, vegetables, and hygiene essentials, enough to help a family of five get through seven difficult days", donateLink: "#donate" },
+                                    { title: "Support Two Families", amount: "$70", description:`Double your impact by giving two families a week of food and basic supplies.This ensures more families aren’t left waiting during this emergency` , donateLink: "#donate" },
+                                    { title: "Support Four Families", amount: "$140", description: `Help four families access immediate food, hygiene items, and essential supplies.Your support brings immediate comfort to those in crisis.`, donateLink: "#donate" },
+                                    { title: "Support Ten Families", amount: "$350", description: "Your support provides them with food, hygiene essentials, and a sense of stability when everything around them has been lost.", donateLink: "#donate" },
                                    ]}
                                    />
       <Newsletter />

@@ -50,7 +50,11 @@ const FoodRelief = () => {
                               ]}
                                image ='' 
                                />
-      <VideoSection />     
+      <VideoSection
+        videoId="KPg1Ux3juAU"
+        title="How we are Fighting Hunger in Pakistan"
+        channel="MTJ Foundation Canada"
+      />     
            <ImpactCards
                          title="Choose How Allah's Mercy Flows Through You"
                          backgroundColor="#0B212A"

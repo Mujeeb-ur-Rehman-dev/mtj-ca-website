@@ -57,7 +57,11 @@ const Home = () => {
         title="The Impact of Your Donations"
       />
       {/* <FAQAccordion /> */}
-      <VideoSection />
+      <VideoSection
+        videoId="KPg1Ux3juAU"
+        title="Together for Humanity | Support Those in Need"
+        channel="MTJ Foundation Canada"
+      />
       <Newsletter/>
       <Footer />
     </>

@@ -25,7 +25,11 @@ const AutomatedGiving = () => {
         eyebrow="Automated Giving"
         title="SUSTAINED IMPACT THROUGH REGULAR GIVING"
       />
-      <VideoSection />
+      <VideoSection
+        videoId="xN6Gdwjg8cU"
+        title="Together for Humanity | Support Those in Need"
+        channel="MTJ Foundation Canada"
+      />
       <Newsletter />
       <Footer />
     </>
