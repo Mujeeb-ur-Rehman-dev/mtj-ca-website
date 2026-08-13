@@ -1,0 +1,362 @@
+.donation-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 30, 50, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/* ✅ Naya wrapper */
+.donation-modal-wrapper {
+  position: relative;
+  max-width: 940px;
+  width: 100%;
+}
+
+/* ✅ X button cards ke bahar */
+.close-btn-outside {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  font-size: 22px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.close-btn-outside:hover {
+  background: #f1f5f9;
+  transform: scale(1.05);
+}
+
+.donation-modal {
+  display: flex;
+  max-width: 920px;
+  width: 100%;
+  background: transparent;
+  border-radius: 16px;
+  overflow: visible;
+  box-shadow: none;
+  max-height: 90vh;
+  gap: 16px;
+}
+
+/* LEFT */
+.donation-left {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.donation-image-wrapper {
+  height: 260px;
+  overflow: hidden;
+}
+
+.donation-hero {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.donation-info {
+  padding: 24px 28px 30px;
+}
+
+.donation-logo {
+  margin-bottom: 14px;
+  font-weight: 700;
+  font-size: 18px;
+  color: #333;
+}
+
+.donation-info h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.donation-info p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+/* RIGHT */
+.donation-right {
+  flex: 0.9;
+  padding: 24px 28px 28px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-width: 340px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.donation-right.exit-mode {
+  background: #1e293b;
+  color: #fff;
+}
+
+.donation-right-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.secure-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Purana close button ab use nahi ho raha, lekin rakh sakte ho */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+}
+
+/* Tabs */
+.frequency-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.frequency-tabs button {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.frequency-tabs button.active {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+/* Amounts */
+.amount-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.amount-btn {
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.amount-btn.selected {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.amount-value {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.amount-desc {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.custom-amount {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.custom-amount input {
+  width: 100%;
+  padding: 12px 60px 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 15px;
+  outline: none;
+}
+
+.currency {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #64748b;
+}
+
+.add-comment {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  text-align: left;
+  padding: 0;
+}
+
+.btn-google-pay {
+  width: 100%;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  height: 48px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  width: 100%;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  height: 48px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.btn-secondary {
+  width: 100%;
+  background: #fff;
+  color: #1e293b;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  height: 46px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* EXIT SCREEN */
+.exit-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.exit-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.exit-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.exit-icon {
+  font-size: 48px;
+  margin-bottom: 18px;
+}
+
+.exit-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #cbd5e1;
+  margin-bottom: 22px;
+  max-width: 260px;
+}
+
+.exit-email {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #475569;
+  background: #0f172a;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .donation-modal {
+    flex-direction: column;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .donation-image-wrapper {
+    height: 180px;
+  }
+
+  .donation-right {
+    min-width: auto;
+  }
+
+  .close-btn-outside {
+    top: -10px;
+    right: -10px;
+  }
+}

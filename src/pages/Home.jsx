@@ -11,7 +11,9 @@ import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
 import { impactSectionData } from "../components/data/impactSectionData";
 
-// Sample impact cards data (exactly 4 cards as in reference)
+// Donation Context
+import { useDonation } from "../context/DonationContext";
+
 const impactCardsData = [
   {
     icon: "help",
@@ -36,6 +38,8 @@ const impactCardsData = [
 ];
 
 const Home = () => {
+  const { openDonation } = useDonation();
+
   return (
     <>
       <Hero
@@ -46,23 +50,29 @@ const Home = () => {
         boldTitle={true}
         description="The crisis in Lebanon is growing every day. Over 1.1 million people have been forced from their homes, more than 390,000 of them children, crowded into shelters with no food, no hygiene, and no way to cook a meal."
         buttonText="Donate Now"
-        buttonLink="#donate"
+        // buttonLink hata diya, ab onClick se kaam hoga
+        onButtonClick={() => openDonation('lebanon')}
         showMobileButtonAboveText={true}
         buttonVariant="maroon"
       />
+      
       <CategoryCarousel />
+      
       <ImpactSection1
         stats={impactSectionData}
         eyebrow="Our Work For Humanity"
         title="The Impact of Your Donations"
       />
+      
       {/* <FAQAccordion /> */}
+      
       <VideoSection
         videoId="KPg1Ux3juAU"
         title="Together for Humanity | Support Those in Need"
         channel="MTJ Foundation Canada"
       />
-      <Newsletter/>
+      
+      <Newsletter />
       <Footer />
     </>
   );

@@ -9,8 +9,8 @@ import VolunteerHeroSection from "../components/VolunteerSection/VolunteerHeroSe
 const Volunteer = () => {
   return (
     <>
-    {/* <VolunteerSection/> */}
-    <VolunteerHeroSection/>
+    <VolunteerSection/>
+    {/* <VolunteerHeroSection/> */}
     <FAQAccordion/>
      <Newsletter />
       <Footer />

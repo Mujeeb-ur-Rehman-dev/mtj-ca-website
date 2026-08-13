@@ -13,12 +13,14 @@ const Hero = ({
   description,
   buttonText,
   buttonLink,
+  onButtonClick,                   
   hideButton = false,
   buttonVariant = "default",
 
   // Optional second button
   secondaryButtonText,
   secondaryButtonLink,
+  onSecondaryButtonClick,           
   secondaryButtonVariant = "default",
   secondaryButtonBgImage,
   secondaryButtonHoverBgImage,
@@ -46,7 +48,7 @@ const Hero = ({
 }) => {
   const resolvedMobileImage = mobileImage || mobileBackground;
   const hasRightImage = showRightImage && Boolean(heroImage);
-  const hasSecondaryButton = Boolean(secondaryButtonText || secondaryButtonLink);
+  const hasSecondaryButton = Boolean(secondaryButtonText || secondaryButtonLink || onSecondaryButtonClick);
 
   const titleClassName = `hero-title${boldTitle ? " hero-title--bold" : ""}`;
   const titleStyle = titleColor ? { color: titleColor } : undefined;
@@ -73,8 +75,22 @@ const Hero = ({
     window.location.href = link;
   };
 
-  const handleButtonClick = () => goTo(buttonLink);
-  const handleSecondaryButtonClick = () => goTo(secondaryButtonLink);
+  // ✅ Updated click handlers
+  const handleButtonClick = () => {
+    if (onButtonClick) {
+      onButtonClick();                 // Popup open karega
+    } else {
+      goTo(buttonLink);                // Purana link wala behavior
+    }
+  };
+
+  const handleSecondaryButtonClick = () => {
+    if (onSecondaryButtonClick) {
+      onSecondaryButtonClick();
+    } else {
+      goTo(secondaryButtonLink);
+    }
+  };
 
   const renderButtons = () => (
     <div className="hero-button-group">
