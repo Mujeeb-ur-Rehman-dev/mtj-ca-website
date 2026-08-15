@@ -19,7 +19,7 @@
   margin: auto;
 }
 
-/* ========== Close Button (Outside) ========== */
+/* ========== Close Button ========== */
 .close-btn-outside {
   position: absolute;
   top: -14px;
@@ -165,14 +165,9 @@
   color: #1e40af;
 }
 
-/* ========== Amount List (Vertical - Give once) ========== */
+/* ========== Amount List Base ========== */
 .amount-list {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 14px;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 12px;
-  overflow: hidden;
   background: #fff;
 }
 
@@ -181,20 +176,13 @@
   text-align: left;
   padding: 14px 16px;
   border: none;
-  border-bottom: 1px solid #e2e8f0;
   background: #fff;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 0;
-}
-
-.amount-btn:last-child {
-  border-bottom: none;
 }
 
 .amount-btn.selected {
   background: #eff6ff;
-  box-shadow: inset 0 0 0 2px #3b82f6;
 }
 
 .amount-value {
@@ -244,8 +232,30 @@
   outline: none;
 }
 
-/* ========== Monthly Grid (3 columns) ========== */
-.amount-list--monthly {
+/* ========== Vertical Layout ========== */
+.amount-list--vertical {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.amount-list--vertical .amount-btn {
+  border-bottom: 1px solid #e2e8f0;
+  border-radius: 0;
+}
+
+.amount-list--vertical .amount-btn:last-child {
+  border-bottom: none;
+}
+
+.amount-list--vertical .amount-btn.selected {
+  box-shadow: inset 0 0 0 2px #3b82f6;
+}
+
+/* ========== Grid Layout (3 columns) ========== */
+.amount-list--grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
@@ -254,30 +264,28 @@
   overflow: visible;
 }
 
-.amount-list--monthly .amount-btn {
+.amount-list--grid .amount-btn {
   border: 1.5px solid #e2e8f0;
   border-radius: 10px;
-  border-bottom: 1.5px solid #e2e8f0;
   padding: 12px 10px;
   text-align: center;
-  background: #fff;
 }
 
-.amount-list--monthly .amount-btn.selected {
+.amount-list--grid .amount-btn.selected {
   border-color: #3b82f6;
   background: #eff6ff;
   box-shadow: 0 0 0 1px #3b82f6;
 }
 
-.amount-list--monthly .amount-value {
+.amount-list--grid .amount-value {
   font-size: 14px;
 }
 
-.amount-list--monthly .amount-desc {
+.amount-list--grid .amount-desc {
   display: none;
 }
 
-.amount-list--monthly .other-amount {
+.amount-list--grid .other-amount {
   grid-column: 1 / -1;
   margin-top: 4px;
   border: 1.5px solid #e2e8f0;
@@ -285,23 +293,61 @@
   text-align: left;
 }
 
-.amount-list--monthly .other-amount input {
+.amount-list--grid .other-amount input {
   padding: 12px 90px 12px 14px;
   text-align: left;
 }
 
-/* ========== Other Elements ========== */
-.add-comment {
+/* ========== Designation ========== */
+.designation-wrapper {
+  margin-bottom: 16px;
+}
+
+.designation-label {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.designation-select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+.designation-select:focus {
+  border-color: #3b82f6;
+}
+
+/* ========== Extra Links ========== */
+.extra-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.extra-link {
   background: none;
   border: none;
   color: #3b82f6;
   font-size: 13px;
   cursor: pointer;
-  margin-bottom: 16px;
-  text-align: left;
   padding: 0;
+  text-decoration: underline;
 }
 
+.link-separator {
+  color: #94a3b8;
+}
+
+/* ========== Buttons ========== */
 .btn-google-pay {
   width: 100%;
   background: #000;
@@ -642,7 +688,6 @@
     right: 8px;
     width: 34px;
     height: 34px;
-    font-size: 20px;
   }
   .frequency-tabs button {
     padding: 10px 8px;
@@ -654,9 +699,6 @@
   .amount-value {
     font-size: 14.5px;
   }
-  .amount-desc {
-    font-size: 12.5px;
-  }
   .btn-google-pay,
   .btn-primary {
     height: 46px;
@@ -667,7 +709,7 @@
   .secure-tooltip {
     width: 290px;
   }
-  .amount-list--monthly {
+  .amount-list--grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
@@ -682,7 +724,7 @@
     height: 160px;
   }
   .donation-info {
-    padding: 16px 16px 18px;
+    padding: 16px;
   }
   .donation-info h2 {
     font-size: 16px;
@@ -690,31 +732,21 @@
   .donation-right {
     padding: 18px 16px 20px;
   }
-  .secure-badge {
-    font-size: 14px;
-  }
-  .frequency-tabs {
-    gap: 6px;
-  }
   .frequency-tabs button {
     padding: 9px 6px;
     font-size: 13px;
   }
-  .amount-btn {
-    padding: 12px 14px;
+  .amount-list--grid {
+    gap: 6px;
+  }
+  .amount-list--grid .amount-btn {
+    padding: 10px 6px;
+  }
+  .amount-list--grid .amount-value {
+    font-size: 13px;
   }
   .close-btn-outside {
     top: -10px;
     right: 6px;
-  }
-  .amount-list--monthly {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-  .amount-list--monthly .amount-btn {
-    padding: 10px 6px;
-  }
-  .amount-list--monthly .amount-value {
-    font-size: 13px;
   }
 }

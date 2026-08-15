@@ -8,6 +8,7 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [customAmount, setCustomAmount] = useState('');
   const [currency, setCurrency] = useState('PKR');
+  const [designation, setDesignation] = useState('');
   const [showExitScreen, setShowExitScreen] = useState(false);
   const [email, setEmail] = useState('');
 
@@ -24,11 +25,12 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
   const [reportConfirm, setReportConfirm] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && data) {
       setFrequency('once');
       setSelectedAmount(null);
       setCustomAmount('');
       setCurrency('PKR');
+      setDesignation(data.designationOptions?.[0]?.value || '');
       setShowExitScreen(false);
       setEmail('');
       setComment('');
@@ -38,7 +40,7 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
       setReportText('');
       setReportConfirm(false);
     }
-  }, [isOpen]);
+  }, [isOpen, data]);
 
   if (!isOpen || !data) return null;
 
@@ -54,14 +56,13 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
     handleFinalClose();
   };
 
-  // Only allow numbers in Other amount
+  // Only numbers allowed
   const handleCustomAmountChange = (e) => {
     const value = e.target.value.replace(/[^0-9]/g, '');
     setCustomAmount(value);
     setSelectedAmount(null);
   };
 
-  // When user selects a preset amount → also fill Other amount
   const handleSelectAmount = (value) => {
     setSelectedAmount(value);
     setCustomAmount(value.toString());
@@ -70,12 +71,20 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
   const currentAmounts =
     frequency === 'once' ? data.amountsOnce : data.amountsMonthly;
 
+  // Layout decision
+  const isGridLayout =
+    frequency === 'once'
+      ? data.layoutOnce === 'grid'
+      : data.layoutMonthly === 'grid';
+
+  const layoutClass = isGridLayout ? 'amount-list--grid' : 'amount-list--vertical';
+
   const currencies = ['PKR', 'USD', 'EUR', 'GBP', 'CAD', 'AED'];
 
   return (
     <div className="donation-overlay">
       <div className="donation-modal-wrapper">
-        {/* Close Button (outside cards) */}
+        {/* Close Button */}
         {!showExitScreen && (
           <button className="close-btn-outside" onClick={handleCloseClick}>
             <IoClose size={22} />
@@ -83,7 +92,7 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
         )}
 
         <div className="donation-modal">
-          {/* ========== LEFT SIDE ========== */}
+          {/* LEFT SIDE */}
           <div className="donation-left">
             <div className="donation-image-wrapper">
               <img src={data.image} alt={data.title} className="donation-hero" />
@@ -97,7 +106,7 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
             </div>
           </div>
 
-          {/* ========== RIGHT SIDE ========== */}
+          {/* RIGHT SIDE */}
           <div className={`donation-right ${showExitScreen ? 'exit-mode' : ''}`}>
             {!showExitScreen ? (
               <>
@@ -134,7 +143,7 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
                 </div>
 
                 {/* Amounts */}
-                <div className={`amount-list ${frequency === 'monthly' ? 'amount-list--monthly' : ''}`}>
+                <div className={`amount-list ${layoutClass}`}>
                   {currentAmounts.map((item) => (
                     <button
                       key={item.value}
@@ -142,12 +151,18 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
                       onClick={() => handleSelectAmount(item.value)}
                     >
                       <span className="amount-value">{item.label}</span>
-                      {item.desc && <span className="amount-desc">{item.desc}</span>}
+                      {data.showImpactText && item.desc && (
+                        <span className="amount-desc">{item.desc}</span>
+                      )}
                     </button>
                   ))}
 
                   {/* Other amount + Currency */}
-                  <div className={`amount-btn other-amount ${!selectedAmount && customAmount ? 'selected' : ''}`}>
+                  <div
+                    className={`amount-btn other-amount ${
+                      !selectedAmount && customAmount ? 'selected' : ''
+                    }`}
+                  >
                     <input
                       type="text"
                       inputMode="numeric"
@@ -161,15 +176,47 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
                       onChange={(e) => setCurrency(e.target.value)}
                     >
                       {currencies.map((c) => (
-                        <option key={c} value={c}>{c}</option>
+                        <option key={c} value={c}>
+                          {c}
+                        </option>
                       ))}
                     </select>
                   </div>
                 </div>
 
-                <button className="add-comment" onClick={() => setShowCommentPopup(true)}>
-                  Add comment
-                </button>
+                {/* Designation Dropdown */}
+                {data.showDesignation && data.designationOptions && (
+                  <div className="designation-wrapper">
+                    <label className="designation-label">Designation</label>
+                    <select
+                      className="designation-select"
+                      value={designation}
+                      onChange={(e) => setDesignation(e.target.value)}
+                    >
+                      {data.designationOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+                {/* Extra Links (Dedicate + Add comment) */}
+                <div className="extra-links">
+                  {data.showDedicate && (
+                    <>
+                      <button className="extra-link">Dedicate this donation</button>
+                      <span className="link-separator">·</span>
+                    </>
+                  )}
+                  <button
+                    className="extra-link"
+                    onClick={() => setShowCommentPopup(true)}
+                  >
+                    Add comment
+                  </button>
+                </div>
 
                 <button className="btn-google-pay">G Pay</button>
                 <button className="btn-primary">Donate with other methods</button>
@@ -185,7 +232,9 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
               /* EXIT SCREEN */
               <div className="exit-screen">
                 <div className="exit-header">
-                  <button className="back-btn" onClick={() => setShowExitScreen(false)}>←</button>
+                  <button className="back-btn" onClick={() => setShowExitScreen(false)}>
+                    ←
+                  </button>
                   <h3>Maybe next time?</h3>
                 </div>
                 <div className="exit-icon">🔔</div>
@@ -230,16 +279,24 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
             {showSecureTooltip && (
               <div className="secure-tooltip">
                 <strong>Is my donation secure?</strong>
-                <p>Yes, we use industry-standard SSL technology to keep your information secure.</p>
-                <p>We partner with Stripe, the industry's established payment provider trusted by some of the world's largest companies.</p>
-                <p>Your sensitive financial information never touches our servers. We send all data directly to Stripe's PCI-compliant servers through SSL.</p>
+                <p>
+                  Yes, we use industry-standard SSL technology to keep your information secure.
+                </p>
+                <p>
+                  We partner with Stripe, the industry's established payment provider trusted by
+                  some of the world's largest companies.
+                </p>
+                <p>
+                  Your sensitive financial information never touches our servers. We send all data
+                  directly to Stripe's PCI-compliant servers through SSL.
+                </p>
               </div>
             )}
           </div>
         )}
       </div>
 
-      {/* ========== ADD COMMENT POPUP ========== */}
+      {/* ADD COMMENT POPUP */}
       {showCommentPopup && (
         <div className="mini-popup-overlay" onClick={() => setShowCommentPopup(false)}>
           <div className="mini-popup" onClick={(e) => e.stopPropagation()}>
@@ -268,7 +325,7 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
         </div>
       )}
 
-      {/* ========== REPORT PROBLEM POPUP ========== */}
+      {/* REPORT PROBLEM POPUP */}
       {showReportPopup && (
         <div className="mini-popup-overlay" onClick={() => setShowReportPopup(false)}>
           <div className="mini-popup report-popup" onClick={(e) => e.stopPropagation()}>

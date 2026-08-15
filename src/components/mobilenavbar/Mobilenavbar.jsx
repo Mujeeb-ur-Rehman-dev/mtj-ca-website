@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import './mobilenavbar.css'
 import mobileNavBtnBg from '../../assets/img/button_back_gr/mobile-navbar-buttn.png'
+import { useDonation } from '../../context/DonationContext';   // ✅ Added
 
 const links = [
   { name: "Religious Giving", submenu:[{name:'Zakat', path:'/zakat'}, {name:'Sadaqah', path:'/sadaqah'}] },
@@ -30,6 +31,7 @@ const Mobilenavbar = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const [expandedSubmenu, setExpandedSubmenu] = useState(null);
   const location = useLocation();
+  const { openDonation } = useDonation();   // ✅ Added
 
   useEffect(() => {
     const currentPath = location.pathname.trim();
@@ -120,32 +122,22 @@ const Mobilenavbar = () => {
     </div>
 
     <div className="mbl-donate">
-      {/*
-        FIX: the button's box (width/background/padding) now lives on
-        THIS dedicated wrapper div — .mbl-donate-box — instead of on
-        the <Link> itself. Putting the inline backgroundImage style and
-        all the box-model CSS on the same element the CSS classes were
-        also targeting was the likely cause of it not visibly updating
-        (inline styles always win over stylesheet rules for whichever
-        properties they set, and having both on the <Link> made it
-        harder to reason about which source was actually controlling
-        the layout). The <Link> inside is now just a plain flex
-        content strip — it no longer carries any sizing/background of
-        its own, so `.mbl-donate-box` in the CSS is the single source
-        of truth for this button's shape.
-      */}
       <div
         className="mbl-donate-box"
         style={{ backgroundImage: `url(${mobileNavBtnBg})` }}
       >
-        <Link
-          to="/donate"
+        {/* ✅ Donate Now button updated */}
+        <div
           className="mbl-donate-link"
-          onClick={() => handleLinkClick("Donate Now")}
+          onClick={() => {
+            openDonation('quick');
+            handleLinkClick("Donate Now");
+          }}
+          style={{ cursor: 'pointer' }}
         >
           <HeartHandIcon />
           <span>Donate Now</span>
-        </Link>
+        </div>
       </div>
     </div>
   </div>

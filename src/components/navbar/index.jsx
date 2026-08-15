@@ -6,6 +6,7 @@ import Hamburger from '../hamburgermenu/Hamburger'
 import Mobilenavbar from '../mobilenavbar/Mobilenavbar' 
 import logo from '../../assets/img/logos/only_logo.png'
 import Button from '../../common/components/buttons/Button';
+import { useDonation } from '../../context/DonationContext';   // ✅ Added
 
 // Navigation items mapping
 const navItems = [
@@ -20,7 +21,7 @@ const Navbar = () => {
    const [activeLink, setActiveLink] = useState("Home");
    const location = useLocation();
    const navigate = useNavigate();
-   // const observerRef = useRef(null);
+   const { openDonation } = useDonation();   // ✅ Added
    
   // Always use white background for all states
   const isLightTheme = false;
@@ -125,7 +126,10 @@ const Navbar = () => {
 
             {/* button section - desktop */}
             <div className=' d-none md:d-flex'>
-              <Button/>
+              {/* ✅ Quick Donate button updated */}
+              <div onClick={() => openDonation('quick')}>
+                <Button />
+              </div>
             </div>
             <div className='md:d-none'>
               <Hamburger/>
