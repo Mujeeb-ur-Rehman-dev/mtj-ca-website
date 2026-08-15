@@ -14,28 +14,6 @@ import { impactSectionData } from "../components/data/impactSectionData";
 // Donation Context
 import { useDonation } from "../context/DonationContext";
 
-const impactCardsData = [
-  {
-    icon: "help",
-    title: "100,000+",
-    description: "People helped during the floods in Pakistan"
-  },
-  {
-    icon: "medicine",
-    title: "500,000+",
-    description: "Free tests and medicines provided"
-  },
-  {
-    icon: "clean-water",
-    title: "350,000+",
-    description: "People given access to clean water"
-  },
-  {
-    icon: "scholarship",
-    title: "10,000+",
-    description: "Scholarships gifted to students"
-  }
-];
 
 const Home = () => {
   const { openDonation } = useDonation();
@@ -53,8 +31,7 @@ const Home = () => {
         // buttonLink hata diya, ab onClick se kaam hoga
         onButtonClick={() => openDonation('lebanon')}
         showMobileButtonAboveText={true}
-        buttonVariant="maroon"
-      />
+        buttonVariant="maroon"/>
       
       <CategoryCarousel />
       
