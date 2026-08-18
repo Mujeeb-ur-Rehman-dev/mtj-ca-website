@@ -85,7 +85,7 @@ const ApnaGhar = () => {
         eyebrow="Apna Ghar"
         title="BUILDING HOMES, REBUILDING LIVES"
       />
-      <FAQAccordion />
+      <FAQAccordion faqKey="apnaGhar" />
       <MediaGallery
         title="MEDIA GALLERY"
         images={[

@@ -557,3 +557,40 @@
     font-size: 0.9rem;
   }
 }
+
+/* ============================================================
+   MedicalCareHealth page — desktop-only right-side image
+   (className="medical-care-hero" passed to <Hero /> on that
+   page only; every other Hero instance is fully untouched)
+   ============================================================ */
+@media (min-width: 769px) {
+  .medical-care-hero .hero-image-section {
+    top: 66%;
+    bottom: auto;
+    right: 30px;
+    width: 55%;
+    max-width: 720px;
+    height: auto;
+    transform: translateY(-41%);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .medical-care-hero .hero-main-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Belt-and-suspenders: ensure the right-side heroImage is
+   definitely hidden on mobile (the JSX already renders it
+   only inside .hero-content-desktop which is display:none
+   below 768px — this rule is extra insurance) */
+@media (max-width: 768px) {
+  .medical-care-hero .hero-image-section,
+  .medical-care-hero .hero-image-section .hero-main-image {
+    display: none !important;
+  }
+}

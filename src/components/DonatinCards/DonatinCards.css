@@ -1,25 +1,25 @@
 /* ═══════════════════════════════════════════════════════
    DONATION CARD — matches the tabbed "One-time / Monthly"
-   donation amount picker used on emergency/campaign pages
-   (colors sampled from the live "Lebanon Emergency" reference)
+   donation amount picker for the "Apna Ghar Project" page
+   (colors, radii & spacing sampled from the reference images)
    ═══════════════════════════════════════════════════════ */
 
 .dcard {
   width: 100%;
-  max-width: 420px;
+  max-width: 380px;
   background: #ffffff;
-  /* was a plain gray border — the real card has a green outline */
   border: 2px solid #1E7A3C;
-  border-radius: 14px;
-  padding: 18px;
+  border-radius: 18px;
+  padding: 26px 22px;
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 /* ── One-time / Monthly tabs ── */
 .dcard__tabs {
   display: flex;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 14px;
+  margin-bottom: 26px;
 }
 
 .dcard__tab {
@@ -28,70 +28,58 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 10px;
-  font-size: 15px;
+  padding: 10px 9px;
+  font-size: 16px;
   font-weight: 700;
   font-family: inherit;
-  color: #333;
+  color: #1a1a1a;
   background: #ffffff;
-  border: 1.5px solid #dcdcdc;
-  border-radius: 8px;
+  border: 2px solid #d0d0d0;
+  border-radius: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
+.dcard__tab:hover:not(.dcard__tab--active) {
+  background: #f7f7f7;
+}
+
 .dcard__tab--active {
   background: #eaf6ea;
-  border-color: #4caf50;
+  border-color: #4CAF50;
   color: #2e7d32;
 }
 
-/* Reference screenshots show a blue focus ring around the active tab —
-   this is the browser's default :focus-visible outline (captured mid
-   keyboard/click interaction), not a permanent style, so it's left as
-   the native outline rather than hardcoded, and will appear the same
-   way when a user actually tabs to/clicks the button. */
 .dcard__tab:focus-visible {
   outline: 2px solid #4A90E2;
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 
 .dcard__tab-icon {
   color: #d43a3a;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* ── Campaign subtitle ── */
 .dcard__campaign {
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: #333;
-  margin: 0 0 16px;
+  color: #1c2a3a;
+  margin: 0 0 26px;
+  line-height: 1.5;
 }
 
 /* ═══════════════════════════════════════════════════════
-   ONE-TIME — vertical list, amount + description
+   ONE-TIME — vertical list, Rs-prefix amount + description
    ═══════════════════════════════════════════════════════ */
 .dcard__options {
   display: flex;
   flex-direction: column;
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-/* the standalone "Other amount" row under the Monthly grid isn't part
-   of a bordered list — it's its own full-width bordered row */
-.dcard__options--standalone {
-  border: none;
-  border-radius: 0;
-  margin-top: 12px;
-}
-
-.dcard__options--standalone .dcard__option {
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 14px;
+  /* overflow: hidden; */
+  background: #ffffff;
 }
 
 .dcard__option {
@@ -99,52 +87,55 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 14px 18px;
-  border-bottom: 1px solid #e5e5e5;
+  gap: 14px;
+  padding: 6px 12px;
+  border-bottom: 1.5px solid #e2e2e2;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.dcard__option:last-child {
-  border-bottom: none;
-}
 
-.dcard__option:hover {
-  background: #f7f7f7;
+
+.dcard__option:hover:not(.dcard__option--selected) {
+  background: #fafafa;
 }
 
 .dcard__option-text {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
 }
 
 .dcard__option-amount {
-  font-size: 19px;
-  font-weight: 800;
+  /* font-size: 22px; */
+  /* font-weight: 800; */
   color: #1a1a1a;
   line-height: 1.1;
 }
 
 .dcard__option-desc {
-  font-size: 13.5px;
-  color: #555;
-  line-height: 1.3;
+  font-size: 16px;
+  color: #3a4a5a;
+  line-height: 1.35;
+  font-weight: 500;
 }
 
 .dcard__option-desc--other {
-  color: #888;
+  color: #5a6a7a;
+  font-weight: 500;
 }
 
-/* Selected option — its own rounded, highlighted card that
-   visually "pops" out from the plain list rows around it */
+/* Selected option — rounded highlighted card that pops out from list */
 .dcard__option--selected {
   background: #eaf6ea;
-  border: 2px solid #4caf50;
-  border-radius: 8px;
-  margin: -1px -1px;
-  z-index: 1;
+  border: 2.5px solid #4CAF50;
+  border-radius: 14px;
+  margin: -2px;
+  z-index: 2;
+}
+
+.dcard__option--selected + .dcard__option {
+  border-top: none;
 }
 
 .dcard__option--selected:hover {
@@ -153,119 +144,283 @@
 
 .dcard__check {
   color: #2e7d32;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   flex-shrink: 0;
+  line-height: 1;
 }
 
-/* ── "Other amount" — currency + dropdown chevron on the right,
-   e.g. "ALL ⌄" ── */
-.dcard__currency-select {
+/* ── One-time "Other amount" input ── */
+.dcard__other-wrap {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #555;
+  gap: 10px;
+  flex: 1;
+}
+
+.dcard__other-prefix {
+  /* font-size: 18px; */
+  /* font-weight: 700; */
+  color: #1a1a1a;
   flex-shrink: 0;
 }
 
-.dcard__chevron {
-  font-size: 10px;
-  color: #888;
-}
-
-/* ── Other amount input ── */
 .dcard__other-input {
   border: none;
   background: transparent;
   outline: none;
-  font-size: 15px;
+  font-size: 18px;
   font-family: inherit;
   color: #1a1a1a;
   width: 100%;
+  font-weight: 600;
 }
 
 .dcard__other-input::placeholder {
   color: #888;
+  font-weight: 500;
 }
 
 /* ═══════════════════════════════════════════════════════
-   MONTHLY — 2-column grid of plain amount pills, no description
+   MONTHLY — 3-column grid of Rs-prefix pills +
+             dedicated amount display/input row below
    ═══════════════════════════════════════════════════════ */
 .dcard__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .dcard__pill {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 8px;
-  font-size: 14.5px;
+  padding: 16px 10px;
+  font-size: 15.5px;
   font-weight: 700;
   color: #1a1a1a;
   background: #ffffff;
-  border: 1px solid #e2e2e2;
-  border-radius: 8px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 12px;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
-.dcard__pill:hover {
+.dcard__pill:hover:not(.dcard__pill--selected) {
   background: #f7f7f7;
 }
 
 .dcard__pill--selected {
   background: #eaf6ea;
-  border: 2px solid #4caf50;
+  border: 2px solid #4CAF50;
   color: #2e7d32;
+}
+
+/* ── Monthly amount display / input row ── */
+.dcard__amount-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  border: 1.5px solid #cfcfcf;
+  border-radius: 14px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.15s ease;
+}
+
+.dcard__amount-row:hover {
+  background: #fafafa;
+}
+
+.dcard__amount-row--edit {
+  background: #ffffff;
+}
+
+.dcard__amount-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex: 1;
+}
+
+.dcard__amount-prefix {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.dcard__amount-value {
+  font-size: 24px;
+  font-weight: 500;
+  color: #4CAF50;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.dcard__amount-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 36px;
+  font-weight: 800;
+  font-family: inherit;
+  color: #4CAF50;
+  width: 100%;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.dcard__amount-input::placeholder {
+  color: #9bb8a0;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* ── Currency selector (Monthly row only) ── */
+.dcard__currency-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.dcard__chevron {
+  font-size: 11px;
+  color: #555;
 }
 
 /* ── Donate button ── */
 .dcard__btn {
   width: 100%;
-  margin-top: 18px;
-  padding: 16px;
-  background: #22582D;
+  margin-top: 26px;
+  padding: 20px 16px;
+  background: #1f4d2a;
   color: #ffffff;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
   font-family: inherit;
   border: none;
-  border-radius: 10px;
+  border-radius: 14px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  letter-spacing: 0.2px;
 }
 
 .dcard__btn:hover {
-  background: #1a4423;
+  background: #163a1e;
+}
+
+.dcard__btn:active {
+  transform: translateY(1px);
 }
 
 /* ── Responsive ── */
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .dcard {
     max-width: 100%;
-    padding: 16px;
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .dcard__tabs {
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .dcard__tab {
+    padding: 14px 10px;
+    font-size: 15px;
+    border-radius: 12px;
+  }
+
+  .dcard__campaign {
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+
+  .dcard__option {
+    padding: 16px 18px;
+  }
+
+  .dcard__option-amount {
+    font-size: 19px;
+  }
+
+  .dcard__option-desc {
+    font-size: 14.5px;
   }
 
   .dcard__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .dcard__option-amount {
-    font-size: 17px;
+    gap: 10px;
+    margin-bottom: 18px;
   }
 
   .dcard__pill {
-    font-size: 14px;
+    padding: 14px 8px;
+    font-size: 14.5px;
+    border-radius: 10px;
+  }
+
+  .dcard__amount-row {
+    padding: 16px 18px;
+    border-radius: 12px;
+  }
+
+  .dcard__amount-value {
+    font-size: 34px;
+  }
+
+  .dcard__amount-input {
+    font-size: 30px;
+  }
+
+  .dcard__amount-input::placeholder {
+    font-size: 18px;
+  }
+
+  .dcard__amount-prefix {
+    font-size: 18px;
+  }
+
+  .dcard__currency-select {
+    font-size: 15px;
   }
 
   .dcard__btn {
+    margin-top: 22px;
+    padding: 17px 14px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+  .dcard__other-prefix {
     font-size: 16px;
-    padding: 14px;
+  }
+
+  .dcard__other-input {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .dcard__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dcard__amount-value {
+    font-size: 28px;
+  }
+
+  .dcard__amount-input {
+    font-size: 24px;
   }
 }

@@ -16,6 +16,7 @@ const MedicalCareHealth = () => {
   return (
     <>
             <Hero
+             className="medical-care-hero"
              backgroundImage={backgroundImage}
              mobileImage={mobileImg}  
              heroImage={heroImage}
@@ -64,7 +65,7 @@ const MedicalCareHealth = () => {
         eyebrow="Medical Care"
         title="HEALTHCARE WHERE IT'S NEEDED MOST"
       />
-       <FAQAccordion />
+       <FAQAccordion  faqKey="medicalCareHealth"/>
       <Newsletter />
       <Footer />
     </>

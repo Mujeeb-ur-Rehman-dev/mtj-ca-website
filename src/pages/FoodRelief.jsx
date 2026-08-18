@@ -17,6 +17,7 @@ const FoodRelief = () => {
   return (
     <>
       <Hero
+            className="medical-care-hero"
              backgroundImage={backgroundImage}
              mobileImage={mobileImg}  
              heroImage={heroImage}
