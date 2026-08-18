@@ -1,0 +1,394 @@
+/* ═══════════════════════════════════════════════════════════
+   Zakat Calculator Card — Modal Component
+   Responsive design for all devices
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Overlay ── */
+.zcc-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: zccFadeIn 0.3s ease-in-out;
+}
+
+@keyframes zccFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Card Container ── */
+.zcc-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  animation: zccSlideUp 0.3s ease-in-out;
+}
+
+@keyframes zccSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Close Button ── */
+.zcc-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.zcc-close:hover {
+  color: #000;
+}
+
+/* ── Title ── */
+.zcc-title {
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+/* ── Instructions ── */
+.zcc-instructions {
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #4a4a4a;
+  text-align: center;
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+
+/* ── Form Field Group ── */
+.zcc-field-group {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Label ── */
+.zcc-label {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ── Select Dropdown ── */
+.zcc-select {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+.zcc-select:hover {
+  border-color: #999;
+}
+
+.zcc-select:focus {
+  outline: none;
+  border-color: #1e7ce8;
+  box-shadow: 0 0 0 3px rgba(30, 124, 232, 0.1);
+}
+
+/* ── Nisab Threshold Display ── */
+.zcc-threshold-box {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.zcc-threshold-label {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.zcc-threshold-value {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ── Buttons Container ── */
+.zcc-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+
+/* ── Primary Button ── */
+.zcc-btn--primary {
+  background: #1e7ce8;
+  color: #ffffff;
+}
+
+.zcc-btn--primary:hover {
+  background: #1a6bcf;
+  box-shadow: 0 4px 12px rgba(30, 124, 232, 0.3);
+}
+
+.zcc-btn--primary:active {
+  transform: scale(0.98);
+}
+
+/* ── Secondary Button ── */
+.zcc-btn--secondary {
+  background: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.zcc-btn--secondary:hover {
+  background: #f9f9f9;
+  border-color: #999;
+}
+
+.zcc-btn--secondary:active {
+  transform: scale(0.98);
+}
+
+/* ── Privacy Notice ── */
+.zcc-privacy {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #888;
+  text-align: center;
+  margin: 16px 0 0;
+  line-height: 1.5;
+}
+
+/* ═════════════════════════════════════════════════════════
+   Tablet Responsive (max-width: 768px)
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .zcc-overlay {
+    padding: 16px;
+  }
+
+  .zcc-card {
+    padding: 32px 24px;
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  .zcc-close {
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+  }
+
+  .zcc-title {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .zcc-instructions {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .zcc-field-group {
+    margin-bottom: 20px;
+  }
+
+  .zcc-label {
+    font-size: 13px;
+    margin-bottom: 7px;
+  }
+
+  .zcc-select {
+    padding: 11px 14px;
+    font-size: 15px;
+  }
+
+  .zcc-threshold-box {
+    padding: 18px 14px;
+    margin-bottom: 20px;
+  }
+
+  .zcc-threshold-label {
+    font-size: 13px;
+  }
+
+  .zcc-threshold-value {
+    font-size: 16px;
+  }
+
+  .zcc-btn {
+    padding: 12px 18px;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .zcc-privacy {
+    font-size: 11px;
+    margin-top: 14px;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════
+   Mobile Responsive (max-width: 480px)
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .zcc-overlay {
+    padding: 12px;
+  }
+
+  .zcc-card {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+
+  .zcc-close {
+    top: 10px;
+    right: 10px;
+    font-size: 22px;
+    padding: 2px 6px;
+  }
+
+  .zcc-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .zcc-instructions {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .zcc-field-group {
+    margin-bottom: 18px;
+  }
+
+  .zcc-label {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .zcc-select {
+    padding: 10px 12px;
+    font-size: 14px;
+    background-position: right 10px center;
+    background-size: 18px;
+    padding-right: 36px;
+  }
+
+  .zcc-threshold-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 12px;
+    margin-bottom: 18px;
+    gap: 8px;
+  }
+
+  .zcc-threshold-label {
+    font-size: 12px;
+  }
+
+  .zcc-threshold-value {
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .zcc-btn {
+    padding: 11px 16px;
+    font-size: 14px;
+    margin-bottom: 9px;
+  }
+
+  .zcc-privacy {
+    font-size: 10px;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+}
+
+/* ═════════════════════════════════════════════════════════
+   Small Mobile (max-width: 360px)
+   ═════════════════════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .zcc-card {
+    padding: 24px 16px;
+  }
+
+  .zcc-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .zcc-instructions {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+
+  .zcc-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+}

@@ -47,11 +47,11 @@ const Footer = ({ className = "" }) => {
           <p>reserved. | Built with ♥ by Process Plus</p>
         </div>
         <div className="social-icons">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+          <a href="https://www.instagram.com/mtjf_canada/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+          <a href="https://www.facebook.com/mtjfcanada/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
-          <a href="https://x.com" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
+          <a href="https://www.youtube.com/@mtjfoundationcanada5022" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+          <a href="https://x.com/mtjfcanada" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
         </div>
       </div>
     </footer>

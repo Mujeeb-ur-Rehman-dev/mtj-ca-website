@@ -1,7 +1,7 @@
 import lebanonPopup from '../../assets/img/EmergencyReliefLebanon/lebanon_popup.png';
-// baaki images yahan import karein
-// import zakatPopup from '...';
-// import sadaqahPopup from '...';
+import navbarButton from '../../assets/img/navbar/navbar-button.png';
+import zakatDonateBtn from '../../assets/img/zakat/hero/zakat-donate.png';
+import sadaqahDonateBtn from '../../assets/img/sadaqahJariyah/sadqa-donate-btn.png';
 // import generalPopup from '...';
 
 export const campaigns = {
@@ -11,7 +11,7 @@ export const campaigns = {
     title: 'Donate where Most Needed',
     description:
       'Your contributions provide critical support to those in need, empowering communities and uplifting lives through sustainable development and direct aid. From essential relief to fulfilling your Zakat, every donation delivers lasting impact and reflects the core values of our faith.',
-    image: '/images/general-hero.jpg', // apni image ka path
+    image: navbarButton, // Add the appropriate image path here
 
     // Layout Config
     layoutOnce: 'grid',          // 'grid' | 'vertical'
@@ -105,7 +105,7 @@ export const campaigns = {
     title: 'Zakat - Strengthen Communities',
     description:
       'Fulfill your Zakat with Molana Tariq Jamil Foundation. Your contributions provide critical support to those in need, empowering communities and uplifting lives through sustainable development and direct aid. Each donation helps deliver lasting change and reflects the core values of our faith.',
-    image: '/images/zakat-hero.jpg',
+    image: zakatDonateBtn,
 
     layoutOnce: 'grid',
     layoutMonthly: 'grid',
@@ -137,7 +137,7 @@ export const campaigns = {
     title: 'Sadaqah - Support and Empower',
     description:
       'Give Sadaqah through Molana Tariq Jamil Foundation. Your generous donations offer vital assistance to those in need, fostering resilience and enhancing lives through ongoing community support and development.',
-    image: '/images/sadaqah-hero.jpg',
+    image: sadaqahDonateBtn,
 
     layoutOnce: 'grid',
     layoutMonthly: 'grid',

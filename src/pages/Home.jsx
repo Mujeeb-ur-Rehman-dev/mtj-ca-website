@@ -6,10 +6,12 @@ import backgroundImage from "../assets/img/home/background.png";
 import heroImage from "../assets/img/home/palestine-cut.png";
 import mobileImage from "../assets/img/home/mbl-background.png";
 import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
+import ImpactCards from "../components/impactCards/ImpactCards";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
 import { impactSectionData } from "../components/data/impactSectionData";
+import { impactCardsData } from "../components/data/impactCardsData";
 
 // Donation Context
 import { useDonation } from "../context/DonationContext";
@@ -34,6 +36,15 @@ const Home = () => {
         buttonVariant="maroon"/>
       
       <CategoryCarousel />
+      
+      <ImpactCards
+        title="MAKE YOUR IMPACT TODAY"
+        cards={[
+          impactCardsData[2],
+          impactCardsData[0],
+          impactCardsData[1],
+        ]}
+      />
       
       <ImpactSection1
         stats={impactSectionData}

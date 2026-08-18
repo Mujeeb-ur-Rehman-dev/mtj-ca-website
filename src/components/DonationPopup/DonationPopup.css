@@ -67,7 +67,7 @@
 }
 
 .donation-image-wrapper {
-  height: 240px;
+  height: 30vh;
   overflow: hidden;
   flex-shrink: 0;
 }

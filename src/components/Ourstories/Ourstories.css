@@ -1,44 +1,36 @@
-/* ============================================================
-   OUR STORIES — scalloped stamp-border blog/story section
-   ============================================================ */
-
 .ost {
   background: #FFFAEE;
-  padding: 40px 24px;
+  padding: 0;
 }
 
-/* The scalloped green border is a background IMAGE (path passed via
-   the `borderImage` prop) stretched to fill this box — same pattern
-   used elsewhere on the site for stamp-border sections. Height comes
-   from the content (min-height as a floor), the image stretches to
-   match via background-size: 100% 100%, so nothing is ever clipped. */
 .ost__stamp {
   position: relative;
-  max-width: 1300px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
   min-height: 500px;
-  background-color: #22582D; /* fallback if borderImage hasn't loaded/been set yet */
+  background-color: #22582D;
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .ost__inner {
-  padding: 60px 70px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 60px 24px;
 }
 
 .ost__title {
   font-family: "Finder", "Inter", Arial, sans-serif;
   font-size: 38px;
   font-weight: 900;
-  color: #0B1410; /* was green — reference title is near-black/dark navy */
+  color: #0B1410;
   text-transform: uppercase;
   text-align: center;
   margin: 0 0 20px;
-  text-shadow: 2px 2px 0 rgba(255, 250, 238, 0.5); /* subtle offset "stamped ink" look, matches other bold headings on the site */
 }
 
-/* ── Filter tabs ── */
 .ost__tabs {
   display: flex;
   justify-content: center;
@@ -51,35 +43,65 @@
   background: none;
   border: none;
   font-family: "Rink", "Inter", Arial, sans-serif;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
-  color: #9a9a9a; /* was dark navy at 0.6 opacity — reference uses a real grey for inactive tabs */
+  color: #0B212A;
   cursor: pointer;
   padding: 4px 2px;
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 .ost__tab--active,
 .ost__tab:hover {
-  color: #0B1410; /* was opacity:1 on green-tinted navy — reference active tab is solid near-black */
+  text-decoration: underline;
+  color: #0B212A;
 }
 
-/* ── Post grid ── */
 .ost__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .ost__card {
-  cursor: pointer;
+  width: 33.3%;
+  padding: 15px;
+  box-sizing: border-box;
+  transition: transform .3s ease;
+}
+
+.ost__card-link {
+  display: block;
+  text-decoration: none;
 }
 
 .ost__card-img-wrap {
   width: 100%;
-  aspect-ratio: 16 / 9.3;
+  height: 250px;
   overflow: hidden;
-  margin-bottom: 16px;
+  --r: 18px;
+  -webkit-mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 99%, #000) top left,
+    radial-gradient(circle var(--r) at 100% 0, transparent 99%, #000) top right,
+    radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+    radial-gradient(circle var(--r) at 0 100%, transparent 99%, #000) bottom left,
+    linear-gradient(#000 0 0);
+  -webkit-mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: destination-out, destination-out, destination-out, destination-out, source-over;
+  mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 99%, #000) top left,
+    radial-gradient(circle var(--r) at 100% 0, transparent 99%, #000) top right,
+    radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+    radial-gradient(circle var(--r) at 0 100%, transparent 99%, #000) bottom left,
+    linear-gradient(#000 0 0);
+  mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  mask-repeat: no-repeat;
+  mask-composite: exclude, exclude, exclude, exclude, add;
+  background-size: 100% 100%;
+  border: 1px solid #FFFAEE;
 }
 
 .ost__card-img-wrap img {
@@ -94,42 +116,104 @@
   transform: scale(1.05);
 }
 
+.ost__card-body {
+  padding-top: 12px;
+}
+
 .ost__card-title {
+  font-family: "Rink", "Inter", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0B212A;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+
+.ost__card-title a {
+  text-decoration: none;
+  color: #0B212A;
+}
+
+.ost__card-meta {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.ost__card-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.ost__card-author-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  -webkit-mask-image: unset;
+  mask-image: unset;
+}
+
+.ost__card-author-name {
+  font-size: 16px;
+  line-height: 20px;
+  color: #0B212A;
+  opacity: 0.5;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+}
+
+.ost__card-date {
+  font-size: 13px;
+  color: #555;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+}
+
+.ost__showmore-wrap {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.ost__showmore-btn {
+  background: none;
+  border: none;
   font-family: "Rink", "Inter", Arial, sans-serif;
   font-size: 17px;
   font-weight: 700;
   color: #0B212A;
-  line-height: 1.35;
-  margin: 0 0 10px;
+  cursor: pointer;
+  padding: 8px 16px;
 }
 
-.ost__card-meta {
-  font-family: "Neueleiden", "Inter", Arial, sans-serif;
-  font-size: 13px;
-  color: #6b6b6b;
-  margin: 0;
+.ost__showmore-btn:hover {
+  text-decoration: underline;
 }
 
-/* ── Responsive ── */
-@media (max-width: 900px) {
+.ost__card-readmore {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .ost__card {
+    width: 50%;
+  }
+
+  .ost__card-img-wrap {
+    height: 300px;
+  }
+
   .ost__inner {
     padding: 44px 36px;
   }
-
-  .ost__grid {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
-  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .ost {
-    padding: 20px 12px;
-  }
-
-  .ost__stamp {
-    min-height: 0;
+    padding: 0;
   }
 
   .ost__inner {
@@ -151,13 +235,16 @@
   }
 
   .ost__grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    max-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .ost__card {
+    width: 100%;
+    padding: 0 0 28px 0;
   }
 
   .ost__card-img-wrap {
-    margin-bottom: 12px;
+    height: 240px;
   }
 
   .ost__card-title {
@@ -165,7 +252,22 @@
     margin-bottom: 6px;
   }
 
+  .ost__card-author-name {
+    font-size: 18px;
+    margin: 5px;
+  }
+
+  .ost__card-author-img {
+    width: 50px;
+    height: 50px;
+  }
+
   .ost__card-meta {
-    font-size: 13px;
+    flex-wrap: wrap;
+  }
+
+  .ost__card-meta span:first-child {
+    display: block;
+    width: 100%;
   }
 }

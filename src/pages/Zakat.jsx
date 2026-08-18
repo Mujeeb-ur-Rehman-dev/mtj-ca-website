@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "../components/hero/Hero";
 import backgroundImage from "../assets/img/zakat/hero/background-img.png";
 import heroImage from "../assets/img/zakat/hero/right-side.png"
@@ -11,9 +11,34 @@ import { impactCardsData } from "../components/data/impactCardsData";
 import {zakatImpactStats } from "../components/data/impactSectionData";
 import infoRightImage from "../assets/img/zakat/InfoSection/info-right-img.png"
 import CalculatorCta from "../components/calculatorcta/CalculatorCta";
+import ZakatCalculatorCard from "../components/ZakatCalculatorCard/ZakatCalculatorCard";
 import Footer from "../components/Footer/Footer";
+// Donation Context
+import { useDonation } from "../context/DonationContext";
 
 const Zakat = () => {
+  const { openDonation } = useDonation();
+  const [showCalculator, setShowCalculator] = useState(false);
+
+  const handleOpenCalculator = () => {
+    setShowCalculator(true);
+  };
+
+  const handleCloseCalculator = () => {
+    setShowCalculator(false);
+  };
+
+  const handleContinueCalculator = (data) => {
+    console.log("Calculator data:", data);
+    setShowCalculator(false);
+    // Add your logic here for continuing with the calculator
+  };
+
+  const handleManualEntry = (data) => {
+    console.log("Manual entry data:", data);
+    setShowCalculator(false);
+    // Add your logic here for manual entry
+  };
   return (
     <>
       <Hero
@@ -23,7 +48,7 @@ const Zakat = () => {
         title="YOUR ZAKAT, THEIR RIGHT"
         description="Through MTJF, your Zakat becomes food for the hungry, care for the sick, and clean water for the thirsty. This is mercy in action, connecting us as one Ummah."
         buttonText="Donate Now"
-        buttonLink="#donate"
+        onButtonClick={() => openDonation('zakat')}
         secondaryButtonText="Calculate Zakat"
         secondaryButtonLink="#donate"
       />
@@ -37,7 +62,8 @@ const Zakat = () => {
       ]}
       image ={infoRightImage} 
       buttonText="Donate Now"
-      buttonLink="#donate"
+      onButtonClick={() => openDonation('zakat')}
+      // buttonLink="#donate"
       />
       <ImpactCards
         title="CHOOSE WHERE YOUR ZAKAT MAKES AN IMPACT"
@@ -47,12 +73,15 @@ const Zakat = () => {
           impactCardsData[1],
           ]}
       />
-      <CalculatorCta 
-      title={"ZAKAT CALCULATOR"}
-      description={"Not sure how much Zakat you owe? Our Zakat calculator makes it simple. Every Muslim who meets the nisab (minimum threshold of wealth) is required to give 2.5% of their savings in Zakat each year. To calculate the exact amount, enter your details, see the amount, and give with confidence, knowing your Zakat will support families eligible to receive it."}
-      buttonText={"Zakat Calculator"} 
-       
-       />
+      <div id="donate">
+        <CalculatorCta 
+        title={"ZAKAT CALCULATOR"}
+        description={"Not sure how much Zakat you owe? Our Zakat calculator makes it simple. Every Muslim who meets the nisab (minimum threshold of wealth) is required to give 2.5% of their savings in Zakat each year. To calculate the exact amount, enter your details, see the amount, and give with confidence, knowing your Zakat will support families eligible to receive it."}
+        buttonText={"Zakat Calculator"}
+        onButtonClick={handleOpenCalculator}
+         
+         />
+      </div>
       <ImpactSection1
         stats={zakatImpactStats}
         eyebrow="How Your Donations Help"
@@ -60,6 +89,13 @@ const Zakat = () => {
       />
       <Newsletter />
       <Footer/>
+      {showCalculator && (
+        <ZakatCalculatorCard
+          onClose={handleCloseCalculator}
+          onContinue={handleContinueCalculator}
+          onManualEntry={handleManualEntry}
+        />
+      )}
     </>
   );
 };

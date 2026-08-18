@@ -1,27 +1,6 @@
 import React, { useState } from "react";
 import "./Ourstories.css";
 
-/**
- * OurStories
- *
- * Fully prop-driven — this component holds no hardcoded content.
- * A scalloped "stamp border" card (background image) containing a
- * title, filter tabs, a grid of blog/story post cards, and optional
- * "Read More" (per card) + "Show More" (grid bottom) CTAs.
- *
- * Props:
- *   title              {string}   – heading text (e.g. "OUR STORIES")
- *   tabs               {string[]} – filter tab labels (e.g. ["All","Blogs","News"])
- *   activeTab          {string}   – which tab is currently selected (controlled)
- *   onTabChange        {func}     – called with the tab label when a tab is clicked
- *   posts              {Array}    – [{ image, imageAlt, title, author, date, excerpt, link, readMoreText }]
- *   borderImage        {string}   – path/URL for the scalloped stamp-border background image
- *   showReadMore       {bool}     – show "Read More →" under each post card (default: true)
- *   readMoreText       {string}   – override per-card CTA label (default: "Read More")
- *   showMoreButton     {bool}     – show "Show More" button at the bottom of the grid (default: true)
- *   showMoreText       {string}   – label for the load-more button (default: "Show More")
- *   onShowMore         {func}     – called when the "Show More" button is clicked
- */
 export default function OurStories({
   title,
   tabs = [],
@@ -29,9 +8,9 @@ export default function OurStories({
   onTabChange,
   posts = [],
   borderImage,
-  showReadMore = true,
+  showReadMore = false,
   readMoreText = "Read More",
-  showMoreButton = true,
+  showMoreButton = false,
   showMoreText = "Show More",
   onShowMore,
 }) {
@@ -64,68 +43,76 @@ export default function OurStories({
         style={borderImage ? { backgroundImage: `url(${borderImage})` } : undefined}
       >
         <div className="ost__inner">
-          <h2 className="ost__title">{title}</h2>
+        <h2 className="ost__title">{title}</h2>
 
-          {tabs.length > 0 && (
-            <div className="ost__tabs">
-              {tabs.map((tab) => (
-                <button
-                  type="button"
-                  key={tab}
-                  className={`ost__tab${tab === currentTab ? " ost__tab--active" : ""}`}
-                  onClick={() => handleTabClick(tab)}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          )}
-
-          <div className="ost__grid">
-            {posts.map((post, i) => (
-              <div
-                className="ost__card"
-                key={i}
-                onClick={() => goToLink(post.link)}
-                role={post.link ? "button" : undefined}
-                tabIndex={post.link ? 0 : undefined}
+        {tabs.length > 0 && (
+          <div className="ost__tabs">
+            {tabs.map((tab) => (
+              <button
+                type="button"
+                key={tab}
+                className={`ost__tab${tab === currentTab ? " ost__tab--active" : ""}`}
+                onClick={() => handleTabClick(tab)}
               >
+                {tab}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="ost__grid">
+          {posts.map((post, i) => (
+            <article
+              className="ost__card"
+              key={i}
+            >
+              {post.link ? (
+                <a href={post.link} className="ost__card-link" onClick={(e) => goToLink(post.link, e)}>
+                  <div className="ost__card-img-wrap">
+                    <img src={post.image} alt={post.imageAlt || post.title || ""} />
+                  </div>
+                </a>
+              ) : (
                 <div className="ost__card-img-wrap">
                   <img src={post.image} alt={post.imageAlt || post.title || ""} />
                 </div>
-                <h3 className="ost__card-title">{post.title}</h3>
-                <p className="ost__card-meta">
-                  {post.date}
-                </p>
-                {post.excerpt && (
-                  <p className="ost__card-excerpt">{post.excerpt}</p>
+              )}
+              <div className="ost__card-body">
+                {post.link ? (
+                  <h3 className="ost__card-title">
+                    <a href={post.link} onClick={(e) => goToLink(post.link, e)}>{post.title}</a>
+                  </h3>
+                ) : (
+                  <h3 className="ost__card-title">{post.title}</h3>
                 )}
-                {showReadMore && post.link && (
-                  <a
-                    href={post.link}
-                    className="ost__card-readmore"
-                    onClick={(e) => goToLink(post.link, e)}
-                  >
-                    {post.readMoreText || readMoreText}
-                    <span className="ost__card-readmore-arrow" aria-hidden="true">→</span>
-                  </a>
-                )}
+                <div className="ost__card-meta">
+                  {(post.author || post.authorImage) && (
+                    <span className="ost__card-author">
+                      {post.authorImage && (
+                        <img src={post.authorImage} alt={post.author || ""} className="ost__card-author-img" />
+                      )}
+                      {post.author && <span className="ost__card-author-name">{post.author}</span>}
+                    </span>
+                  )}
+                  {post.date && <span className="ost__card-date">{post.date}</span>}
+                </div>
               </div>
-            ))}
-          </div>
-
-          {showMoreButton && (
-            <div className="ost__showmore-wrap">
-              <button
-                type="button"
-                className="ost__showmore-btn"
-                onClick={onShowMore}
-              >
-                {showMoreText}
-              </button>
-            </div>
-          )}
+            </article>
+          ))}
         </div>
+
+        {showMoreButton && (
+          <div className="ost__showmore-wrap">
+            <button
+              type="button"
+              className="ost__showmore-btn"
+              onClick={onShowMore}
+            >
+              {showMoreText}
+            </button>
+          </div>
+        )}
+      </div>
       </div>
     </section>
   );

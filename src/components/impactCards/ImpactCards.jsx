@@ -12,6 +12,8 @@ export default function ImpactCards({
   title ="",
   cards = impactCardsData,
   backgroundColor = "#22582d",
+  autoplay = true,
+  autoplayInterval = 4000,
 }) {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth <= 768 : false
@@ -27,15 +29,13 @@ export default function ImpactCards({
   const visibleCount = isMobile ? MOBILE_VISIBLE : DESKTOP_VISIBLE;
   const total = cards.length;
 
-  // "start" = index (0..total-1) of the left-most visible card — this is
-  // what the dots reflect, and it always wraps so every dot is reachable.
-  // "index" = position inside the cloned track (start + visibleCount,
-  // to account for the head clones). It only ever moves by 1 per click,
-  // so only one card slides in/out instead of the whole set changing.
   const [start, setStart] = useState(0);
   const [index, setIndex] = useState(visibleCount);
   const [animate, setAnimate] = useState(true);
+  const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
   const snapTimeout = useRef(null);
+  const autoplayTimer = useRef(null);
+  const pauseTimeout = useRef(null);
   const sectionRef = useRef(null);
 
   const goToLink = (link) => {
@@ -105,10 +105,55 @@ export default function ImpactCards({
     }, 520); // CSS transition is 0.5s — small buffer added
   };
 
-  const prev = () => step(-1);
-  const next = () => step(1);
+  // Autoplay functionality
+  const startAutoplay = () => {
+    if (!autoplay || isAutoplayPaused) return;
+    
+    clearTimeout(autoplayTimer.current);
+    autoplayTimer.current = setInterval(() => {
+      setIndex((i) => i + 1);
+      setStart((s) => (s + 1 + total) % total);
+    }, autoplayInterval);
+  };
+
+  const pauseAutoplay = () => {
+    clearTimeout(autoplayTimer.current);
+    clearTimeout(pauseTimeout.current);
+    setIsAutoplayPaused(true);
+
+    // Resume autoplay after 5 seconds of inactivity
+    pauseTimeout.current = setTimeout(() => {
+      setIsAutoplayPaused(false);
+    }, 5000);
+  };
+
+  // Start autoplay on mount and when settings change
+  useEffect(() => {
+    startAutoplay();
+    return () => {
+      clearTimeout(autoplayTimer.current);
+      clearTimeout(pauseTimeout.current);
+    };
+  }, [autoplay, autoplayInterval, isAutoplayPaused, total]);
+
+  // Resume autoplay after pause expires
+  useEffect(() => {
+    if (!isAutoplayPaused && autoplay) {
+      startAutoplay();
+    }
+  }, [isAutoplayPaused]);
+
+  const prev = () => {
+    pauseAutoplay();
+    step(-1);
+  };
+  const next = () => {
+    pauseAutoplay();
+    step(1);
+  };
 
   const goTo = (i) => {
+    pauseAutoplay();
     clearTimeout(snapTimeout.current);
     setAnimate(true);
     setIndex(visibleCount + i);
