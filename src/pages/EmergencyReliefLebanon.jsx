@@ -8,10 +8,15 @@ import Newsletter from "../components/NewsletterSignup/Newsletter";
 import ImpactCards from "../components/impactCards/ImpactCards";
 import DonatinCards from "../components/DonatinCards/DonatinCards";
 import InfoSection from "../components/InfoSection/InfoSection";
+import { useDonation } from "../context/DonationContext";
+
+
 
 const lebanonStats = lebanonImpactStats;
 
 const EmergencyReliefLebanon = () => {
+  const { openDonation } = useDonation();
+
   return (
     <>
       <Hero
@@ -24,12 +29,15 @@ const EmergencyReliefLebanon = () => {
          cardContent={
     <DonatinCards
       campaignTitle="Lebanon Emergency Relief"
-      options={[
-        { amount: "50K", description: "Emergency support for a family" },
-        { amount: "100K", description: "Covers essentials for 2 families" },
-        { amount: "150K", description: "Helps 3 families survive" },
-      ]}
-      onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
+      // options={[
+      //   { amount: "50K", description: "Emergency support for a family" },
+      //   { amount: "100K", description: "Covers essentials for 2 families" },
+      //   { amount: "150K", description: "Helps 3 families survive" },
+      // ]}
+      // monthlyOptions={["5,000", "10K", "15K", "20K", "40K", "60K"]}
+      onDonate={({ frequency, amount }) => {
+              openDonation("lebanon", { frequency, amount });
+            }}
     />
   }
       />
@@ -45,6 +53,8 @@ const EmergencyReliefLebanon = () => {
     "Send an emergency pack today."
              ]}
               image ='' 
+              buttonText="Donate Now"
+              onButtonClick={() => openDonation('lebanon')}
               />
                <ImpactCards
                         title="YOUR GENEROSITY CAN BRING COMFORT IN THEIR DARKEST HOUR"

@@ -3,7 +3,7 @@ import { FaHeart, FaShieldAlt } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
 import './DonationPopup.css';
 
-const DonationPopup = ({ isOpen, onClose, data }) => {
+const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   const [frequency, setFrequency] = useState('once');
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [customAmount, setCustomAmount] = useState('');
@@ -39,8 +39,30 @@ const DonationPopup = ({ isOpen, onClose, data }) => {
       setShowReportPopup(false);
       setReportText('');
       setReportConfirm(false);
+
+      if (prefill) {
+        const popupFreq = prefill.frequency === 'monthly' ? 'monthly' : 'once';
+        const amounts = popupFreq === 'once' ? data.amountsOnce : data.amountsMonthly;
+        const match = amounts.find(
+          (item) => item.label.replace(/^Rs\s+/, '') === prefill.amount
+        );
+        if (match) {
+          setFrequency(popupFreq);
+          setSelectedAmount(match.value);
+          setCustomAmount(match.value.toString());
+        } else {
+          setFrequency(popupFreq);
+          if (prefill.amount) {
+            const numericOnly = prefill.amount.toString().replace(/[^0-9]/g, '');
+            if (numericOnly) {
+              setSelectedAmount(null);
+              setCustomAmount(numericOnly);
+            }
+          }
+        }
+      }
     }
-  }, [isOpen, data]);
+  }, [isOpen, data, prefill]);
 
   if (!isOpen || !data) return null;
 

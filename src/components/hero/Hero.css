@@ -367,9 +367,9 @@
 }
 
 .hero-title {
-  font-family: "Finder", Sans-serif;
-  font-size: 50px;
-  font-weight: 400;
+  font-family: "Finder", Sans-serif !important;
+  font-size: 45px;
+  font-weight: 400 !important;
   color: #22582D;
   text-transform: none;
   line-height: 1.2em;

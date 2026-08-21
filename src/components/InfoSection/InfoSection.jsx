@@ -25,8 +25,11 @@ import Button from '../../common/components/buttons/Button';
  *                                     ]}
  *   buttonText         {string}   – button label (e.g. "Donate Now")
  *   buttonIcon         {node}     – icon shown before the button text (default: <FaHeart />)
- *   onDonate           {func}     – click handler for the button
- *   buttonLink         {string}   – alternative to onDonate: a URL or "#anchor" to navigate/scroll to
+ *   onButtonClick      {func}     – click handler for the button (highest priority).
+ *                                   Alias pattern used on Hero / CalculatorCta etc.
+ *   onDonate           {func}     – legacy alias / fallback click handler.
+ *                                   If onButtonClick is provided, onDonate is ignored.
+ *   buttonLink         {string}   – alternative to handlers: a URL or "#anchor" to navigate/scroll to
  *   hideButton         {bool}     – hide the button entirely (default: false)
  *   buttonVariant      {string}  – button variant (default: "default")
  *
@@ -61,6 +64,7 @@ export default function InfoSection({
   paragraphs = [],
   buttonText,
   buttonIcon = <FaHeart className="wzk__btn-icon" />,
+  onButtonClick,
   onDonate,
   buttonLink,
   hideButton = false,
@@ -96,6 +100,10 @@ export default function InfoSection({
   };
 
   const handleButtonClick = () => {
+    if (onButtonClick) {
+      onButtonClick();
+      return;
+    }
     if (onDonate) {
       onDonate();
       return;

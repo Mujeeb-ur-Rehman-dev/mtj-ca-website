@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { FaHeart, FaChevronDown } from 'react-icons/fa';
 import './DonatinCards.css';
+import { campaigns } from '../data/campaigns';
 
 /**
  * DonatinCards
@@ -22,6 +23,9 @@ import './DonatinCards.css';
  *     selector on the right.
  *
  * Props:
+ *   campaignKey      {string}   – if provided, loads options, monthlyOptions
+ *                                 and campaignTitle from campaigns.js
+ *                                 (explicit props take priority over lookup)
  *   campaignTitle    {string}   – subtitle shown under the tabs (e.g. "Support Widows & Orphans...")
  *   currencyPrefix   {string}   – currency symbol shown before each amount (default: "Rs")
  *   currencyCode     {string}   – currency code shown in the Monthly-mode dropdown (default: "PKR")
@@ -35,15 +39,12 @@ import './DonatinCards.css';
  *   onDonate         {func}     – called with { frequency, amount } when the button is clicked
  */
 const DonatinCards = ({
-  campaignTitle = 'Support Widows & Orphans By donating to the Apna Ghar Project',
+  campaignKey,
+  campaignTitle,
   currencyPrefix = 'Rs',
   currencyCode = 'PKR',
-  options = [
-    { amount: '20K', description: '20 Bricks - Lay the first stone' },
-    { amount: '100K', description: '100 Bricks — Help raise the walls' },
-    { amount: '2M', description: 'Full House — Give them a home' },
-  ],
-  monthlyOptions = ['5,000', '10K', '15K', '20K', '40K', '60K'],
+  options,
+  monthlyOptions,
   otherAmountLabel = 'Other amount',
   buttonText = 'Donate Now',
   showMonthlyTab = true,
@@ -51,11 +52,56 @@ const DonatinCards = ({
   defaultSelectedIndex = 0,
   onDonate,
 }) => {
+  const resolved = useMemo(() => {
+    const fallbackTitle = 'Support Widows & Orphans By donating to the Apna Ghar Project';
+    const fallbackOptions = [
+      { amount: '20K', description: '20 Bricks - Lay the first stone' },
+      { amount: '100K', description: '100 Bricks — Help raise the walls' },
+      { amount: '2M', description: 'Full House — Give them a home' },
+    ];
+    const fallbackMonthly = ['5,000', '10K', '15K', '20K', '40K', '60K'];
+
+    const cData = campaignKey ? campaigns[campaignKey] : null;
+
+    const pickOptions = () => {
+      if (options && options.length) return options;
+      if (cData && cData.amountsOnce) {
+        return cData.amountsOnce.map((item) => ({
+          amount: item.label.replace(/^Rs\s+/, ''),
+          description: item.desc || '',
+        }));
+      }
+      return fallbackOptions;
+    };
+
+    const pickMonthly = () => {
+      if (monthlyOptions && monthlyOptions.length) return monthlyOptions;
+      if (cData && cData.amountsMonthly) {
+        return cData.amountsMonthly.map((item) =>
+          item.label.replace(/^Rs\s+/, '')
+        );
+      }
+      return fallbackMonthly;
+    };
+
+    const pickTitle = () => {
+      if (campaignTitle) return campaignTitle;
+      if (cData && cData.title) return cData.title;
+      return fallbackTitle;
+    };
+
+    return {
+      options: pickOptions(),
+      monthlyOptions: pickMonthly(),
+      campaignTitle: pickTitle(),
+    };
+  }, [campaignKey, campaignTitle, options, monthlyOptions]);
+
   const [frequency, setFrequency] = useState(defaultFrequency);
   const [selectedIndex, setSelectedIndex] = useState(defaultSelectedIndex);
   const [otherValue, setOtherValue] = useState('');
 
-  const activeOptions = frequency === 'monthly' ? monthlyOptions : options;
+  const activeOptions = frequency === 'monthly' ? resolved.monthlyOptions : resolved.options;
   const isOtherSelected = selectedIndex === activeOptions.length;
 
   // Switching frequency changes the whole amount set (different numbers,
@@ -106,14 +152,14 @@ const DonatinCards = ({
   const monthlyAmountRow = (() => {
     const activeAmount = isOtherSelected
       ? otherValue
-      : monthlyOptions[selectedIndex] ?? '';
+      : resolved.monthlyOptions[selectedIndex] ?? '';
 
     return (
       <div
         className={`dcard__amount-row${isOtherSelected ? ' dcard__amount-row--edit' : ''}`}
         onClick={() => {
           if (!isOtherSelected) {
-            setSelectedIndex(monthlyOptions.length);
+            setSelectedIndex(resolved.monthlyOptions.length);
           }
         }}
       >
@@ -163,12 +209,12 @@ const DonatinCards = ({
       )}
 
       {/* Campaign name */}
-      {campaignTitle && <p className="dcard__campaign">{campaignTitle}</p>}
+      {resolved.campaignTitle && <p className="dcard__campaign">{resolved.campaignTitle}</p>}
 
       {frequency === 'one-time' ? (
         /* ── One-time: vertical list, amount + description ── */
         <div className="dcard__options">
-          {options.map((option, index) => (
+          {resolved.options.map((option, index) => (
             <div
               key={index}
               className={`dcard__option${selectedIndex === index ? ' dcard__option--selected' : ''}`}
@@ -189,7 +235,7 @@ const DonatinCards = ({
         /* ── Monthly: 3-column grid of plain amount pills + dedicated amount row below ── */
         <>
           <div className="dcard__grid">
-            {monthlyOptions.map((amount, index) => (
+            {resolved.monthlyOptions.map((amount, index) => (
               <div
                 key={index}
                 className={`dcard__pill${selectedIndex === index ? ' dcard__pill--selected' : ''}`}

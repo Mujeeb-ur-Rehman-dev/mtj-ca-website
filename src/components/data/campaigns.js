@@ -2,6 +2,8 @@ import lebanonPopup from '../../assets/img/EmergencyReliefLebanon/lebanon_popup.
 import navbarButton from '../../assets/img/navbar/navbar-button.png';
 import zakatDonateBtn from '../../assets/img/zakat/hero/zakat-donate.png';
 import sadaqahDonateBtn from '../../assets/img/sadaqahJariyah/sadqa-donate-btn.png';
+import apnaGharPopup from '../../assets/img/ApnaGhar/galleryImg11.png';
+import palestinePopup from '../../assets/img/PalestineRelief/popup-image.png';
 // import generalPopup from '...';
 
 export const campaigns = {
@@ -75,10 +77,10 @@ export const campaigns = {
   // ========== 3. Palestine ==========
   palestine: {
     id: 'palestine',
-    title: 'Palestine Relief Fund - Donate Now',
+    title: 'Palestine Emergency Fund - Donate Today',
     description:
-      'Help families in Gaza with urgent food, medical aid and shelter. Your support brings hope and relief to those affected by the ongoing crisis.',
-    image: '/images/palestine-hero.jpg',
+      'Support the Palestine Emergency Fund with Molana Tariq Jamil Foundation. Your contributions provide urgent aid to those affected by crises in Palestine, addressing immediate needs and supporting recovery efforts. Each donation is crucial in providing relief, rebuilding lives, and sustaining the resilience of communities facing hardship. Your support echoes the core values of our faith and the urgent need for compassion and action.',
+    image: palestinePopup,
 
     layoutOnce: 'vertical',
     layoutMonthly: 'grid',
@@ -87,15 +89,18 @@ export const campaigns = {
     showImpactText: true,
 
     amountsOnce: [
-      { value: 25000, label: 'Rs 25K', desc: 'Food package for a family' },
-      { value: 50000, label: 'Rs 50K', desc: 'Medical support' },
-      { value: 100000, label: 'Rs 100K', desc: 'Emergency shelter' },
+      { value: 20000,  label: 'Rs 20K',  desc: "Feed's a Family for a Month" },
+      { value: 35000,  label: 'Rs 35K',  desc: 'Provides School Kits for 5 Children' },
+      { value: 100000, label: 'Rs 100K', desc: "Feed's 5 Families for a Month" },
     ],
     amountsMonthly: [
-      { value: 3000, label: 'Rs 3,000' },
-      { value: 5000, label: 'Rs 5,000' },
+      // { value: 5000,  label: 'Rs 5,000' },
       { value: 10000, label: 'Rs 10K' },
       { value: 15000, label: 'Rs 15K' },
+      { value: 20000, label: 'Rs 20K' },
+      { value: 50000, label: 'Rs 50K' },
+      { value: 100000, label: 'Rs 100K' },
+      { value: 200000, label: 'Rs 200K' },
     ],
   },
 
@@ -160,6 +165,35 @@ export const campaigns = {
       { value: 20000, label: 'Rs 20K' },
       { value: 50000, label: 'Rs 50K' },
       { value: 100000, label: 'Rs 100K' },
+    ],
+  },
+
+  // ========== 6. Apna Ghar Widows & Orphans ==========
+  apnaGhar: {
+    id: 'apnaGhar',
+    title: 'Apna Ghar Widows & Orphans',
+    description:
+      'Your support helps give more than just shelter—it offers stability, care, and a place to rebuild. With your donation, someone facing hardship can have a space to rest, recover, and move forward with hope.',
+    image: apnaGharPopup,
+
+    layoutOnce: 'vertical',       // Vertical list with descriptions (screenshot 1)
+    layoutMonthly: 'grid',        // 3-col pill grid (screenshot 2)
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,         // Descriptions shown under each one-time amount
+
+    amountsOnce: [
+      { value: 20000,  label: 'Rs 20K',  desc: '20 Bricks - Lay the first stone' },
+      { value: 100000, label: 'Rs 100K', desc: '100 Bricks — Help raise the walls' },
+      { value: 1000000,label: 'Rs 1M',   desc: 'Full House — Give them a home' },
+    ],
+    amountsMonthly: [
+      { value: 5000,  label: 'Rs 5,000' },
+      { value: 10000, label: 'Rs 10K' },
+      { value: 15000, label: 'Rs 15K' },
+      { value: 20000, label: 'Rs 20K' },
+      { value: 40000, label: 'Rs 40K' },
+      { value: 60000, label: 'Rs 60K' },
     ],
   },
 };

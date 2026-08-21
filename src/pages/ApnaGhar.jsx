@@ -20,10 +20,13 @@ import OurStories from "../components/Ourstories/Ourstories";
 import backgroundStories from "../assets/img/ApnaGhar/background-stories.png";
 import stories1 from "../assets/img/ApnaGhar/stories1.png";
 import stories2 from "../assets/img/ApnaGhar/stories2.png";
+import { useDonation } from "../context/DonationContext";
 
 
 
 const ApnaGhar = () => {
+  const { openDonation } = useDonation();
+
   return (
     <>
       <Hero
@@ -40,14 +43,12 @@ const ApnaGhar = () => {
         showDescriptionWithCard={true}
         cardContent={
           <DonatinCards
-            campaignTitle="Palestine Emergency Relief"
-            defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
-            options={[
-              { amount: "20K", description: "Feed's a Family for a Day" },
-              { amount: "35K", description: "Feed's a Family for a Week" },
-              { amount: "90K", description: "Feed's a Family for a Month" },
-            ]}
-            onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
+            campaignKey="apnaGhar"
+            campaignTitle="Support Widows & Orphans By donating to the Apna Ghar Project"
+            defaultSelectedIndex={0}
+            onDonate={({ frequency, amount }) => {
+              openDonation("apnaGhar", { frequency, amount });
+            }}
           />
         }
       />

@@ -10,8 +10,10 @@ import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import InfoSection from "../components/InfoSection/InfoSection";
 import { impactSectionData, palestineImpactStats } from "../components/data/impactSectionData";
+import { useDonation } from "../context/DonationContext";
 
 const PalestineRelief = () => {
+   const { openDonation } = useDonation();
   return (
     <>
         <Hero
@@ -24,14 +26,12 @@ const PalestineRelief = () => {
              buttonLink=""
              cardContent={
                       <DonatinCards
+                       campaignKey="palestine"
                        campaignTitle="Palestine Emergency Relief"
-                       defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
-                       options={[
-                               { amount: "20K", description: "Feed's a Family for a Day" },
-                               { amount: "35K", description: "Feed's a Family for a Week" },
-                               { amount: "90K", description: "Feed's a Family for a Month" },
-                                  ]}
-           onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
+                       defaultSelectedIndex={0}
+                     onDonate={({ frequency, amount }) => {
+                    openDonation("palestine", { frequency, amount });
+            }}           
          />
        }
            />

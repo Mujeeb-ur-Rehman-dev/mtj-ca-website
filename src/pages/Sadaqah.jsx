@@ -39,6 +39,8 @@ const Sadaqah = () => {
         "Make Sadaqah part of your life. Every drop of water, every child fed, every life saved is a source of continuous reward for you."
        ]}
         image ={infoRightImage} 
+        buttonText="Donate Now"
+        onButtonClick={() => openDonation('sadaqah')}
         />
          <ImpactCards
                title="Choose Where Your Sadaqah Makes an Impact"

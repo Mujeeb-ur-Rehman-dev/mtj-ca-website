@@ -7,8 +7,9 @@ const DonationContext = createContext();
 export const DonationProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCampaign, setCurrentCampaign] = useState(null);
+  const [prefill, setPrefill] = useState(null);
 
-  const openDonation = (campaignKey) => {
+  const openDonation = (campaignKey, prefillData) => {
     const campaign = campaigns[campaignKey];
 
     if (!campaign) {
@@ -17,11 +18,13 @@ export const DonationProvider = ({ children }) => {
     }
 
     setCurrentCampaign(campaign);
+    setPrefill(prefillData || null);
     setIsOpen(true);
   };
 
   const closeDonation = () => {
     setIsOpen(false);
+    setPrefill(null);
   };
 
   return (
@@ -34,6 +37,7 @@ export const DonationProvider = ({ children }) => {
           isOpen={isOpen}
           onClose={closeDonation}
           data={currentCampaign}
+          prefill={prefill}
         />
       )}
     </DonationContext.Provider>
