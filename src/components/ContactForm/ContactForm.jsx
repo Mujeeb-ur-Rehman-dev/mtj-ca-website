@@ -1,4 +1,13 @@
 import React, { useState } from "react";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaLocationDot,
+  FaFacebookF,
+  FaInstagram,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
 import "./ContactForm.css";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -97,17 +106,23 @@ const ContactForm = () => {
           <h2 className="right-title">Contact Information</h2>
 
           <div className="info-item">
-            <span className="icon">✉</span>
+            <span className="icon">
+              <FaEnvelope />
+            </span>
             <span>info@mtjfoundation.ca</span>
           </div>
 
           <div className="info-item">
-            <span className="icon">📞</span>
+            <span className="icon">
+              <FaPhone />
+            </span>
             <span>905-783-1MTJ</span>
           </div>
 
           <div className="info-item">
-            <span className="icon">📍</span>
+            <span className="icon">
+              <FaLocationDot />
+            </span>
             <span>
               Skyward business Center 401 - 2255 Dundas St W,
               <br />
@@ -118,10 +133,38 @@ const ContactForm = () => {
           <div className="follow-us">
             <h3>Follow Us</h3>
             <div className="social-icons">
-              <a href="#" aria-label="Facebook">f</a>
-              <a href="#" aria-label="Instagram">📷</a>
-              <a href="#" aria-label="X / Twitter">𝕏</a>
-              <a href="#" aria-label="YouTube">▶</a>
+              <a
+                href="https://www.facebook.com/mtjfcanada/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://www.instagram.com/mtjf_canada/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://x.com/mtjfcanada"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X / Twitter"
+              >
+                <FaXTwitter />
+              </a>
+              <a
+                href="https://www.youtube.com/@mtjfoundationcanada5022"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
             </div>
           </div>
         </div>

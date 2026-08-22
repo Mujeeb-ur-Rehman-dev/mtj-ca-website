@@ -61,7 +61,7 @@ Reports To: Manager & Director`,
   ];
 
   const toggleDescription = (id) => {
-    setOpenJob(openJob === id ? null : id);
+    setOpenJob((prev) => (prev === id ? null : id));
   };
 
   return (

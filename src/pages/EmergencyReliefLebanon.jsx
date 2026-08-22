@@ -27,7 +27,7 @@ const EmergencyReliefLebanon = () => {
         buttonText=""
         buttonLink=""
          cardContent={
-    <DonatinCards
+      <DonatinCards
       campaignTitle="Lebanon Emergency Relief"
       // options={[
       //   { amount: "50K", description: "Emergency support for a family" },

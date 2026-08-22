@@ -99,7 +99,69 @@
 }
 
 .contact-info p {
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact-row--align-top {
+  align-items: flex-start !important;
+}
+
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #C99C47;
+  font-size: 18px;
+  min-width: 20px;
+  line-height: 1;
+}
+
+.contact-icon--top {
+  padding-top: 2px;
+}
+
+.contact-address {
+  display: inline-block;
+  line-height: 1.45;
+}
+
+/* ---------- Follow Us (social bar) ---------- */
+.follow-us {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.follow-us__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 18px 0;
+  color: #ffffff;
+}
+
+.follow-us__icons {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.follow-us__icons a {
+  color: #C99C47;
+  font-size: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.follow-us__icons a:hover {
+  color: #e2b767;
+  transform: translateY(-1px);
 }
 
 /* ========== MOBILE ========== */
@@ -134,6 +196,34 @@
   }
 
   .volunteer-title {
+    font-size: 24px;
+  }
+
+  .contact-info p {
+    gap: 12px;
+    margin: 0 0 10px 0;
+  }
+
+  .contact-icon {
+    font-size: 17px;
+    min-width: 18px;
+  }
+
+  .follow-us {
+    margin-top: 28px;
+    padding-top: 18px;
+  }
+
+  .follow-us__title {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+
+  .follow-us__icons {
+    gap: 20px;
+  }
+
+  .follow-us__icons a {
     font-size: 24px;
   }
 }

@@ -120,9 +120,11 @@
 }
 
 .info-item .icon {
-  font-size: 18px;
+  font-size: 22px;
   margin-top: 2px;
-  color: #e8b88a;
+  color: #C99C47;
+  display: flex;
+  align-items: center;
 }
 
 .follow-us {
@@ -141,10 +143,12 @@
 }
 
 .social-icons a {
-  color: #e8b88a;
-  font-size: 20px;
+  color: #C99C47;
+  font-size: 24px;
   text-decoration: none;
   transition: color 0.2s;
+  display: flex;
+  align-items: center;
 }
 
 .social-icons a:hover {

@@ -1,389 +1,294 @@
-/* Outer Section */
-.mtj-hero-wrapper {
-  position: relative;
-  width: 100%;
-  background-color: #1A4325;
+/* ============================================================
+   VolunteerHeroSection.css
+   Mirrors VolunteerSection.css LAYOUT EXACTLY (50/50 flex card
+   on cream-left / dark-teal-right, single 900px breakpoint).
+   Removed: old Google-form-style purple card look, cream outer
+   frame, 1.35/0.85 grid widths, social bar header, etc.
+   Added: native React form input styles that sit cleanly inside
+   the cream `.form-wrapper` column.
+   ============================================================ */
+
+/* ---------- (A) Shared layout — mirrors VolunteerSection.css ---------- */
+
+.volunteer-section {
+  margin-top: 0;
+  background-image: url("../../assets/img/VolunteerSection/background-img.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 32px 12px;
-  box-sizing: border-box;
-}
-
-@media (min-width: 768px) {
-  .mtj-hero-wrapper {
-    padding: 56px 24px;
-  }
-}
-
-.mtj-hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Cream Frame */
-.mtj-card-outer {
-  background-color: #FAF6EC;
-  border-radius: 20px;
-  padding: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-@media (min-width: 768px) {
-  .mtj-card-outer {
-    padding: 24px;
-  }
-}
-
-/* Split Inner Layout */
-.mtj-card-inner {
+  padding: 80px 20px;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  border-radius: 12px;
-  overflow: hidden;
-  background-color: #ffffff;
-}
-
-@media (min-width: 992px) {
-  .mtj-card-inner {
-    display: grid;
-    grid-template-columns: 1.35fr 0.85fr;
-  }
-}
-
-/* Left Form Area */
-.mtj-form-col {
-  background-color: #FAF6EC;
-  padding: 16px 8px 24px 8px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-@media (min-width: 768px) {
-  .mtj-form-col {
-    padding: 28px 20px 32px 20px;
-  }
-}
-
-.mtj-form-title {
-  font-size: 26px;
-  font-weight: 800;
-  color: #111111;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-  .mtj-form-title {
-    font-size: 34px;
-  }
-}
-
-.mtj-custom-form-wrapper {
+.volunteer-container {
+  max-width: 1150px;
   width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-/* Header Card */
-.mtj-form-header-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  border-top: 10px solid #673ab7;
-  border-left: 1px solid #dadce0;
-  border-right: 1px solid #dadce0;
-  border-bottom: 1px solid #dadce0;
-  padding: 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.mtj-form-header-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #202124;
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-
-.mtj-form-header-desc {
-  font-size: 14px;
-  color: #3c4043;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.mtj-link {
-  color: #1b66c9;
-  text-decoration: underline;
-}
-
-.mtj-account-info {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 12px;
-  border-top: 1px solid #e0e0e0;
-  margin-top: 16px;
-  font-size: 13px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  min-height: 680px;
 }
 
-.mtj-email-badge {
-  color: #5f6368;
-  font-weight: 500;
-}
-
-.mtj-switch-btn {
-  background: none;
-  border: none;
-  color: #1a73e8;
-  cursor: pointer;
-  padding: 0;
-  font-size: 13px;
-}
-
-.mtj-required-note {
-  font-size: 12px;
-  color: #d93025;
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-
-/* Individual Form Question Cards */
-.mtj-volunteer-form {
+/* ========== LEFT SIDE ========== */
+.volunteer-left {
+  flex: 1;
+  background: #fdf8f0;
+  padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
-.mtj-input-card {
-  background-color: #ffffff;
-  border: 1px solid #dadce0;
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+.volunteer-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a2e35;
+  margin: 0 0 18px 0;
+  text-align: center;
+  line-height: 1.3;
 }
 
-.mtj-label {
+/* ---- In this version the wrapper is FINALLY applied properly ---- */
+.form-wrapper {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #e5e7eb;
+  position: relative;
+  padding: 24px 28px 32px;
+}
+
+/* ========== RIGHT SIDE ========== */
+.volunteer-right {
+  flex: 1;
+  background: #0f2c3a;
+  color: #ffffff;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.right-heading {
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 22px 0;
+}
+
+.volunteer-right p {
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0 0 16px 0;
+  opacity: 0.95;
+}
+
+.volunteer-right ul {
+  margin: 8px 0 20px 18px;
+  padding: 0;
+}
+
+.volunteer-right ul li {
+  margin-bottom: 9px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.contact-info {
+  margin-top: 20px;
+  font-size: 14.5px;
+}
+
+.contact-info p {
+  margin: 0 0 8px 0;
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 900px) {
+  .volunteer-section {
+    padding: 50px 16px;
+  }
+
+  .volunteer-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .volunteer-left {
+    padding: 24px 18px 18px;
+  }
+
+  .form-wrapper {
+    height: auto;
+    max-height: 80vh;
+    padding: 20px 20px 26px;
+  }
+
+  .volunteer-right {
+    padding: 28px 22px;
+  }
+
+  .right-heading {
+    font-size: 22px;
+  }
+
+  .volunteer-title {
+    font-size: 24px;
+  }
+}
+
+/* ---------- (B) Volunteer Hero Form — native field styles ---------- */
+
+.volunteer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.vf-field {
+  width: 100%;
+}
+
+.vf-label {
   display: block;
   font-size: 15px;
   font-weight: 600;
-  color: #202124;
-  margin-bottom: 12px;
-  line-height: 1.4;
+  color: #1a2e35;
+  margin-bottom: 10px;
+  line-height: 1.45;
 }
 
-.mtj-sublabel {
+.vf-sublabel {
   font-weight: 400;
   font-size: 13px;
-  color: #5f6368;
+  color: #5e6b74;
 }
 
-.mtj-asterisk {
-  color: #d93025;
+.vf-asterisk {
+  color: #b3261e;
+  margin-left: 2px;
 }
 
-/* Text Inputs */
-.mtj-text-input {
+/* ---------- Text / email / tel inputs ---------- */
+.vf-text-input {
   width: 100%;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  padding: 8px 0;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s ease;
   box-sizing: border-box;
+  border: none;
+  border-bottom: 1.5px solid #cfd8dc;
+  padding: 8px 2px;
+  font-size: 14.5px;
+  color: #1a2e35;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: inherit;
 }
 
-.mtj-text-input:focus {
-  border-bottom-color: #673ab7;
+.vf-text-input::placeholder {
+  color: #8e9a9f;
 }
 
-.mtj-text-input.inline-other {
+.vf-text-input:focus {
+  border-bottom-color: #1a4d3a;
+  box-shadow: 0 1px 0 0 #1a4d3a;
+}
+
+.vf-inline-other {
   width: auto;
   flex-grow: 1;
   margin-left: 8px;
+  min-width: 180px;
 }
 
-/* Option Groups */
-.mtj-option-group {
+/* ---------- Radio / checkbox option groups ---------- */
+.vf-option-group {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-top: 8px;
-}
-
-.mtj-option-item {
-  display: flex;
-  align-items: center;
   gap: 12px;
-  font-size: 14px;
-  color: #3c4043;
-  cursor: pointer;
+  margin-top: 6px;
 }
 
-.mtj-option-item input {
-  accent-color: #673ab7;
+.vf-option-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14.5px;
+  color: #2c3e50;
+  line-height: 1.45;
+  transition: background-color 0.15s ease;
+}
+
+.vf-option-item:hover {
+  background-color: #f1f6f2;
+}
+
+.vf-option-item input {
+  accent-color: #1a4d3a;
   width: 18px;
   height: 18px;
+  margin-top: 2px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-.mtj-other-input-row {
+/* ---------- "Other:" inline text entry row ---------- */
+.vf-other-input-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   flex-wrap: wrap;
+  padding: 8px 10px;
+  border-radius: 6px;
 }
 
-/* Submit Button */
-.mtj-submit-btn {
-  background-color: #673ab7;
+.vf-other-input-row:hover {
+  background-color: #f1f6f2;
+}
+
+/* ---------- Submit button ---------- */
+.vf-submit-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  background-color: #68101a;
   color: #ffffff;
   border: none;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 4px;
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  align-self: flex-start;
-  margin-top: 8px;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 6px 14px rgba(104, 16, 26, 0.18);
 }
 
-.mtj-submit-btn:hover {
-  background-color: #542b9c;
+.vf-submit-btn:hover {
+  background-color: #500d14;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(104, 16, 26, 0.22);
 }
 
-/* Right Sidebar Area */
-.mtj-sidebar-col {
-  background-color: #0C2D1C;
-  color: #ffffff;
-  padding: 32px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.vf-submit-btn:active {
+  transform: translateY(0);
 }
 
-@media (min-width: 768px) {
-  .mtj-sidebar-col {
-    padding: 44px 36px;
+@media (max-width: 560px) {
+  .vf-submit-btn {
+    width: 100%;
+    padding: 14px 20px;
   }
-}
 
-.mtj-sidebar-heading {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.3;
-  color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-  .mtj-sidebar-heading {
-    font-size: 28px;
+  .vf-inline-other {
+    margin-left: 0;
+    width: 100%;
+    min-width: 0;
   }
-}
-
-.mtj-sidebar-paragraph {
-  font-size: 14px;
-  color: #e0e6e2;
-  line-height: 1.6;
-  margin-top: 0;
-  margin-bottom: 16px;
-}
-
-.mtj-sidebar-bullets {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #e0e6e2;
-  font-size: 14px;
-}
-
-.mtj-sidebar-bullets li {
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-
-.mtj-sidebar-contact {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 24px;
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.mtj-contact-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-}
-
-.mtj-contact-row.align-start {
-  align-items: flex-start;
-}
-
-.mtj-contact-icon {
-  color: #C99C47;
-  font-size: 16px;
-  min-width: 18px;
-}
-
-.mtj-contact-icon.icon-top-adjust {
-  margin-top: 2px;
-}
-
-.mtj-contact-link {
-  color: #e0e6e2;
-  text-decoration: none;
-}
-
-.mtj-contact-link:hover {
-  text-decoration: underline;
-  color: #ffffff;
-}
-
-.mtj-contact-text {
-  color: #e0e6e2;
-  margin: 0;
-  line-height: 1.4;
-}
-
-.mtj-sidebar-social {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 20px;
-  margin-top: 28px;
-}
-
-.mtj-social-heading {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #a3b8ab;
-  margin-top: 0;
-  margin-bottom: 12px;
-}
-
-.mtj-social-icons {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 18px;
-}
-
-.mtj-social-icons a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.mtj-social-icons a:hover {
-  color: #C99C47;
 }

@@ -94,7 +94,6 @@ export const campaigns = {
       { value: 100000, label: 'Rs 100K', desc: "Feed's 5 Families for a Month" },
     ],
     amountsMonthly: [
-      // { value: 5000,  label: 'Rs 5,000' },
       { value: 10000, label: 'Rs 10K' },
       { value: 15000, label: 'Rs 15K' },
       { value: 20000, label: 'Rs 20K' },

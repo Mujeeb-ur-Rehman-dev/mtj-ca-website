@@ -1,5 +1,14 @@
 import React from "react";
 import "./VolunteerSection.css";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaLocationDot,
+  FaFacebookF,
+  FaInstagram,
+  FaXTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
 
 const VolunteerSection = () => {
   return (
@@ -59,15 +68,58 @@ const VolunteerSection = () => {
 
           <div className="contact-info">
             <p>
-              <span>✉</span> info@mtjfoundation.ca
+              <span className="contact-icon"><FaEnvelope /></span>
+              info@mtjfoundation.ca
             </p>
             <p>
-              <span>📞</span> 905-783-1MTJ
+              <span className="contact-icon"><FaPhone /></span>
+              905-783-1MTJ
             </p>
-            <p>
-              <span>📍</span> Skyward business Center 312 - 2255 Dundas St W,
-              Mississauga, ON L5K 1R6
+            <p className="contact-row contact-row--align-top">
+              <span className="contact-icon contact-icon--top"><FaLocationDot /></span>
+              <span className="contact-address">
+                Skyward business Center 312 - 2255 Dundas St W,
+                Mississauga, ON L5K 1R6
+              </span>
             </p>
+          </div>
+
+          <div className="follow-us">
+            <h3 className="follow-us__title">Follow Us</h3>
+            <div className="follow-us__icons">
+              <a
+                href="https://www.facebook.com/mtjfcanada/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://www.instagram.com/mtjf_canada/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://x.com/mtjfcanada"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+              >
+                <FaXTwitter />
+              </a>
+              <a
+                href="https://www.youtube.com/@mtjfoundationcanada5022"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <FaYoutube />
+              </a>
+            </div>
           </div>
         </div>
       </div>
