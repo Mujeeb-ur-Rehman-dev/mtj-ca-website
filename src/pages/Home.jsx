@@ -22,8 +22,10 @@ const Home = () => {
         backgroundImage={backgroundImage}
         heroImage={null}
         mobileImage={mobileImage}
-        title="LEBANON EMERGENCY"
+        title={<>LEBANON<br />EMERGENCY</>}
         boldTitle={true}
+        textSectionMarginTop="10%"
+        textSectionMarginLeft="15%"
         description="The crisis in Lebanon is growing every day. Over 1.1 million people have been forced from their homes, more than 390,000 of them children, crowded into shelters with no food, no hygiene, and no way to cook a meal."
         buttonText="Donate Now"
         onButtonClick={() => openDonation('lebanon')}

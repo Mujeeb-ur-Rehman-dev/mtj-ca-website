@@ -39,6 +39,8 @@ const Hero = ({
   boldTitle = false,
   titleColor,
   descriptionColor,
+  textSectionMarginTop,
+  textSectionMarginLeft,
 
   children,
 
@@ -58,6 +60,10 @@ const Hero = ({
   const textSectionClassName = `hero-text-section${
     isEmergencyStyle ? " hero-text-section--emergency" : ""
   }${customContent ? " hero-text-section--custom" : ""}`;
+  const textSectionStyle = {
+    ...(textSectionMarginTop ? { marginTop: textSectionMarginTop } : undefined),
+    ...(textSectionMarginLeft ? { marginLeft: textSectionMarginLeft } : undefined),
+  };
 
   // Client-Side React Router / Smooth Scroll Navigation Handler
   const goTo = (link) => {
@@ -121,9 +127,9 @@ const Hero = ({
 
   const renderTextBlock = (isMobile = false) => (
     <>
-      <h1 className={titleClassName} style={!isMobile ? titleStyle : undefined}>
+      <h2 className={titleClassName} style={!isMobile ? titleStyle : undefined}>
         {title}
-      </h1>
+      </h2>
       {cardContent ? (
         <>
           {!isMobile && showDescriptionWithCard && description && (
@@ -163,7 +169,7 @@ const Hero = ({
             !hasRightImage ? " hero-content-inner--no-image" : ""
           }`}
         >
-          <div className={textSectionClassName}>
+          <div className={textSectionClassName} style={textSectionStyle}>
             {customContent ? (
               <div className={`hero-custom-content ${customContentClassName}`.trim()}>
                 {customContent}
