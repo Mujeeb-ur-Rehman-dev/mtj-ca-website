@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaHeart, FaShieldAlt } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
 import './DonationPopup.css';
+import logo from '../../assets/img/logos/favicon.png';
 
 const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   const [frequency, setFrequency] = useState('once');
@@ -12,14 +13,11 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   const [showExitScreen, setShowExitScreen] = useState(false);
   const [email, setEmail] = useState('');
 
-  // Comment popup
   const [showCommentPopup, setShowCommentPopup] = useState(false);
   const [comment, setComment] = useState('');
 
-  // Secure tooltip
   const [showSecureTooltip, setShowSecureTooltip] = useState(false);
 
-  // Report problem popup
   const [showReportPopup, setShowReportPopup] = useState(false);
   const [reportText, setReportText] = useState('');
   const [reportConfirm, setReportConfirm] = useState(false);
@@ -66,7 +64,13 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
 
   if (!isOpen || !data) return null;
 
-  const handleCloseClick = () => setShowExitScreen(true);
+  const handleCloseClick = () => {
+    if (showExitScreen) {
+      handleFinalClose();
+    } else {
+      setShowExitScreen(true);
+    }
+  };
 
   const handleFinalClose = () => {
     setShowExitScreen(false);
@@ -78,7 +82,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
     handleFinalClose();
   };
 
-  // Only numbers allowed
   const handleCustomAmountChange = (e) => {
     const value = e.target.value.replace(/[^0-9]/g, '');
     setCustomAmount(value);
@@ -93,7 +96,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   const currentAmounts =
     frequency === 'once' ? data.amountsOnce : data.amountsMonthly;
 
-  // Layout decision
   const isGridLayout =
     frequency === 'once'
       ? data.layoutOnce === 'grid'
@@ -106,12 +108,10 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   return (
     <div className="donation-overlay">
       <div className="donation-modal-wrapper">
-        {/* Close Button */}
-        {!showExitScreen && (
-          <button className="close-btn-outside" onClick={handleCloseClick}>
-            <IoClose size={22} />
-          </button>
-        )}
+        {/* Close Button – outside on the right */}
+        <button className="close-btn-outside" onClick={handleCloseClick}>
+          <IoClose size={22} />
+        </button>
 
         <div className="donation-modal">
           {/* LEFT SIDE */}
@@ -121,6 +121,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
             </div>
             <div className="donation-info">
               <div className="donation-logo">
+                <img src={logo} alt="MTJF Logo" className="logo-img" />
                 <span className="logo-text">MTJF</span>
               </div>
               <h2>{data.title}</h2>
@@ -139,7 +140,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                   </div>
                 </div>
 
-                {/* Tabs */}
                 <div className="frequency-tabs">
                   <button
                     className={frequency === 'once' ? 'active' : ''}
@@ -164,7 +164,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                   </button>
                 </div>
 
-                {/* Amounts */}
                 <div className={`amount-list ${layoutClass}`}>
                   {currentAmounts.map((item) => (
                     <button
@@ -179,7 +178,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                     </button>
                   ))}
 
-                  {/* Other amount + Currency */}
                   <div
                     className={`amount-btn other-amount ${
                       !selectedAmount && customAmount ? 'selected' : ''
@@ -206,7 +204,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                   </div>
                 </div>
 
-                {/* Designation Dropdown */}
                 {data.showDesignation && data.designationOptions && (
                   <div className="designation-wrapper">
                     <label className="designation-label">Designation</label>
@@ -224,7 +221,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                   </div>
                 )}
 
-                {/* Extra Links (Dedicate + Add comment) */}
                 <div className="extra-links">
                   {data.showDedicate && (
                     <>
@@ -251,71 +247,73 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                 </div>
               </>
             ) : (
-              /* EXIT SCREEN */
-              <div className="exit-screen">
-                <div className="exit-header">
-                  <button className="back-btn" onClick={() => setShowExitScreen(false)}>
-                    ←
-                  </button>
-                  <h3>Maybe next time?</h3>
-                </div>
-                <div className="exit-icon">🔔</div>
-                <p className="exit-text">
-                  Please leave your email address below, and we'll send you a gentle reminder later.
-                </p>
-                <input
-                  type="email"
-                  className="exit-email"
-                  placeholder="Email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button className="btn-primary" onClick={handleRemindLater}>
-                  Remind me later
-                </button>
-                <button className="btn-secondary" onClick={handleFinalClose}>
-                  No thanks
-                </button>
-              </div>
+             <div className="exit-screen">
+    <div className="exit-header">
+      <button className="back-btn" onClick={() => setShowExitScreen(false)}>
+        ←
+      </button>
+      <h3>Maybe next time?</h3>
+    </div>
+
+    <div className="exit-icon">🔔</div>
+
+    <p className="exit-text">
+      Please leave your email address below, and we'll send you a gentle reminder later.
+    </p>
+
+    <input
+      type="email"
+      className="exit-email"
+      placeholder="Email address"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+    />
+
+    <button className="btn-primary exit-remind-btn" onClick={handleRemindLater}>
+      Remind me later
+    </button>
+
+    <button className="btn-secondary exit-no-thanks" onClick={handleFinalClose}>
+      No thanks
+    </button>
+  </div>
             )}
           </div>
         </div>
 
-        {/* Bottom Links */}
-        {!showExitScreen && (
-          <div className="donation-footer-links">
-            <button
-              className="footer-link"
-              onClick={() => setShowSecureTooltip(!showSecureTooltip)}
-            >
-              Is my donation secure?
-            </button>
-            <span className="footer-dot">·</span>
-            <button
-              className="footer-link"
-              onClick={() => setShowReportPopup(true)}
-            >
-              Report a problem
-            </button>
+        {/* Bottom Links – always visible */}
+        <div className="donation-footer-links">
+          <button
+            className="footer-link"
+            onClick={() => setShowSecureTooltip(!showSecureTooltip)}
+          >
+            Is my donation secure?
+          </button>
+          <span className="footer-dot">·</span>
+          <button
+            className="footer-link"
+            onClick={() => setShowReportPopup(true)}
+          >
+            Report a problem
+          </button>
 
-            {showSecureTooltip && (
-              <div className="secure-tooltip">
-                <strong>Is my donation secure?</strong>
-                <p>
-                  Yes, we use industry-standard SSL technology to keep your information secure.
-                </p>
-                <p>
-                  We partner with Stripe, the industry's established payment provider trusted by
-                  some of the world's largest companies.
-                </p>
-                <p>
-                  Your sensitive financial information never touches our servers. We send all data
-                  directly to Stripe's PCI-compliant servers through SSL.
-                </p>
-              </div>
-            )}
-          </div>
-        )}
+          {showSecureTooltip && (
+            <div className="secure-tooltip">
+              <strong>Is my donation secure?</strong>
+              <p>
+                Yes, we use industry-standard SSL technology to keep your information secure.
+              </p>
+              <p>
+                We partner with Stripe, the industry's established payment provider trusted by
+                some of the world's largest companies.
+              </p>
+              <p>
+                Your sensitive financial information never touches our servers. We send all data
+                directly to Stripe's PCI-compliant servers through SSL.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* ADD COMMENT POPUP */}
