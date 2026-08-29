@@ -11,6 +11,15 @@
   overflow-y: auto;
 }
 
+@media (min-width: 769px) {
+  .donation-overlay {
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 27px 20px 32px 93px;
+  }
+}
+
 /* ========== Wrapper ========== */
 .donation-modal-wrapper {
   position: relative;
@@ -23,7 +32,7 @@
 .close-btn-outside {
   position: absolute;
   top: -12px;
-  right: -48px;
+  right: -200px;
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -864,3 +873,4 @@
     height: 34px;
   }
 }
+

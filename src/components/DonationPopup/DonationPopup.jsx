@@ -282,7 +282,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
         </div>
 
         {/* Bottom Links – always visible */}
-        <div className="donation-footer-links">
+        <div className="donation-footer-links"> 
           <button
             className="footer-link"
             onClick={() => setShowSecureTooltip(!showSecureTooltip)}

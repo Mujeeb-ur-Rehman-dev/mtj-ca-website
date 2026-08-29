@@ -28,7 +28,7 @@ export const DonationProvider = ({ children }) => {
   };
 
   return (
-    <DonationContext.Provider value={{ openDonation, closeDonation }}>
+    <DonationContext.Provider value={{ openDonation, closeDonation, isOpen }}>
       {children}
 
       {/* Popup poori app mein sirf ek dafa render hoga */}
