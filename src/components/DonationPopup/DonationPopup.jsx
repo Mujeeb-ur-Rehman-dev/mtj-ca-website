@@ -11,7 +11,17 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   const [currency, setCurrency] = useState('PKR');
   const [designation, setDesignation] = useState('');
   const [showExitScreen, setShowExitScreen] = useState(false);
+  const [showMonthlySupporterCard, setShowMonthlySupporterCard] = useState(false);
+  const [showDonationSummaryCard, setShowDonationSummaryCard] = useState(false);
+  const [donationSummaryTotal, setDonationSummaryTotal] = useState('Rs3,300 PKR/month');
+  const [showDetailsCard, setShowDetailsCard] = useState(false);
   const [email, setEmail] = useState('');
+  const [details, setDetails] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+  });
 
   const [showCommentPopup, setShowCommentPopup] = useState(false);
   const [comment, setComment] = useState('');
@@ -30,7 +40,12 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
       setCurrency('PKR');
       setDesignation(data.designationOptions?.[0]?.value || '');
       setShowExitScreen(false);
+      setShowMonthlySupporterCard(false);
+      setShowDonationSummaryCard(false);
+      setDonationSummaryTotal('Rs3,300 PKR/month');
+      setShowDetailsCard(false);
       setEmail('');
+      setDetails({ firstName: '', lastName: '', email: '', phone: '' });
       setComment('');
       setShowCommentPopup(false);
       setShowSecureTooltip(false);
@@ -67,14 +82,36 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   const handleCloseClick = () => {
     if (showExitScreen) {
       handleFinalClose();
-    } else {
-      setShowExitScreen(true);
+      return;
     }
+
+    setShowDonationSummaryCard(false);
+    setShowDetailsCard(false);
+    setShowMonthlySupporterCard(false);
+    setShowExitScreen(true);
   };
 
   const handleFinalClose = () => {
     setShowExitScreen(false);
     onClose();
+  };
+
+  const handleMonthlyAmount = (amount) => {
+    setFrequency('monthly');
+    setSelectedAmount(null);
+    setCustomAmount(amount.toString());
+    setShowMonthlySupporterCard(false);
+  };
+
+  const handleMonthlySupporterChoice = (amount) => {
+    if (amount === 3000) {
+      setDonationSummaryTotal('Rs3,300 PKR/month');
+      setShowDonationSummaryCard(true);
+      return;
+    }
+
+    setDonationSummaryTotal('Rs1,684 PKR/month');
+    setShowDonationSummaryCard(true);
   };
 
   const handleRemindLater = () => {
@@ -130,6 +167,148 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
           </div>
 
           {/* RIGHT SIDE */}
+          {showDonationSummaryCard ? (
+            <div className="donation-right donation-summary-card">
+              <div className="donation-summary-header">
+                <button
+                  className="donation-summary-back"
+                  type="button"
+                  aria-label="Back to monthly supporter options"
+                  onClick={() => setShowDonationSummaryCard(false)}
+                >
+                  <span aria-hidden="true">‹</span>
+                </button>
+                <h2>You donate</h2>
+              </div>
+
+              <div className="donation-summary-content">
+                <div className="donation-summary-panel">
+                  <label className="donation-summary-costs">
+                    <input type="checkbox" defaultChecked />
+                    <span className="donation-summary-check" aria-hidden="true">&#10003;</span>
+                    <span>Cover transaction costs</span>
+                    <span className="donation-summary-help" aria-label="Transaction cost information">?</span>
+                  </label>
+                  <div className="donation-summary-divider" />
+                  <div className="donation-summary-total">
+                    <span>Total</span>
+                    <strong>{donationSummaryTotal}</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div className="donation-summary-actions">
+                <button className="donation-summary-pay" type="button">
+                  Donate with <span className="donation-summary-google">G</span> Pay
+                </button>
+              </div>
+            </div>
+          ) : showDetailsCard ? (
+            <div className="donation-right details-card">
+              <div className="details-card-header">
+                <button
+                  className="details-card-back"
+                  type="button"
+                  aria-label="Back to donation form"
+                  onClick={() => setShowDetailsCard(false)}
+                >
+                  <span aria-hidden="true">‹</span>
+                </button>
+                <h2>Enter your details</h2>
+              </div>
+
+              <div className="details-card-content">
+                <div className="details-card-fields">
+                  <input
+                    type="text"
+                    placeholder="First name"
+                    value={details.firstName}
+                    onChange={(event) => setDetails({ ...details, firstName: event.target.value })}
+                    autoComplete="given-name"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last name"
+                    value={details.lastName}
+                    onChange={(event) => setDetails({ ...details, lastName: event.target.value })}
+                    autoComplete="family-name"
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    value={details.email}
+                    onChange={(event) => setDetails({ ...details, email: event.target.value })}
+                    autoComplete="email"
+                  />
+                  <div className="details-card-phone">
+                    <span className="details-card-flag" aria-hidden="true">🇵🇰</span>
+                    <span className="details-card-chevron" aria-hidden="true">⌄</span>
+                    <input
+                      type="tel"
+                      placeholder="Phone number"
+                      value={details.phone}
+                      onChange={(event) => setDetails({ ...details, phone: event.target.value })}
+                      autoComplete="tel"
+                    />
+                    <span className="details-card-help" aria-label="Phone number help">?</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="details-card-actions">
+                <button className="details-card-continue" type="button">Continue</button>
+              </div>
+            </div>
+          ) : showMonthlySupporterCard ? (
+            <div className="donation-right monthly-supporter-card">
+              <div className="monthly-supporter-header">
+                <button
+                  className="monthly-supporter-back"
+                  type="button"
+                  aria-label="Back to donation form"
+                  onClick={() => setShowMonthlySupporterCard(false)}
+                >
+                  <span aria-hidden="true">‹</span>
+                </button>
+                <h2>Become a monthly supporter</h2>
+              </div>
+
+              <div className="monthly-supporter-content">
+                <p>
+                  Will you convert your <strong>Rs 5,000</strong> contribution into a monthly donation?
+                  <br />
+                  Your ongoing support can help us focus better on our work.
+                </p>
+              </div>
+
+              <div className="monthly-supporter-actions">
+                <button
+                  className="monthly-supporter-button monthly-supporter-button--red"
+                  type="button"
+                  onClick={() => handleMonthlySupporterChoice(3000)}
+                >
+                  <FaHeart size={18} /> Donate Rs 3,000/month
+                </button>
+                <button
+                  className="monthly-supporter-button monthly-supporter-button--blue"
+                  type="button"
+                  onClick={() => handleMonthlySupporterChoice(1500)}
+                >
+                  Donate Rs 1,500/month
+                </button>
+                <button
+                  className="monthly-supporter-decline"
+                  type="button"
+                  onClick={() => {
+                    setDonationSummaryTotal('Rs5,455 PKR');
+                    setShowDonationSummaryCard(true);
+                  }}
+                >
+                  No, keep my one-time Rs 5,000 gift
+                </button>
+              </div>
+            </div>
+          ) : (
           <div className={`donation-right ${showExitScreen ? 'exit-mode' : ''}`}>
             {!showExitScreen ? (
               <>
@@ -236,8 +415,20 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                   </button>
                 </div>
 
-                <button className="btn-google-pay">G Pay</button>
-                <button className="btn-primary">Donate with other methods</button>
+                <button
+                  className="btn-google-pay"
+                  type="button"
+                  onClick={() => setShowMonthlySupporterCard(true)}
+                >
+                  G Pay
+                </button>
+                <button
+                  className="btn-primary"
+                  type="button"
+                  onClick={() => setShowDetailsCard(true)}
+                >
+                  Donate with other methods
+                </button>
 
                 <div className="payment-icons">
                   <span>Visa</span>
@@ -279,6 +470,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
   </div>
             )}
           </div>
+          )}
         </div>
 
         {/* Bottom Links – always visible */}

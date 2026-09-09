@@ -6,11 +6,12 @@ import PalestineImg from "../../assets/img/campaigncarousel/palestine-emergency-
 import EducationImg from "../../assets/img/campaigncarousel/education.webp";
 import HealthcareImg from "../../assets/img/campaigncarousel/healthcare.webp";
 
+// Order matches live mtjfoundation.ca homepage: Healthcare, Water Relief, Palestine, Education
 const CATEGORIES = [
+  { title: "Healthcare", image: HealthcareImg, path: "/medical-care-health" },
   { title: "Water Relief", image: WaterReliefImg, path: "/clean-water" },
   { title: "Palestine Emergency Relief", image: PalestineImg, path: "/palestine-relief" },
   { title: "Education", image: EducationImg, path: "/education" },
-  { title: "Healthcare", image: HealthcareImg, path: "/medical-care-health" },
 ];
 
 const VISIBLE = 3;

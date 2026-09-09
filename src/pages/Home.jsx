@@ -6,7 +6,6 @@ import backgroundImage from "../assets/img/home/background.png";
 import mobileImage from "../assets/img/home/mbl-background.png";
 import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
-import Newsletter from "../components/NewsletterSignup/Newsletter";
 import { impactSectionData } from "../components/data/impactSectionData";
 
 // Donation Context
@@ -47,7 +46,6 @@ const Home = () => {
         channel="MTJ Foundation Canada"
       />
 
-      <Newsletter />
       <Footer />
     </>
   );

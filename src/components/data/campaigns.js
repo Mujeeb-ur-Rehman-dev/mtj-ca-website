@@ -28,7 +28,7 @@ export const campaigns = {
     ],
 
     amountsOnce: [
-      { value: 2000, label: 'Rs 2,000' },
+      { value: 2500, label: 'Rs 2,500' },
       { value: 5000, label: 'Rs 5,000' },
       { value: 10000, label: 'Rs 10K' },
       { value: 20000, label: 'Rs 20K' },
