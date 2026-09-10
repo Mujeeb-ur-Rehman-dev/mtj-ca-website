@@ -14,7 +14,7 @@
 .categories h2 {
   font-family: "Finder", "Inter", Arial, sans-serif;
   font-size: 40px;
-  font-weight: 400;
+  /* font-weight: 400; */
   color: var(--category-heading-color, #FFFAEE); /* kit cream color, not pure white */
   margin: 0 0 16px;
   line-height: 40px;

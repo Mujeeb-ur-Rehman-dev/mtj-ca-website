@@ -8,6 +8,8 @@ export default function Newsletter({ className = "" }) {
     email: "",
     optIn: false,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -16,7 +18,19 @@ export default function Newsletter({ className = "" }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: wire up subscription endpoint
+    setIsSubmitting(true);
+    console.log("Newsletter signup submitted:", { ...form });
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setForm({
+        firstName: "",
+        lastName: "",
+        email: "",
+        optIn: false,
+      });
+    }, 700);
   };
 
   return (
@@ -79,19 +93,25 @@ export default function Newsletter({ className = "" }) {
               />
             </div>
 
-            <label className="nl__checkbox">
+            {/* <label className="nl__checkbox">
               <input
                 type="checkbox"
-                name="optIn"
+                  name="optIn"
                 checked={form.optIn}
                 onChange={handleChange}
               />
               <span>Yes, keep me informed about MTJF programs and upcoming campaigns</span>
-            </label>
+            </label> */}
 
-            <button className="nl__submit" type="submit">
-              Sign Up Now
+            <button className="nl__submit" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Sign Up Now"}
             </button>
+
+            {isSubmitted && (
+              <p className="nl__success" role="status">
+                &#10003; Your submission was successful.
+              </p>
+            )}
 
           </form>
         </div>

@@ -111,8 +111,7 @@ export default function ImpactCards({
     
     clearTimeout(autoplayTimer.current);
     autoplayTimer.current = setInterval(() => {
-      setIndex((i) => i + 1);
-      setStart((s) => (s + 1 + total) % total);
+      step(1);
     }, autoplayInterval);
   };
 

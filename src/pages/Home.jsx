@@ -5,6 +5,7 @@ import Footer from "../components/Footer/Footer";
 import backgroundImage from "../assets/img/home/background.png";
 import mobileImage from "../assets/img/home/mbl-background.png";
 import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
+import Newsletter from "../components/NewsletterSignup/Newsletter";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import { impactSectionData } from "../components/data/impactSectionData";
 
@@ -39,12 +40,13 @@ const Home = () => {
         title="The Impact of Your Donations"
       />
 
-
+    
       <VideoSection
         videoId="KPg1Ux3juAU"
         title="Together for Humanity | Support Those in Need"
         channel="MTJ Foundation Canada"
       />
+       <Newsletter />
 
       <Footer />
     </>

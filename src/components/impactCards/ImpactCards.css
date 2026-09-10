@@ -281,8 +281,25 @@
     padding: 44px 24px 36px;
   }
 
+  .zi__grid-container {
+    width: 100%;
+  }
+
+  .zi__grid {
+    min-width: 100%;
+  }
+
+  .zi__card {
+    opacity: 1;
+    animation: none;
+  }
+
   .zi__slide {
     padding: 0 9px; /* Creates gap between cards (18px total) */
+  }
+
+  .zi__slide .zi__card {
+    max-width: none;
   }
 
   .zi__title {
