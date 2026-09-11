@@ -35,7 +35,7 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   padding: 40px;
   max-width: 500px;
-  width: 100%;
+  width: 45%;
   position: relative;
   animation: zccSlideUp 0.3s ease-in-out;
 }
@@ -390,5 +390,1171 @@
     padding: 10px 14px;
     font-size: 13px;
     margin-bottom: 8px;
+  }
+}
+
+/* Screenshot-matched modal layout */
+.zcc-overlay {
+  background: rgba(7, 12, 18, 0.72);
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.zcc-card {
+  width: min(100%, 433px);
+  max-width: 433px;
+  max-height: calc(100vh - 40px);
+  padding: 0;
+  overflow: visible;
+  border-radius: 17px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.zcc-header {
+  padding: 20px 32px 18px;
+  border-bottom: 1px solid #dce1e6;
+}
+
+.zcc-title {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #16263a;
+}
+
+.zcc-content {
+  padding: 34px 34px 17px;
+  overflow-y: auto;
+}
+
+.zcc-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #f1f2f3;
+  color: #4d555e;
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 36px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.zcc-close:hover {
+  background: #ffffff;
+  color: #1d2732;
+}
+
+.zcc-instructions {
+  margin: 0 0 28px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #1c2e45;
+}
+
+.zcc-field-group {
+  margin-bottom: 22px;
+}
+
+.zcc-label {
+  margin-bottom: 10px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1c2e45;
+}
+
+.zcc-select {
+  min-height: 47px;
+  padding: 11px 16px;
+  border: 1px solid #cbd3dd;
+  border-radius: 9px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  color: #1c2e45;
+  background-color: #ffffff;
+  background-size: 18px;
+}
+
+.zcc-select:hover {
+  border-color: #aeb9c7;
+}
+
+.zcc-threshold-box {
+  min-height: 49px;
+  margin: -1px 0 33px;
+  padding: 13px 16px;
+  border-radius: 9px;
+  background: #eef4ff;
+}
+
+.zcc-threshold-label,
+.zcc-threshold-value {
+  font-family: "Inter", Arial, sans-serif;
+  color: #1c2e45;
+}
+
+.zcc-threshold-label {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.zcc-threshold-value {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.zcc-btn {
+  min-height: 51px;
+  margin-bottom: 10px;
+  padding: 14px 20px;
+  border-radius: 9px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.zcc-btn--primary {
+  background: #3473e6;
+}
+
+.zcc-btn--primary:hover {
+  background: #2865d5;
+}
+
+.zcc-btn--secondary {
+  border: 1px solid #cbd3dd;
+  background: #ffffff;
+  color: #16263a;
+}
+
+.zcc-btn--secondary:hover {
+  border-color: #aeb9c7;
+  background: #f8fafc;
+}
+
+.zcc-privacy {
+  margin: 14px 0 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #8c9299;
+}
+
+@media (max-width: 768px) {
+  .zcc-card {
+    width: 100%;
+    max-width: 433px;
+  }
+}
+
+@media (max-width: 480px) {
+  .zcc-overlay {
+    padding: 12px;
+  }
+
+  .zcc-card {
+    max-height: calc(100vh - 24px);
+    border-radius: 14px;
+  }
+
+  .zcc-header {
+    padding: 17px 24px 15px;
+  }
+
+  .zcc-content {
+    padding: 28px 20px 14px;
+  }
+
+  .zcc-instructions {
+    margin-bottom: 22px;
+    font-size: 14px;
+  }
+
+  .zcc-label,
+  .zcc-threshold-label,
+  .zcc-threshold-value,
+  .zcc-btn {
+    font-size: 14px;
+  }
+
+  .zcc-select {
+    min-height: 45px;
+    font-size: 14px;
+  }
+
+  .zcc-threshold-box {
+    min-height: 47px;
+    margin-bottom: 22px;
+  }
+
+  .zcc-close {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+.zcc-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 66px;
+}
+
+.zcc-back {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  width: 26px;
+  height: 34px;
+  padding: 0;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #26374c;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.zcc-back:hover {
+  color: #3473e6;
+}
+
+.zcc-cash-step {
+  min-height: 500px;
+}
+
+.zcc-cash-intro {
+  margin: 0 0 26px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1c2e45;
+}
+
+.zcc-amount-group {
+  margin-bottom: 21px;
+}
+
+.zcc-amount-input {
+  display: block;
+  width: 100%;
+  height: 57px;
+  padding: 14px 16px;
+  border: 1px solid #cbd3dd;
+  border-radius: 9px;
+  outline: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  color: #1c2e45;
+  background: #ffffff;
+}
+
+.zcc-amount-input::placeholder {
+  color: #586b82;
+  opacity: 1;
+}
+
+.zcc-amount-input:focus {
+  border-color: #3473e6;
+  box-shadow: 0 0 0 2px rgba(52, 115, 230, 0.14);
+}
+
+.zcc-helper-text {
+  margin: 8px 0 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #43566d;
+}
+
+.zcc-cash-continue {
+  margin-top: 92px;
+}
+
+.zcc-privacy {
+  position: fixed;
+  bottom: 25px;
+  left: 20px;
+  right: 20px;
+  z-index: 1001;
+  margin: 0;
+  color: #e1e3e5;
+}
+
+@media (max-width: 480px) {
+  .zcc-header {
+    min-height: 62px;
+  }
+
+  .zcc-back {
+    left: 16px;
+  }
+
+  .zcc-cash-step {
+    min-height: 470px;
+  }
+
+  .zcc-cash-intro {
+    margin-bottom: 22px;
+    font-size: 14px;
+  }
+
+  .zcc-amount-input {
+    height: 52px;
+    font-size: 14px;
+  }
+
+  .zcc-helper-text {
+    font-size: 12px;
+  }
+
+  .zcc-cash-continue {
+    margin-top: 64px;
+  }
+
+  .zcc-privacy {
+    bottom: 11px;
+    font-size: 10px;
+  }
+}
+
+.zcc-card--metals {
+  max-width: 384px;
+  overflow: visible;
+}
+
+.zcc-card--cash {
+  overflow: visible;
+}
+
+.zcc-card--investments {
+  overflow: visible;
+}
+
+.zcc-card--business {
+  max-width: 428px;
+  overflow: visible;
+}
+
+.zcc-card--debts {
+  max-width: 428px;
+  max-height: none;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  overflow: visible;
+}
+
+.zcc-card--result {
+  max-width: 435px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  overflow: visible;
+}
+
+.zcc-card--manual {
+  max-width: 467px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  overflow: visible;
+}
+
+.zcc-card--manual .zcc-header {
+  min-height: 69px;
+  padding: 19px 24px 17px;
+}
+
+.zcc-card--manual .zcc-title {
+  font-size: 18px;
+}
+
+.zcc-card--manual .zcc-back {
+  left: 21px;
+}
+
+.zcc-card--manual .zcc-content {
+  padding: 37px 36px 28px;
+}
+
+.zcc-manual-step {
+  min-height: 490px;
+}
+
+.zcc-manual-intro {
+  max-width: 380px;
+  margin: 0 auto 31px;
+  text-align: center;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #1c2e45;
+}
+
+.zcc-manual-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 59px;
+  border: 1px solid #cbd3dd;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.zcc-manual-input {
+  min-width: 0;
+  flex: 1;
+  height: 100%;
+  padding: 14px 16px;
+  border: 0;
+  outline: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  color: #1c2e45;
+}
+
+.zcc-manual-input::placeholder {
+  color: #586b82;
+  opacity: 1;
+}
+
+.zcc-manual-input-wrap:focus-within {
+  border-color: #3473e6;
+  box-shadow: 0 0 0 2px rgba(52, 115, 230, 0.14);
+}
+
+.zcc-manual-currency {
+  width: 78px;
+  height: 100%;
+  padding: 0 18px 0 0;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238695a5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 10px center / 16px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  color: #586b82;
+}
+
+.zcc-manual-continue {
+  margin-top: 198px;
+}
+
+.zcc-manual-continue:disabled {
+  cursor: not-allowed;
+  background: #e4e6ed;
+  color: #586b82;
+  box-shadow: none;
+}
+
+.zcc-manual-back {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.zcc-card--result .zcc-header {
+  min-height: 62px;
+  padding: 16px 24px 15px;
+}
+
+.zcc-card--result .zcc-title {
+  font-size: 16px;
+}
+
+.zcc-card--result .zcc-back {
+  left: 20px;
+}
+
+.zcc-card--result .zcc-content {
+  padding: 34px 34px 29px;
+}
+
+.zcc-result-step {
+  min-height: 455px;
+}
+
+.zcc-result-notice {
+  padding: 19px 16px 17px;
+  border-radius: 13px;
+  text-align: center;
+  background: #eef4ff;
+  color: #1c2e45;
+}
+
+.zcc-result-notice h3 {
+  margin: 0 0 7px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.zcc-result-notice p {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.zcc-result-summary {
+  margin-top: 27px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  color: #1c2e45;
+}
+
+.zcc-result-summary > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 35px;
+}
+
+.zcc-result-summary strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.zcc-result-threshold {
+  min-height: 48px !important;
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid #dce1e6;
+}
+
+.zcc-result-continue {
+  margin-top: 78px;
+}
+
+.zcc-card--debts .zcc-privacy {
+  position: absolute;
+}
+
+.zcc-card .zcc-privacy {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  bottom: auto;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  color: #e1e3e5;
+}
+
+.zcc-card--metals .zcc-content {
+  padding: 30px 30px 26px;
+}
+
+.zcc-metals-step {
+  min-height: 540px;
+}
+
+.zcc-metals-intro {
+  max-width: 320px;
+  margin: 0 auto 26px;
+  text-align: center;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #1c2e45;
+}
+
+.zcc-metal-group {
+  margin-bottom: 24px;
+}
+
+.zcc-metal-title {
+  margin: 0 0 17px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #1c2e45;
+}
+
+.zcc-metal-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.zcc-metal-mode,
+.zcc-metal-input {
+  height: 48px;
+  border: 1px solid #cbd3dd;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1c2e45;
+}
+
+.zcc-metal-mode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 14px;
+}
+
+.zcc-metal-mode span {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.1;
+  color: #53677d;
+}
+
+.zcc-metal-mode select {
+  width: 100%;
+  padding: 0 18px 0 0;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238695a5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right center / 16px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  color: #1c2e45;
+}
+
+.zcc-metal-input {
+  width: 100%;
+  padding: 12px 14px;
+  outline: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+}
+
+.zcc-metal-input::placeholder {
+  color: #586b82;
+  opacity: 1;
+}
+
+.zcc-metal-input:focus,
+.zcc-metal-mode:focus-within {
+  border-color: #3473e6;
+  box-shadow: 0 0 0 2px rgba(52, 115, 230, 0.14);
+}
+
+.zcc-metal-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 62px;
+  margin-top: 15px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #eef4ff;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  color: #1c2e45;
+}
+
+.zcc-metal-total strong {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.zcc-metal-total small {
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #43566d;
+}
+
+.zcc-metals-continue {
+  margin-top: 29px;
+}
+
+.zcc-card--investments {
+  max-width: 344px;
+}
+
+.zcc-card--investments .zcc-content {
+  padding: 27px 27px 21px;
+}
+
+.zcc-investments-step {
+  min-height: 545px;
+}
+
+.zcc-investment-option {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  column-gap: 9px;
+  align-items: start;
+  margin-bottom: 25px;
+  cursor: pointer;
+  color: #1c2e45;
+}
+
+.zcc-investment-option input {
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: #3473e6;
+  cursor: pointer;
+}
+
+.zcc-investment-option span {
+  display: flex;
+  flex-direction: column;
+}
+
+.zcc-investment-option strong {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.zcc-investment-option small {
+  max-width: 330px;
+  margin-top: 7px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #43566d;
+}
+
+.zcc-investment-fields {
+  margin: -12px 0 26px 22px;
+}
+
+.zcc-investment-fields--holding {
+  margin-top: -12px;
+}
+
+.zcc-investment-fields + .zcc-investment-option {
+  padding-top: 33px;
+  border-top: 1px solid #dce1e6;
+}
+
+.zcc-investment-field {
+  margin-bottom: 25px;
+}
+
+.zcc-investment-input-wrap {
+  position: relative;
+}
+
+.zcc-investment-input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #cbd3dd;
+  border-radius: 9px;
+  outline: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  color: #1c2e45;
+  background: #ffffff;
+}
+
+.zcc-investment-input::placeholder {
+  color: #1c2e45;
+  opacity: 1;
+}
+
+.zcc-investment-input:focus {
+  border-color: #3473e6;
+  box-shadow: 0 0 0 2px rgba(52, 115, 230, 0.14);
+}
+
+.zcc-investment-field p {
+  margin: 7px 0 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #43566d;
+}
+
+.zcc-investment-help {
+  position: absolute;
+  top: 50%;
+  right: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  transform: translateY(-50%);
+  border: 1px solid #8a9aab;
+  border-radius: 50%;
+  color: #687d93;
+  font-family: Georgia, serif;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.zcc-investments-continue {
+  margin-top: 27px;
+}
+
+.zcc-card--business .zcc-header {
+  min-height: 62px;
+  padding: 16px 24px 15px;
+}
+
+.zcc-card--business .zcc-title {
+  font-size: 16px;
+}
+
+.zcc-card--business .zcc-back {
+  left: 20px;
+}
+
+.zcc-card--business .zcc-content {
+  padding: 34px 30px 25px;
+}
+
+.zcc-card--debts .zcc-header {
+  min-height: 62px;
+  padding: 16px 24px 15px;
+}
+
+.zcc-card--debts .zcc-title {
+  font-size: 16px;
+}
+
+.zcc-card--debts .zcc-back {
+  left: 20px;
+}
+
+.zcc-card--debts .zcc-content {
+  padding: 34px 34px 28px;
+}
+
+.zcc-debts-step {
+  min-height: 0;
+}
+
+.zcc-debt-section h3 {
+  margin: 0 0 8px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #1c2e45;
+}
+
+.zcc-debt-section > p {
+  max-width: 350px;
+  margin: 0 0 25px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #43566d;
+}
+
+.zcc-debt-input {
+  display: block;
+  width: 100%;
+  height: 59px;
+  padding: 14px 16px;
+  border: 1px solid #cbd3dd;
+  border-radius: 9px;
+  outline: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  color: #1c2e45;
+  background: #ffffff;
+}
+
+.zcc-debt-input::placeholder {
+  color: #586b82;
+  opacity: 1;
+}
+
+.zcc-debt-input:focus {
+  border-color: #3473e6;
+  box-shadow: 0 0 0 2px rgba(52, 115, 230, 0.14);
+}
+
+.zcc-debt-liabilities {
+  margin-top: 28px;
+}
+
+.zcc-debt-field {
+  margin-bottom: 23px;
+}
+
+.zcc-debt-field small {
+  display: block;
+  margin-top: 8px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #43566d;
+}
+
+.zcc-debts-continue {
+  margin-top: 30px;
+}
+
+.zcc-card--business.zcc-card {
+  max-height: none;
+}
+
+.zcc-business-step {
+  min-height: 500px;
+}
+
+.zcc-business-option {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  column-gap: 9px;
+  align-items: start;
+  cursor: pointer;
+  color: #1c2e45;
+}
+
+.zcc-business-option input {
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: #3473e6;
+  cursor: pointer;
+}
+
+.zcc-business-option span {
+  display: flex;
+  flex-direction: column;
+}
+
+.zcc-business-option strong {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.zcc-business-option small {
+  margin-top: 7px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #43566d;
+}
+
+.zcc-business-fields {
+  margin: 27px 0 0 29px;
+}
+
+.zcc-business-fields h3 {
+  margin: 0 0 7px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1c2e45;
+}
+
+.zcc-business-description {
+  margin: 0 0 15px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #43566d;
+}
+
+.zcc-business-field {
+  margin-bottom: 17px;
+}
+
+.zcc-business-input {
+  display: block;
+  width: 100%;
+  height: 47px;
+  padding: 12px 14px;
+  border: 1px solid #cbd3dd;
+  border-radius: 8px;
+  outline: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  color: #1c2e45;
+  background: #ffffff;
+}
+
+.zcc-business-input::placeholder {
+  color: #43566d;
+  opacity: 1;
+}
+
+.zcc-business-input:focus {
+  border-color: #3473e6;
+  box-shadow: 0 0 0 2px rgba(52, 115, 230, 0.14);
+}
+
+.zcc-business-field p {
+  margin: 6px 0 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #43566d;
+}
+
+.zcc-business-liabilities-title {
+  margin-top: 25px !important;
+}
+
+.zcc-business-continue {
+  margin-top: 252px;
+}
+
+.zcc-business-step--active .zcc-business-continue {
+  margin-top: 24px;
+}
+
+.zcc-business-step--active {
+  min-height: 0;
+}
+
+.zcc-card--business-active .zcc-content {
+  max-height: none;
+  overflow-y: visible;
+}
+
+.zcc-overlay--business {
+  align-items: flex-start;
+}
+
+.zcc-overlay--business {
+  align-items: flex-start;
+}
+
+.zcc-card--business {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.zcc-card--investments .zcc-header {
+  min-height: 51px;
+  padding: 13px 20px 12px;
+}
+
+.zcc-card--investments .zcc-title {
+  font-size: 14px;
+}
+
+.zcc-card--investments .zcc-back {
+  left: 17px;
+  font-size: 27px;
+}
+
+.zcc-card--investments .zcc-btn {
+  min-height: 41px;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.zcc-card--metals .zcc-privacy {
+  position: absolute;
+}
+
+.zcc-card--cash .zcc-privacy {
+  position: absolute;
+}
+
+.zcc-card--metals .zcc-privacy {
+  position: static;
+  margin: 14px 0 0;
+  color: #8c9299;
+}
+
+@media (max-width: 480px) {
+  .zcc-card--metals .zcc-content {
+    padding: 26px 20px 20px;
+  }
+
+  .zcc-metals-step {
+    min-height: 500px;
+  }
+
+  .zcc-metals-intro {
+    margin-bottom: 22px;
+    font-size: 13px;
+  }
+
+  .zcc-metal-entry {
+    gap: 10px;
+  }
+
+  .zcc-metal-mode,
+  .zcc-metal-input {
+    height: 46px;
+  }
+
+  .zcc-metal-total {
+    min-height: 58px;
+  }
+
+  .zcc-card--investments .zcc-content {
+    padding: 30px 20px 24px;
+  }
+
+  .zcc-investments-step {
+    min-height: 450px;
+  }
+
+  .zcc-investment-option strong {
+    font-size: 14px;
+  }
+
+  .zcc-investment-option small {
+    font-size: 12px;
+  }
+
+  .zcc-investment-fields {
+    margin-left: 29px;
+  }
+
+  .zcc-investment-input {
+    height: 58px;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .zcc-investment-field p {
+    font-size: 12px;
+  }
+
+  .zcc-investments-continue {
+    margin-top: 190px;
+  }
+
+  .zcc-card--business .zcc-content {
+    padding: 28px 20px 22px;
+  }
+
+  .zcc-business-option strong {
+    font-size: 14px;
+  }
+
+  .zcc-business-option small,
+  .zcc-business-description {
+    font-size: 12px;
+  }
+
+  .zcc-business-fields {
+    margin-left: 29px;
+  }
+
+  .zcc-business-continue {
+    margin-top: 190px;
   }
 }
