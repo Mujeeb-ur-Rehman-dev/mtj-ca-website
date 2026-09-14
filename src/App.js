@@ -16,6 +16,7 @@ const RationProgram = lazy(() => import("./pages/RationProgram"));
 const AutomatedGiving = lazy(() => import("./pages/AutomatedGiving"));
 const EmergencyReliefLebanon = lazy(() => import("./pages/EmergencyReliefLebanon"));
 const PalestineRelief = lazy(() => import("./pages/PalestineRelief"));
+const NepalFloods = lazy(() => import("./pages/NepalFloods"));
 const SriLankaFloods = lazy(() => import("./pages/SriLankaFloods"));
 const ApnaGhar = lazy(() => import("./pages/ApnaGhar"));
 const MedicalCareHealth = lazy(() => import("./pages/MedicalCareHealth"));
@@ -49,6 +50,7 @@ function App() {
             <Route path="/automated-giving" element={<AutomatedGiving />} />
             <Route path="/emergency-relief-lebanon" element={<EmergencyReliefLebanon />} />
             <Route path="/palestine-relief" element={<PalestineRelief />} />
+            <Route path="/nepal-floods" element={<NepalFloods />} />
             <Route path="/sri-lanka-floods" element={<SriLankaFloods />} />
             <Route path="/apna-ghar" element={<ApnaGhar />} />
             <Route path="/medical-care-health" element={<MedicalCareHealth />} />
