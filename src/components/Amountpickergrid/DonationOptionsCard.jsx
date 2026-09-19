@@ -141,6 +141,11 @@ export default function DonationOptionsCard({
                 {option.text && (
                   <span className="donation-options-card__text">{option.text}</span>
                 )}
+                {isSelected && (
+                  <span className="donation-options-card__check" aria-hidden="true">
+                    ✓
+                  </span>
+                )}
               </button>
             );
           })}

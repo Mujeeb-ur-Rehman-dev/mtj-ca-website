@@ -51,7 +51,7 @@
 
 .categories__slide {
   flex-shrink: 0;
-  padding: 0 12px; /* creates the 24px gap between cards without messing up % widths */
+  padding: 0 5px;
   box-sizing: border-box;
 }
 

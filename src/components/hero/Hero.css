@@ -153,7 +153,7 @@
 }
 
 .hero-content-inner--no-image .hero-text-section {
-  max-width: 600px;
+  max-width: 430px;
 }
 
 .hero-button-group {
@@ -183,7 +183,7 @@
 .hero-secondary-btn .btn-donate-content {
   background-image: var(--hover-img) !important;
   background-size: 100% 100%;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
 }
 
@@ -385,7 +385,7 @@
 
 @media (min-width: 769px) {
   .hero-text-section--emergency {
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 50px;
   }
 

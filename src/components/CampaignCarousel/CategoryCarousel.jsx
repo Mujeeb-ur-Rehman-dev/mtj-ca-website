@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import "./CategoryCarousel.css";
 import WaterReliefImg from "../../assets/img/campaigncarousel/water-relief.webp";
 import PalestineImg from "../../assets/img/campaigncarousel/palestine-emergency-relief.webp";
@@ -18,6 +19,8 @@ const VISIBLE = 3;
 const AUTOPLAY_MS = 4000; // mobile-only auto-advance interval, matches live site
 
 function Card({ c, onNavigate }) {
+  const [isHovering, setIsHovering] = useState(false);
+
   const handleViewClick = (e) => {
     e.stopPropagation();
     if (c?.path) {
@@ -43,8 +46,27 @@ function Card({ c, onNavigate }) {
           aria-label={`View ${c.title}`}
           onClick={(e) => handleViewClick(e)}
           onMouseDown={(e) => e.stopPropagation()}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          style={{
+            backgroundColor: "#fff",
+            color: "#0B212A",
+            width: "25px",
+            height: "25px",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            border: "none",
+            padding: 0,
+            marginLeft: "10px",
+            cursor: "pointer",
+            transition: "transform 0.25s ease, box-shadow 0.25s ease",
+            transform: isHovering ? "translateX(3px)" : "translateX(0)",
+            boxShadow: isHovering ? "0 0 0 4px rgba(11, 33, 42, 0.08)" : "none",
+          }}
         >
-          →
+          <FiArrowRight size={25} />
         </button>
       </div>
     </div>
@@ -241,7 +263,7 @@ export default function CategoryCarousel({
       {showControls && (
         <div className="categories__controls">
           <button onClick={prev} aria-label="Previous">
-            ←
+            <FiArrowLeft size={25} />
           </button>
           <div className="categories__dots">
             {categories.map((c, i) => (
@@ -256,7 +278,7 @@ export default function CategoryCarousel({
             ))}
           </div>
           <button onClick={next} aria-label="Next">
-            →
+            <FiArrowRight size={25} />
           </button>
         </div>
       )}

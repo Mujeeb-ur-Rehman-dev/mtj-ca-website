@@ -13,6 +13,7 @@ const NepalFloods = () => {
   return (
     <>
       <Hero
+        className="nepal-floods-hero"
         title="NEPAL FLOODS APPEAL"
         backgroundImage={backgroundImage}
         heroImage=''
@@ -25,9 +26,9 @@ const NepalFloods = () => {
             title="Nepal Floods Appeal"
             buttonText="Donate and Support"
             options={[
-              { id: '8k', amount: 'Rs 8,000', text: 'provides a hygiene kit', selected: true },
+              { id: '8k', amount: 'Rs 8,000', text: 'provides a hygiene kit' },
               { id: '10k', amount: 'Rs 10K', text: 'provides shelter and bedding to a family' },
-              { id: '12k', amount: 'Rs 12K', text: "provides 2 week's ration pack to a family" },
+              { id: '12k', amount: 'Rs 12K', text: "provides 2 week's ration pack to a family", selected: true },
               { id: 'other', amount: 'Other amount', text: '' },
             ]}
             onDonate={(selectedOption) => {
