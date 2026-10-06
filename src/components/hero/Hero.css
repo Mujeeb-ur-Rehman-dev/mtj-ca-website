@@ -183,7 +183,7 @@
 .hero-secondary-btn .btn-donate-content {
   background-image: var(--hover-img) !important;
   background-size: 100% 100%;
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -379,7 +379,7 @@
 .hero-title--bold {
   font-family: "Finder", Sans-serif !important;
   font-weight: 900;
-  color: #22582D;
+  color: #fff;
   text-transform: uppercase;
 }
 
@@ -398,7 +398,7 @@
   font-family: "Neueleiden", "Inter", Arial, sans-serif;
   font-size: 20px;
   font-weight: 500;
-  color: #0B212A;
+  color: #fff;
   line-height: 28px;
   margin: 0 0 30px 0;
   max-width: 415px;

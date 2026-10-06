@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Hero from "../components/hero/Hero";
 import backgroundImage from "../assets/img/zakat/hero/background-img.png";
-import heroImage from "../assets/img/zakat/hero/right-side.png"
+import heroImage from "../assets/img/zakat/hero/right-side.png";
 import mobileImg from "../assets/img/zakat/hero/mobile-image.png"
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
@@ -42,6 +42,7 @@ const Zakat = () => {
   return (
     <>
       <Hero
+        className="zakat-hero"
         backgroundImage={backgroundImage}
         mobileImage={mobileImg}  
         heroImage={heroImage}

@@ -2,12 +2,13 @@ import React from "react";
 import Hero from "../components/hero/Hero";
 import VideoSection from "../components/VideoSection/VideoSection";
 import Footer from "../components/Footer/Footer";
-import backgroundImage from "../assets/img/home/background.png";
-import mobileImage from "../assets/img/home/mbl-background.png";
+import backgroundImage from "../assets/img/home/nepal-web.jpg";
+import mobileImage from "../assets/img/home/nepal-mbl.jpg";
 import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import { impactSectionData } from "../components/data/impactSectionData";
+import "./Home.css";
 
 // Donation Context
 import { useDonation } from "../context/DonationContext";
@@ -19,16 +20,21 @@ const Home = () => {
   return (
     <>
       <Hero
+        className="home-nepal-hero"
         backgroundImage={backgroundImage}
         heroImage={null}
         mobileImage={mobileImage}
-        title={<>LEBANON<br />EMERGENCY</>}
+        title={<>NEPAL FLOOD<br />EMERGENCY</>}
         boldTitle={true}
         textSectionMarginTop="10%"
-        textSectionMarginLeft="15%"
-        description="The crisis in Lebanon is growing every day. Over 1.1 million people have been forced from their homes, more than 390,000 of them children, crowded into shelters with no food, no hygiene, and no way to cook a meal."
+        textSectionMarginLeft="10%"
+        descriptionColor="#FFFFFF"
+        mobileDescriptionColor="#000000"
+        description="Severe floods swept through Nepal’s Bhotekoshi–Trishuli river basin on August 26, destroying homes, roads, and critical infrastructure."
         buttonText="Donate Now"
-        onButtonClick={() => openDonation('lebanon')}
+        onButtonClick={() => openDonation('nepal')}
+        secondaryButtonText="Learn More"
+        secondaryButtonLink="/nepal-floods"
         showMobileButtonAboveText={true}
         buttonVariant="maroon" />
 

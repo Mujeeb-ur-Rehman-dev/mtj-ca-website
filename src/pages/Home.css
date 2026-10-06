@@ -1,0 +1,42 @@
+.home-nepal-hero .hero-donate-btn .btn-donate-content {
+  background-color: #fff;
+  background-image: none !important;
+  clip-path: polygon(
+    2.7% 0, 15.7% 0, 18.6% 7.3%, 21.3% 0, 47.5% 0,
+    50% 6.6%, 52.7% 0, 78.7% 0, 81.4% 7.3%, 84% 0,
+    97.3% 0, 97.3% 7.3%, 100% 7.3%, 100% 42.7%,
+    97.4% 50%, 100% 58.1%, 100% 92.7%, 97.3% 92.7%,
+    97.3% 100%, 84% 100%, 81.4% 92.7%, 78.7% 100%,
+    52.7% 100%, 50% 93.4%, 47.5% 100%, 21.3% 100%,
+    18.6% 92.7%, 15.7% 100%, 2.7% 100%, 2.7% 92.7%,
+    0 92.7%, 0 58.1%, 2.6% 50%, 0 42.7%, 0 7.3%, 2.7% 7.3%
+  );
+  color: #000;
+}
+
+.home-nepal-hero .hero-donate-btn .btn-donate-content:hover {
+  background-image: var(--hover-img) !important;
+  background-size: 100% 100%;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .home-nepal-hero .hero-mobile-button-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .home-nepal-hero .hero-mobile-button-row .hero-button-group {
+    justify-content: center;
+  }
+
+  .home-nepal-hero .hero-mobile-button-row .hero-secondary-btn {
+    display: none;
+  }
+
+  .home-nepal-hero .hero-mobile-button-row .hero-donate-btn .btn-donate-content {
+    background-color: #68101a;
+    background-image: none !important;
+    color: #fff;
+  }
+}

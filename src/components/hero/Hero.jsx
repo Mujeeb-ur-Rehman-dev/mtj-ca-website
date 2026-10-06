@@ -39,6 +39,7 @@ const Hero = ({
   boldTitle = false,
   titleColor,
   descriptionColor,
+  mobileDescriptionColor,
   textSectionMarginTop,
   textSectionMarginLeft,
 
@@ -55,6 +56,9 @@ const Hero = ({
   const titleClassName = `hero-title${boldTitle ? " hero-title--bold" : ""}`;
   const titleStyle = titleColor ? { color: titleColor } : undefined;
   const descriptionStyle = descriptionColor ? { color: descriptionColor } : undefined;
+  const mobileDescriptionStyle = mobileDescriptionColor
+    ? { color: mobileDescriptionColor }
+    : undefined;
   const isEmergencyStyle = boldTitle || Boolean(cardContent);
 
   const textSectionClassName = `hero-text-section${
@@ -143,7 +147,7 @@ const Hero = ({
         <>
           <p
             className="hero-description"
-            style={!isMobile ? descriptionStyle : undefined}
+            style={isMobile ? mobileDescriptionStyle : descriptionStyle}
           >
             {description}
           </p>
