@@ -391,8 +391,10 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                       value={designation}
                       onChange={(e) => setDesignation(e.target.value)}
                     >
+                     
                       {data.designationOptions.map((opt) => (
                         <option key={opt.value} value={opt.value}>
+                           
                           {opt.label}
                         </option>
                       ))}

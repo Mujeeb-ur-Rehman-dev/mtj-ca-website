@@ -321,19 +321,25 @@
 
 /* ========== Designation ========== */
 .designation-wrapper {
+  position: relative;
   margin-bottom: 16px;
 }
 
 .designation-label {
-  display: block;
+  position: absolute;
+  top: 9px;
+  left: 14px;
+  z-index: 1;
   font-size: 13px;
   color: #64748b;
-  margin-bottom: 6px;
+  line-height: 16px;
+  pointer-events: none;
 }
 
 .designation-select {
   width: 100%;
-  padding: 12px 14px;
+  height: 65px;
+  padding: 25px 14px 8px;
   border: 1.5px solid #e2e8f0;
   border-radius: 10px;
   font-size: 15px;
@@ -1454,4 +1460,3 @@
     padding-left: 20px;
   }
 }
-

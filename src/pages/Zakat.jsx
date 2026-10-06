@@ -48,6 +48,8 @@ const Zakat = () => {
         heroImage={heroImage}
         title="YOUR ZAKAT, THEIR RIGHT"
         description="Through MTJF, your Zakat becomes food for the hungry, care for the sick, and clean water for the thirsty. This is mercy in action, connecting us as one Ummah."
+        descriptionColor="#000000"
+        mobileDescriptionColor="#000000"
         buttonText="Donate Now"
         onButtonClick={() => openDonation('zakat')}
         secondaryButtonText="Calculate Zakat"
