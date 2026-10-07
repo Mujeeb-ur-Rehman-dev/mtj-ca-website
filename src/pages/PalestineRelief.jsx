@@ -17,6 +17,7 @@ const PalestineRelief = () => {
   return (
     <>
         <Hero
+             className="palestine-relief-hero"
              backgroundImage={backgroundImage}
              mobileImage={mobileImg}  
              heroImage={heroImage}
@@ -36,6 +37,7 @@ const PalestineRelief = () => {
        }
            />
                <InfoSection
+                        className="palestine-info-section"
                         title="Lifting Gaza Out of Crisis"
                         paragraphs={[
                          "The humanitarian crisis in Gaza has reached an unprecedented level. Nine in ten residents — 1.9 million people — have been forcibly displaced, fleeing relentless airstrikes and destruction. Families have lost their homes, livelihoods, and sense of security. With limited access to food and clean water, they are struggling to survive each day.",
@@ -45,7 +47,8 @@ const PalestineRelief = () => {
                          image ='' 
                          />
              <ImpactCards
-                   title="YOUR GENEROSITY CAN BRING COMFORT IN THEIR DARKEST HOUR"
+                   className="palestine-impact-cards"
+                   title={<>YOUR GENEROSITY CAN BRING<br />COMFORT IN THEIR DARKEST HOUR</>}
                    backgroundColor="#0B212A"
                     cards={[
                              { title: "Food Distribution", amount: "$95", description: "Provide a food parcel with essential staples such as rice, lentils, oil, tea, and canned foods.", donateLink: "#donate" },

@@ -14,6 +14,7 @@ export default function ImpactCards({
   backgroundColor = "#22582d",
   autoplay = true,
   autoplayInterval = 4000,
+  className = "",
 }) {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth <= 768 : false
@@ -168,7 +169,7 @@ export default function ImpactCards({
   const trackCount = track.length;
 
   return (
-    <section className="zi" ref={sectionRef} style={{ background: backgroundColor }}>
+    <section className={`zi ${className}`.trim()} ref={sectionRef} style={{ background: backgroundColor }}>
       {/* ── Section heading ── */}
       <h2 className="zi__title">{title}</h2>
 

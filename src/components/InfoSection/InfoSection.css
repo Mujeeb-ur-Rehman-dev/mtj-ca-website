@@ -161,40 +161,34 @@
 }
 
 .wzk__stamp {
-  background-color: #0b212a;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
   max-width: 560px;
   position: relative;
-
-  -webkit-mask:
-    radial-gradient(circle at 50% 0%,    transparent 12px, #000 13px) top    center / 28px 14px repeat-x,
-    radial-gradient(circle at 50% 100%,  transparent 12px, #000 13px) bottom center / 28px 14px repeat-x,
-    radial-gradient(circle at 0%   50%,  transparent 12px, #000 13px) left   center / 14px 28px repeat-y,
-    radial-gradient(circle at 100% 50%,  transparent 12px, #000 13px) right  center / 14px 28px repeat-y,
-    linear-gradient(#000 0 0) 14px 14px / calc(100% - 28px) calc(100% - 28px) no-repeat;
-  mask:
-    radial-gradient(circle at 50% 0%,    transparent 12px, #000 13px) top    center / 28px 14px repeat-x,
-    radial-gradient(circle at 50% 100%,  transparent 12px, #000 13px) bottom center / 28px 14px repeat-x,
-    radial-gradient(circle at 0%   50%,  transparent 12px, #000 13px) left   center / 14px 28px repeat-y,
-    radial-gradient(circle at 100% 50%,  transparent 12px, #000 13px) right  center / 14px 28px repeat-y,
-    linear-gradient(#000 0 0) 14px 14px / calc(100% - 28px) calc(100% - 28px) no-repeat;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  -webkit-mask: none;
+  mask: none;
 }
 
 .wzk__photo {
   width: 100%;
   height: auto;
   display: block;
-  padding: 18px;
+  padding: 0;
   box-sizing: border-box;
+  border: none;
+  background: transparent;
 }
 
 .wzk__stamp--plain {
-  background: none;
+  background: transparent;
+  border: none;
   -webkit-mask: none;
   mask: none;
+  overflow: visible;
 }
 
 .wzk__stamp--plain .wzk__photo {
@@ -307,5 +301,108 @@
   .wzk__deco--tr,
   .wzk__deco--br {
     opacity: 0.5;
+  }
+}
+
+.lebanon-info-section {
+  padding: 60px 10.4%;
+}
+
+.palestine-info-section .wzk__title {
+  font-size: clamp(16px, 2.5vw, 34px);
+  white-space: nowrap;
+}
+
+.lebanon-info-section .wzk__inner {
+  max-width: 1500px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.lebanon-info-section .wzk__title {
+  font-size: clamp(12px, 2.8vw, 42px);
+  line-height: 1.1;
+  margin-bottom: 26px;
+  white-space: nowrap;
+}
+
+.lebanon-info-section .wzk__body,
+.lebanon-info-section .wzk__list li {
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1.35;
+}
+
+.lebanon-info-section .wzk__body {
+  margin-bottom: 10px;
+}
+
+.lebanon-info-section .wzk__list {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin: 0 0 2px;
+  padding-left: 22px;
+}
+
+.lebanon-info-section .wzk__list li {
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+.lebanon-info-section .wzk__deco-column {
+  min-height: 560px;
+  display: none;
+}
+
+.lebanon-info-section .wzk__deco-column-piece--1 {
+  top: -4%;
+  left: 5%;
+  width: 180px;
+}
+
+.lebanon-info-section .wzk__deco-column-piece--2 {
+  top: 10%;
+  right: -8%;
+  width: 300px;
+}
+
+.lebanon-info-section .wzk__deco-column-piece--3 {
+  bottom: 0;
+  left: 15%;
+  width: 170px;
+}
+
+.lebanon-info-section .wzk__deco-column-piece--4 {
+  bottom: 0;
+  right: 5%;
+  width: 180px;
+}
+
+.lebanon-info-section .hero-donate-btn .btn-donate-content {
+  margin-top: 34px;
+}
+
+@media (max-width: 900px) {
+  .lebanon-info-section {
+    padding: 50px 28px;
+  }
+
+  .lebanon-info-section .wzk__inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .lebanon-info-section .wzk__title {
+    text-align: left;
+  }
+
+  .lebanon-info-section .wzk__btn {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .lebanon-info-section {
+    padding: 40px 20px;
   }
 }

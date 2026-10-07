@@ -20,6 +20,7 @@ const EmergencyReliefLebanon = () => {
   return (
     <>
       <Hero
+        className="lebanon-emergency-hero"
         backgroundImage={backgroundImage}
         heroImage={null}
         title="Lebanon Emergency"
@@ -42,6 +43,7 @@ const EmergencyReliefLebanon = () => {
   }
       />
          <InfoSection
+             className="lebanon-info-section"
              title="FAMILIES IN LEBANON NEED YOU NOW"
              paragraphs={[
               "The crisis in Lebanon is growing every day. Over 1.1 million people have been forced from their homes, more than 390,000 of them children, crowded into shelters with no food, no hygiene, and no way to cook a meal.",
@@ -53,11 +55,13 @@ const EmergencyReliefLebanon = () => {
     "Send an emergency pack today."
              ]}
               image ='' 
+              showDeco
               buttonText="Donate Now"
               onButtonClick={() => openDonation('lebanon')}
               />
                <ImpactCards
-                        title="YOUR GENEROSITY CAN BRING COMFORT IN THEIR DARKEST HOUR"
+                        className="lebanon-impact-cards"
+                        title={<>YOUR GENEROSITY CAN BRING<br />COMFORT IN THEIR DARKEST HOUR</>}
                         backgroundColor="#0B212A"
                         cards={[
                                { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },

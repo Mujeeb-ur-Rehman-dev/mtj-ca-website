@@ -6,9 +6,9 @@
 
 .dcard {
   width: 100%;
-  max-width: 380px;
+  max-width: 350px;
   background: #ffffff;
-  border: 2px solid #1E7A3C;
+  border: 3px solid #1E7A3C;
   border-radius: 18px;
   padding: 26px 22px;
   box-sizing: border-box;
@@ -196,9 +196,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 10px;
+  padding: 9px 10px;
   font-size: 15.5px;
-  font-weight: 700;
   color: #1a1a1a;
   background: #ffffff;
   border: 1.5px solid #d0d0d0;
@@ -224,7 +223,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  padding: 18px 22px;
+  padding: 6px 11px;
   border: 1.5px solid #cfcfcf;
   border-radius: 14px;
   background: #ffffff;
@@ -266,8 +265,6 @@
   border: none;
   background: transparent;
   outline: none;
-  font-size: 36px;
-  font-weight: 800;
   font-family: inherit;
   color: #4CAF50;
   width: 100%;
@@ -275,11 +272,6 @@
   letter-spacing: -0.5px;
 }
 
-.dcard__amount-input::placeholder {
-  color: #9bb8a0;
-  font-weight: 600;
-  font-size: 22px;
-}
 
 /* ── Currency selector (Monthly row only) ── */
 .dcard__currency-select {
@@ -301,11 +293,10 @@
 .dcard__btn {
   width: 100%;
   margin-top: 26px;
-  padding: 20px 16px;
+  padding: 10px 12px;
   background: #1f4d2a;
   color: #ffffff;
   font-size: 20px;
-  font-weight: 700;
   font-family: inherit;
   border: none;
   border-radius: 14px;

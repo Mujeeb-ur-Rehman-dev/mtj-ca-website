@@ -9,7 +9,7 @@
   background-image: url("../../assets/img/newsletter/bg-newsletter.png");
   background-size: cover;
   background-position: center;
-  padding: 60px 20px; /* matches elementor-element-4f35877 padding: 60px 20px 60px 20px */
+  padding: 20px 20px; /* matches elementor-element-4f35877 padding: 60px 20px 60px 20px */
   min-height: 300px;
 }
 
@@ -85,17 +85,17 @@
    */
 
   -webkit-mask:
-    radial-gradient(circle at 50% 0%,    #0000 10px, #000 11px) top    center / 26px 13px repeat-x,
-    radial-gradient(circle at 50% 100%,  #0000 10px, #000 11px) bottom center / 26px 13px repeat-x,
-    radial-gradient(circle at 0%   50%,  #0000 10px, #000 11px) left   center / 13px 26px repeat-y,
+    radial-gradient(circle at 50% 0%,    #0000 9px, #000 11px) top    center / 26px 13px repeat-x,
+    radial-gradient(circle at 50% 100%,  #0000 9px, #000 11px) bottom center / 26px 13px repeat-x,
+    radial-gradient(circle at 0%   50%,  #0000 9px, #000 11px) left   center / 13px 26px repeat-y,
     radial-gradient(circle at 100% 50%,  #0000 10px, #000 11px) right  center / 13px 26px repeat-y,
     linear-gradient(#000 0 0) 13px 13px / calc(100% - 26px) calc(100% - 26px) no-repeat;
 
   mask:
-    radial-gradient(circle at 50% 0%,    #0000 10px, #000 11px) top    center / 26px 13px repeat-x,
-    radial-gradient(circle at 50% 100%,  #0000 10px, #000 11px) bottom center / 26px 13px repeat-x,
-    radial-gradient(circle at 0%   50%,  #0000 10px, #000 11px) left   center / 13px 26px repeat-y,
-    radial-gradient(circle at 100% 50%,  #0000 10px, #000 11px) right  center / 13px 26px repeat-y,
+    radial-gradient(circle at 50% 0%,    #0000 9px, #000 11px) top    center / 45px 20px repeat-x,
+    radial-gradient(circle at 50% 100%,  #0000 9px, #000 11px) bottom center / 45px 20px repeat-x,
+    radial-gradient(circle at 0%   50%,  #0000 9px, #000 11px) left   center / 45px 40px repeat-y,
+    radial-gradient(circle at 100% 50%,  #0000 10px, #000 11px) right  center / 45px 40px repeat-y,
     linear-gradient(#000 0 0) 13px 13px / calc(100% - 26px) calc(100% - 26px) no-repeat;
 
   padding: 40px; /* matches .signup-form padding: 40px */

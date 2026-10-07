@@ -25,6 +25,8 @@ const Sadaqah = () => {
         heroImage={heroImage}
         title="Sadaqah"
         description="For a parent who can’t fill the table, relief is a simple meal. For a child who’s sick, it’s access to medical care. For a family drinking unsafe water, it’s a clean source nearby. Your Sadaqah is that relief."
+        descriptionColor="#000000"
+        mobileDescriptionColor="#000000"
         buttonText="Give Sadaqah"
          onButtonClick={() => openDonation('sadaqah')}
       />
