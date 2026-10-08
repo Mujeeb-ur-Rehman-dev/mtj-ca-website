@@ -622,3 +622,40 @@
   font-weight: 500;
   white-space: nowrap;
 }
+
+.apna-ghar-hero .hero-title {
+  font-size: clamp(38px, 4vw, 54px);
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.apna-ghar-hero .hero-title > span:first-child {
+  white-space: nowrap;
+}
+
+.apna-ghar-hero .apna-ghar-hero-subtitle {
+  display: block;
+  font-size: clamp(20px, 2.3vw, 28px);
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .apna-ghar-hero .hero-title {
+    font-size: 32px;
+  }
+
+  .apna-ghar-hero .apna-ghar-hero-subtitle {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apna-ghar-hero .hero-title {
+    font-size: 30px;
+  }
+
+  .apna-ghar-hero .apna-ghar-hero-subtitle {
+    font-size: 20px;
+  }
+}

@@ -88,6 +88,11 @@
   letter-spacing: 0.5px;
 }
 
+.sri-lanka-floods-info .wzk__title {
+  width: calc(200% + 80px);
+  text-align: left;
+}
+
 /* Body paragraphs — one per array item, each its own line/block */
 .wzk__body {
   font-size: clamp(13.5px, 1.1vw, 15.5px);
@@ -251,6 +256,9 @@
   .wzk__inner {
     gap: 50px;
   }
+  .sri-lanka-floods-info .wzk__title {
+    width: calc(200% + 50px);
+  }
 }
 
 @media (max-width: 900px) {
@@ -272,6 +280,10 @@
   }
   .wzk__title {
     text-align: center;
+  }
+  .sri-lanka-floods-info .wzk__title {
+    width: 100%;
+    text-align: left;
   }
   .wzk__body {
     text-align: left;

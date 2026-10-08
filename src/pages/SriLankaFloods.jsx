@@ -38,7 +38,8 @@ const SriLankaFloods = () => {
   }
       />
        <InfoSection
-                              title="Families Are Stranded. Children Are Hungry - Send Relief Today"
+                              className="sri-lanka-floods-info"
+                              title={<>FAMILIES ARE STRANDED. CHILDREN ARE<br />HUNGRY - SEND RELIEF TODAY</>}
                               paragraphs={[
                                "Sri Lanka is facing one of its worst disasters in years. ",
                      "Floods and landslides caused by Cyclone Ditwah have displaced families, destroyed homes, and left 1.4 million people without the basics they need to get through the day.",
@@ -56,6 +57,7 @@ const SriLankaFloods = () => {
         channel="MTJ Foundation Canada"
       />
           <ImpactCards
+                          className="sri-lanka-impact-cards"
                           title="how you can help"
                           backgroundColor="#0B212A"
                            cards={[

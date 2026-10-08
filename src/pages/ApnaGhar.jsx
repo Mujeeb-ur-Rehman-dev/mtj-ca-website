@@ -30,13 +30,19 @@ const ApnaGhar = () => {
   return (
     <>
       <Hero
+        className="apna-ghar-hero"
         backgroundImage={backgroundImage}
         mobileImage={backgroundImage}
         heroImage={null}
-        title="Apna Ghar Keep Families Together"
+        title={
+          <>
+            <span>APNA GHAR</span>
+            <span className="apna-ghar-hero-subtitle">KEEP FAMILIES TOGETHER</span>
+          </>
+        }
         boldTitle={true}
         titleColor="#FFFFFF"
-        description="Apna Ghar provides safe homes for widows and orphans in South Punjab, so no mother has to choose between keeping her children or keeping them safe. Help build homes that give families stability, dignity, and hope for the future."
+        description=""
         descriptionColor="#FFFFFF"
         buttonText=""
         buttonLink=""
