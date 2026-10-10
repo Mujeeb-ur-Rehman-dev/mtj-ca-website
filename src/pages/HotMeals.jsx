@@ -2,10 +2,9 @@ import React from "react";
 import Hero from "../components/hero/Hero";
 import Footer from "../components/Footer/Footer";
 import DonatinCards from "../components/DonatinCards/DonatinCards";
-import backgroundImage from "../assets/img/PalestineRelief/background.png";
 import ImpactCards from "../components/impactCards/ImpactCards";
-import mobileImg from "../assets/img/HotMeals/mobileImg.png";
-import heroImage from "../assets/img/HotMeals/heroImage.png";
+import mobileImg from "../assets/img/HotMeals/mobileImg.jpg";
+import heroImage from "../assets/img/HotMeals/heroImage.jpg";
 import InfoSection from "../components/InfoSection/InfoSection";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
@@ -16,37 +15,46 @@ const HotMeals = () => {
   return (
     <>
       <Hero
-             backgroundImage={backgroundImage}
+             className="hot-meals-hero"
+             backgroundImage={heroImage}
              mobileImage={mobileImg}  
-             heroImage={heroImage}
-             title="PALESTINE EMERGENCY"
+             heroImage={null}
+             title="$10 HOT MEAL - REAL IMPACT"
              description=""
              buttonText=""
              buttonLink=""
              cardContent={
                       <DonatinCards
-                       campaignTitle="Palestine Emergency Relief"
-                       defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
+                       className="hot-meals-hero-donation-card"
+                       campaignTitle="Provide Food Security"
+                       defaultFrequency="monthly"
+                       defaultSelectedIndex={1}
+                       monthlyUsesOneTimeOptions
                        options={[
-                               { amount: "20K", description: "Feed's a Family for a Day" },
-                               { amount: "35K", description: "Feed's a Family for a Week" },
-                               { amount: "90K", description: "Feed's a Family for a Month" },
+                               { amount: "2,000", description: "Provide 1 Hot Meal to Someone in Need" },
+                               { amount: "10K", description: "Serve 5 Fresh, Nourishing Meals" },
+                               { amount: "20K", description: "Feed 10 People Battling Hunger" },
                                   ]}
            onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
          />
        }
            />
-         <InfoSection
-                                         title="Vocational Training to Empower Communities in Pakistan."
-                                         paragraphs={[
-                                          "Across Pakistan, millions dream of a better life but lack the opportunity to earn it. Every year, the country needs over one million skilled workers, yet less than half are trained. This gap leaves families trapped in poverty, with widows and vulnerable groups affected the most.",
-                                "That’s what we are working to change through the KASB Vocational Training Program. ",
-                                "We don’t just teach skills, we create opportunities. From football stitching to e-commerce, trainees even earn while training. When training ends, our team helps with job placement or starting a small business so stability lasts.",
-                                "Imagine the impact: a widow starting her own small business, or a young man finding stable employment. A single donation can open a door, put steady income in a home, and end the cycle of dependency. ",
-                                "Equip a family with a skill that pays, starting today. ",
-                                ]}
-                                          image ='' 
-                                          />
+      <InfoSection
+        className="hot-meals-info-section"
+        title="One-third of food bank visitors are children - $10 feeds a child"
+        paragraphs={[
+          "Canada is facing a food crisis we can’t ignore. In a single month last year, food banks recorded over 2 million visits, the highest number ever recorded, and one-third of those visitors were children.",
+          "Rising food prices mean more neighbours are struggling to feed their families.",
+          "Our $10 Hot Meal initiative makes sure our neighbours don’t go to bed on an empty stomach. We’re currently serving hot, freshly prepared meals to those experiencing hunger in downtown Toronto.",
+          "With your support, we’re working to expand this across the GTA, reaching more shelters, communities, and people in need.",
+          "Every meal is made with care, rooted in the Islamic values of service, mercy, and dignity.",
+          "The goal is simple: Feed more people. Serve more communities. And remind them that they’re not forgotten.",
+          "With just $10, you can be part of this great cause.",
+          "In collaboration with MDI.",
+        ]}
+        buttonText="Donate Now"
+        buttonVariant="maroon"
+      />
         <ImpactCards
                                      title="how you can help"
                                      backgroundColor="#0B212A"

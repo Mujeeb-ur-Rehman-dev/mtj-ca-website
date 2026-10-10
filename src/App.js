@@ -25,6 +25,7 @@ const KASB = lazy(() => import("./pages/KASB"));
 const HotMeals = lazy(() => import("./pages/HotMeals"));
 const Education = lazy(() => import("./pages/Education"));
 const CleanWater = lazy(() => import("./pages/CleanWater"));
+const OnlineIslamicCounselling = lazy(() => import("./pages/OnlineIslamicCounselling"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const Reports = lazy(() => import("./pages/Reports"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
@@ -59,6 +60,7 @@ function App() {
             <Route path="/hot-meals" element={<HotMeals />} />
             <Route path="/education" element={<Education />} />
             <Route path="/clean-water" element={<CleanWater />} />
+            <Route path="/online-islamic-counselling" element={<OnlineIslamicCounselling />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/about-us" element={<AboutUs />} />

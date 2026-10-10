@@ -80,12 +80,189 @@
 .wzk__title {
   font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(26px, 3vw, 40px);
-  font-weight: 900;
+  font-weight: 600;
   color: #0b212a;
   text-transform: uppercase;
   line-height: 1.15;
   margin: 0 0 28px;
   letter-spacing: 0.5px;
+}
+
+.apna-ghar-info-section {
+  background: #fffaee;
+  padding: 52px 20px 24px;
+}
+
+.apna-ghar-info-section .wzk__inner {
+  max-width: 912px;
+  display: block;
+  padding: 0;
+}
+
+.apna-ghar-info-section .wzk__text {
+  display: block;
+  width: 100%;
+}
+
+.apna-ghar-info-section .wzk__title {
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: clamp(34px, 4.2vw, 54px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: #0d2130;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  max-width: 100%;
+}
+
+.apna-ghar-info-section .wzk__body,
+.apna-ghar-info-section .wzk__list {
+  max-width: 100%;
+}
+
+.apna-ghar-info-section .wzk__body {
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 21px;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.medical-care-info-section {
+  padding: 68px 20px 40px;
+}
+
+.medical-care-info-section .wzk__inner {
+  display: block;
+  max-width: 1000px;
+}
+
+.medical-care-info-section .wzk__text {
+  align-items: stretch;
+}
+
+.medical-care-info-section .wzk__title {
+  max-width: 100%;
+  margin: 0 0 2px;
+  color: #0d2130;
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: clamp(34px, 3.6vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.medical-care-info-section .wzk__body,
+.medical-care-info-section .wzk__list {
+  max-width: 100%;
+  color: #0d2130;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.medical-care-info-section .wzk__body {
+  margin-bottom: 16px;
+}
+
+.medical-care-info-section .wzk__list {
+  list-style: disc;
+  list-style-position: outside;
+  margin: 0 0 2px;
+  padding-left: 50px;
+}
+
+.medical-care-info-section .wzk__list li {
+  font-size: inherit;
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+
+.medical-care-info-section .hero-donate-btn-group {
+  align-self: flex-start;
+  margin-top: 64px;
+}
+
+.food-relief-info-section {
+  padding: 16px 20px 40px;
+}
+
+.food-relief-info-section .wzk__inner {
+  max-width: 960px;
+}
+
+.food-relief-info-section .wzk__text {
+  align-items: stretch;
+}
+
+.food-relief-info-section .wzk__title {
+  margin-bottom: 22px;
+  color: #0d2130;
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: clamp(34px, 3.8vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.food-relief-info-section .wzk__body {
+  max-width: 100%;
+  margin-bottom: 16px;
+  color: #0d2130;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.food-relief-info-section .hero-donate-btn-group {
+  align-self: flex-start;
+}
+
+.kasb-info-section {
+  padding: 52px 20px 40px;
+}
+
+.kasb-info-section .wzk__inner {
+  max-width: 934px;
+}
+
+.kasb-info-section .wzk__text {
+  align-items: stretch;
+}
+
+.kasb-info-section .wzk__title {
+  margin: 0 0 24px;
+  color: #0d2130;
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: clamp(36px, 3.8vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.kasb-info-section .wzk__body {
+  max-width: 100%;
+  margin-bottom: 18px;
+  color: #0d2130;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.kasb-info-section .hero-donate-btn-group {
+  align-self: flex-start;
+  margin-top: 58px;
+}
+
+.kasb-info-section .hero-donate-btn .btn-donate-content {
+  margin-top: 0 !important;
 }
 
 .sri-lanka-floods-info .wzk__title {
@@ -294,6 +471,20 @@
   .wzk__btn {
     align-self: center;
   }
+
+  .medical-care-info-section {
+    padding: 50px 28px;
+  }
+
+  .medical-care-info-section .wzk__title,
+  .medical-care-info-section .wzk__body,
+  .medical-care-info-section .wzk__list {
+    text-align: left;
+  }
+
+  .medical-care-info-section .hero-donate-btn-group {
+    align-self: flex-start;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -313,6 +504,57 @@
   .wzk__deco--tr,
   .wzk__deco--br {
     opacity: 0.5;
+  }
+
+  .medical-care-info-section {
+    padding: 40px 20px;
+  }
+
+  .medical-care-info-section .wzk__title {
+    font-size: clamp(30px, 8vw, 38px);
+    line-height: 1.2;
+  }
+
+  .medical-care-info-section .wzk__body,
+  .medical-care-info-section .wzk__list {
+    font-size: 16px;
+  }
+
+  .medical-care-info-section .wzk__list {
+    padding-left: 24px;
+  }
+
+  .medical-care-info-section .hero-donate-btn-group {
+    margin-top: 36px;
+  }
+
+  .food-relief-info-section {
+    padding: 32px 20px 40px;
+  }
+
+  .food-relief-info-section .wzk__title {
+    font-size: clamp(30px, 8vw, 38px);
+  }
+
+  .food-relief-info-section .wzk__body {
+    font-size: 16px;
+  }
+
+  .kasb-info-section {
+    padding: 40px 20px;
+  }
+
+  .kasb-info-section .wzk__title {
+    font-size: clamp(30px, 8vw, 38px);
+    line-height: 1.2;
+  }
+
+  .kasb-info-section .wzk__body {
+    font-size: 16px;
+  }
+
+  .kasb-info-section .hero-donate-btn-group {
+    margin-top: 36px;
   }
 }
 
@@ -416,5 +658,83 @@
 @media (max-width: 560px) {
   .lebanon-info-section {
     padding: 40px 20px;
+  }
+}
+
+.hot-meals-info-section {
+  padding: 32px 20px 24px;
+  background: #fffaee;
+}
+
+.hot-meals-info-section .wzk__inner {
+  display: block;
+  max-width: 940px;
+}
+
+.hot-meals-info-section .wzk__text {
+  align-items: stretch;
+}
+
+.hot-meals-info-section .wzk__title {
+  margin: 0 0 20px;
+  color: #0d2130;
+  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-size: clamp(34px, 3.8vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.hot-meals-info-section .wzk__body {
+  margin: 0 0 16px;
+  color: #0d2130;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.hot-meals-info-section .wzk__body:last-of-type {
+  margin-top: 24px;
+  font-style: italic;
+}
+
+.hot-meals-info-section .hero-donate-btn-group {
+  align-self: flex-start;
+  margin-top: 58px;
+}
+
+@media (max-width: 900px) {
+  .hot-meals-info-section {
+    padding: 40px 28px;
+  }
+
+  .hot-meals-info-section .wzk__title,
+  .hot-meals-info-section .wzk__body {
+    text-align: left;
+  }
+
+  .hot-meals-info-section .hero-donate-btn-group {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .hot-meals-info-section {
+    padding: 36px 20px;
+  }
+
+  .hot-meals-info-section .wzk__title {
+    font-size: clamp(30px, 8vw, 38px);
+    line-height: 1.2;
+  }
+
+  .hot-meals-info-section .wzk__body {
+    font-size: 16px;
+  }
+
+  .hot-meals-info-section .hero-donate-btn-group {
+    margin-top: 40px;
   }
 }

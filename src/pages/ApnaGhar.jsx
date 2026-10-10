@@ -59,6 +59,7 @@ const ApnaGhar = () => {
         }
       />
       <InfoSection
+        className="apna-ghar-info-section"
         title="A HOME THAT KEEPS FAMILIES TOGETHER"
         paragraphs={[
           "When a widow loses her home, she faces a choice no mother should make:",

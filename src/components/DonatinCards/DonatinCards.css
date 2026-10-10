@@ -313,6 +313,65 @@
   transform: translateY(1px);
 }
 
+.kasb-donation-card {
+  max-width: 385px;
+  padding: 20px 20px 22px;
+  border-radius: 8px;
+}
+
+.kasb-donation-card .dcard__campaign {
+  margin-bottom: 22px;
+}
+
+.kasb-donation-card .dcard__option {
+  padding: 10px 12px;
+}
+
+.kasb-donation-card .dcard__option-amount {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.kasb-donation-card .dcard__option-desc {
+  font-size: 14px;
+}
+
+.kasb-donation-card .dcard__btn {
+  margin-top: 22px;
+  padding: 14px 12px;
+  border-radius: 8px;
+}
+
+.food-relief-donation-card {
+  width: 100%;
+  max-width: 350px;
+  padding: 18px 25px 22px;
+  border-radius: 9px;
+}
+
+.food-relief-donation-card .dcard__campaign {
+  margin-bottom: 24px;
+}
+
+.food-relief-donation-card .dcard__option {
+  padding: 14px 12px;
+}
+
+.food-relief-donation-card .dcard__option-amount {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.food-relief-donation-card .dcard__option-desc {
+  font-size: 14px;
+}
+
+.food-relief-donation-card .dcard__btn {
+  margin-top: 16px;
+  padding: 13px 9px;
+  border-radius: 9px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 560px) {
   .dcard {
@@ -399,6 +458,34 @@
 
   .dcard__other-input {
     font-size: 16px;
+  }
+
+  .kasb-donation-card {
+    max-width: 100%;
+    padding: 18px 16px;
+  }
+
+  .kasb-donation-card .dcard__option {
+    padding: 10px 12px;
+  }
+
+  .kasb-donation-card .dcard__btn {
+    margin-top: 20px;
+    padding: 14px 12px;
+  }
+
+  .food-relief-donation-card {
+    max-width: min(450px, 100%);
+    padding: 18px 25px 22px;
+  }
+
+  .food-relief-donation-card .dcard__option {
+    padding: 14px 12px;
+  }
+
+  .food-relief-donation-card .dcard__btn {
+    margin-top: 28px;
+    padding: 18px 12px;
   }
 }
 

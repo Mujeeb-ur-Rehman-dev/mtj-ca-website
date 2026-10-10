@@ -11,7 +11,7 @@ import Newsletter from "../components/NewsletterSignup/Newsletter";
 import mobileImg from "../assets/img/FoodRelief/mobileImg.png";
 import heroImage from "../assets/img/FoodRelief/heroImage.png";
 import InfoSection from "../components/InfoSection/InfoSection";
-import { impactSectionData, foodReliefImpactStats } from "../components/data/impactSectionData";
+import { rationImpactStats } from "../components/data/impactSectionData";
 
 const FoodRelief = () => {
   return (
@@ -21,24 +21,27 @@ const FoodRelief = () => {
              backgroundImage={backgroundImage}
              mobileImage={mobileImg}  
              heroImage={heroImage}
-             title="PALESTINE EMERGENCY"
+             title="Food Relief"
              description=""
              buttonText=""
              buttonLink=""
              cardContent={
                       <DonatinCards
-                       campaignTitle="Palestine Emergency Relief"
+                       className="food-relief-donation-card"
+                       campaignTitle="Provide Food Security"
+                       showMonthlyTab={false}
                        defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
                        options={[
-                               { amount: "20K", description: "Feed's a Family for a Day" },
-                               { amount: "35K", description: "Feed's a Family for a Week" },
-                               { amount: "90K", description: "Feed's a Family for a Month" },
+                               { amount: "20K", description: "Provide food packs for 1 month for 1 family" },
+                               { amount: "40K", description: "Provide food packs for struggling families." },
+                               { amount: "100K", description: "Deliver food aid to multiple households." },
                                   ]}
            onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
          />
        }
            />
        <InfoSection
+                              className="food-relief-info-section"
                               title="HELP FEED PEOPLE IN NEED"
                               paragraphs={[
                                "Picture a struggling family in Pakistan sitting down to a nourishing meal because Allah’s mercy reached them through you: flour, rice, oil, and lentils to help feed them through the month.",
@@ -49,6 +52,7 @@ const FoodRelief = () => {
                      "The Prophet ﷺ said, “Whoever feeds a hungry believer, Allah will feed him from the fruits of Paradise.”",
                      "Be the reason a family can eat with dignity and without fear of where their next meal will come from."
                               ]}
+                               noImageLayout="centered"
                                image ='' 
                                />
       <VideoSection
@@ -60,15 +64,15 @@ const FoodRelief = () => {
                          title="Choose How Allah's Mercy Flows Through You"
                          backgroundColor="#0B212A"
                           cards={[
-                                   { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-                                   { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                                   { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                                   { title: "Ration Package for 1 Day", amount: "$10", description: `This ration is carefully prepared to support a family’s daily food needs, bringing dignity and relief to those facing hardship.`, donateLink: "#donate" },
+                                   { title: "One-Month Family Ration Package", amount: "$90", description: `This ration is carefully prepared to provide a family with essential food support for a full month, bringing dignity and relief during difficult times.`, donateLink: "#donate" },
+                                   { title: "Support the Food Relief Program", amount: "$200", description: `Feed 10 people with your Zakat and Sadaqah. Your support strengthens our Ummah by helping provide meals to those who need them most.`, donateLink: "#donate" },
                                   ]}
                                   />                        
       <ImpactSection1
-        stats={foodReliefImpactStats}
-        eyebrow="Food Relief Program"
-        title="HELP FEED PEOPLE IN NEED"
+        stats={rationImpactStats}
+        eyebrow="How Does Your Donation Helps"
+        title="The Impact of Your Giving"
       />
       <FAQAccordion />
        <Newsletter />

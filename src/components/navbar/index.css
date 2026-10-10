@@ -60,10 +60,16 @@
       color: var(--color-white);
     }
 
-    /* Dark theme - for white background sections */
     .nav-container.nav-dark-theme {
       background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .nav-container.nav-scrolled {
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 16px rgba(11, 31, 39, 0.14);
+      backdrop-filter: blur(8px);
     }
 
     .nav-container.nav-dark-theme .hvr li a {

@@ -76,17 +76,17 @@ export const foodReliefImpactStats = [
 ];
 
 export const rationImpactStats = [
-  { icon: RationImg,   value: "50,000+", label: "Ration bags delivered" },
-  { icon: HelpImg,     value: "500+",    label: "Families supported monthly" },
-  { icon: WomenImg,    value: "2,000+",  label: "Widows and orphans supported" },
-  { icon: MedicineImg, value: "100,000+",label: "People fed through ration programs" },
+  { icon: RationImg,   value: "500,000+", label: "Ration bags delivered" },
+  { icon: HelpImg,     value: "500+",    label: "Ration bags delivered monthly" },
+  { icon: WomenImg,    value: "3,500+",  label: "Families received Qurbani meat last year" },
+  { icon: MedicineImg, value: "16,000+",label: "People provided with iftar meals last year" },
 ];
 
 export const kasbImpactStats = [
-  { icon: ScholarImg,  value: "1 Million+", label: "Skilled workers needed annually in Pakistan" },
   { icon: WomenImg,    value: "600+",       label: "Women trained in income-generating skills" },
-  { icon: HelpImg,     value: "5,000+",     label: "Trainees placed in jobs or businesses" },
-  { icon: RationImg,   value: "50,000+",    label: "Families supported through KASB program" },
+  { icon: ScholarImg,  value: "500+", label: "Ration bags delivered monthly" },
+  { icon: HelpImg,     value: "3,500+",     label: "Families received Qurbani meat this year" },
+  { icon: RationImg,   value: "16,000+",    label: "People provided with iftar meals this year" },
 ];
 
 export const hotMealsImpactStats = [

@@ -8,23 +8,72 @@ import logo from '../../assets/img/logos/only_logo.png'
 import Button from '../../common/components/buttons/Button';
 import { useDonation } from '../../context/DonationContext';   // ✅ Added
 
-// Navigation items mapping — matches live mtjfoundation.ca site structure
+// Navigation items mapping — matches live mtjfoundation.ca site structure exactly
 const navItems = [
-  { name: "Religious Giving", path: "/home", submenu:[{name:'Zakat', path:'/zakat'}, {name:'Sadaqah', path:'/sadaqah'}] },
-  {name:"Emergencies", submenu:[{name:'Nepal Floods', path:'/nepal-floods'}, {name:'Emergency Relief – Lebanon', path:'/emergency-relief-lebanon'}, {name:'Palestine Relief', path:'/palestine-relief'}, {name:'Sri Lanka Floods', path:'/sri-lanka-floods'}]},
-  {name:"Support Campaigns", submenu:[{name:'Apna Ghar', path:'/apna-ghar'}, {name:'Medical Care / Health', path:'/medical-care-health'}, {name:'Food Relief', path:'/food-relief'}, {name:'KASB', path:'/kasb'}, {name:'Hot Meals', path:'/hot-meals'}, {name:'Education', path:'/education'}, {name:'Clean Water', path:'/clean-water'}]},
-  {name:"Who We Are", submenu:[{name:'Blogs', path:'/blogs'}, {name:'Reports', path:'/reports'}, {name:'About Us', path:'/about-us'}]},
-  {name:"Get Involved", submenu:[{name:'Volunteer', path:'/volunteer'},{name:'Events', path:'/events'}, {name:'Careers', path:'/careers'}, {name:'Contact Us', path:'/contact-us'}]}
-]; 
+  {
+    name: "Religious Giving",
+    path: "/home",
+    submenu: [
+      { name: "Zakat", path: "/zakat" },
+      { name: "Sadaqah", path: "/sadaqah" },
+    ],
+  },
+  {
+    name: "Emergencies",
+    submenu: [
+      { name: "Nepal Floods", path: "/nepal-floods" },
+      { name: "Emergency Relief – Lebanon", path: "/emergency-relief-lebanon" },
+      { name: "Palestine Relief", path: "/palestine-relief" },
+      { name: "Sri Lanka Floods", path: "/sri-lanka-floods" },
+    ],
+  },
+  {
+    name: "Support Campaigns",
+    submenu: [
+      { name: "Apna Ghar", path: "/apna-ghar" },
+      { name: "Medical Care / Health", path: "/medical-care-health" },
+      { name: "Food Relief", path: "/food-relief" },
+      { name: "KASB", path: "/kasb" },
+      { name: "Hot Meals", path: "/hot-meals" },
+      { name: "Education", path: "/education" },
+      { name: "Clean Water", path: "/clean-water" },
+      { name: "Online Islamic Counselling", path: "/online-islamic-counselling" },
+    ],
+  },
+  {
+    name: "Who We Are",
+    submenu: [
+      { name: "About Us", path: "/about-us" },
+      { name: "Our Team", path: "/our-team" },
+      { name: "Blogs", path: "/blogs" },
+      { name: "Reports", path: "/reports" },
+    ],
+  },
+  {
+    name: "Get Involved",
+    submenu: [
+      { name: "Volunteer", path: "/volunteer" },
+      { name: "Events", path: "/events" },
+      { name: "Careers", path: "/careers" },
+      { name: "Contact Us", path: "/contact-us" },
+    ],
+  },
+];
 
 const Navbar = () => {
-   const [activeLink, setActiveLink] = useState("Home");
-   const location = useLocation();
-   const navigate = useNavigate();
-   const { openDonation } = useDonation();   // ✅ Added
-   
-  // Always use white background for all states
-  const isLightTheme = false;
+  const [activeLink, setActiveLink] = useState("Home");
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { openDonation } = useDonation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
    // Update active link based on current route
    useEffect(() => {
@@ -72,7 +121,7 @@ const Navbar = () => {
   return (
     <>
     <div className="nav-outer">
-    <div className={`nav-container rounded ${isLightTheme ? 'nav-light-theme' : 'nav-dark-theme'}`}>
+    <div className={`nav-container rounded nav-dark-theme ${isScrolled ? 'nav-scrolled' : ''}`}>
         <div className='nav-row-1'>
             {/* logo section */}
             <div className='flex items-center logo_section'>
@@ -84,7 +133,7 @@ const Navbar = () => {
             </div>
             {/* menu section - desktop only */}
             <div className='d-none md:d-block' style={{fontSize:'14px', fontWeight:'bold'}}>
-              <ul className={`hvr flex gap-12 ${isLightTheme ? 'text-white' : 'text-dark'}`}>
+              <ul className='hvr flex gap-12 text-dark'>
                  {navItems.map((item) => (
                 <li key={item.name} className={`nav-item ${item.submenu ? 'nav-item-has-sub' : ''}`}>
                   <Link

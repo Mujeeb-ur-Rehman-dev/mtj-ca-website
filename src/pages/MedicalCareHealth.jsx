@@ -20,50 +20,56 @@ const MedicalCareHealth = () => {
              backgroundImage={backgroundImage}
              mobileImage={mobileImg}  
              heroImage={heroImage}
-             title="PALESTINE EMERGENCY"
+             title="Give the Gift of Health"
              description=""
              buttonText=""
              buttonLink=""
              cardContent={
                       <DonatinCards
-                       campaignTitle="Palestine Emergency Relief"
+                       campaignTitle="Provide Medical Care"
                        defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
+                       monthlyUsesOneTimeOptions
                        options={[
-                               { amount: "20K", description: "Feed's a Family for a Day" },
-                               { amount: "35K", description: "Feed's a Family for a Week" },
-                               { amount: "90K", description: "Feed's a Family for a Month" },
+                               { amount: "15K", description: "Sponsor a Patient's Test" },
+                               { amount: "30K", description: "Maintain Diagnostic Equipment" },
+                               { amount: "50K", description: "Expand Healthcare Services" },
                                   ]}
            onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
          />
        }
            />
              <InfoSection
-                                   title="Provide Medical Care Where It’s Out of Reach in Pakistan"
-                                   paragraphs={[
-                                    "In rural Pakistan, a fever, an infection, or even a pregnancy check-up can become dangerous when the nearest clinic is far away, and basic tests cost more than a family can manage. ",
-                          "Mothers miss prenatal care. Children suffer from infections or malnutrition, detected too late. By the time someone reaches a doctor, the illness has already taken a toll.",
-                          "That’s why MTJF opened the AAS Lab and Diagnostic Centre in Mian Channu, so families can get the diagnosis on time. This is mercy that saves families from months of pain.",
-                          "At AAS, struggling families can access:",
-                          ".100+ tests, including blood work, ultrasounds, X-rays, and CT scans",
-                          ".Consultations to guide patients toward the right treatment",
-                          ".Free or low-cost care for those who can’t afford it",
-                          "Fund a test. Help someone get treatment in time. This is how Allah’s mercy reaches across the Ummah, through you."
-                        ]}
-                                    image ='' 
-                                    />
+                                 className="medical-care-info-section"
+                                 title="Provide Medical Care Where It’s Out of Reach in Pakistan"
+                                 paragraphs={[
+                                  "In rural Pakistan, a fever, an infection, or even a pregnancy check-up can become dangerous when the nearest clinic is far away, and basic tests cost more than a family can manage. ",
+                        "Mothers miss prenatal care. Children suffer from infections or malnutrition, detected too late. By the time someone reaches a doctor, the illness has already taken a toll.",
+                        "That’s why MTJF opened the AAS Lab and Diagnostic Centre in Mian Channu, so families can get the diagnosis on time. This is mercy that saves families from months of pain.",
+                        "At AAS, struggling families can access:",
+                        [
+                          <><strong>100+ tests</strong>, including blood work, ultrasounds, X-rays, and CT scans</>,
+                          <><strong>Consultations</strong> to guide patients toward the right treatment</>,
+                          <><strong>Free or low-cost care</strong> for those who can’t afford it</>,
+                        ],
+                        "Fund a test. Help someone get treatment in time. This is how Allah’s mercy reaches across the Ummah, through you."
+                      ]}
+                                  noImageLayout="centered"
+                                  image ='' 
+                                  />
        <ImpactCards
                          title="how you can help"
                          backgroundColor="#0B212A"
                           cards={[
-                                   { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-                                   { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                                   { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                                   { title: "Fund a diagnostic test", amount: "$75", description: "Early diagnosis saves lives. A test you fund gives timely treatment and care to a patient in need." },
+                                  { title: "Support Equipment Maintenance ", amount: "$150", description: "Help maintain our vital healthcare equipment, ensuring no patient is turned away." },
+                                   { title: "Expand Our Services ", amount: "$250", description: "The funds you provide will go to expanding our labs and healthcare services to other communities in need." },
+
                                   ]}
                                   /> 
       <ImpactSection1
         stats={medicalCareImpactStats}
-        eyebrow="Medical Care"
-        title="HEALTHCARE WHERE IT'S NEEDED MOST"
+        eyebrow="How Your Donation Helps"
+        title="The Impact of Our Work"
       />
        <FAQAccordion  faqKey="medicalCareHealth"/>
       <Newsletter />

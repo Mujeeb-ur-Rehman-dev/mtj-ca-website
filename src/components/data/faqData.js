@@ -195,34 +195,34 @@ export const educationFaqItems = [
 /* KASB.jsx — Khatme Bukhari / Qur'an programmes */
 export const kasbFaqItems = [
   {
-    question: "What is KASB / Khatme Bukhari?",
+    question: "Who benefits from the program?",
     answer:
-      "KASB (Khatme Bukhari Shareef) is our annual blessed programme in which qualified Huffaz and Ulama complete a full recitation of Sahih al-Bukhari, followed by collective supplication for the entire Ummah and for our donors and their families.",
+      "Vulnerable communities, widows, unemployed youth, and families without access to stable income.",
   },
   {
-    question: "How can I participate in Khatme Bukhari?",
+    question: "What kinds of skills are taught?",
     answer:
-      "You can sponsor a recitation (Hifz / tilawat) on behalf of yourself, your family, or a deceased loved one and receive the reward of the complete Khatm. Dates for the annual Majlis are announced on our website and social channels.",
+      "Current training includes football stitching and e-commerce, with plans to expand into digital and other high-demand fields.",
   },
   {
-    question: "What other Qur'an programmes do you run?",
+    question: "Do participants earn while learning?",
     answer:
-      "We fund local madrasahs, sponsor Hifz-e-Qur'an students (paying for their board, books, and teachers), and run free after-school Qur'an classes for children in underprivileged neighbourhoods.",
+      "Yes. The “earn while you learn” model allows trainees to support themselves even during training.",
   },
   {
-    question: "Can I pay to have Qur'an recited for the deceased?",
+    question: "How far does my donation go?",
     answer:
-      "Yes. You can sponsor a Khatm-e-Qur'an or Khatm-e-Bukhari to be completed on behalf of a marhum / marhumah, and we will convey the reward to them. A digital certificate is provided.",
+      "Just $60 can provide tools, while $180 gives a woman full access to training that can change her life.",
   },
   {
-    question: "Where are the KASB programmes held?",
+    question: "Is there support after training ends?",
     answer:
-      "Our main annual Khatme Bukhari is held at our central campus in Mian Channu, with smaller regional programmes in Karachi, Lahore, and London. Local communities in the UK can also attend our London Majlis.",
+      "Yes. KASB helps with job placement and small-business support so income continues long term.",
   },
   {
-    question: "Is sponsoring a Qur'an student Sadaqah Jariyah?",
+    question: "Can I see the impact of my donation?",
     answer:
-      "Yes — every ayah a sponsored student recites, every letter of the Qur'an they teach to others, and every good deed they perform because of the knowledge they gained becomes ongoing sadaqah on your behalf.",
+      "Absolutely. The MTJ Foundation shares updates and success stories so you can witness the difference you make.",
   },
 ];
 

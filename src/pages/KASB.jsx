@@ -6,53 +6,67 @@ import DonatinCards from "../components/DonatinCards/DonatinCards";
 import backgroundImage from "../assets/img/PalestineRelief/background.png";
 import mobileImg from "../assets/img/KASB/mobileImg.png";
 import heroImage from "../assets/img/KASB/heroImage.png";
+import kasbVideoPoster from "../assets/img/KASB/KASB-Video.png";
 import ImpactCards from "../components/impactCards/ImpactCards";
 import InfoSection from "../components/InfoSection/InfoSection";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
 import { impactSectionData, kasbImpactStats } from "../components/data/impactSectionData";
+import { kasbFaqItems } from "../components/data/faqData";
 
 const KASB = () => {
   return (
     <>
          <Hero
+             className="kasb-hero"
              backgroundImage={backgroundImage}
              mobileImage={mobileImg}  
              heroImage={heroImage}
-             title="PALESTINE EMERGENCY"
+             boldTitle={true}
+             titleColor="#0d2130"
+             title="Empowering Pakistan With KASB Vocational Training"
              description=""
              buttonText=""
              buttonLink=""
              cardContent={
                       <DonatinCards
-                       campaignTitle="Palestine Emergency Relief"
+                       className="kasb-donation-card"
+                       campaignTitle="Support KASB Vocational Program"
                        defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
+                       monthlyListOptions={[
+                               { amount: "6,000", description: "Essential Tools & Materials" },
+                               { amount: "12K", description: "Vocational Training Sessions" },
+                               { amount: "20K", description: "Skill Development for Women" },
+                       ]}
                        options={[
-                               { amount: "20K", description: "Feed's a Family for a Day" },
-                               { amount: "35K", description: "Feed's a Family for a Week" },
-                               { amount: "90K", description: "Feed's a Family for a Month" },
+                               { amount: "12K", description: "Essential Tools & Materials" },
+                               { amount: "25K", description: "Vocational Training Sessions" },
+                               { amount: "35K", description: "Skill Development for Women" },
                                   ]}
            onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
          />
        }
            />
         <InfoSection
-                                   title="One-Third of Food Bank Visitors Are Children - $10 Feeds a Child"
-                                   paragraphs={[
-                                    "Canada is facing a food crisis we can’t ignore. In a single month last year, food banks recorded over 2 million visits, the highest number ever recorded, and one-third of those visitors were children",
-                          "Rising food prices mean more neighbours are struggling to feed their families.",
-                          "Our $10 Hot Meal initiative makes sure our neighbours don’t go to bed on an empty stomach. We’re currently serving hot, freshly prepared meals to those experiencing hunger in downtown Toronto.",
-                          "With your support, we’re working to expand this across the GTA, reaching more shelters, communities, and people in need.",
-                          "Every meal is made with care, rooted in the Islamic values of service, mercy, and dignity.",
-                          "The goal is simple: Feed more people. Serve more communities. And remind them that they’re not forgotten.",
-                          "With just $10, you can be part of this great cause.",
-                          "In collaboration with MDI."
-                          ]}
-                                    image ='' 
-                                    />
+          className="kasb-info-section"
+          title="Vocational Training to Empower Communities in Pakistan."
+          paragraphs={[
+            "Across Pakistan, millions dream of a better life but lack the opportunity to earn it. Every year, the country needs over one million skilled workers, yet less than half are trained. This gap leaves families trapped in poverty, with widows and vulnerable groups affected the most.",
+            "That’s what we are working to change through the KASB Vocational Training Program.",
+            "We don’t just teach skills, we create opportunities. From football stitching to e-commerce, trainees even earn while training. When training ends, our team helps with job placement or starting a small business so stability lasts.",
+            "Imagine the impact: a widow starting her own small business, or a young man finding stable employment. A single donation can open a door, put steady income in a home, and end the cycle of dependency.",
+            "Equip a family with a skill that pays, starting today.",
+          ]}
+          buttonText="Donate Now"
+          noImageLayout="centered"
+          image=""
+        />
       <VideoSection
-        videoId="xN6Gdwjg8cU"
+        className="kasb-video"
+        videoId="LLNrQt_KtoE"
+        posterImage={kasbVideoPoster}
+        showPosterDetails={false}
         title="Together for Humanity | Support Those in Need"
         channel="MTJ Foundation Canada"
       />
@@ -60,17 +74,17 @@ const KASB = () => {
                                title="how you can help"
                                backgroundColor="#0B212A"
                                 cards={[
-                                         { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-                                         { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                                         { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                                          { title: "Essential tools and materials", amount: "$60", description: `From sewing kits to stitching supplies, your contribution ensures participants can learn with the right resources in hand.`, donateLink: "#donate" },
+                                         { title: "Fund a vocational training session", amount: "$120", description: `Cover the cost of a complete session, providing students with the skills, guidance, and direction needed for self-sufficiency.`, donateLink: "#donate" },
+                                         { title: "Skill development for women", amount: "$180", description: "Support women with specialized training, like football stitching, so they can earn an income and stand on their own feet.", donateLink: "#donate" },
                                         ]}
                                         />  
       <ImpactSection1
         stats={kasbImpactStats}
-        eyebrow="KASB Vocational Training"
-        title="SKILLS THAT CREATE OPPORTUNITIES"
+        eyebrow="How Your Donation Helps"
+        title="The Impact of Our Work"
       />
-       <FAQAccordion />
+       <FAQAccordion items={kasbFaqItems} />
       <Newsletter />
       <Footer />
     </>

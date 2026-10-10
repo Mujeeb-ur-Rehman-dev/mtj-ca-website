@@ -34,8 +34,11 @@ import { campaigns } from '../data/campaigns';
  *   otherAmountLabel {string}   – placeholder for the free-input "other amount" row (default: "Other amount")
  *   buttonText       {string}   – donate button label (default: "Donate Now")
  *   showMonthlyTab   {bool}     – show the One-time/Monthly tab row (default: true)
+ *   className        {string}   – additional class name for page-specific styling
  *   defaultFrequency {string}   – "one-time" | "monthly" (default: "one-time")
  *   defaultSelectedIndex {number} – which option is pre-selected (default: 0)
+ *   monthlyUsesOneTimeOptions {bool} – keep the one-time option list for monthly giving
+ *   monthlyListOptions {array} – monthly options to render as a vertical list
  *   onDonate         {func}     – called with { frequency, amount } when the button is clicked
  */
 const DonatinCards = ({
@@ -48,8 +51,11 @@ const DonatinCards = ({
   otherAmountLabel = 'Other amount',
   buttonText = 'Donate Now',
   showMonthlyTab = true,
+  className = '',
   defaultFrequency = 'one-time',
   defaultSelectedIndex = 0,
+  monthlyUsesOneTimeOptions = false,
+  monthlyListOptions,
   onDonate,
 }) => {
   const resolved = useMemo(() => {
@@ -101,7 +107,16 @@ const DonatinCards = ({
   const [selectedIndex, setSelectedIndex] = useState(defaultSelectedIndex);
   const [otherValue, setOtherValue] = useState('');
 
-  const activeOptions = frequency === 'monthly' ? resolved.monthlyOptions : resolved.options;
+  const hasMonthlyListOptions =
+    Array.isArray(monthlyListOptions) && monthlyListOptions.length > 0;
+  const activeOptions =
+    frequency === 'monthly'
+      ? hasMonthlyListOptions
+        ? monthlyListOptions
+        : monthlyUsesOneTimeOptions
+        ? resolved.options
+        : resolved.monthlyOptions
+      : resolved.options;
   const isOtherSelected = selectedIndex === activeOptions.length;
 
   // Switching frequency changes the whole amount set (different numbers,
@@ -109,7 +124,15 @@ const DonatinCards = ({
   // up with a sensible option in the other list, so reset on switch.
   const handleFrequencyChange = (nextFrequency) => {
     setFrequency(nextFrequency);
-    setSelectedIndex(0);
+    setSelectedIndex(
+      nextFrequency === 'monthly' &&
+        (monthlyUsesOneTimeOptions || hasMonthlyListOptions)
+        ? Math.min(
+            1,
+            (hasMonthlyListOptions ? monthlyListOptions : resolved.options).length - 1
+          )
+        : 0
+    );
     setOtherValue('');
   };
 
@@ -117,7 +140,9 @@ const DonatinCards = ({
     const amount = isOtherSelected
       ? otherValue
       : frequency === 'monthly'
-      ? activeOptions[selectedIndex]
+      ? monthlyUsesOneTimeOptions || hasMonthlyListOptions
+        ? activeOptions[selectedIndex]?.amount
+        : activeOptions[selectedIndex]
       : activeOptions[selectedIndex]?.amount;
     if (onDonate) onDonate({ frequency, amount });
   };
@@ -187,7 +212,7 @@ const DonatinCards = ({
   })();
 
   return (
-    <div className="dcard">
+    <div className={`dcard ${className}`.trim()}>
       {/* One-time / Monthly tabs */}
       {showMonthlyTab && (
         <div className="dcard__tabs">
@@ -211,10 +236,10 @@ const DonatinCards = ({
       {/* Campaign name */}
       {resolved.campaignTitle && <p className="dcard__campaign">{resolved.campaignTitle}</p>}
 
-      {frequency === 'one-time' ? (
+      {frequency === 'one-time' || monthlyUsesOneTimeOptions || hasMonthlyListOptions ? (
         /* ── One-time: vertical list, amount + description ── */
         <div className="dcard__options">
-          {resolved.options.map((option, index) => (
+          {activeOptions.map((option, index) => (
             <div
               key={index}
               className={`dcard__option${selectedIndex === index ? ' dcard__option--selected' : ''}`}

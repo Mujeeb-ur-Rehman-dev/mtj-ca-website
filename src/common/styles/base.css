@@ -7,21 +7,31 @@
   0) CSS Variables (Design Tokens)
 ---------------------------------------*/
 :root {
-    /* Brand colors (edit to match MTJ) */
-    /* --color-primary: #009a44;  */
-    --color-primary: #30AEE3;  /* MTJ navy */
-    --color-primary-light: #82c9e7;
-    --color-primary-hover: #2896c2;
-    --color-secondary: #802b55; /* maroon/rose */
-    --color-accent: #D8B861;    /* gold */
+    /* MTJF Canada Brand Tokens */
+    --color-primary-green: #22582D;
+    --color-primary-green-hover: #1A4523;
+    --color-dark-ink: #0B212A;
+    --color-page-dark: #0B1F27;
+    --color-maroon: #6B0F1A;
+    --color-maroon-hover: #8F2634;
+    --color-cream-bg: #FFFAEE;
+    --color-cream-box: #FDF8EA;
+    --color-gold: #FCB514;
+
+    /* Legacy and standard theme aliases */
+    --color-primary: var(--color-primary-green);
+    --color-primary-light: #3e884d;
+    --color-primary-hover: var(--color-primary-green-hover);
+    --color-secondary: var(--color-maroon);
+    --color-accent: var(--color-gold);
     --color-info: #30AEE3;
-    --color-success: #2E7D32;
-    --color-warning: #ffda79;
+    --color-success: #22582D;
+    --color-warning: #FCB514;
     --color-danger:  #C62828;
     --color-base-orange: #F98167;
-    --color-base-green: #53af47;
+    --color-base-green: #22582D;
     --color-base-green-light: #77af70;
-    --color-base-yellow: #f6b319;
+    --color-base-yellow: #FCB514;
     --color-base-yellow-light: #d8b872;
 
 
@@ -596,4 +606,72 @@
   }
   .text-accent {
     color: var(--color-accent) !important;
+  }
+
+  /*--------------------------------------------------
+    9) MTJF Canada Signature Stamp & Scallop Motif
+  --------------------------------------------------*/
+  .stamp-mask {
+    --r: 18px;
+    -webkit-mask:
+      radial-gradient(circle var(--r) at 0    0   , transparent 99%, #000) top    left,
+      radial-gradient(circle var(--r) at 100% 0   , transparent 99%, #000) top    right,
+      radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+      radial-gradient(circle var(--r) at 0    100%, transparent 99%, #000) bottom left,
+      linear-gradient(#000 0 0);
+    -webkit-mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-composite: destination-out, destination-out, destination-out, destination-out, source-over;
+    mask:
+      radial-gradient(circle var(--r) at 0    0   , transparent 99%, #000) top    left,
+      radial-gradient(circle var(--r) at 100% 0   , transparent 99%, #000) top    right,
+      radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+      radial-gradient(circle var(--r) at 0    100%, transparent 99%, #000) bottom left,
+      linear-gradient(#000 0 0);
+    mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+    mask-repeat: no-repeat;
+    mask-composite: exclude, exclude, exclude, exclude, add;
+  }
+
+  .mtjf-btn-notched {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+
+  .mtjf-btn-notched::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--color-primary-green);
+    transition: background-color 0.18s;
+    clip-path: polygon(
+      7px 0, calc(18.5% - 7px) 0, 18.5% 6px, calc(18.5% + 7px) 0,
+      calc(50% - 7px) 0, 50% 6px, calc(50% + 7px) 0,
+      calc(81.5% - 7px) 0, 81.5% 6px, calc(81.5% + 7px) 0,
+      calc(100% - 7px) 0, calc(100% - 7px) 7px, 100% 7px,
+      100% calc(50% - 7px), calc(100% - 6px) 50%, 100% calc(50% + 7px),
+      100% calc(100% - 7px), calc(100% - 7px) calc(100% - 7px), calc(100% - 7px) 100%,
+      calc(81.5% + 7px) 100%, 81.5% calc(100% - 6px), calc(81.5% - 7px) 100%,
+      calc(50% + 7px) 100%, 50% calc(100% - 6px), calc(50% - 7px) 100%,
+      calc(18.5% + 7px) 100%, 18.5% calc(100% - 6px), calc(18.5% - 7px) 100%,
+      7px 100%, 7px calc(100% - 7px), 0 calc(100% - 7px),
+      0 calc(50% + 7px), 6px 50%, 0 calc(50% - 7px),
+      0 7px, 7px 7px
+    );
+  }
+
+  .mtjf-btn-notched.btn-maroon::before {
+    background: var(--color-maroon);
+  }
+  .mtjf-btn-notched.btn-cream::before {
+    background: var(--color-cream-bg);
   }
