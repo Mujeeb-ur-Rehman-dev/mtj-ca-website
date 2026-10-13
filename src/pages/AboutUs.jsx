@@ -10,15 +10,27 @@ import AboutVisionMission from "../components/AboutVisionMission/AboutVisionMiss
 import WhyChooseUsSection from "../components/WhyChooseUsSection/WhyChooseUsSection";
 import OurStorySection from "../components/OurStorySection/OurStorySection";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
+import { aboutUsFaqItems } from "../components/data/faqData";
 
 const AboutUs = () => {
   return (
     <>
       <Hero
+        className="about-us-hero"
         backgroundImage={backgroundImage}
         mobileImage={mobileImg}  
         heroImage={heroImage}
-        title="Guided by Faith. Driven by Compassion. Serving Humanity."
+        title={
+          <>
+            Guided by Faith.
+            <br />
+            Driven by
+            <br />
+            Compassion.
+            <br />
+            Serving Humanity.
+          </>
+        }
         description="MTJ Foundation was born from a lifelong mission to serve humanity through faith and kindness. From disaster relief to education, healthcare, and clean water, we help families rebuild, restore dignity, and believe in a better tomorrow."
         buttonText="Donate Now"
         buttonLink="#donate"
@@ -30,10 +42,10 @@ const AboutUs = () => {
         className="about-category-carousel"
         title={
           <>
-            Our Impact <br /> Across Communities
+            Ready to take action?
           </>
         }
-        description="From clean water and emergency relief to education and healthcare, every category reflects how generosity restores dignity and strengthens families."
+        description="Every act of giving matters. You could put food on a table, send a child to school, or bring hope back to someone who’s lost everything through emergency relief."
         sectionStyle={{
           "--category-section-bg": "#68101A",
           "--category-heading-color": "#fff5f4",
@@ -43,7 +55,7 @@ const AboutUs = () => {
           "--category-active-dot-color": "#fff5f4",
         }}
       />
-       <FAQAccordion/>
+       <FAQAccordion items={aboutUsFaqItems}/>
       <Newsletter />
       <Footer />
     </>

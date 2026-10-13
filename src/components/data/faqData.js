@@ -127,68 +127,68 @@ export const medicalCareHealthFaqItems = [
 /* CleanWater.jsx — water wells, handpumps, filtration */
 export const cleanWaterFaqItems = [
   {
-    question: "Why is clean water such a big issue in rural Pakistan?",
+    question: "Where does my donation go?",
     answer:
-      "Millions of households in rural Pakistan still lack safe drinking water. Families — usually women and girls — walk 3-5 hours a day to fetch contaminated water from ponds and open wells, leading to widespread waterborne disease, child mortality, and lost school and work days.",
+      "Your donation funds MTJF’s Water Relief Program in Pakistan, specifically in Sindh and Balochistan, regions where the floods contaminated water sources and families rely on unsafe drinking water that’s threatening children’s lives daily.",
   },
   {
-    question: "What clean-water solutions does MTJ Foundation provide?",
+    question: "How does a hand pump work, and how many people does it serve?",
     answer:
-      "We install deep-bore hand pumps, community water wells, and solar-powered filtration plants across Punjab, Sindh, and flood-hit regions. Each handpump serves an entire village of 150-300 people for many years.",
+      "A hand pump draws clean groundwater from deep below the surface, making it safe to drink. One hand pump typically serves multiple families in a village or community, providing access to hundreds of people for years to come.",
   },
   {
-    question: "How much does it cost to build a well or handpump?",
+    question: "Can I give Zakat for this program?",
     answer:
-      "A handpump serving 150+ people costs roughly £150 / Rs 40,000. A full deep community well with a reservoir is around £450 / Rs 120,000. Solar filtration plants are priced per village size and quoted on request.",
+      "Only individual hand pumps are Zakat eligible.",
   },
   {
-    question: "Can I build a well as Sadaqah Jariyah?",
+    question: "How long do these water solutions last?",
     answer:
-      "Absolutely! Every drop of water drawn from your well for decades to come is ongoing charity on your behalf. We provide a completion report with photos, GPS location, and the name of the village so you can see the wells you've built.",
+      "Hand pumps and filtration systems are built to last for years with basic maintenance. MTJF works with local communities to ensure these systems continue providing clean water long after installation, making your sadaqah jariyah ongoing.",
   },
   {
-    question: "Can I donate a well in someone's name?",
+    question: "How do you decide where to install hand pumps?",
     answer:
-      "Yes. Many donors sponsor wells in the name of a loved one (living or deceased) as Sadaqah Jariyah. A personalised plaque with the chosen name can be installed on the well upon request.",
+      "We work with local partners to identify communities with the highest need, areas where families currently walk hours for contaminated water, where children are suffering from waterborne diseases, and where the floods made water access even more critical.",
   },
   {
-    question: "Do you maintain wells after installation?",
+    question: "Will I know where my donation went?",
     answer:
-      "Yes. We train local masons and form village water committees to perform routine maintenance, and our field teams carry out periodic inspections and repairs for several years after handover.",
+      "Yes. MTJF provides updates about water projects funded by donors, including locations of hand pump installations and filtration systems. You’ll see the direct impact of your contribution and the communities it’s serving.",
   },
 ];
 
 /* Education.jsx — scholarships, schools, vocational training */
 export const educationFaqItems = [
   {
-    question: "What education programmes does MTJ Foundation run?",
+    question: "Where does MTJF run its education projects?",
     answer:
-      "We run three key programmes: (1) need-based scholarships for school and university students, (2) free literacy and adult classes for women in rural areas, and (3) vocational training in trades such as tailoring, masonry, electrical work, and IT.",
+      "We focus on underserved parts of Pakistan where children are most at risk of dropping out, including rural areas and low-income communities.",
   },
   {
-    question: "How much does it cost to sponsor one child's education?",
+    question: "Do girls benefit from this program?",
     answer:
-      "Under £30 / Rs 8,000 covers a full year of schooling including books, uniform, stationery and exam fees for a primary-age child. University scholarships are priced per degree and quoted on request.",
+      "Yes. Supporting girls’ education is a priority. Many of our scholarships help girls stay in school and avoid early marriage.",
   },
   {
-    question: "How are students selected for scholarships?",
+    question: "What happens if children don’t get this support?",
     answer:
-      "Our field teams conduct home visits to verify household income, orphan status, and school enrolment. Priority is given to orphans, girls, and families living below the poverty line.",
+      "Without access to school, children often end up working in fields or kilns, or girls are pushed into marriage at a young age. Education gives them a safer, brighter alternative.",
   },
   {
-    question: "Do you teach skills to women and girls?",
+    question: "Can I donate school supplies instead of money?",
     answer:
-      "Yes. Our women's vocational centres teach tailoring, embroidery, fabric dyeing, and digital skills, with micro-sewing machines donated to graduates so they can earn from home. 600+ women have been trained to date.",
+      "We don’t collect supplies directly. Instead, we purchase books, uniforms, and kits locally to cut costs and support the local economy.",
   },
   {
-    question: "Is education a valid Zakat category?",
+    question: "Does MTJF also support teachers?",
     answer:
-      "Yes. Zakat can be paid to students and seekers of knowledge (fi sabilillah), covering tuition, living stipends, books, and boarding. We issue a Zakat eligibility declaration on request.",
+      "Yes. Along with building schools and helping students, we plan to start teachers’ training and digital literacy programs so the learning environment improves for every child.",
   },
   {
-    question: "Can I sponsor a scholarship in someone's name?",
+    question: "How much does it cost to keep a child in school?",
     answer:
-      "Yes. Many donors gift scholarships for a child in memory of a loved one or as an Aqiqah / celebration sadaqah. We send quarterly progress reports with the child's results and attendance.",
+      " varies, but even a small donation helps cover uniforms, books, and fees. For example, $60 provides a full learning kit for one child for a year.",
   },
 ];
 
@@ -229,34 +229,29 @@ export const kasbFaqItems = [
 /* HotMeals.jsx — daily iftar / sadaqah meals */
 export const hotMealsFaqItems = [
   {
-    question: "What is the Hot Meals programme?",
+    question: "What is the $10 Hot Meal program?",
     answer:
-      "The Hot Meals programme provides freshly cooked, nutritious meals daily to the poor, homeless, patients at hospitals, and communities affected by floods and emergencies — especially during Ramadan, when thousands of families rely on our Iftaar and Sehri deliveries.",
+      "It’s a simple act of kindness with a lasting impact. For just $10, you provide a freshly cooked, high-quality meal to someone facing hunger in our local community. Each meal is prepared and served with care.",
   },
   {
-    question: "How much does one hot meal cost?",
+    question: "Who benefits from these meals?",
     answer:
-      "A single nutritious hot meal costs roughly Rs 350 / £1. Packages of 100, 500, or 1,000 meals are available for bulk donations, Iftaar sponsorship, or Aqiqah / Khatm offerings.",
+      "Anyone who’s hungry. Seniors, parents trying to stretch a few dollars, refugees finding their footing. People sleeping rough. Our faith teaches us to feed others before ourselves, and that’s what this program is about: making sure no one around us is forgotten.",
   },
   {
-    question: "Who receives the meals?",
+    question: "How far does my $10 donation really go?",
     answer:
-      "Meals are distributed in targeted villages, hospital wards, homeless shelters, orphanages, and emergency camps. Field volunteers supervise distribution to ensure no deserving family is turned away.",
+      "Every dollar goes directly towards preparing and delivering meals. Your $10 covers the cost of ingredients, cooking, and safe distribution through our volunteers. We keep our operations lean so your generosity reaches those in dire need.",
   },
   {
-    question: "Do you cater Iftaar for an entire masjid or madrasah?",
+    question: "Can I give more or make it monthly?",
     answer:
-      "Yes. Corporate donors, families, and masjid committees regularly sponsor a full Iftaar menu (dates, fruits, chaat, main dish, dessert, drinks) for a local masjid or madrasah in Pakistan. We provide photos and a report of the distribution.",
+      "Absolutely. Many supporters choose to give monthly so meals can be served consistently throughout the year. Whether you give once or regularly, your support helps us reach more people facing hunger every day.",
   },
   {
-    question: "Can I give meals as Sadaqah on behalf of someone?",
+    question: "Where are the meals prepared and served?",
     answer:
-      "Of course. Many donors gift meals during Ramadan, on birthdays, anniversaries, or as Sadaqah for a marhum. We can include a personalised duas card with the distribution if you wish.",
-  },
-  {
-    question: "What food safety standards do you follow?",
-    answer:
-      "All kitchens are registered, halal-certified, and inspected daily. Food is prepared in hygienic conditions by trained staff and transported in insulated containers so meals remain hot and fresh on delivery.",
+      "Meals are freshly prepared in certified local kitchens and delivered through our community partners and volunteers. We focus on areas where food insecurity is highest, starting in downtown Toronto and expanding across the GTA.",
   },
 ];
 
@@ -331,37 +326,47 @@ export const volunteerFaqItems = [
 /* AboutUs.jsx */
 export const aboutUsFaqItems = [
   {
-    question: "When was MTJ Foundation registered?",
+    question: "What does MTJ Foundation do?",
     answer:
-      "MTJ Foundation is a registered charitable organisation in the United Kingdom and operates field offices in Pakistan. Registration numbers and full governance documents are available on request.",
+      "We provide humanitarian aid, education, healthcare, and clean water to people in need, responding to emergencies and helping communities rebuild for the long term.",
   },
   {
-    question: "Who founded MTJ Foundation and why?",
+    question: "Who founded MTJ Foundation?",
     answer:
-      "MTJ Foundation was founded out of a vision to connect generous UK Muslims with life-changing projects on the ground in Pakistan — with complete transparency and zero middlemen.",
+      "The Foundation was created by Molana Tariq Jamil to turn faith into action, helping people live with dignity, compassion, and hope.",
   },
   {
-    question: "Which countries do you work in?",
+    question: "How is my donation used?",
     answer:
-      "Our flagship projects are in Pakistan (Punjab, Sindh, KPK, flood-hit south), plus emergency-response programmes for Gaza / Palestine, Turkey-Syria earthquakes, and Sudan as needs arise.",
+      "Every donation goes directly to the project you choose. We keep donors updated at every step, so you always know where your impact is changing lives.",
   },
   {
-    question: "How is MTJ Foundation governed?",
+    question: "Are MTJ Foundation’s projects Zakat-eligible?",
     answer:
-      "A board of experienced trustees meets quarterly to approve budgets, audit reports, and every project spend. The UK office manages admin and fundraising; field teams in Pakistan report monthly with photos, financials, and beneficiary lists.",
+      "Yes. Many of our programs, including food aid, orphan sponsorship, and medical support, are fully compliant with Islamic Zakat guidelines.",
   },
   {
-    question: "Can I visit your projects in Pakistan?",
+    question: "Does MTJ Foundation charge any administrative fees?",
     answer:
-      "Yes! We run 2-3 donor visibility trips every year where donors can meet beneficiaries, see completed wells and homes, visit AAS Lab, and attend distributions in person. Register your interest via our Contact page.",
+      "An administrative fee may apply to help cover the costs of processing and delivering your donation. We’re committed to transparency and responsible use of every contribution.",
   },
   {
-    question: "How do I contact MTJ Foundation?",
+    question: "How does MTJ Foundation respond to emergencies?",
     answer:
-      "Email info@mtjfoundation.ca or call the UK office number listed on our Contact page. Response times are usually within one working day (Mon-Fri, 9am-5pm GMT).",
+      "When and where disaster strikes, our teams and partners move fast to deliver food, water, and shelter while working closely with local experts to reach those most affected.",
+  },
+  {
+    question: "Can I volunteer or get involved?",
+    answer:
+      "Yes! You can volunteer by filling out the form on our website or simply share our mission to spread awareness and inspire others to give.",
+  },
+    {
+    question: "Does MTJ Foundation help only Muslim communities?",
+    answer:
+      "No. Our work is inspired by Islamic values, but we help anyone in need — because compassion knows no religion, and humanity has no borders.",
   },
 ];
-
+ 
 /* ============================================================
    Map of page-key → FAQ dataset.
    Used by FAQAccordion when the <FAQAccordion faqKey="…" />

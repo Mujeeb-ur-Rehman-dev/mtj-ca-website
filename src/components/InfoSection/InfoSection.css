@@ -738,3 +738,129 @@
     margin-top: 40px;
   }
 }
+
+.education-info-section {
+  padding: 44px 9.5%;
+}
+
+.education-info-section .wzk__inner {
+  grid-template-columns: 1fr;
+  max-width: 1000px;
+}
+
+.education-info-section .wzk__text {
+  align-items: stretch;
+}
+
+.education-info-section .wzk__title,
+.education-info-section .wzk__body {
+  text-align: left;
+}
+
+.education-info-section .wzk__title {
+  font-size: clamp(30px, 3.7vw, 44px);
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 22px;
+}
+
+.education-info-section .wzk__body,
+.education-info-section .wzk__list li {
+  font-size: clamp(16px, 1.55vw, 19px);
+  line-height: 1.35;
+  color: #0b212a;
+}
+
+.education-info-section .wzk__body {
+  margin-bottom: 16px;
+}
+
+.education-info-section .wzk__list {
+  margin-bottom: 24px;
+  padding-left: 46px;
+  list-style: disc;
+  list-style-position: outside;
+  text-align: left;
+}
+
+.education-info-section .wzk__list li {
+  margin-bottom: 0;
+}
+
+.clean-water-info-section {
+  padding: 48px 9.2%;
+}
+
+.clean-water-info-section .wzk__inner {
+  grid-template-columns: 1fr;
+  max-width: 1000px;
+}
+
+.clean-water-info-section .wzk__text {
+  align-items: stretch;
+}
+
+.clean-water-info-section .wzk__title,
+.clean-water-info-section .wzk__body {
+  text-align: left;
+  color: #0b212a;
+}
+
+.clean-water-info-section .wzk__title {
+  font-family: "Finder", "Arial Black", Arial, sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.clean-water-info-section .wzk__body {
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.35;
+  margin-bottom: 18px;
+}
+
+.clean-water-info-section .wzk__body:last-of-type {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .clean-water-info-section {
+    padding: 44px 8%;
+  }
+}
+
+@media (max-width: 560px) {
+  .clean-water-info-section {
+    padding: 36px 20px;
+  }
+
+  .clean-water-info-section .wzk__title {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .clean-water-info-section .wzk__body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .education-info-section {
+    padding: 44px 9%;
+  }
+
+  .education-info-section .wzk__title {
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .education-info-section {
+    padding: 36px 20px;
+  }
+
+  .education-info-section .wzk__title {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+}

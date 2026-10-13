@@ -6,48 +6,57 @@ import DonatinCards from "../components/DonatinCards/DonatinCards";
 import backgroundImage from "../assets/img/PalestineRelief/background.png";
 import mobileImg from "../assets/img/CleanWater/mobileImg.png";
 import heroImage from "../assets/img/CleanWater/heroImage.png";
+import cleanWaterVideoPoster from "../assets/img/CleanWater/imgi_44_default.png";
 import ImpactCards from "../components/impactCards/ImpactCards";
 import InfoSection from "../components/InfoSection/InfoSection";
 import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
 import { impactSectionData, cleanWaterImpactStats } from "../components/data/impactSectionData";
+import { cleanWaterFaqItems } from "../components/data/faqData";
 
 const CleanWater = () => {
   return (
     <>
        <Hero
+        className="clean-water-hero"
         backgroundImage={backgroundImage}
         mobileImage={mobileImg}
         heroImage={heroImage}
-        title="PALESTINE EMERGENCY"
+        title="SAFE WATER FOR FAMILIES WHO HAVE NONE"
         description=""
         buttonText=""
         buttonLink=""
         cardContent={
           <DonatinCards
-            campaignTitle="Palestine Emergency Relief"
-            defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
+            className="clean-water-donation-card"
+            campaignTitle="Support Clean Water"
+            showMonthlyTab={false}
+            defaultSelectedIndex={1}
             options={[
-              { amount: "20K", description: "Feed's a Family for a Day" },
-              { amount: "35K", description: "Feed's a Family for a Week" },
-              { amount: "90K", description: "Feed's a Family for a Month" },
+              { amount: "120K", description: "Provide a Hand Pump for 1 Family" },
+              { amount: "150K", description: "Community Hand Pump (no zakat)" },
+              { amount: "3M", description: "RO Filtration Plant (no zakat)" },
             ]}
             onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
           />
         }
       />
          <InfoSection
-              title="Water – The Best Form of Charity"
-              paragraphs={[
-                "Millions of people in Pakistan still don’t have safe drinking water. In places like Sindh and Balochistan, families collect water from ponds, rivers, even floodwater, because there’s no better option. ",
-                "Many women spend 3-5 hours a day just trying to bring water home. And it’s often contaminated:",
-                "UNICEF reports that about 70% of households drink bacterially contaminated water, and around 53,000 children under five die each year from diarrhea linked to poor water and sanitation.",
+           className="clean-water-info-section"
+           title="Water – The Best Form of Charity"
+           paragraphs={[
+             "Millions of people in Pakistan still don’t have safe drinking water. In places like Sindh and Balochistan, families collect water from ponds, rivers, even floodwater, because there’s no better option.",
+             "Many women spend 3-5 hours a day just trying to bring water home. And it’s often contaminated: UNICEF reports that about 70% of households drink bacterially contaminated water, and around 53,000 children under five die each year from diarrhea linked to poor water and sanitation.",
                 "Your support is vital for their survival. MTJ Foundation has installed 150+ hand pumps and supports long-term solutions like filtration plants, so families can drink safely, live with dignity, and have clean water anytime they need it.",
               ]}
-              image='' />
+           hideButton
+           image=""
+           noImageLayout="centered"
+         />
                 <VideoSection
-                  videoId="TdPtNLrEwYo"
+                  videoId="Ky8vkHMajxI"
+                  posterImage={cleanWaterVideoPoster}
                   title="Molana Tariq Jamil Foundation Clean Water Project"
                   channel="MTJ Foundation Canada"
                 />
@@ -55,16 +64,16 @@ const CleanWater = () => {
                        title="how you can help"
                        backgroundColor="#0B212A"
                        cards={[
-                         { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-                         { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                         { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                         { title: "Water Access", amount: "$655", description: "Your gift helps build a hand pump that gives a family in Pakistan safe access to clean water, day after day.", donateLink: "#donate" },
+                         { title: "Community  Water Access", amount: "$815", description: "Fund a community hand-pump water access point. One donation can serve many families in remote regions across Pakistan.", donateLink: "#donate" },
+                         { title: "Water Filtration Plant", amount: "$16240", description: "Help provide a community in Pakistan with access to safe, clean drinking water through the installation of a Reverse Osmosis filtration plant.", donateLink: "#donate" },
                        ]} />
       <ImpactSection1
         stats={cleanWaterImpactStats}
         eyebrow="Clean Water Initiative"
         title="WATER – THE BEST FORM OF CHARITY"
       />
-      <FAQAccordion />                    
+      <FAQAccordion items={cleanWaterFaqItems}/>                    
       <Newsletter />
       <Footer />
     </>

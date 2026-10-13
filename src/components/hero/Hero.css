@@ -798,6 +798,105 @@
   }
 }
 
+.clean-water-hero .hero-content {
+  max-width: 1360px;
+}
+
+.clean-water-hero .hero-content-inner {
+  justify-content: flex-start;
+}
+
+.clean-water-hero .hero-text-section--emergency {
+  flex: 0 0 560px;
+  max-width: 560px;
+  margin: 0 0 0 110px;
+  transform: translateY(-24px);
+}
+
+.clean-water-hero .hero-title {
+  position: relative;
+  top: 20px;
+  max-width: 580px;
+  margin-bottom: 28px;
+  color: #0d2130;
+  font-size: clamp(28px, 2.6vw, 40px);
+  font-weight: 900;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.clean-water-hero .hero-card-wrapper {
+  position: relative;
+  top: 20px;
+}
+
+.clean-water-hero .clean-water-donation-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 24px 22px;
+  border-radius: 6px;
+}
+
+.clean-water-hero .clean-water-donation-card .dcard__campaign {
+  margin-bottom: 26px;
+}
+
+.clean-water-hero .clean-water-donation-card .dcard__option {
+  padding: 14px 12px;
+}
+
+.clean-water-hero .clean-water-donation-card .dcard__option-amount {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.clean-water-hero .clean-water-donation-card .dcard__option-desc {
+  font-size: 15px;
+}
+
+.clean-water-hero .clean-water-donation-card .dcard__btn {
+  margin-top: 26px;
+  padding: 16px 12px;
+  border-radius: 6px;
+}
+
+@media (min-width: 769px) {
+  .clean-water-hero .hero-image-section {
+    top: 0;
+    right: 20px;
+    bottom: -30px;
+    width: 58%;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .clean-water-hero .hero-image-section .hero-main-image {
+    width: min(680px, 100%);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .clean-water-hero .hero-text-section--emergency {
+    margin: 0;
+    transform: none;
+  }
+
+  .clean-water-hero .hero-title {
+    max-width: 100%;
+    color: #0d2130;
+  }
+
+  .clean-water-hero .hero-card-wrapper {
+    top: 0;
+  }
+
+  .clean-water-hero .clean-water-donation-card {
+    max-width: 382px;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 480px) {
   .apna-ghar-hero .hero-title {
     font-size: 30px;
@@ -805,5 +904,153 @@
 
   .apna-ghar-hero .apna-ghar-hero-subtitle {
     font-size: 20px;
+  }
+}
+
+.education-hero .hero-content {
+  max-width: 1280px;
+}
+
+.education-hero .hero-content-inner {
+  justify-content: flex-start;
+}
+
+.education-hero .hero-text-section--emergency {
+  flex: 0 0 440px;
+  max-width: 440px;
+  margin: 0 0 0 15px;
+  transform: translateY(32px);
+}
+
+.education-hero .hero-title {
+  max-width: 430px;
+  margin-bottom: 28px;
+  color: #0d2130;
+  font-size: clamp(28px, 2vw, 36px);
+  font-weight: 900;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.education-hero .education-donation-card {
+  width: 100%;
+  max-width: 390px;
+  padding: 24px 22px;
+  border-radius: 6px;
+}
+
+.education-hero .education-donation-card .dcard__campaign {
+  margin-bottom: 26px;
+}
+
+.education-hero .education-donation-card .dcard__option {
+  padding: 14px 12px;
+}
+
+.education-hero .education-donation-card .dcard__option-amount {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.education-hero .education-donation-card .dcard__option-desc {
+  font-size: 16px;
+}
+
+.education-hero .education-donation-card .dcard__btn {
+  margin-top: 26px;
+  padding: 16px 12px;
+  border-radius: 6px;
+}
+
+@media (min-width: 769px) {
+  .education-hero .hero-card-wrapper {
+    margin: 0 0 0 8px;
+  }
+
+  .education-hero .hero-image-section {
+    top: -35px;
+    right: 0;
+    bottom: -115px;
+    width: 60%;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .education-hero .hero-image-section .hero-main-image {
+    width: min(740px, 100%);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-hero .hero-text-section--emergency {
+    margin: 0;
+    transform: none;
+  }
+
+  .education-hero .hero-title {
+    max-width: 100%;
+    color: #0d2130;
+  }
+
+  .education-hero .education-donation-card {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+}
+
+.about-us-hero .hero-text-section {
+  max-width: 500px;
+  margin-left: 48px;
+  transform: translateY(64px);
+}
+
+.about-us-hero .hero-title {
+  max-width: 500px;
+  margin-bottom: 28px;
+  color: #22582d;
+  font-size: clamp(36px, 2.9vw, 40px);
+  font-weight: 900;
+  line-height: 1.22;
+  text-transform: uppercase;
+}
+
+.about-us-hero .hero-description {
+  max-width: 440px;
+  color: #0d2130;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.about-us-hero .hero-donate-btn .btn-donate-content {
+  margin-top: 0;
+}
+
+@media (min-width: 769px) {
+  .about-us-hero .hero-image-section {
+    top: -40px;
+    right: 90px;
+    bottom: -194px;
+  }
+
+  .about-us-hero .hero-image-section .hero-main-image {
+    width: 690px;
+    max-width: 690px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-hero .hero-text-section {
+    margin-left: 0;
+    transform: none;
+  }
+
+  .about-us-hero .hero-title {
+    font-size: clamp(30px, 8vw, 38px);
+  }
+
+  .about-us-hero .hero-description {
+    color: #0d2130;
   }
 }

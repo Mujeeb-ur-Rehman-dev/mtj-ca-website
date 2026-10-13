@@ -10,56 +10,71 @@ import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import ImpactCards from "../components/impactCards/ImpactCards";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
-import { impactSectionData, educationImpactStats } from "../components/data/impactSectionData";
+import { educationFaqItems } from "../components/data/faqData";
+import { educationImpactStats } from "../components/data/impactSectionData";
 
 const Education = () => {
   return (
     <>
       <Hero
+        className="education-hero"
         backgroundImage={backgroundImage}
         mobileImage={mobileImg}
         heroImage={heroImage}
-        title="PALESTINE EMERGENCY"
+        title="BREAKING THE CYCLE OF POVERTY THROUGH EDUCATION"
         description=""
         buttonText=""
         buttonLink=""
         cardContent={
           <DonatinCards
-            campaignTitle="Palestine Emergency Relief"
-            defaultSelectedIndex={0}   // "Rs 70K" pre-selected hai screenshot mein
+            className="education-donation-card"
+            campaignTitle="Provide Education"
+            showMonthlyTab={false}
+            defaultSelectedIndex={2}
             options={[
-              { amount: "20K", description: "Feed's a Family for a Day" },
-              { amount: "35K", description: "Feed's a Family for a Week" },
-              { amount: "90K", description: "Feed's a Family for a Month" },
+              { amount: "12K", description: "Provide Educational Materials" },
+              { amount: "25K", description: "Fund student scholarships" },
+              { amount: "35K", description: "Build and renovate schools" },
             ]}
             onDonate={({ frequency, amount }) => { /* apna donate logic yahan */ }}
           />
         }
       />
       <InfoSection
-        title="Vocational Training to Empower Communities in Pakistan."
+        className="education-info-section"
+        title="Help Rewrite the Story of Pakistan’s Children"
         paragraphs={[
-          "Across Pakistan, millions dream of a better life but lack the opportunity to earn it. Every year, the country needs over one million skilled workers, yet less than half are trained. This gap leaves families trapped in poverty, with widows and vulnerable groups affected the most.",
-          "That’s what we are working to change through the KASB Vocational Training Program. ",
-          "We don’t just teach skills, we create opportunities. From football stitching to e-commerce, trainees even earn while training. When training ends, our team helps with job placement or starting a small business so stability lasts.",
-          "Imagine the impact: a widow starting her own small business, or a young man finding stable employment. A single donation can open a door, put steady income in a home, and end the cycle of dependency. ",
-          "Equip a family with a skill that pays, starting today. ",
+          "In Pakistan, more than 25 million school-age children are out of school, that’s nearly half of the country’s children.",
+          "Poverty has pushed many into child labour. They work in brick kilns or in fields to support their families. For girls, the risk is even greater: early marriage often cuts their childhood short, trapping them in a lifetime of poverty.",
+          "Without education, children remain vulnerable to exploitation, illiteracy, and hopelessness.",
+          "Through our Education program:",
+          [
+            "We build and renovate schools in underserved communities.",
+            "Our scholarships cover tuition, supplies, and boarding for children from struggling families.",
+            "We provide learning kits with books and uniforms.",
+            "For those who want to pursue religious studies, we support Alim education in Madaris.",
+          ],
+          "And with more support, we’re ready to expand scholarships to universities, launch digital learning, and train teachers, so every child has a real chance to be free from poverty.",
+          "Donate today and help give Pakistan’s children the future they deserve.",
         ]}
-        image='' />
+        hideButton
+        image=""
+        noImageLayout="centered"
+      />
       <ImpactCards
         title="how you can help"
         backgroundColor="#0B212A"
         cards={[
-          { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-          { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-          { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+          { title: "Learning Materials", amount: "$60", description: "Provides learning materials to children from low-income families. The kit contains books, uniforms, and school supplies.", donateLink: "#donate" },
+          { title: "Scholarship Program", amount: "$120", description: "Fund the education of a student from a struggling family so they are not forced to drop out before finishing school.", donateLink: "#donate" },
+          { title: "School Construction", amount: "$180", description: "Help build or renovate a school in a remote community so every child has a school to learn and grow.", donateLink: "#donate" },
         ]} />
       <ImpactSection1
         stats={educationImpactStats}
         eyebrow="Vocational Training"
         title="SKILLS THAT TRANSFORM LIVES"
       />
-        <FAQAccordion />    
+        <FAQAccordion items={educationFaqItems} />    
       <Newsletter />
       <Footer />
     </>

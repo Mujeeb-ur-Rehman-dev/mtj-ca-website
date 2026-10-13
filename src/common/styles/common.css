@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Rink';
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rink';
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-semibold-webfont.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Neueleiden';
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/neueleiden-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 .banner_img {
   margin-top: 110px;
     opacity: 0;

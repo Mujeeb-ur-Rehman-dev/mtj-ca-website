@@ -8,8 +8,7 @@ import heroImage from "../assets/img/HotMeals/heroImage.jpg";
 import InfoSection from "../components/InfoSection/InfoSection";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
-import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
-import { impactSectionData, hotMealsImpactStats } from "../components/data/impactSectionData";
+import { hotMealsFaqItems } from "../components/data/faqData";
 
 const HotMeals = () => {
   return (
@@ -59,16 +58,12 @@ const HotMeals = () => {
                                      title="how you can help"
                                      backgroundColor="#0B212A"
                                       cards={[
-                                               { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-                                               { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-                                               { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
+                                               { title: "Feed one person", amount: "$10", description: "One hot meal. One moment of relief. Your $10 brings comfort, dignity, and hope to someone who’s been hungry all day long.", donateLink: "#donate" },
+                                               { title: "Feed 5 people", amount: "$50", description: "Provide five people with hot, wholesome meals. Each plate reminds someone they’re not alone, that compassion still lives in our communities.", donateLink: "#donate" },
+                                               { title: "Feed 10 people", amount: "$100", description: "With $100, you feed ten people facing hunger. Ten warm plates. Ten grateful hearts. One shared message: no one should go hungry when we can give.", donateLink: "#donate" },
                                               ]}/> 
-      <ImpactSection1
-        stats={hotMealsImpactStats}
-        eyebrow="Hot Meal Initiative"
-        title="FEEDING OUR NEIGHBOURS"
-      />
-        <FAQAccordion />
+  
+        <FAQAccordion items={hotMealsFaqItems} />
       <Newsletter />
       <Footer />
     </>

@@ -1,0 +1,347 @@
+/* ===================================================
+   Our Team Section
+   Matches 100% MTJF Canada Our Team UI & Responsiveness
+   =================================================== */
+
+.our-team-section {
+  background-color: #FFFAEE;
+  padding: 70px 20px 90px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.our-team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.our-team-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.our-team-title {
+  color: #22582D;
+  font-family: "Rink", "Finder", "Inter", Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+
+.our-team-subtitle {
+  color: #0B212A;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Filters - Desktop */
+.our-team-filters-desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.team-filter-pill {
+  background: transparent;
+  color: #22582D;
+  border: 1.5px solid #22582D;
+  border-radius: 9999px;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  outline: none;
+}
+
+.team-filter-pill:hover {
+  background: #22582D;
+  color: #FFFFFF;
+}
+
+.team-filter-pill.active {
+  background: #22582D;
+  color: #FFFFFF;
+  border-color: #22582D;
+}
+
+/* Filters - Mobile Dropdown */
+.our-team-filters-mobile {
+  display: none;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.team-select-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+}
+
+.team-filter-select {
+  width: 100%;
+  padding: 10px 42px 10px 24px;
+  border: 1.5px solid #000000;
+  border-radius: 9999px;
+  background-color: #FFFAEE;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+}
+
+.team-filter-select:focus {
+  border-color: #22582D;
+}
+
+/* Team Grid */
+.our-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+}
+
+/* Card Wrapper with Scalloped / Scooped Inward Corners */
+.team-card-wrapper {
+  position: relative;
+  width: 100%;
+  height: 530px;
+  min-height: 530px;
+  cursor: pointer;
+  background-color: #FFFAEE;
+  outline: none;
+
+  /* Custom Concave Corner Scoop Mask (Matches live site --r: 18px) */
+  --r: 18px;
+
+  /* WebKit / Safari / Chrome */
+  -webkit-mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 99%, #000) top left,
+    radial-gradient(circle var(--r) at 100% 0, transparent 99%, #000) top right,
+    radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+    radial-gradient(circle var(--r) at 0 100%, transparent 99%, #000) bottom left,
+    linear-gradient(#000 0 0);
+  -webkit-mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: destination-out, destination-out, destination-out, destination-out, source-over;
+
+  /* Standard / Firefox */
+  mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 99%, #000) top left,
+    radial-gradient(circle var(--r) at 100% 0, transparent 99%, #000) top right,
+    radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+    radial-gradient(circle var(--r) at 0 100%, transparent 99%, #000) bottom left,
+    linear-gradient(#000 0 0);
+  mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  mask-repeat: no-repeat;
+  mask-composite: exclude, exclude, exclude, exclude, add;
+}
+
+/* Card Front & Back base styles */
+.team-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+/* Front (Photo view) */
+.team-card-front {
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.team-card-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 35%,
+    rgba(11, 33, 42, 0.65) 70%,
+    rgba(11, 33, 42, 0.95) 100%
+  );
+  padding: 40px 24px 30px;
+  width: 100%;
+}
+
+/* Back (Bio view) */
+.team-card-back {
+  background-color: #22582D;
+  padding: 28px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+}
+
+/* Hover & Selected interactions */
+.team-card-wrapper:hover .team-card-front,
+.team-card-wrapper.is-selected .team-card-front {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.team-card-wrapper:hover .team-card-back,
+.team-card-wrapper.is-selected .team-card-back {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Typography on cards */
+.team-member-name {
+  color: #FFFFFF;
+  font-family: "Rink", "Finder", "Inter", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+.team-member-role {
+  color: #FFFFFF;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.team-bio-content {
+  overflow-y: auto;
+  max-height: 380px;
+  padding-right: 6px;
+  margin-bottom: 16px;
+}
+
+/* Custom scrollbar for bio */
+.team-bio-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.team-bio-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.team-bio-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+}
+
+.team-bio-text {
+  color: #FFFFFF;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.team-bio-text:last-child {
+  margin-bottom: 0;
+}
+
+.team-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ===================================================
+   Responsive Breakpoints
+   =================================================== */
+
+/* Tablet (2 columns) */
+@media (max-width: 991px) {
+  .our-team-section {
+    padding: 60px 20px 80px;
+  }
+
+  .our-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .team-card-wrapper {
+    height: 500px;
+    min-height: 500px;
+  }
+}
+
+/* Mobile (1 column & Dropdown filter) */
+@media (max-width: 767px) {
+  .our-team-section {
+    padding: 48px 16px 70px;
+  }
+
+  .our-team-title {
+    font-size: 32px;
+  }
+
+  .our-team-subtitle {
+    font-size: 15px;
+  }
+
+  /* Switch filter tabs to mobile dropdown */
+  .our-team-filters-desktop {
+    display: none;
+  }
+
+  .our-team-filters-mobile {
+    display: flex;
+  }
+
+  .our-team-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+    gap: 24px;
+  }
+
+  .team-card-wrapper {
+    height: 480px;
+    min-height: 480px;
+  }
+
+  .team-bio-text {
+    font-size: 15px;
+  }
+
+  .team-member-name {
+    font-size: 19px;
+  }
+
+  .team-member-role {
+    font-size: 16px;
+  }
+}

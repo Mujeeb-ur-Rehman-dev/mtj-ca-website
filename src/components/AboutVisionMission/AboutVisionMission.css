@@ -1,7 +1,7 @@
 .about-vision-mission {
   position: relative;
   background: #f5f1e5;
-  padding: 72px 40px 84px;
+  padding: 80px 40px 84px;
   box-sizing: border-box;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .about-vision-mission__grid {
-  max-width: 1400px;
+  max-width: 1476px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -34,8 +34,8 @@
   margin: 0;
   color: #04243a;
   font-family: "Finder", "Inter", Arial, sans-serif;
-  font-size: 2rem;
-  line-height: 0.95;
+  font-size: 1.8rem;
+  line-height: 1;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -44,8 +44,8 @@
   margin: 0;
   color: #04243a;
   font-family: "Neueleiden", "Inter", Arial, sans-serif;
-  font-size: clamp(1.8rem, 2.5vw, 3.1rem);
-  line-height: 1.25;
+  font-size: clamp(1.5rem, 1.7vw, 2rem);
+  line-height: 1.3;
   font-weight: 500;
 }
 
@@ -53,8 +53,8 @@
   margin: 0;
   color: #04243a;
   font-family: "Neueleiden", "Inter", Arial, sans-serif;
-  font-size: clamp(1.3rem, 2vw, 2rem);
-  line-height: 1.5;
+  font-size: clamp(1.1rem, 1.15vw, 1.3rem);
+  line-height: 1.4;
   font-weight: 500;
 }
 
@@ -62,8 +62,8 @@
   margin: 0;
   color: #04243a;
   font-family: "Neueleiden", "Inter", Arial, sans-serif;
-  font-size: clamp(1.05rem, 1.65vw, 1.6rem);
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  line-height: 1.4;
   font-weight: 400;
   max-width: 640px;
 }
@@ -79,20 +79,20 @@
   }
 
   .about-vision-mission__title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 1;
   }
 
   .about-vision-mission__subtitle {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .about-vision-mission__tagline {
-    font-size: 1.6rem;
+    font-size: 1.25rem;
   }
 
   .about-vision-mission__text {
-    font-size: 1.3rem;
-    line-height: 1.55;
+    font-size: 1rem;
+    line-height: 1.4;
   }
 }

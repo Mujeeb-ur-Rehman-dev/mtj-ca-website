@@ -1,14 +1,18 @@
+/* ===================================================
+   Volunteer Section Styles
+   100% Matching Original MTJF Canada Volunteer UI
+   =================================================== */
+
 .volunteer-section {
-  margin-top: 80px;              /* ← top margin / spacing badha diya */
-  /* background-color: #1a4d3a; */
+  margin-top: 80px;
   background-image: url("../../assets/img/VolunteerSection/background-img.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 80px 20px;          /* ← top margin / spacing badha diya */
+  padding: 80px 20px;
   min-height: 100vh;
   display: flex;
-  align-items: center;         /* vertically center */
+  align-items: center;
   justify-content: center;
 }
 
@@ -19,60 +23,457 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-  min-height: 680px;           /* equal height for both sides */
+  min-height: 680px;
+  background: #ffffff;
 }
 
-/* ========== LEFT SIDE ========== */
+/* ===================================================
+   LEFT SIDE - Form Column
+   =================================================== */
+
 .volunteer-left {
-  flex: 1;
+  flex: 1.15;
   background: #fdf8f0;
   padding: 28px 24px 24px;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .volunteer-title {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   color: #1a2e35;
-  margin: 0 0 18px 0;
+  margin: 0 0 20px 0;
   text-align: center;
   line-height: 1.3;
+  font-family: "Rink", "Inter", Arial, sans-serif;
 }
 
-.form-wrapper {
+/* Scrollable Form Container matching original */
+.form-scroll-wrapper {
   flex: 1;
-  border-radius: 10px;
-  overflow: hidden;            /* extra scrollbar hide */
-  background: white;
-  border: 1px solid #e5e7eb;
-  position: relative;
+  max-height: 620px;
+  overflow-y: auto;
+  padding-right: 12px;
 }
 
-.google-form-iframe {
+/* Original Google Form style scrollbar */
+.form-scroll-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.form-scroll-wrapper::-webkit-scrollbar-track {
+  background: #f1f3f4;
+  border-radius: 6px;
+}
+
+.form-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #bdc1c6;
+  border-radius: 6px;
+}
+
+.form-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #9aa0a6;
+}
+
+/* Form Container */
+.volunteer-react-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Card */
+.form-header-card {
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.form-header-bar {
+  height: 10px;
+  background-color: #1a73e8;
   width: 100%;
-  height: 100%;
-  min-height: 620px;
-  border: none;
-  display: block;
 }
 
-/* ========== RIGHT SIDE ========== */
+.form-header-body {
+  padding: 22px 24px 22px;
+}
+
+.form-heading {
+  font-size: 30px;
+  font-weight: 500;
+  color: #202124;
+  margin: 0 0 14px;
+  line-height: 1.25;
+  font-family: "Rink", "Inter", Arial, sans-serif;
+}
+
+.form-intro-text p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #3c4043;
+  margin: 0 0 10px;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+}
+
+.form-intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.form-intro-text a {
+  color: #1a73e8;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.form-intro-text a:hover {
+  color: #1765cc;
+}
+
+.form-required-note {
+  color: #d93025;
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #dadce0;
+}
+
+/* Question Cards */
+.form-card {
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-card:hover {
+  border-color: #c0c4c8;
+}
+
+/* Labels */
+.form-label {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #202124;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1.4;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+}
+
+.required-star {
+  color: #d93025;
+  margin-left: 3px;
+}
+
+.form-sublabel {
+  font-size: 13px;
+  color: #5f6368;
+  font-weight: 400;
+}
+
+/* Underline Inputs (Half width like original Google Forms) */
+.form-underline-input {
+  width: 50%;
+  max-width: 320px;
+  border: none;
+  border-bottom: 1px solid #dadce0;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #202124;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.form-underline-input::placeholder {
+  color: #70757a;
+  opacity: 1;
+}
+
+.form-underline-input:focus {
+  border-bottom: 2px solid #1a73e8;
+  padding-bottom: 5px;
+}
+
+.form-inline-input {
+  width: 220px;
+  max-width: 260px;
+  margin-left: 8px;
+}
+
+/* Radio & Checkbox Groups */
+.form-radio-group,
+.form-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.form-radio-item,
+.form-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  color: #202124;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+}
+
+.form-other-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Native inputs hidden */
+.form-native-radio,
+.form-native-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Custom Radio (Matches original 20px) */
+.form-custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #70757a;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.form-radio-item:hover .form-custom-radio {
+  border-color: #202124;
+}
+
+.form-native-radio:checked + .form-custom-radio {
+  border-color: #1a73e8;
+}
+
+.form-native-radio:checked + .form-custom-radio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1a73e8;
+}
+
+/* Custom Checkbox (Matches original 18px) */
+.form-custom-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #70757a;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.form-checkbox-item:hover .form-custom-checkbox {
+  border-color: #202124;
+}
+
+.form-native-checkbox:checked + .form-custom-checkbox {
+  background-color: #1a73e8;
+  border-color: #1a73e8;
+}
+
+.form-native-checkbox:checked + .form-custom-checkbox::after {
+  content: "";
+  width: 4px;
+  height: 9px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.form-radio-label,
+.form-checkbox-label {
+  line-height: 1.4;
+}
+
+/* Error States */
+.form-card--error {
+  border-color: #d93025 !important;
+  background-color: #ffffff;
+}
+
+.form-card--error .form-underline-input {
+  border-bottom-color: #d93025;
+}
+
+.form-error-msg {
+  color: #d93025;
+  font-size: 12.5px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+/* Bottom Actions Bar */
+.form-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 6px 2px 14px;
+}
+
+.form-submit-btn {
+  background: #1a73e8;
+  color: #ffffff;
+  border: none;
+  padding: 10px 26px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3);
+}
+
+.form-submit-btn:hover {
+  background: #1765cc;
+  box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.form-clear-btn {
+  background: transparent;
+  color: #1a73e8;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.form-clear-btn:hover {
+  text-decoration: underline;
+}
+
+/* Success Card */
+.form-success-card {
+  background: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.form-success-content {
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #e6f4ea;
+  color: #137333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.form-success-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #202124;
+  margin: 0 0 10px;
+  font-family: "Rink", "Inter", Arial, sans-serif;
+}
+
+.form-success-message {
+  font-size: 15.5px;
+  color: #3c4043;
+  line-height: 1.5;
+  margin: 0 0 8px;
+  max-width: 440px;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+}
+
+.form-success-subtext {
+  font-size: 14px;
+  color: #5f6368;
+  line-height: 1.5;
+  margin: 0 0 24px;
+  max-width: 440px;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+}
+
+.form-reset-btn {
+  background: transparent;
+  color: #1a73e8;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-family: inherit;
+}
+
+/* ===================================================
+   RIGHT SIDE - Info Column
+   =================================================== */
+
 .volunteer-right {
   flex: 1;
   background: #0f2c3a;
   color: #ffffff;
-  padding: 32px 36px;
+  padding: 38px 38px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* ← content upar se start hoga */
+  justify-content: flex-start;
 }
 
 .right-heading {
-  font-size: 25px;
+  font-size: 27px;
   font-weight: 700;
   line-height: 1.35;
   margin: 0 0 22px 0;
+  font-family: "Rink", "Inter", Arial, sans-serif;
+  color: #ffffff;
 }
 
 .volunteer-right p {
@@ -80,22 +481,31 @@
   line-height: 1.65;
   margin: 0 0 16px 0;
   opacity: 0.95;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  color: #ffffff;
 }
 
+/* Bullets with visible white dots matching Image 1 */
 .volunteer-right ul {
-  margin: 8px 0 20px 18px;
-  padding: 0;
+  margin: 8px 0 20px 0;
+  padding-left: 20px;
+  list-style: disc outside !important;
 }
 
 .volunteer-right ul li {
+  list-style: disc outside !important;
+  display: list-item !important;
   margin-bottom: 9px;
   font-size: 15px;
   line-height: 1.5;
+  color: #ffffff;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
 }
 
 .contact-info {
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: 14.5px;
+  font-family: "Neueleiden", "Inter", Arial, sans-serif;
 }
 
 .contact-info p {
@@ -103,6 +513,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
+  color: #ffffff;
 }
 
 .contact-row--align-top {
@@ -128,7 +539,7 @@
   line-height: 1.45;
 }
 
-/* ---------- Follow Us (social bar) ---------- */
+/* Social Icons */
 .follow-us {
   margin-top: 32px;
   padding-top: 22px;
@@ -141,6 +552,7 @@
   line-height: 1.2;
   margin: 0 0 18px 0;
   color: #ffffff;
+  font-family: "Rink", "Inter", Arial, sans-serif;
 }
 
 .follow-us__icons {
@@ -161,42 +573,76 @@
 
 .follow-us__icons a:hover {
   color: #e2b767;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-/* ========== MOBILE ========== */
+/* ===================================================
+   MOBILE & TABLET RESPONSIVENESS
+   =================================================== */
+
 @media (max-width: 900px) {
   .volunteer-section {
     padding: 50px 16px;
+    margin-top: 70px;
   }
 
   .volunteer-container {
     flex-direction: column;
     min-height: auto;
+    border-radius: 12px;
   }
 
   .volunteer-left {
-    padding: 24px 18px 18px;
-  }
-
-  .form-wrapper {
-    height: 520px;
-  }
-
-  .google-form-iframe {
-    min-height: 520px;
-  }
-
-  .volunteer-right {
-    padding: 28px 22px;
-  }
-
-  .right-heading {
-    font-size: 22px;
+    padding: 22px 16px 20px;
   }
 
   .volunteer-title {
     font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .form-scroll-wrapper {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+
+  .form-card {
+    padding: 18px 16px;
+    margin-bottom: 12px;
+  }
+
+  .form-header-body {
+    padding: 18px 16px;
+  }
+
+  .form-heading {
+    font-size: 24px;
+  }
+
+  .form-underline-input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .form-other-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-inline-input {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .volunteer-right {
+    padding: 30px 22px;
+  }
+
+  .right-heading {
+    font-size: 22px;
   }
 
   .contact-info p {
@@ -210,12 +656,12 @@
   }
 
   .follow-us {
-    margin-top: 28px;
+    margin-top: 26px;
     padding-top: 18px;
   }
 
   .follow-us__title {
-    font-size: 19px;
+    font-size: 18px;
     margin-bottom: 14px;
   }
 

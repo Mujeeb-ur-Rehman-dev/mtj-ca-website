@@ -34,15 +34,17 @@
 /* Timeline Components */
 .timeline-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 780px;
+  width: min(1500px, calc(80vw - 50px));
+  max-width: none;
   margin: 0 auto 40px auto;
   padding: 10px 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .timeline-line {
   position: absolute;
-  top: 60%;
+  top: 97px;
   left: 0;
   right: 0;
   height: 2px;
@@ -55,7 +57,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   z-index: 2;
 }
 
@@ -65,24 +67,30 @@
   align-items: center;
   cursor: pointer;
   user-select: none;
+  min-width: 40px;
 }
 
 .timeline-year {
-  font-size: 1.5rem;
-  font-weight: 800;
+  display: flex;
+  align-items: center;
+  height: 43px;
+  font-size: 1.9rem;
+  font-weight: 400;
   color: #1a3224;
-  margin-bottom: 12px;
+  line-height: 1.2;
+  margin-bottom: 24px;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .timeline-node.active .timeline-year {
   color: #1a3224;
-  font-size: 1.65rem;
+  font-size: 2.15rem;
+  font-weight: 600;
 }
 
 .timeline-circle {
-  width: 26px;
-  height: 26px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: #fcf9ee;
   border: 2px solid #555555;
@@ -95,8 +103,9 @@
 .timeline-node.active .timeline-circle {
   background-color: #1b4d2e;
   border-color: #1b4d2e;
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
+  transform: translateY(-10px);
 }
 
 /* Active Year Subtitle & Description */
@@ -181,6 +190,9 @@
   }
 
   .timeline-wrapper {
+    width: 100%;
+    left: auto;
+    transform: none;
     overflow-x: auto;
     padding-bottom: 10px;
     margin-bottom: 30px;
@@ -197,6 +209,25 @@
 
   .timeline-year {
     font-size: 1.25rem;
+  }
+
+  .timeline-line {
+    top: 92px;
+  }
+
+  .timeline-node.active .timeline-year {
+    font-size: 1.35rem;
+  }
+
+  .timeline-circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .timeline-node.active .timeline-circle {
+    width: 40px;
+    height: 40px;
+    transform: translateY(-5px);
   }
 
   .story-content-title {
