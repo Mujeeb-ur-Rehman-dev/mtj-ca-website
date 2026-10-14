@@ -75,6 +75,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Automatically open Quick-Donate modal if URL has ?form=Quick-Donate or similar query param
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const formParam = params.get('form');
+    if (formParam && formParam.toLowerCase() === 'quick-donate') {
+      openDonation('quick');
+    }
+  }, [location.search, openDonation]);
+
    // Update active link based on current route
    useEffect(() => {
      const currentPath = location.pathname.trim();
@@ -177,7 +186,7 @@ const Navbar = () => {
             <div className=' d-none md:d-flex'>
               {/* ✅ Quick Donate button updated */}
               <div onClick={() => openDonation('quick')}>
-                <Button />
+                <Button onClick={() => openDonation('quick')} />
               </div>
             </div>
             <div className='md:d-none'>

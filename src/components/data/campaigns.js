@@ -1,5 +1,5 @@
 import lebanonPopup from '../../assets/img/EmergencyReliefLebanon/lebanon_popup.png';
-import navbarButton from '../../assets/img/navbar/navbar-button.png';
+import quickDonateBanner from '../../assets/img/navbar/quick-donate-banner.jpg';
 import zakatDonateBtn from '../../assets/img/zakat/hero/zakat-donate.png';
 import sadaqahDonateBtn from '../../assets/img/sadaqahJariyah/sadqa-donate-btn.png';
 import apnaGharPopup from '../../assets/img/ApnaGhar/galleryImg11.png';
@@ -13,7 +13,7 @@ export const campaigns = {
     title: 'Donate where Most Needed',
     description:
       'Your contributions provide critical support to those in need, empowering communities and uplifting lives through sustainable development and direct aid. From essential relief to fulfilling your Zakat, every donation delivers lasting impact and reflects the core values of our faith.',
-    image: navbarButton, // Add the appropriate image path here
+    image: quickDonateBanner,
 
     // Layout Config
     layoutOnce: 'grid',          // 'grid' | 'vertical'
@@ -27,8 +27,9 @@ export const campaigns = {
       { value: 'zakat', label: 'Zakat' },
     ],
 
+    // Default PKR Amounts matching live site
     amountsOnce: [
-      { value: 2500, label: 'Rs 2,500' },
+      { value: 2000, label: 'Rs 2,000' },
       { value: 5000, label: 'Rs 5,000' },
       { value: 10000, label: 'Rs 10K' },
       { value: 20000, label: 'Rs 20K' },
@@ -36,13 +37,143 @@ export const campaigns = {
       { value: 100000, label: 'Rs 100K' },
     ],
     amountsMonthly: [
-      { value: 1000, label: 'Rs 1,000' },
-      { value: 2000, label: 'Rs 2,000' },
-      { value: 6000, label: 'Rs 6,000' },
-      { value: 10000, label: 'Rs 10K' },
-      { value: 20000, label: 'Rs 20K' },
       { value: 40000, label: 'Rs 40K' },
+      { value: 20000, label: 'Rs 20K' },
+      { value: 10000, label: 'Rs 10K' },
+      { value: 6000, label: 'Rs 6,000' },
+      { value: 2000, label: 'Rs 2,000' },
+      { value: 1000, label: 'Rs 1,000' },
     ],
+
+    // Multi-currency configurations matching live Fundraise Up widget
+    currencyConfig: {
+      PKR: {
+        symbol: 'Rs',
+        defaultOnce: 5000,
+        defaultMonthly: 6000,
+        amountsOnce: [
+          { value: 2000, label: 'Rs 2,000' },
+          { value: 5000, label: 'Rs 5,000' },
+          { value: 10000, label: 'Rs 10K' },
+          { value: 20000, label: 'Rs 20K' },
+          { value: 50000, label: 'Rs 50K' },
+          { value: 100000, label: 'Rs 100K' },
+        ],
+        amountsMonthly: [
+          { value: 40000, label: 'Rs 40K' },
+          { value: 20000, label: 'Rs 20K' },
+          { value: 10000, label: 'Rs 10K' },
+          { value: 6000, label: 'Rs 6,000' },
+          { value: 2000, label: 'Rs 2,000' },
+          { value: 1000, label: 'Rs 1,000' },
+        ],
+      },
+      CAD: {
+        symbol: '$',
+        defaultOnce: 25,
+        defaultMonthly: 30,
+        amountsOnce: [
+          { value: 10, label: '$10' },
+          { value: 25, label: '$25' },
+          { value: 50, label: '$50' },
+          { value: 100, label: '$100' },
+          { value: 250, label: '$250' },
+          { value: 500, label: '$500' },
+        ],
+        amountsMonthly: [
+          { value: 5, label: '$5' },
+          { value: 10, label: '$10' },
+          { value: 30, label: '$30' },
+          { value: 50, label: '$50' },
+          { value: 100, label: '$100' },
+          { value: 200, label: '$200' },
+        ],
+      },
+      USD: {
+        symbol: '$',
+        defaultOnce: 25,
+        defaultMonthly: 30,
+        amountsOnce: [
+          { value: 10, label: '$10' },
+          { value: 25, label: '$25' },
+          { value: 50, label: '$50' },
+          { value: 100, label: '$100' },
+          { value: 250, label: '$250' },
+          { value: 500, label: '$500' },
+        ],
+        amountsMonthly: [
+          { value: 5, label: '$5' },
+          { value: 10, label: '$10' },
+          { value: 30, label: '$30' },
+          { value: 50, label: '$50' },
+          { value: 100, label: '$100' },
+          { value: 200, label: '$200' },
+        ],
+      },
+      GBP: {
+        symbol: '£',
+        defaultOnce: 25,
+        defaultMonthly: 30,
+        amountsOnce: [
+          { value: 10, label: '£10' },
+          { value: 25, label: '£25' },
+          { value: 50, label: '£50' },
+          { value: 100, label: '£100' },
+          { value: 250, label: '£250' },
+          { value: 500, label: '£500' },
+        ],
+        amountsMonthly: [
+          { value: 5, label: '£5' },
+          { value: 10, label: '£10' },
+          { value: 30, label: '£30' },
+          { value: 50, label: '£50' },
+          { value: 100, label: '£100' },
+          { value: 200, label: '£200' },
+        ],
+      },
+      EUR: {
+        symbol: '€',
+        defaultOnce: 25,
+        defaultMonthly: 30,
+        amountsOnce: [
+          { value: 10, label: '€10' },
+          { value: 25, label: '€25' },
+          { value: 50, label: '€50' },
+          { value: 100, label: '€100' },
+          { value: 250, label: '€250' },
+          { value: 500, label: '€500' },
+        ],
+        amountsMonthly: [
+          { value: 5, label: '€5' },
+          { value: 10, label: '€10' },
+          { value: 30, label: '€30' },
+          { value: 50, label: '€50' },
+          { value: 100, label: '€100' },
+          { value: 200, label: '€200' },
+        ],
+      },
+      AED: {
+        symbol: 'AED',
+        defaultOnce: 100,
+        defaultMonthly: 100,
+        amountsOnce: [
+          { value: 50, label: 'AED 50' },
+          { value: 100, label: 'AED 100' },
+          { value: 200, label: 'AED 200' },
+          { value: 500, label: 'AED 500' },
+          { value: 1000, label: 'AED 1,000' },
+          { value: 2500, label: 'AED 2,500' },
+        ],
+        amountsMonthly: [
+          { value: 25, label: 'AED 25' },
+          { value: 50, label: 'AED 50' },
+          { value: 100, label: 'AED 100' },
+          { value: 250, label: 'AED 250' },
+          { value: 500, label: 'AED 500' },
+          { value: 1000, label: 'AED 1,000' },
+        ],
+      },
+    },
   },
 
   // ========== 2. Lebanon Emergency ==========
