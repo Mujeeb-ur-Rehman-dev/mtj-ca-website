@@ -4,47 +4,40 @@ import { IoClose } from 'react-icons/io5';
 import './DonationPopup.css';
 import defaultLogo from '../../assets/img/logos/favicon.png';
 import quickDonateLogo from '../../assets/img/logos/quick_donate_logo.png';
+import visaLogo from '../../assets/img/payment/card-visa.png';
+import mastercardLogo from '../../assets/img/payment/card-mastercard.png';
+import amexLogo from '../../assets/img/payment/card-amex.png';
+import discoverLogo from '../../assets/img/payment/card-discover.png';
 
-// Branded SVGs matching live Fundraise Up design
+// Branded SVGs and Cards matching live Fundraise Up design
 const GooglePayIcon = () => (
-  <svg width="42" height="17" viewBox="0 0 54 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M7.74 10.95c0-.41-.03-.8-.1-1.19H0v2.32h4.38c-.19.99-.76 1.83-1.63 2.4v1.98h2.62c1.53-1.42 2.37-3.5 2.37-5.51z" fill="#4285F4"/>
-    <path d="M0 16.5c2.18 0 4.02-.72 5.37-1.99l-2.62-1.98c-.73.49-1.66.78-2.75.78-2.11 0-3.9-1.42-4.54-3.34H-7.24v2.05A8.04 8.04 0 000 16.5z" fill="#34A853"/>
-    <path d="M-4.54 9.97a4.8 4.8 0 010-3.07V4.85H-7.24a8.04 8.04 0 000 7.17l2.7-2.05z" fill="#FBBC04"/>
-    <path d="M0 5.4c1.19 0 2.25.41 3.09 1.2l2.32-2.32C4.01 2.97 2.18 2.3 0 2.3a8.04 8.04 0 00-7.24 4.55l2.7 2.05C-3.9 6.98-2.11 5.4 0 5.4z" fill="#EA4335"/>
-    <path d="M21.2 7.7h-3.48v8.4H15.6V4.9h5.6c2.4 0 3.96 1.48 3.96 3.6 0 2.12-1.56 3.6-3.96 3.6zm-.12-4.7h-3.36v3.1h3.36c1.28 0 2.04-.76 2.04-1.55 0-.79-.76-1.55-2.04-1.55zM28.3 16.29c-.88 0-1.6-.32-2.04-.96v.77h-1.96V8.6h1.96v.84c.48-.68 1.2-1.04 2.12-1.04 1.76 0 3.2 1.44 3.2 3.92 0 2.52-1.44 3.97-3.28 3.97zm-.36-1.72c1 0 1.72-.8 1.72-2.2 0-1.4-.72-2.2-1.72-2.2-1 0-1.72.8-1.72 2.2 0 1.4.72 2.2 1.72 2.2zM40.2 8.6l-4.16 9.88h-2.12l1.6-3.56-2.76-6.32h2.2l1.64 4.16 1.56-4.16h2.08z" fill="#FFFFFF"/>
+  <svg width="50" height="24" viewBox="0 0 53 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#FFFFFF">
+      <path d="m25.0109 13.6094v5.8583h-1.8898v-14.48821h4.9134c1.1968 0 2.3307.44095 3.2126 1.25984.8819.75591 1.3228 1.88977 1.3228 3.08662s-.4409 2.26775-1.3228 3.08665-1.9528 1.2598-3.2126 1.2598zm0-6.86613v5.03933h3.1496c.6929 0 1.3858-.2519 1.8267-.7559 1.0079-.9448 1.0079-2.51965.063-3.46453l-.063-.06299c-.5039-.50394-1.1338-.8189-1.8267-.75591z"/>
+      <path d="m36.9168 9.2627c1.3858 0 2.4567.37795 3.2756 1.1339.8189.7559 1.1968 1.7637 1.1968 3.0236v6.0472h-1.7638v-1.3858h-.063c-.7559 1.1339-1.8267 1.7008-3.0866 1.7008-1.0708 0-2.0157-.315-2.7716-.9449-.6929-.6299-1.1339-1.5118-1.1339-2.4567 0-1.0079.378-1.8268 1.1339-2.4567s1.8267-.8819 3.0866-.8819c1.1338 0 2.0157.189 2.7086.6299v-.4409c0-.6299-.2519-1.2598-.7559-1.6378-.5039-.4409-1.1338-.6929-1.8267-.6929-1.0709 0-1.8898.4409-2.4567 1.3228l-1.6378-1.0078c1.0079-1.32288 2.3307-1.9528 4.0945-1.9528zm-2.3937 7.1811c0 .5039.2519.9449.6299 1.1968.4409.315.9449.504 1.4488.504.7559 0 1.5118-.315 2.0787-.8819.63-.5669.9449-1.2598.9449-2.0158-.5669-.4409-1.3858-.6929-2.4567-.6929-.7559 0-1.3858.189-1.8897.567-.504.3149-.7559.7559-.7559 1.3228z"/>
+      <path d="m51.5939 9.57812-6.2363 14.29918h-1.8897l2.3307-4.9763-4.0945-9.25988h2.0157l2.9607 7.11808h.063l2.8976-7.11808h1.9528z"/>
+    </g>
+    <path d="m17.5146 12.3497c0-.5669-.0629-1.1338-.1259-1.7008h-7.87405v3.2126h4.47245c-.189 1.0079-.7559 1.9528-1.6378 2.5197v2.0787h2.7087c1.5748-1.4488 2.4566-3.5905 2.4566-6.1102z" fill="#4285F4"/>
+    <path d="m9.5151 20.4755c2.2677 0 4.1575-.7559 5.5433-2.0157l-2.7087-2.0788c-.7559.504-1.7007.8189-2.8346.8189-2.14173 0-4.03149-1.4488-4.66142-3.4645h-2.77165v2.1417c1.44882 2.8346 4.28347 4.5984 7.43307 4.5984z" fill="#34A853"/>
+    <path d="m4.85386 13.7352c-.37795-1.0079-.37795-2.1417 0-3.2126v-2.14174h-2.77165c-1.196852 2.33074-1.196852 5.10234 0 7.49604z" fill="#FBBC04"/>
+    <path d="m9.51461 7.12126c1.19689 0 2.33069.44095 3.21259 1.25985l2.3937-2.3937c-1.5118-1.38583-3.5276-2.20473-5.5433-2.14174-3.1496 0-6.04724 1.76378-7.43307 4.59843l2.77165 2.1417c.56693-2.01572 2.4567-3.46454 4.59843-3.46454z" fill="#EA4335"/>
   </svg>
 );
 
 const VisaLogo = () => (
-  <svg width="36" height="22" viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="36" height="22" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
-    <path d="M14.5 15.2L16.2 6.8h2.1l-1.7 8.4h-2.1zm8.3-8.2c-.4-.2-1.1-.3-2-.3-2.2 0-3.7 1.1-3.7 2.7 0 1.2 1.1 1.9 1.9 2.3.8.4 1.1.7 1.1 1.1 0 .6-.7.9-1.4.9-.9 0-1.4-.1-2.2-.5l-.3-.1-.3 1.9c.5.2 1.5.4 2.5.4 2.3 0 3.8-1.1 3.8-2.8 0-.9-.6-1.6-1.9-2.2-.8-.4-1.3-.7-1.3-1.1 0-.4.4-.8 1.3-.8.7 0 1.3.2 1.7.4l.2.1.6-1.9zm5.7 5.4l.9-2.4.5 2.4h-1.4zm2.1 2.8h1.9L30.8 6.8h-1.7c-.5 0-1 .2-1.2.6L24.8 15.2h2.2l.4-1.2h2.7l.5 1.2zm-18.7 0l2.1-8.4h-2.2l-1.3 5.7-.2-.9c-.4-1.3-1.6-2.7-2.9-3.4l1.9 7h2.6z" fill="#1A1F71"/>
-  </svg>
+  <img src={visaLogo} alt="Visa" className="card-badge-img" />
 );
 
 const MastercardLogo = () => (
-  <svg width="36" height="22" viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="36" height="22" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
-    <circle cx="14" cy="11" r="6" fill="#EB001B"/>
-    <circle cx="22" cy="11" r="6" fill="#F79E1B"/>
-    <path d="M18 6.5a6 6 0 00-2 4.5 6 6 0 002 4.5 6 6 0 002-4.5 6 6 0 00-2-4.5z" fill="#FF5F00"/>
-  </svg>
+  <img src={mastercardLogo} alt="Mastercard" className="card-badge-img" />
 );
 
 const AmexLogo = () => (
-  <svg width="36" height="22" viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="36" height="22" rx="3" fill="#006FCF"/>
-    <path d="M5 8.2h3.4l.8 1.9.8-1.9H13v5.6h-1.8v-3.7l-.8 1.9H9l-.8-1.9v3.7H5V8.2zm9 0h5v1.4h-3.2v.7h3v1.4h-3v.7h3.3v1.4H14V8.2zm6.2 0h2l1.3 2.1 1.3-2.1h2l-2.2 3 2.3 2.6h-2.1l-1.4-1.8-1.4 1.8h-2l2.3-2.6-2.2-3z" fill="#FFFFFF"/>
-  </svg>
+  <img src={amexLogo} alt="American Express" className="card-badge-img" />
 );
 
 const DiscoverLogo = () => (
-  <svg width="36" height="22" viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="36" height="22" rx="3" fill="#FFFFFF" stroke="#E5E7EB"/>
-    <path d="M4 12.8h2.6c1.3 0 2.2-.8 2.2-2.1s-.9-2.1-2.2-2.1H4v4.2zm1.2-3.3h1.3c.6 0 1 .4 1 1s-.4 1-1 1H5.2V9.5zm4.8 3.3h1.2V8.6h-1.2v4.2zm2.5-.4c.4.3.9.5 1.5.5.7 0 1.1-.3 1.1-.7 0-.5-.4-.7-1.2-.9-.9-.3-1.7-.6-1.7-1.5 0-.8.7-1.4 1.7-1.4.6 0 1.1.2 1.5.4l-.3.9c-.3-.2-.7-.4-1.2-.4-.6 0-.9.3-.9.6 0 .4.4.6 1.1.8 1 .3 1.8.7 1.8 1.6 0 .9-.7 1.5-1.8 1.5-.7 0-1.3-.2-1.8-.5l.5-.8zm6.5-1.7a2.1 2.1 0 114.2 0 2.1 2.1 0 01-4.2 0zm1.2 0a.9.9 0 101.8 0 .9.9 0 00-1.8 0zm4.2 2.1h1.4l1.3-4.2h-1.3l-.7 2.7-.7-2.7h-1.3l1.3 4.2zm4.1 0h3.2v-.9h-2v-.8h1.8v-.9h-1.8v-.7h2v-.9h-3.2v4.2z" fill="#231F20"/>
-    <circle cx="20.5" cy="10.7" r="1.8" fill="#F47216"/>
-  </svg>
+  <img src={discoverLogo} alt="Discover" className="card-badge-img" />
 );
 
 const DownChevronIcon = () => (
@@ -908,7 +901,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                       onClick={() => setShowCommentDrawer(false)}
                       aria-label="Close comment drawer"
                     >
-                      <IoClose size={18} />
+                      <IoClose size={16} />
                     </button>
                   </div>
                   <div className="drawer-divider" />
@@ -916,7 +909,6 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                     <div className="drawer-comment-box">
                       <span className="drawer-input-label">Your comment</span>
                       <textarea
-                        rows={5}
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                         autoFocus
@@ -924,7 +916,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                     </div>
                     <button
                       type="button"
-                      className="ui-button ui-button-primary ui-button-fullwidth mt-3"
+                      className="drawer-save-btn"
                       onClick={() => setShowCommentDrawer(false)}
                     >
                       Save
