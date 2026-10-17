@@ -787,89 +787,217 @@
 /* ==========================================================================
    MONTHLY UPSELL SCREEN (Step 2)
    ========================================================================== */
+.donation-right.upsell-card-container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+  height: auto;
+  min-height: 580px;
+}
+
 .monthly-supporter-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Header bar with back chevron and centered title */
+.monthly-screen-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  min-height: 60px;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.monthly-back-btn {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  outline: none;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  color: #64748b;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.monthly-back-btn:hover {
+  background-color: #f1f5f9;
+  color: #1e293b;
+}
+
+.monthly-screen-title {
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* Scrollable or flex body of the upsell screen */
+.monthly-screen-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 28px 24px 28px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
+/* Calendar Graphic */
 .monthly-calendar-wrapper {
-  margin: 6px 0 10px;
-}
-
-.monthly-calendar-icon {
-  width: 46px;
-  height: 42px;
-  background: #ffffff;
-  border: 1.5px solid #bfdbfe;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.12);
+  margin: 8px 0 26px;
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.calendar-header-bar {
-  background: #3b82f6;
-  height: 11px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 8px;
-}
-
-.cal-pin {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-.calendar-body {
-  flex: 1;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
+.monthly-calendar-svg {
+  display: block;
+  overflow: visible;
+}
+
+/* Typography */
 .monthly-headline {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
-  color: #111827;
-  margin: 0 0 6px;
+  color: #1e293b;
   line-height: 1.35;
+  margin: 0 auto 10px;
+  max-width: 320px;
   padding: 0 4px;
+  letter-spacing: -0.015em;
 }
 
 .monthly-subtext {
-  font-size: 11px;
-  color: #6b7280;
-  margin: 0 0 10px;
-  line-height: 1.45;
+  font-size: 14.5px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0 auto 38px;
+  max-width: 310px;
   padding: 0 4px;
 }
 
-.cancel-anytime-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: #f1f5f9;
-  padding: 3px 8px;
-  border-radius: 16px;
-  font-size: 10.5px;
+/* Plain "Cancel anytime" text */
+.monthly-cancel-text {
+  font-size: 14px;
   font-weight: 500;
-  color: #4b5563;
-  margin-bottom: 14px;
+  color: #64748b;
+  margin: 0 auto 20px;
+  text-align: center;
 }
 
-.cancel-anytime-pill .info-icon {
-  cursor: help;
-  color: #9ca3af;
-}
-
+/* Action Buttons & Links */
 .monthly-actions {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: auto;
+}
+
+.monthly-btn-primary {
+  width: 100%;
+  height: 54px;
+  min-height: 54px;
+  background-color: #da2243;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  box-shadow: 0 2px 6px rgba(218, 34, 67, 0.2);
+}
+
+.monthly-btn-primary:hover {
+  background-color: #c01b39;
+}
+
+.monthly-btn-primary:active {
+  transform: scale(0.99);
+}
+
+.monthly-btn-secondary {
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+.monthly-btn-secondary:hover {
+  background-color: #1d4ed8;
+}
+
+.monthly-btn-secondary:active {
+  transform: scale(0.99);
+}
+
+.monthly-btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #1e293b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  font-family: inherit;
+  margin-bottom: 6px;
+  transition: color 0.15s ease;
+}
+
+.monthly-btn-link:hover {
+  color: #0f172a;
 }
 
 /* ==========================================================================
@@ -977,69 +1105,157 @@
 }
 
 /* ==========================================================================
-   SUMMARY & PAYMENT SCREEN (Step 4)
+   YOU DONATE SCREEN (Summary Step 4)
    ========================================================================== */
 .summary-screen {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  box-sizing: border-box;
 }
 
-.donation-summary-box {
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  padding: 10px 12px;
-  background: #f8fafc;
+.summary-screen-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px 35px;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
-.cover-cost-checkbox-row {
+/* Inner Summary Card Box */
+.you-donate-card {
+  width: 100%;
+  background-color: #f8fafc;
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top: 8px;
+  border: 1px solid #f1f5f9;
+}
+
+/* Row 1: Checkbox & Cover Costs */
+.cover-cost-row {
   display: flex;
   align-items: center;
+  padding: 22px 20px;
   cursor: pointer;
   user-select: none;
-  font-size: 11.5px;
-  color: #111827;
-  font-weight: 500;
+  box-sizing: border-box;
 }
 
-.cover-cost-checkbox-row input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  margin-right: 6px;
-  accent-color: #2563eb;
-  cursor: pointer;
-}
-
-.checkbox-label-text {
-  flex: 1;
-}
-
-.fee-breakdown-row {
+/* Custom styled checkbox */
+.custom-checkbox-box {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 5px;
+  background-color: #2563eb;
   display: flex;
-  justify-content: space-between;
-  font-size: 10.5px;
-  color: #6b7280;
-  margin-top: 4px;
-  padding-left: 20px;
-}
-
-.summary-divider {
-  height: 1px;
-  background: #e2e8f0;
-  margin: 8px 0;
-}
-
-.summary-total-row {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 13px;
-  color: #111827;
+  justify-content: center;
+  margin-right: 12px;
+  transition: all 0.15s ease;
 }
 
-.summary-total-row strong {
-  font-size: 14px;
+.custom-checkbox-box.unchecked {
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+}
+
+.cover-cost-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+}
+
+.cost-help-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #94a3b8;
+  color: #64748b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 8px;
+  cursor: help;
+  transition: all 0.15s ease;
+}
+
+.cost-help-circle:hover {
+  border-color: #475569;
+  color: #1e293b;
+}
+
+/* Divider inside card */
+.you-donate-divider {
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 0 20px;
+}
+
+/* Row 2: Total */
+.you-donate-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  box-sizing: border-box;
+}
+
+.you-donate-total-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.you-donate-total-amount {
+  font-size: 16px;
   font-weight: 700;
-  color: #111827;
+  color: #1e293b;
+}
+
+/* Bottom Google Pay Button */
+.you-donate-gpay-btn {
+  width: 100%;
+  height: 58px;
+  min-height: 58px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: auto;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.you-donate-gpay-btn:hover {
+  background-color: #171717;
+}
+
+.you-donate-gpay-btn:active {
+  transform: scale(0.99);
+}
+
+.you-donate-gpay-btn .btn-text {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -1441,5 +1657,14 @@
     flex: unset;
     height: auto;
     min-height: 426px;
+  }
+
+  .donation-modal-wrapper:has(.upsell-card-container) {
+    max-width: 440px;
+  }
+
+  .donation-right.upsell-card-container {
+    max-width: 440px;
+    border-radius: 20px;
   }
 }

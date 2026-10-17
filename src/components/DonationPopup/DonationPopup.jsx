@@ -54,17 +54,75 @@ const CheckmarkIcon = () => (
 
 // Calendar icon for "Become a monthly supporter"
 const CalendarMonthlyIcon = () => (
-  <div className="monthly-calendar-icon">
-    <div className="calendar-header-bar">
-      <span className="cal-pin" />
-      <span className="cal-pin" />
-    </div>
-    <div className="calendar-body">
-      <div className="calendar-heart-badge">
-        <FaHeart size={16} color="#e11d48" />
-      </div>
-    </div>
-  </div>
+  <svg
+    width="92"
+    height="96"
+    viewBox="0 0 92 96"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="monthly-calendar-svg"
+  >
+    <defs>
+      {/* Calendar Drop Shadow */}
+      <filter id="calShadow" x="0" y="4" width="92" height="92" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="7" stdDeviation="7" floodColor="#2563eb" floodOpacity="0.14" />
+        <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.05" />
+      </filter>
+      {/* Blue Header Gradient */}
+      <linearGradient id="calHeaderGrad" x1="0" y1="10" x2="0" y2="35" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#3b82f6" />
+        <stop offset="100%" stopColor="#2563eb" />
+      </linearGradient>
+      {/* Body Gradient */}
+      <linearGradient id="calBodyGrad" x1="0" y1="35" x2="0" y2="88" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#ffffff" />
+        <stop offset="100%" stopColor="#f8fafc" />
+      </linearGradient>
+      {/* 3D Heart Radial Gradient */}
+      <radialGradient id="heartGrad" cx="35%" cy="30%" r="70%">
+        <stop offset="0%" stopColor="#ff3b5c" />
+        <stop offset="50%" stopColor="#e11d48" />
+        <stop offset="100%" stopColor="#be123c" />
+      </radialGradient>
+      {/* Heart Drop Shadow */}
+      <filter id="heartShadow" x="38" y="24" width="48" height="48" filterUnits="userSpaceOnUse">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#be123c" floodOpacity="0.35" />
+      </filter>
+    </defs>
+
+    {/* Base Calendar Card */}
+    <g filter="url(#calShadow)">
+      <rect x="8" y="10" width="76" height="76" rx="16" fill="url(#calBodyGrad)" stroke="#e2e8f0" strokeWidth="1" />
+      <path d="M8 26C8 17.1634 15.1634 10 24 10H68C76.8366 10 84 17.1634 84 26V35H8V26Z" fill="url(#calHeaderGrad)" />
+    </g>
+
+    {/* Top Binder Hanging Tabs / Pins */}
+    <rect x="23" y="4" width="6.5" height="13" rx="3.25" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+    <rect x="62.5" y="4" width="6.5" height="13" rx="3.25" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1" />
+
+    {/* Day Dots */}
+    <circle cx="26" cy="49" r="3.5" fill="#818cf8" fillOpacity="0.65" />
+    <circle cx="46" cy="49" r="3.5" fill="#818cf8" fillOpacity="0.65" />
+    <circle cx="66" cy="49" r="3.5" fill="#818cf8" fillOpacity="0.65" />
+
+    <circle cx="26" cy="67" r="3.5" fill="#818cf8" fillOpacity="0.65" />
+    <circle cx="46" cy="67" r="3.5" fill="#818cf8" fillOpacity="0.65" />
+    <circle cx="66" cy="67" r="3.5" fill="#818cf8" fillOpacity="0.65" />
+
+    {/* Overlapping 3D Heart */}
+    <g filter="url(#heartShadow)">
+      <path
+        d="M74 36C74 42.5 64 50.5 57.5 55C51 50.5 41 42.5 41 36C41 30.5 45.3 26.5 50.5 26.5C53.7 26.5 56.3 28.2 57.5 30.5C58.7 28.2 61.3 26.5 64.5 26.5C69.7 26.5 74 30.5 74 36Z"
+        fill="url(#heartGrad)"
+      />
+      {/* 3D Gloss Highlight Reflection */}
+      <path
+        d="M44 34.5C44 31 46.5 28.5 49.5 28.5C47.2 29 45 31.2 45 35C45 36.8 45.8 38.2 46.8 39.2C45.2 38.2 44 36.5 44 34.5Z"
+        fill="#ffffff"
+        fillOpacity="0.55"
+      />
+    </g>
+  </svg>
 );
 
 // Envelope Bell icon for "Maybe next time?"
@@ -287,11 +345,10 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
     return `${activeCurrencyConfig.symbol}${formatted}`;
   }, [customAmount, activeCurrencyConfig.symbol]);
 
-  // Transaction fee calculation (2.9% + 30 cents/Rs 30)
+  // Transaction fee calculation (matching Fundraise Up rates)
   const transactionFee = useMemo(() => {
     if (!coverCosts || numericAmount <= 0) return 0;
-    const fixed = currency === 'PKR' ? 30 : 0.3;
-    const fee = numericAmount * 0.029 + fixed;
+    const fee = currency === 'PKR' ? (numericAmount * 0.0775 + 65.5) : (numericAmount * 0.029 + 0.3);
     return currency === 'PKR' ? Math.round(fee) : Math.round(fee * 100) / 100;
   }, [coverCosts, numericAmount, currency]);
 
@@ -329,17 +386,18 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
     }
   };
 
-  // Decline monthly upsell
+  // Decline monthly upsell - keeps one-time gift and transitions to "You donate" summary card
   const handleDeclineUpsell = () => {
-    setCurrentStep('details');
+    setFrequency('once');
+    setCurrentStep('summary');
   };
 
-  // Accept monthly upsell option
+  // Accept monthly upsell option - transitions to "You donate" summary card
   const handleAcceptUpsell = (chosenMonthlyAmount) => {
     setFrequency('monthly');
     setSelectedAmount(chosenMonthlyAmount);
     setCustomAmount(chosenMonthlyAmount.toString());
-    setCurrentStep('details');
+    setCurrentStep('summary');
   };
 
   // Validate and submit donor details
@@ -442,7 +500,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
           </div>
 
           {/* ================= RIGHT CARD (Multi-Step Form) ================= */}
-          <div className={`donation-right ${showExitScreen ? 'exit-mode' : ''}`}>
+          <div className={`donation-right ${showExitScreen ? 'exit-mode' : ''} ${currentStep === 'upsell' || currentStep === 'summary' ? 'upsell-card-container' : ''}`}>
             {showExitScreen ? (
               /* ===== EXIT SCREEN ("Maybe next time?") ===== */
               <div className="exit-screen">
@@ -492,56 +550,63 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
             ) : currentStep === 'upsell' ? (
               /* ===== STEP 2: MONTHLY UPSELL ===== */
               <div className="monthly-supporter-screen">
-                <div className="screen-header">
+                <div className="monthly-screen-header">
                   <button
-                    className="back-btn"
+                    type="button"
+                    className="monthly-back-btn"
                     onClick={() => setCurrentStep('main')}
                     aria-label="Back"
                   >
-                    ‹
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
                   </button>
-                  <h3>Become a monthly supporter</h3>
+                  <h3 className="monthly-screen-title">Become a monthly supporter</h3>
                 </div>
 
-                <div className="monthly-calendar-wrapper">
-                  <CalendarMonthlyIcon />
-                </div>
+                <div className="monthly-screen-content">
+                  <div className="monthly-calendar-wrapper">
+                    <CalendarMonthlyIcon />
+                  </div>
 
-                <h4 className="monthly-headline">
-                  Give {formatAmount(upsellOption1)} every month instead of a one-time gift
-                </h4>
+                  <h4 className="monthly-headline">
+                    Give {formatAmount(upsellOption1)} every month instead of a one-time gift
+                  </h4>
 
-                <p className="monthly-subtext">
-                  Steady support allows us to plan ahead and make a lasting impact.
-                </p>
+                  <p className="monthly-subtext">
+                    Steady support allows us to plan ahead and make a lasting impact.
+                  </p>
 
-                <div className="cancel-anytime-pill">
-                  <span>Cancel anytime</span>
-                  <span className="info-icon" title="You can pause or cancel recurring gifts anytime.">ⓘ</span>
-                </div>
+                  <p className="monthly-cancel-text">
+                    Cancel anytime
+                  </p>
 
-                <div className="monthly-actions">
-                  <button
-                    className="ui-button ui-button-accent ui-button-fullwidth mb-2"
-                    onClick={() => handleAcceptUpsell(upsellOption1)}
-                  >
-                    <FaHeart size={14} style={{ marginRight: 6 }} />
-                    Donate {formatAmount(upsellOption1)}/month
-                  </button>
+                  <div className="monthly-actions">
+                    <button
+                      type="button"
+                      className="monthly-btn-primary"
+                      onClick={() => handleAcceptUpsell(upsellOption1)}
+                    >
+                      <FaHeart size={16} />
+                      <span>Donate {formatAmount(upsellOption1)}/month</span>
+                    </button>
 
-                  <button
-                    className="ui-button ui-button-primary ui-button-fullwidth mb-3"
-                    onClick={() => handleAcceptUpsell(upsellOption2)}
-                  >
-                    Donate {formatAmount(upsellOption2)}/month
-                  </button>
+                    <button
+                      type="button"
+                      className="monthly-btn-secondary"
+                      onClick={() => handleAcceptUpsell(upsellOption2)}
+                    >
+                      <span>Donate {formatAmount(upsellOption2)}/month</span>
+                    </button>
 
-                  <button
-                    className="ui-button-link text-center w-100"
-                    onClick={handleDeclineUpsell}
-                  >
-                    No, keep my one-time {formatAmount(numericAmount)} gift
-                  </button>
+                    <button
+                      type="button"
+                      className="monthly-btn-link"
+                      onClick={handleDeclineUpsell}
+                    >
+                      No, keep my one-time {formatAmount(numericAmount)} gift
+                    </button>
+                  </div>
                 </div>
               </div>
             ) : currentStep === 'details' ? (
@@ -632,75 +697,76 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                 </div>
               </div>
             ) : currentStep === 'summary' ? (
-              /* ===== STEP 4: SUMMARY & PAYMENT ===== */
+              /* ===== STEP 4: SUMMARY & PAYMENT ("You donate") ===== */
               <div className="summary-screen">
-                <div className="screen-header">
+                <div className="monthly-screen-header">
                   <button
-                    className="back-btn"
-                    onClick={() => setCurrentStep('details')}
+                    type="button"
+                    className="monthly-back-btn"
+                    onClick={() => setCurrentStep('upsell')}
                     aria-label="Back"
                   >
-                    ‹
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
                   </button>
-                  <h3>You donate</h3>
+                  <h3 className="monthly-screen-title">You donate</h3>
                 </div>
 
-                <div className="donation-summary-box">
-                  <label className="cover-cost-checkbox-row">
-                    <input
-                      type="checkbox"
-                      checked={coverCosts}
-                      onChange={(e) => setCoverCosts(e.target.checked)}
-                    />
-                    <span className="checkbox-label-text">Cover transaction costs</span>
-                    <span className="field-help-icon" title="Covers payment gateway fees so 100% of your gift reaches recipients.">?</span>
-                  </label>
-
-                  {coverCosts && transactionFee > 0 && (
-                    <div className="fee-breakdown-row">
-                      <span>Processing fee</span>
-                      <span>+{formatAmount(transactionFee)}</span>
+                <div className="summary-screen-content">
+                  <div className="you-donate-card">
+                    <div
+                      className="cover-cost-row"
+                      onClick={() => setCoverCosts(!coverCosts)}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      <div className={`custom-checkbox-box ${!coverCosts ? 'unchecked' : ''}`}>
+                        {coverCosts && (
+                          <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 5L4.5 8.5L11 1.5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                      </div>
+                      <span className="cover-cost-text">
+                        Cover transaction costs
+                        <span
+                          className="cost-help-circle"
+                          title="Covers payment gateway fees so 100% of your gift reaches recipients."
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          ?
+                        </span>
+                      </span>
                     </div>
-                  )}
 
-                  <div className="summary-divider" />
+                    <div className="you-donate-divider" />
 
-                  <div className="summary-total-row">
-                    <span>Total</span>
-                    <strong>
-                      {formatAmount(totalAmount)} {currency}
-                      {frequency === 'monthly' ? '/month' : ''}
-                    </strong>
+                    <div className="you-donate-total-row">
+                      <span className="you-donate-total-label">Total</span>
+                      <strong className="you-donate-total-amount">
+                        {currency === 'PKR' ? 'Rs' : (activeCurrencyConfig.symbol || '$')}
+                        {Number(totalAmount).toLocaleString('en-US')} {currency}
+                        {frequency === 'monthly' ? '/month' : ''}
+                      </strong>
+                    </div>
                   </div>
-                </div>
-
-                <div className="payment-action-group mt-4">
-                  <button
-                    className="google-pay-btn ui-button-fullwidth mb-2"
-                    onClick={handleFinalPayment}
-                    disabled={isProcessing}
-                  >
-                    {isProcessing ? 'Processing...' : <GooglePayIcon />}
-                  </button>
 
                   <button
-                    className="ui-button ui-button-primary ui-button-fullwidth"
+                    type="button"
+                    className="you-donate-gpay-btn"
                     onClick={handleFinalPayment}
                     disabled={isProcessing}
                   >
                     {isProcessing ? (
-                      'Processing donation...'
+                      <span className="btn-text">Processing...</span>
                     ) : (
-                      `Donate ${formatAmount(totalAmount)}${frequency === 'monthly' ? '/month' : ''}`
+                      <>
+                        <span className="btn-text">Donate with</span>
+                        <GooglePayIcon />
+                      </>
                     )}
                   </button>
-                </div>
-
-                <div className="payment-card-logos mt-3">
-                  <VisaLogo />
-                  <MastercardLogo />
-                  <AmexLogo />
-                  <DiscoverLogo />
                 </div>
               </div>
             ) : currentStep === 'success' ? (
