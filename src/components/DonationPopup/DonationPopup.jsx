@@ -8,6 +8,7 @@ import visaLogo from '../../assets/img/payment/card-visa.png';
 import mastercardLogo from '../../assets/img/payment/card-mastercard.png';
 import amexLogo from '../../assets/img/payment/card-amex.png';
 import discoverLogo from '../../assets/img/payment/card-discover.png';
+import exitBellGraphic from '../../assets/img/exit-envelope-bell.png';
 
 // Branded SVGs and Cards matching live Fundraise Up design
 const GooglePayIcon = () => (
@@ -125,17 +126,14 @@ const CalendarMonthlyIcon = () => (
   </svg>
 );
 
-// Envelope Bell icon for "Maybe next time?"
-const ExitNotificationIcon = () => (
-  <div className="exit-notification-graphic">
-    <div className="exit-envelope">
-      <div className="exit-bell">
-        🔔
-      </div>
-      <div className="exit-heart-badge">
-        <FaHeart size={10} color="#3b82f6" />
-      </div>
-    </div>
+// Envelope Bell graphic for "Maybe next time?"
+const ExitNotificationGraphic = () => (
+  <div className="exit-graphic-wrapper">
+    <img
+      src={exitBellGraphic}
+      alt="Notification Reminder"
+      className="exit-graphic-img"
+    />
   </div>
 );
 
@@ -182,6 +180,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
 
   const designationDropdownRef = useRef(null);
   const secureTooltipRef = useRef(null);
+  const reportTooltipRef = useRef(null);
 
   // Active currency config
   const activeCurrencyConfig = useMemo(() => {
@@ -256,7 +255,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
     }
   }, [isOpen, data, prefill]);
 
-  // Close designation dropdown and secure tooltip on outside click
+  // Close designation dropdown and tooltips on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (designationDropdownRef.current && !designationDropdownRef.current.contains(e.target)) {
@@ -264,6 +263,9 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
       }
       if (secureTooltipRef.current && !secureTooltipRef.current.contains(e.target)) {
         setShowSecureTooltip(false);
+      }
+      if (reportTooltipRef.current && !reportTooltipRef.current.contains(e.target)) {
+        setShowReportModal(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -460,16 +462,16 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
 
   return (
     <div className="donation-overlay">
-      {/* Close Button – Pinned to top-right of screen matching original */}
-      <button
-        className="close-btn-outside"
-        onClick={handleCloseClick}
-        aria-label="Close modal"
-      >
-        <IoClose size={14} />
-      </button>
-
       <div className="donation-modal-wrapper">
+        {/* Close Button */}
+        <button
+          className="close-btn-outside"
+          onClick={handleCloseClick}
+          aria-label="Close modal"
+        >
+          <IoClose size={16} />
+        </button>
+
         <div className="donation-modal">
           {/* ================= LEFT CARD (Cause Details) ================= */}
           <div className="donation-left">
@@ -504,48 +506,55 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
             {showExitScreen ? (
               /* ===== EXIT SCREEN ("Maybe next time?") ===== */
               <div className="exit-screen">
-                <div className="exit-header">
+                <div className="exit-screen-header">
                   <button
-                    className="back-btn"
+                    type="button"
+                    className="exit-back-btn"
                     onClick={() => setShowExitScreen(false)}
                     aria-label="Back to donation form"
                   >
-                    ‹
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="15 18 9 12 15 6" />
+                    </svg>
                   </button>
-                  <h3>Maybe next time?</h3>
+                  <h3 className="exit-screen-title">Maybe next time?</h3>
                 </div>
 
-                <div className="exit-graphic-container">
-                  <ExitNotificationIcon />
+                <div className="exit-screen-content">
+                  <ExitNotificationGraphic />
+
+                  <p className="exit-screen-desc">
+                    Please leave your email address below, and we'll send you a gentle reminder later.
+                  </p>
+
+                  <div className="exit-input-wrapper">
+                    <input
+                      type="email"
+                      className="exit-email-input"
+                      placeholder="Email address"
+                      value={exitEmail}
+                      onChange={(e) => setExitEmail(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="exit-actions">
+                    <button
+                      type="button"
+                      className="exit-btn-primary"
+                      onClick={handleFinalClose}
+                    >
+                      Remind me later
+                    </button>
+
+                    <button
+                      type="button"
+                      className="exit-btn-secondary"
+                      onClick={handleFinalClose}
+                    >
+                      No thanks
+                    </button>
+                  </div>
                 </div>
-
-                <p className="exit-text">
-                  Please leave your email address below, and we'll send you a gentle reminder later.
-                </p>
-
-                <div className="exit-input-wrapper">
-                  <input
-                    type="email"
-                    className="exit-email-input"
-                    placeholder="Email address"
-                    value={exitEmail}
-                    onChange={(e) => setExitEmail(e.target.value)}
-                  />
-                </div>
-
-                <button
-                  className="ui-button ui-button-primary ui-button-fullwidth mb-2"
-                  onClick={handleFinalClose}
-                >
-                  Remind me later
-                </button>
-
-                <button
-                  className="ui-button ui-button-secondary ui-button-fullwidth"
-                  onClick={handleFinalClose}
-                >
-                  No thanks
-                </button>
               </div>
             ) : currentStep === 'upsell' ? (
               /* ===== STEP 2: MONTHLY UPSELL ===== */
@@ -951,7 +960,7 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
               </>
             )}
 
-            {/* ================= COMMENT DRAWER (Matches Image 4) ================= */}
+            {/* ================= COMMENT DRAWER (Matches Image 1) ================= */}
             {showCommentDrawer && (
               <>
                 <div
@@ -967,19 +976,18 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
                       onClick={() => setShowCommentDrawer(false)}
                       aria-label="Close comment drawer"
                     >
-                      <IoClose size={16} />
+                      <IoClose size={20} />
                     </button>
                   </div>
                   <div className="drawer-divider" />
                   <div className="drawer-body">
-                    <div className="drawer-comment-box">
-                      <span className="drawer-input-label">Your comment</span>
-                      <textarea
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                        autoFocus
-                      />
-                    </div>
+                    <textarea
+                      className="drawer-comment-textarea"
+                      placeholder="Your comment"
+                      value={comment}
+                      onChange={(e) => setComment(e.target.value)}
+                      autoFocus
+                    />
                     <button
                       type="button"
                       className="drawer-save-btn"
@@ -994,113 +1002,121 @@ const DonationPopup = ({ isOpen, onClose, data, prefill }) => {
           </div>
         </div>
 
-        {/* ================= BOTTOM FOOTER LINKS & TOOLTIP (Matches Image 5) ================= */}
+        {/* ================= BOTTOM FOOTER LINKS & TOOLTIP (Matches Images 2 & 3) ================= */}
         <div className="donation-footer-links">
           <div className="secure-link-container" ref={secureTooltipRef}>
             <button
               type="button"
               className={`footer-link-text ${showSecureTooltip ? 'active-outlined' : ''}`}
-              onClick={() => setShowSecureTooltip(!showSecureTooltip)}
+              onClick={() => {
+                setShowSecureTooltip((prev) => !prev);
+                setShowReportModal(false);
+              }}
             >
               Is my donation secure?
             </button>
 
-            {/* Secure Tooltip Popover with Arrow Pointer (Matches Image 5) */}
+            {/* Secure Tooltip Popover with Arrow Pointer (Matches Image 3) */}
             {showSecureTooltip && (
-              <div className="secure-tooltip-box">
-                <strong>Is my donation secure?</strong>
-                <p>
-                  Yes, we use industry-standard SSL technology to keep your information secure.
-                </p>
-                <p>
-                  We partner with Stripe, the industry's established payment provider trusted by
-                  some of the world's largest companies.
-                </p>
-                <p>
-                  Your sensitive financial information never touches our servers. We send all data
-                  directly to Stripe's PCI-compliant servers through SSL.
-                </p>
-              </div>
+              <>
+                <div className="tooltip-down-arrow" />
+                <div className="secure-tooltip-box">
+                  <strong>Is my donation secure?</strong>
+                  <p>
+                    Yes, we use industry-standard SSL technology to keep your information secure.
+                  </p>
+                  <p>
+                    We partner with Stripe, the industry's established payment provider trusted by
+                    some of the world's largest companies.
+                  </p>
+                  <p>
+                    Your sensitive financial information never touches our servers. We send all data
+                    directly to Stripe's PCI-compliant servers through SSL.
+                  </p>
+                </div>
+              </>
             )}
           </div>
 
           <span className="footer-dot">·</span>
-          <button
-            type="button"
-            className="footer-link-text"
-            onClick={() => setShowReportModal(true)}
-          >
-            Report a problem
-          </button>
-        </div>
-      </div>
 
-      {/* ================= REPORT PROBLEM MODAL ================= */}
-      {showReportModal && (
-        <div
-          className="mini-popup-backdrop"
-          onClick={() => setShowReportModal(false)}
-        >
-          <div
-            className="mini-popup-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="mini-popup-header">
-              <h4>Report a technical problem</h4>
-              <button
-                type="button"
-                className="mini-popup-close"
-                onClick={() => setShowReportModal(false)}
-              >
-                <IoClose size={20} />
-              </button>
-            </div>
-            <p className="report-hint">
-              Explain the step reached and the action that didn't work.
-            </p>
-            <textarea
-              className="report-textarea"
-              rows={4}
-              maxLength={500}
-              placeholder="Describe the issue..."
-              value={reportText}
-              onChange={(e) => setReportText(e.target.value)}
-            />
-            <div className="char-counter">{reportText.length}/500</div>
+          <div className="report-link-container" ref={reportTooltipRef}>
+            <button
+              type="button"
+              className={`footer-link-text ${showReportModal ? 'active-outlined' : ''}`}
+              onClick={() => {
+                setShowReportModal((prev) => !prev);
+                setShowSecureTooltip(false);
+              }}
+            >
+              Report a problem
+            </button>
 
-            <label className="report-confirm-label">
-              <input
-                type="checkbox"
-                checked={reportConfirm}
-                onChange={(e) => setReportConfirm(e.target.checked)}
-              />
-              <span>I confirm no personal or payment details are included</span>
-            </label>
+            {/* Report Tooltip Popover with Arrow Pointer (Matches Image 2) */}
+            {showReportModal && (
+              <>
+                <div className="tooltip-down-arrow" />
+                <div className="report-tooltip-box">
+                  <div className="report-tooltip-header">
+                    <h4>Report a technical problem</h4>
+                    <button
+                      type="button"
+                      className="report-tooltip-close"
+                      onClick={() => setShowReportModal(false)}
+                      aria-label="Close report popover"
+                    >
+                      <IoClose size={18} />
+                    </button>
+                  </div>
+                  <p className="report-tooltip-hint">
+                    Explain the step reached and the action that didn't work.
+                  </p>
+                  <div className="report-input-wrapper">
+                    <textarea
+                      className="report-tooltip-textarea"
+                      maxLength={500}
+                      value={reportText}
+                      onChange={(e) => setReportText(e.target.value)}
+                    />
+                    <div className="report-char-count">{reportText.length}/500</div>
+                  </div>
 
-            <div className="report-action-buttons">
-              <button
-                type="button"
-                className="ui-button ui-button-primary"
-                disabled={!reportConfirm || reportText.trim().length < 5}
-                onClick={() => {
-                  setShowReportModal(false);
-                  setReportText('');
-                  setReportConfirm(false);
-                }}
-              >
-                Send report
-              </button>
-              <button
-                type="button"
-                className="ui-button ui-button-secondary"
-                onClick={() => setShowReportModal(false)}
-              >
-                Cancel
-              </button>
-            </div>
+                  <label className="report-tooltip-confirm">
+                    <input
+                      type="checkbox"
+                      checked={reportConfirm}
+                      onChange={(e) => setReportConfirm(e.target.checked)}
+                    />
+                    <span>I confirm no personal or payment details are included</span>
+                  </label>
+
+                  <div className="report-tooltip-actions">
+                    <button
+                      type="button"
+                      className="report-send-btn"
+                      disabled={!reportConfirm || reportText.trim().length < 5}
+                      onClick={() => {
+                        setShowReportModal(false);
+                        setReportText('');
+                        setReportConfirm(false);
+                      }}
+                    >
+                      Send report
+                    </button>
+                    <button
+                      type="button"
+                      className="report-cancel-btn"
+                      onClick={() => setShowReportModal(false)}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
