@@ -1,3 +1,87 @@
+/*--------------------------------------
+   Brand Fonts (@font-face)
+---------------------------------------*/
+@font-face {
+  font-family: 'Finder';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/07/finder-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/07/finder-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Finder';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/07/finder-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/07/finder-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Neueleiden';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/neueleiden-regular-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/02/neueleiden-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Neueleiden';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/neueleiden-semibold-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/02/neueleiden-semibold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Neueleiden';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/neueleiden-semibold-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/02/neueleiden-semibold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rink';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-regular-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rink';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-medium-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-medium-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rink';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-semibold-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-semibold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rink';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-bold-webfont.woff2') format('woff2'),
+       url('https://mtjfoundation.ca/wp-content/uploads/2025/02/rink-bold-webfont.woff') format('woff');
+}
+
 /* =========================
    MTJ Foundation – base.css
    A minimal utility-first starter for React projects
@@ -7,6 +91,11 @@
   0) CSS Variables (Design Tokens)
 ---------------------------------------*/
 :root {
+    /* MTJF Typography Tokens */
+    --font-finder: 'Finder', sans-serif;
+    --font-neueleiden: 'Neueleiden', sans-serif;
+    --font-rink: 'Rink', sans-serif;
+
     /* MTJF Canada Brand Tokens */
     --color-primary-green: #22582D;
     --color-primary-green-hover: #1A4523;

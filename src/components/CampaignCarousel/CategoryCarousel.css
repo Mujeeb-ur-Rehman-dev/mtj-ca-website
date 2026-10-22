@@ -12,22 +12,23 @@
 }
 
 .categories h2 {
-  font-family: "Finder", "Inter", Arial, sans-serif;
+  font-family: var(--font-finder, "Finder"), "Inter", Arial, sans-serif;
   font-size: 40px;
-  /* font-weight: 400; */
-  color: var(--category-heading-color, #FFFAEE); /* kit cream color, not pure white */
+  text-transform: uppercase;
+  color: var(--category-heading-color, #FFFAEE);
   margin: 0 0 16px;
-  line-height: 40px;
+  line-height: 44px;
+  letter-spacing: 0.5px;
 }
 
 .categories > p {
-  max-width: 670px; /* matches elementor-element-a2294d8 width */
+  max-width: 670px;
   margin: 0 auto 36px;
-  font-family: "Neueleiden", "Inter", Arial, sans-serif;
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   color: var(--category-copy-color, #FFFAEE);
-  line-height: 22px;
+  line-height: 24px;
 }
 
 .categories__grid {
@@ -110,6 +111,9 @@
   z-index: 5; /* Ensure label is above overlay and image */
   /* font-size: 14px; */
   /* font-weight: 600; */
+  font-family: var(--font-rink, "Rink"), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .categories__label button {
@@ -174,7 +178,7 @@
 
 @media (max-width: 767px) {
   .categories {
-    padding: 20px 10px 20px;
+    padding: 36px 16px 40px;
   }
 
   .categories h2 {

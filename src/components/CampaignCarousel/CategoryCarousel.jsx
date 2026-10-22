@@ -9,10 +9,10 @@ import HealthcareImg from "../../assets/img/campaigncarousel/healthcare.webp";
 
 // Order matches live mtjfoundation.ca homepage: Healthcare, Water Relief, Palestine, Education
 const CATEGORIES = [
-  { title: "Healthcare", image: HealthcareImg, path: "/medical-care-health" },
   { title: "Water Relief", image: WaterReliefImg, path: "/clean-water" },
   { title: "Palestine Emergency Relief", image: PalestineImg, path: "/palestine-relief" },
   { title: "Education", image: EducationImg, path: "/education" },
+  { title: "Healthcare", image: HealthcareImg, path: "/medical-care-health" },
 ];
 
 const VISIBLE = 3;
@@ -77,7 +77,7 @@ export default function CategoryCarousel({
   className = "",
   title = (
     <>
-      Ready to Make a Difference? <br /> Act Today
+      READY TO MAKE A DIFFERENCE? <br /> ACT TODAY
     </>
   ),
   description = "Provide food, clean water or emergency relief, where needed most. Your support brings care, relief, and dignity to those struggling every day.",

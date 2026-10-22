@@ -1,18 +1,17 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaCaretDown , FaArrowRightLong  } from 'react-icons/fa6'
-import './index.css' 
-import Hamburger from '../hamburgermenu/Hamburger'
-import Mobilenavbar from '../mobilenavbar/Mobilenavbar' 
-import logo from '../../assets/img/logos/only_logo.png'
-import Button from '../../common/components/buttons/Button';
-import { useDonation } from '../../context/DonationContext';   // ✅ Added
+import { FaCaretDown, FaHandHoldingHeart } from 'react-icons/fa6';
+import './index.css';
+import Hamburger from '../hamburgermenu/Hamburger';
+import Mobilenavbar from '../mobilenavbar/Mobilenavbar';
+import logo from '../../assets/img/logos/only_logo.png';
+import { useDonation } from '../../context/DonationContext';
 
-// Navigation items mapping — matches live mtjfoundation.ca site structure exactly
+// Navigation items mapping — matches MTJF reference and live structure
 const navItems = [
   {
     name: "Religious Giving",
-    path: "/home",
+    path: "/zakat",
     submenu: [
       { name: "Zakat", path: "/zakat" },
       { name: "Sadaqah", path: "/sadaqah" },
@@ -20,6 +19,7 @@ const navItems = [
   },
   {
     name: "Emergencies",
+    path: "/nepal-floods",
     submenu: [
       { name: "Nepal Floods", path: "/nepal-floods" },
       { name: "Emergency Relief – Lebanon", path: "/emergency-relief-lebanon" },
@@ -29,6 +29,7 @@ const navItems = [
   },
   {
     name: "Support Campaigns",
+    path: "/apna-ghar",
     submenu: [
       { name: "Apna Ghar", path: "/apna-ghar" },
       { name: "Medical Care / Health", path: "/medical-care-health" },
@@ -42,6 +43,7 @@ const navItems = [
   },
   {
     name: "Who We Are",
+    path: "/about-us",
     submenu: [
       { name: "About Us", path: "/about-us" },
       { name: "Our Team", path: "/our-team" },
@@ -51,6 +53,7 @@ const navItems = [
   },
   {
     name: "Get Involved",
+    path: "/volunteer",
     submenu: [
       { name: "Volunteer", path: "/volunteer" },
       { name: "Events", path: "/events" },
@@ -69,13 +72,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Automatically open Quick-Donate modal if URL has ?form=Quick-Donate or similar query param
+  // Automatically open Quick-Donate modal if URL has ?form=Quick-Donate
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const formParam = params.get('form');
@@ -84,122 +87,116 @@ const Navbar = () => {
     }
   }, [location.search, openDonation]);
 
-   // Update active link based on current route
-   useEffect(() => {
-     const currentPath = location.pathname.trim();
-     
-     // Check each nav item to see if current path matches
-    const matchedItem = navItems.find(item => {
-      // const itemPath = item.path.trim();
-      const itemPath = item?.path?.trim() || "";
-      const isHome =
-        (currentPath === '/' || currentPath === '/home') &&
-        item.name === 'Home';
-      const isExactMatch =
-        currentPath === itemPath || currentPath === itemPath + ' ';
-      const isProjectDetail =
-        itemPath === '/projects' &&
-        currentPath.startsWith('/projects/');
-      const isAppealsDetail =
-        itemPath === '/appeals' &&
-        currentPath.startsWith('/appeals/');
-      return isHome || isExactMatch || isProjectDetail || isAppealsDetail;
+  // Update active link based on current route
+  useEffect(() => {
+    const currentPath = location.pathname.trim();
+    const matchedItem = navItems.find((item) => {
+      if (item.path && (currentPath === item.path || (item.path === '/home' && currentPath === '/'))) {
+        return true;
+      }
+      if (item.submenu) {
+        return item.submenu.some((sub) => sub.path === currentPath);
+      }
+      return false;
     });
-     
-     if (matchedItem) {
-       setActiveLink(matchedItem.name);
-     } else {
-       // Default to Home if no match found
-       setActiveLink("Home");
-     }
-   }, [location.pathname]);
+
+    if (matchedItem) {
+      setActiveLink(matchedItem.name);
+    } else {
+      setActiveLink("Home");
+    }
+  }, [location.pathname]);
 
   const handleClick = (linkName, path) => {
-    // Scroll to top on current page first
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     setActiveLink(linkName);
-    
-    // Wait for scroll to complete, then navigate
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        navigate(path);
+        if (path) navigate(path);
       });
     });
   };
 
   return (
     <>
-    <div className="nav-outer">
-    <div className={`nav-container rounded nav-dark-theme ${isScrolled ? 'nav-scrolled' : ''}`}>
-        <div className='nav-row-1'>
-            {/* logo section */}
-            <div className='flex items-center logo_section'>
-                <div className='logo'>
-                  <Link to="/home">
-                    <img src={logo} alt='logo' />
-                  </Link>
-                </div>
-            </div>
-            {/* menu section - desktop only */}
-            <div className='d-none md:d-block' style={{fontSize:'14px', fontWeight:'bold'}}>
-              <ul className='hvr flex gap-12 text-dark'>
-                 {navItems.map((item) => (
-                <li key={item.name} className={`nav-item ${item.submenu ? 'nav-item-has-sub' : ''}`}>
-                  <Link
-                    className={`${activeLink === item.name ? "active" : ""} ${item.submenu ? "nav-link-with-sub" : ""}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleClick(item.name, item.path);
-                    }}
-                    to={item.path}
-                  >
-                    {item.name}
-                    {/* {item.submenu && <FaCaretDown  className="nav-arrow nav-arrow-down" />} */}
-                    
-                    {item.submenu && <FaCaretDown />}
-                  </Link>
-                  {item.submenu && (
-                    <ul className="nav-submenu">
-                      {item.submenu.map((subItem) => (
-                        <li key={subItem.name}>
-                          <Link
-                            to={subItem.path}
-                            className={`${activeLink === subItem.name ? "active" : ""} nav-submenu-link`}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleClick(subItem.name, subItem.path);
-                            }}
-                          >
-                            {subItem.name}
-                            <FaArrowRightLong />
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-              </ul>
+      <header className="nav-outer">
+        <div className={`nav-container ${isScrolled ? 'nav-scrolled' : ''}`}>
+          <div className="nav-row-1">
+            {/* Logo section */}
+            <div className="logo_section">
+              <Link to="/home" className="logo" aria-label="MTJ Foundation Canada Home">
+                <img src={logo} alt="MTJF Logo" />
+              </Link>
             </div>
 
-            {/* button section - desktop */}
-            <div className=' d-none md:d-flex'>
-              {/* ✅ Quick Donate button updated */}
-              <div onClick={() => openDonation('quick')}>
-                <Button onClick={() => openDonation('quick')} />
-              </div>
+            {/* Menu section - Desktop only */}
+            <nav className="nav-desktop-menu d-none md:d-block" aria-label="Main Navigation">
+              <ul className="nav-links-list">
+                {navItems.map((item) => (
+                  <li
+                    key={item.name}
+                    className={`nav-item ${item.submenu ? 'nav-item-has-sub' : ''}`}
+                  >
+                    <Link
+                      className={`nav-link ${activeLink === item.name ? "active" : ""}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleClick(item.name, item.path || item.submenu[0]?.path);
+                      }}
+                      to={item.path || item.submenu[0]?.path}
+                    >
+                      <span>{item.name}</span>
+                      {item.submenu && <FaCaretDown className="nav-caret" />}
+                    </Link>
+
+                    {item.submenu && (
+                      <ul className="nav-submenu">
+                        {item.submenu.map((subItem) => (
+                          <li key={subItem.name}>
+                            <Link
+                              to={subItem.path}
+                              className={`nav-submenu-link ${activeLink === subItem.name ? "active" : ""}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleClick(subItem.name, subItem.path);
+                              }}
+                            >
+                              <span>{subItem.name}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Button section - Desktop Quick Donate */}
+            <div className="d-none md:d-flex nav-actions">
+              <button
+                type="button"
+                className="nav-quick-donate-btn"
+                onClick={() => openDonation('quick')}
+                aria-label="Quick Donate"
+              >
+                <FaHandHoldingHeart className="nav-donate-icon" aria-hidden="true" />
+                <span>Quick Donate</span>
+              </button>
             </div>
-            <div className='md:d-none'>
-              <Hamburger/>
+
+            {/* Mobile hamburger menu toggle */}
+            <div className="md:d-none">
+              <Hamburger />
             </div>
+          </div>
         </div>
-      </div>
-    </div>
-           <div>
-            <Mobilenavbar/>
-           </div>
-           </>
-         
-  )
-}
-export default Navbar
+      </header>
+
+      {/* Mobile Drawer Menu */}
+      <Mobilenavbar />
+    </>
+  );
+};
+
+export default Navbar;

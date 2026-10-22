@@ -10,7 +10,7 @@ import Human from "../../assets/img/impacts/icons/icon-human.svg";
 
 export const impactSectionData = [
   { icon: HelpImg,     value: "100,000+", label: "People helped during the floods in Pakistan" },
-  { icon: MedicineImg, value: "500,000+", label: "Free tests and medicines provided" },
+  { icon: MedicineImg, value: "500,000+", label: "Rice sacks and medicines provided" },
   { icon: WaterImg,    value: "350,000+", label: "People given access to clean water" },
   { icon: ScholarImg,  value: "10,000+",  label: "Scholarships gifted to students" },
   { icon: RationImg,   value: "50,000+",  label: "Ration bags delivered" },
@@ -21,7 +21,7 @@ export const impactSectionData = [
 
 export const homeImpactStats = [
   { icon: HelpImg,     value: "100,000+", label: "People helped during the floods in Pakistan" },
-  { icon: MedicineImg, value: "500,000+", label: "Free tests and medicines provided" },
+  { icon: MedicineImg, value: "500,000+", label: "Rice sacks and medicines provided" },
   { icon: WaterImg,    value: "350,000+", label: "People given access to clean water" },
   { icon: ScholarImg,  value: "10,000+",  label: "Scholarships gifted to students" },
 ];
@@ -62,7 +62,7 @@ export const cleanWaterImpactStats = [
 ];
 
 export const medicalCareImpactStats = [
-  { icon: MedicineImg, value: "500,000+", label: "Free tests and medicines provided" },
+  { icon: MedicineImg, value: "500,000+", label: "Rice sacks and medicines provided" },
   { icon: HealthImg,   value: "100+",     label: "Diagnostic tests available at AAS Lab" },
   { icon: HelpImg,     value: "10,000+",  label: "Patients receiving free or low-cost care" },
   { icon: WomenImg,    value: "5,000+",   label: "Mothers receiving prenatal care" },

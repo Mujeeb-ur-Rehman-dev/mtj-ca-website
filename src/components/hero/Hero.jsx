@@ -10,6 +10,7 @@ const Hero = ({
   showRightImage = true,
   mobileImage,
   title,
+  mobileTitle,
   description,
   buttonText,
   buttonLink,
@@ -132,7 +133,7 @@ const Hero = ({
   const renderTextBlock = (isMobile = false) => (
     <>
       <h2 className={titleClassName} style={!isMobile ? titleStyle : undefined}>
-        {title}
+        {isMobile && mobileTitle ? mobileTitle : title}
       </h2>
       {cardContent ? (
         <>

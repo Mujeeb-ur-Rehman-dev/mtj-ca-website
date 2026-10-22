@@ -1,33 +1,21 @@
 /* ══════════════════════════════════════
    NEWSLETTER SECTION
-   Values matched to mtjfoundation.ca WordPress footer
-   (.inbox_section elementor-element-4f35877 + .signup-form)
+   Values matched to mtjfoundation.ca
    ══════════════════════════════════════ */
 
 .nl {
   background-color: #68101a;
-  background-image: url("../../assets/img/newsletter/bg-newsletter.png");
-  background-size: cover;
-  background-position: center;
-  padding: 20px 20px; /* matches elementor-element-4f35877 padding: 60px 20px 60px 20px */
-  min-height: 300px;
+  background-image: none;
+  padding: 60px 20px;
+  min-height: 280px;
 }
 
-/* ≤767px: WordPress swaps the cover photo for a decorative corner mask —
-   it's not layered on top of bg-newsletter.png, it fully replaces it.
-   Source SVG isn't in the local assets yet, so it's hotlinked from the
-   live site for now — download it and swap this url() for a local
-   import once you have it saved under src/assets/img/newsletter/. */
 @media (max-width: 767px) {
   .nl {
-    background-image: url("https://mtjfoundation.ca/wp-content/uploads/2023/01/Mask-Group-105.svg");
-    background-position: top right;
-    background-repeat: no-repeat;
-    background-size: auto;
+    padding: 40px 16px;
   }
 }
 
-/* two-column layout: left text | right form */
 .nl__inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -41,234 +29,163 @@
 .nl__left {
   display: flex;
   align-items: center;
-  gap: 30px; /* matches elementor-element-5adda67 margin-left: 30px from icon */
-  flex-shrink: 0;
+  gap: 28px;
+  flex: 1;
 }
 
-/* envelope icon — stamp frame is baked into the PNG */
 .nl__icon {
-  width: 111px; /* matches elementor-element-7559d85 img width: 111px */
-  height: 118px;
+  width: 111px;
+  height: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-/* "Add impact to your inbox" */
 .nl__title {
-  color: #FFFAEE; /* kit cream, not pure white */
-  font-family: "Finder", "Inter", Arial, sans-serif;
+  color: #FFFAEE;
+  font-family: var(--font-finder, "Finder"), "Inter", Arial, sans-serif;
   font-size: 40px;
-  font-weight: 400; /* WP uses regular weight, not bold/black */
-  line-height: 1.2em;
+  font-weight: 400;
+  line-height: 1.15em;
   margin: 0;
-  text-transform: none;
-  letter-spacing: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* ── RIGHT COLUMN: scalloped stamp card ── */
+/* ── RIGHT COLUMN: Clean Cream Card ── */
 .nl__card {
-  background: #fffaee;
-
-  /*
-   * Real scalloped cutouts using CSS mask.
-   * mask = black (#000) → element visible | transparent (#0000) → element hidden (cut out).
-   *
-   * 5 layers:
-   *   1-4: edge strips with semicircle bites (transparent circles at each edge)
-   *   5:   solid center fill that covers the inner body of the card
-   *
-   * Because mask layers are composited with "add" (union),
-   * any pixel covered by black in ANY layer will show → edges + center = full card minus the bites.
-   *
-   * (WordPress uses a static image, Group-5180.webp, for this same effect —
-   * this mask approach reproduces it without needing that asset.)
-   */
-
-  -webkit-mask:
-    radial-gradient(circle at 50% 0%,    #0000 9px, #000 11px) top    center / 26px 13px repeat-x,
-    radial-gradient(circle at 50% 100%,  #0000 9px, #000 11px) bottom center / 26px 13px repeat-x,
-    radial-gradient(circle at 0%   50%,  #0000 9px, #000 11px) left   center / 13px 26px repeat-y,
-    radial-gradient(circle at 100% 50%,  #0000 10px, #000 11px) right  center / 13px 26px repeat-y,
-    linear-gradient(#000 0 0) 13px 13px / calc(100% - 26px) calc(100% - 26px) no-repeat;
-
-  mask:
-    radial-gradient(circle at 50% 0%,    #0000 9px, #000 11px) top    center / 45px 20px repeat-x,
-    radial-gradient(circle at 50% 100%,  #0000 9px, #000 11px) bottom center / 45px 20px repeat-x,
-    radial-gradient(circle at 0%   50%,  #0000 9px, #000 11px) left   center / 45px 40px repeat-y,
-    radial-gradient(circle at 100% 50%,  #0000 10px, #000 11px) right  center / 45px 40px repeat-y,
-    linear-gradient(#000 0 0) 13px 13px / calc(100% - 26px) calc(100% - 26px) no-repeat;
-
-  padding: 40px; /* matches .signup-form padding: 40px */
+  background: var(--color-cream-bg, #FFFAEE);
+  border-radius: 6px;
+  padding: 35px;
   width: 100%;
-  max-width: 480px;
-  flex-shrink: 0;
+  max-width: 520px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  mask: none;
+  -webkit-mask: none;
 }
 
 /* ── FORM FIELDS ── */
 .nl__row {
   display: flex;
-  gap: 16px;
-  margin-bottom: 20px; /* matches .t-row margin: 0 0 20px */
+  gap: 15px;
+  margin-bottom: 12px;
 }
 
 .nl__field {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 10px; /* matches label margin: 0 0 10px */
-  margin-bottom: 0;
-}
-
-.nl__field + .nl__field,
-.nl__row + .nl__field {
-  margin-bottom: 20px; /* matches .b-row margin: 0 0 20px */
+  margin-bottom: 12px;
 }
 
 .nl__label {
-  font-family: "Rink", "Inter", Arial, sans-serif;
-  font-size: 20px; /* matches .signup-form label font-size: 20px */
-  font-weight: 400;
-  line-height: 22px;
-  color: #0B212A; /* matches label color, navy not dark-brown */
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #312D2D;
+  margin-bottom: 6px;
+  text-align: left;
 }
 
 .nl__input {
-  border: 1px solid #000; /* matches input border: 1px solid #000 */
-  border-radius: 30px;
-  background: #fffaee;
-  padding: 8px 10px; /* matches input padding: 8px 10px */
-  font-family: "Rink", "Inter", Arial, sans-serif;
-  font-size: 18px; /* matches input font-size: 18px */
-  line-height: 32px;
-  color: #0B212A;
-  outline: none;
   width: 100%;
-}
-
-.nl__input::placeholder {
-  color: #b0a090;
+  height: 42px;
+  background: #ffffff;
+  border: 1px solid #c9c9c9;
+  border-radius: 20px;
+  padding: 0 16px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: #312D2D;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
 }
 
 .nl__input:focus {
   border-color: #68101a;
 }
 
+.nl__input::placeholder {
+  color: #999999;
+  font-family: "Inter", sans-serif;
+}
+
 .nl__input--full {
   width: 100%;
-}
-
-/* ── CHECKBOX ── */
-.nl__checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px; /* matches .c-row label margin: 0 0 0 14px */
-  font-size: 13px;
-  color: #3a2a2a;
-  line-height: 1.45;
-  margin: 14px 0 18px;
-  cursor: pointer;
-}
-
-.nl__checkbox input[type="checkbox"] {
-  margin-top: 2px;
-  width: 20px; /* matches .c-row input[type=checkbox] 20x20 */
-  height: 20px;
-  flex-shrink: 0;
-  accent-color: #68101a;
-}
-
-.nl__checkbox span {
-  width: 84%; /* matches .c-row label width: 84% */
 }
 
 /* ── SUBMIT BUTTON ── */
 .nl__submit {
   width: 100%;
-  padding: 16px 10px;
-  background-image: url("../../assets/img/newsletter/sign-btn-background.png");
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-family: "Rink", "Inter", Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 600;
+  background-color: #68101A;
+  color: #ffffff;
   border: none;
-  /* border-radius: 6px; */
+  border-radius: 6px;
+  font-family: var(--font-rink, "Rink"), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px;
   cursor: pointer;
-  letter-spacing: 0.3px;
-  margin-top: 30px; /* matches button margin: 30px 0 0 */
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  display: block;
 }
 
 .nl__submit:hover {
-  cursor: pointer;
-}
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════ */
-@media (max-width: 1024px) {
-  .nl__title {
-    font-size: 32px; /* matches tablet breakpoint */
-  }
-}
-
-@media (max-width: 900px) {
-  .nl__inner {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .nl__left {
-    flex-direction: row; /* icon stays beside the title, not stacked above it */
-    align-items: center;
-    justify-content: flex-start;
-    text-align: left;
-    gap: 16px;
-  }
-  .nl__title {
-    text-align: left;
-  }
-  .nl__card {
-    max-width: 480px;
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 767px) {
-  .nl__title {
-    font-size: 26px; /* matches mobile breakpoint */
-  }
-}
-
-@media (max-width: 520px) {
-  .nl {
-    padding: 60px 20px 60px 20px
-  }
-  .nl__row {
-    flex-direction: column;
-    gap: 0;
-  }
-  .nl__row .nl__field {
-    margin-bottom: 10px;
-  }
-  .nl__icon {
-    width: 70px;
-    height: auto;
-  }
-  .nl__checkbox {
-    font-size: 16px; /* matches mobile .c-row label font-size: 16px */
-  }
-  .nl__card {
-    max-width: 353px; /* matches mobile .signup-form max-width: 353px */
-    margin: 0 auto;
-  }
+  background-color: #22582D;
 }
 
 .nl__success {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #22582D;
   font-weight: 600;
-  color: #22582c;
   text-align: center;
-  padding: 24px 0;
-  margin: 0;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE (Matches Image 2 Mobile View)
+   ══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .nl {
+    padding: 40px 16px;
+  }
+
+  .nl__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nl__left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .nl__icon {
+    width: 90px;
+    margin: 0 auto;
+  }
+
+  .nl__title {
+    font-size: 28px;
+    line-height: 1.2em;
+    text-align: center;
+  }
+
+  .nl__card {
+    padding: 24px 18px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .nl__row {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+  }
 }
