@@ -35,9 +35,7 @@ const Home = () => {
           </>
         }
         boldTitle={true}
-        textSectionMarginTop="10%"
-        textSectionMarginLeft="10%"
-        descriptionColor="#FFFFFF"
+        descriptionColor="#FFFAEE"
         mobileDescriptionColor="#312D2D"
         description="Severe floods swept through Nepal’s Bhotekoshi–Trishuli river basin on August 26, destroying homes, roads, and critical infrastructure."
         buttonText="Donate Now"

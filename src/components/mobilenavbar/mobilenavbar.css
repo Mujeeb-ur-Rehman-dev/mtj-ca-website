@@ -70,9 +70,6 @@
   background-color: #22582b !important;
   color: #ffffff !important;
   position: relative;
-  border-top: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-  box-shadow: 0 -3px 0 0 #0b212a, 0 -4px 0 0 #ffffff, 0 3px 0 0 #0b212a, 0 4px 0 0 #ffffff;
 }
 
 .mbl-nav-title {

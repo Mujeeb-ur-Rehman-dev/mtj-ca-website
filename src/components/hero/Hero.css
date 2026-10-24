@@ -1061,87 +1061,182 @@
    Matches live mtjfoundation.ca & desktop/mobile reference
    ============================================================ */
 
-.home-nepal-hero {
-  min-height: 724px;
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
-}
+@media (min-width: 769px) {
+  .home-nepal-hero {
+    min-height: 724px !important;
+    background-size: cover !important;
+    background-position: center right !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    padding: 120px 0 60px 0 !important;
+    box-sizing: border-box !important;
+  }
 
-.home-nepal-hero .hero-content-desktop .hero-text-section {
-  max-width: 480px;
-}
+  .home-nepal-hero .hero-content-desktop {
+    display: block !important;
+    width: 91% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 0 75px !important;
+    box-sizing: border-box !important;
+  }
 
-.home-nepal-hero .hero-title,
-.home-nepal-hero .hero-title--bold {
-  font-family: var(--font-finder, "Finder"), sans-serif !important;
-  font-size: 50px !important;
-  line-height: 1.15em !important;
-  font-weight: 400 !important;
-  color: #FFFAEE !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  margin: 0 0 20px 0 !important;
-}
+  .home-nepal-hero .hero-content-inner,
+  .home-nepal-hero .hero-content-inner--no-image {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-.home-nepal-hero .hero-description {
-  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
-  font-size: 20px !important;
-  line-height: 24px !important;
-  font-weight: 600 !important;
-  color: #FFFAEE !important;
-  max-width: 440px !important;
-  margin: 0 0 30px 0 !important;
-}
+  .home-nepal-hero .hero-content-desktop .hero-text-section,
+  .home-nepal-hero .hero-content-desktop .hero-text-section--emergency {
+    max-width: 440px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
 
-.home-nepal-hero .hero-button-group {
-  display: flex !important;
-  align-items: center !important;
-  gap: 16px !important;
-}
+  .home-nepal-hero .hero-content-desktop .hero-title,
+  .home-nepal-hero .hero-content-desktop .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: 50px !important;
+    line-height: 1.15em !important;
+    font-weight: 400 !important;
+    color: #FFFAEE !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin: 0 0 20px 0 !important;
+    text-align: left !important;
+  }
 
-/* Primary "Donate Now" button on desktop: white rounded button with heart icon */
-.home-nepal-hero .hero-donate-btn .btn-donate-content {
-  background-color: #ffffff !important;
-  background-image: none !important;
-  clip-path: none !important;
-  border-radius: 6px !important;
-  color: #000000 !important;
-  font-family: var(--font-rink, "Rink"), sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  padding: 12px 24px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.25s ease !important;
-}
+  .home-nepal-hero .hero-content-desktop .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    font-weight: 600 !important;
+    color: #FFFAEE !important;
+    max-width: 395px !important;
+    margin: 0 0 24px 0 !important;
+    text-align: left !important;
+  }
 
-.home-nepal-hero .hero-donate-btn .btn-donate-content:hover {
-  background-color: #f5f5f5 !important;
-  transform: translateY(-1px);
-}
+  .home-nepal-hero .hero-content-desktop .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
 
-.home-nepal-hero .hero-donate-btn .btn-icon-badge {
-  background: transparent !important;
-}
+  .home-nepal-hero .hero-content-desktop .hero-donate-btn-group {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    display: inline-flex !important;
+  }
 
-/* Secondary "Learn More" button on desktop: forest green button */
-.home-nepal-hero .hero-secondary-btn .btn-donate-content {
-  background-color: #22582D !important;
-  background-image: none !important;
-  clip-path: none !important;
-  border-radius: 6px !important;
-  color: #FFFFFF !important;
-  font-family: var(--font-rink, "Rink"), sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  padding: 12px 24px !important;
-  border: none !important;
-  transition: all 0.25s ease !important;
-}
+  /* Primary "Donate Now" button: cream background with dark text & peach heart icon */
+  .home-nepal-hero .hero-content-desktop .hero-donate-btn .btn-donate-content {
+    width: 170px !important;
+    min-width: 170px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    background-color: #FFFAEE !important;
+    background-image: none !important;
+    clip-path: none !important;
+    border-radius: 6px !important;
+    color: #2E1013 !important;
+    font-family: var(--font-rink, "Rink"), sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 24px !important;
+    padding: 12px 10px 12px 8px !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+  }
 
-.home-nepal-hero .hero-secondary-btn .btn-donate-content:hover {
-  background-color: #1a4523 !important;
-  transform: translateY(-1px);
+  .home-nepal-hero .hero-content-desktop .hero-donate-btn .btn-icon-badge {
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .home-nepal-hero .hero-content-desktop .hero-donate-btn .btn-donate-icon {
+    width: 18px !important;
+    height: 15px !important;
+    display: block !important;
+    transition: filter 0.3s ease !important;
+  }
+
+  .home-nepal-hero .hero-content-desktop .hero-donate-btn .btn-donate-content:hover {
+    background-color: #22582D !important;
+    color: #FFFFFF !important;
+    transform: none !important;
+  }
+
+  .home-nepal-hero .hero-content-desktop .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  /* Secondary "Learn More" button: dark green background with cream text and NO icon */
+  .home-nepal-hero .hero-content-desktop .hero-secondary-btn .btn-donate-content {
+    width: 170px !important;
+    min-width: 170px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    background-color: #22582D !important;
+    background-image: none !important;
+    clip-path: none !important;
+    border-radius: 6px !important;
+    color: #FFFAEE !important;
+    font-family: var(--font-rink, "Rink"), sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 24px !important;
+    padding: 12px 10px !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+  }
+
+  .home-nepal-hero .hero-content-desktop .hero-secondary-btn .btn-donate-content:hover {
+    background-color: #FFFAEE !important;
+    color: #2E1013 !important;
+    transform: none !important;
+  }
+
+  .home-nepal-hero .hero-content-desktop .hero-secondary-btn .btn-icon-badge,
+  .home-nepal-hero .hero-content-desktop .hero-secondary-btn .btn-donate-icon {
+    display: none !important;
+  }
 }
 
 /* Mobile Hero */

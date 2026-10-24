@@ -25,6 +25,7 @@ const Hero = ({
   secondaryButtonVariant = "default",
   secondaryButtonBgImage,
   secondaryButtonHoverBgImage,
+  secondaryButtonIconSrc = null,
 
   // Fully custom left-column content
   customContent,
@@ -125,6 +126,7 @@ const Hero = ({
           variant={secondaryButtonVariant}
           bgImage={secondaryButtonBgImage}
           hoverBgImage={secondaryButtonHoverBgImage}
+          iconSrc={secondaryButtonIconSrc}
         />
       )}
     </div>
