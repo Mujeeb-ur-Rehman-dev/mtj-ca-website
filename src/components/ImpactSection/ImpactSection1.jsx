@@ -14,13 +14,15 @@ function getVisibleCount(width, desktopVisibleCount = 4) {
 function StatCard({ s }) {
   return (
     <div className="impact__item">
-      <img
-        className="impact__icon"
-        src={s.icon}
-        alt=""
-        width="156"
-        height="165"
-      />
+      {s.icon && (
+        <img
+          className="impact__icon"
+          src={s.icon}
+          alt=""
+          width="156"
+          height="165"
+        />
+      )}
       <strong className="impact__value">{s.value}</strong>
       <p className="impact__label">{s.label}</p>
     </div>

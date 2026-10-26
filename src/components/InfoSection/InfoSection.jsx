@@ -6,6 +6,7 @@ import Button from '../../common/components/buttons/Button';
 export default function InfoSection({
   className = "",
   title,
+  subtitle,
   paragraphs = [],
   buttonText,
   buttonIcon = <FaHeart className="wzk__btn-icon" />,
@@ -97,6 +98,7 @@ export default function InfoSection({
         {/* ── LEFT: text content ── */}
         <div className="wzk__text">
           <h2 className="wzk__title">{title}</h2>
+          {subtitle && <h3 className="wzk__subtitle">{subtitle}</h3>}
 
           {paragraphs.map((p, i) =>
             Array.isArray(p) ? (

@@ -1323,3 +1323,652 @@
     font-weight: 400 !important;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   ZAKAT HERO SECTION (Desktop & Mobile per Figma / Screenshots)
+   ═══════════════════════════════════════════════════════════ */
+.zakat-hero {
+  min-height: 600px !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 80px 40px !important;
+}
+
+.zakat-hero .hero-content-desktop {
+  width: 100% !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+}
+
+.zakat-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+}
+
+.zakat-hero .hero-content-desktop .hero-text-section {
+  max-width: 520px !important;
+}
+
+.zakat-hero .hero-title,
+.zakat-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 46px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin: 0 0 16px 0 !important;
+}
+
+.zakat-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 18px !important;
+  line-height: 26px !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
+}
+
+.zakat-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin-top: 24px !important;
+}
+
+.zakat-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.zakat-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.zakat-hero .hero-donate-btn .btn-donate-content {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  box-sizing: border-box !important;
+  padding: 13px 10px 13px 8px !important;
+  background-color: #68101a !important;
+  background-image: none !important;
+  clip-path: none !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  box-shadow: 0 3px 8px rgba(104, 16, 26, 0.25) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.zakat-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+.zakat-hero .hero-secondary-btn .btn-donate-content {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  box-sizing: border-box !important;
+  padding: 13px 10px 13px 8px !important;
+  background-color: #22582d !important;
+  background-image: none !important;
+  clip-path: none !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  border: none !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.zakat-hero .hero-secondary-btn .btn-donate-content:hover {
+  background-color: #68101a !important;
+  color: #ffffff !important;
+}
+
+.zakat-hero .hero-secondary-btn .btn-icon-badge,
+.zakat-hero .hero-secondary-btn .btn-donate-icon {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .zakat-hero {
+    min-height: 440px !important;
+    background-image: url('../../assets/img/zakat/hero/Zakat-Appeal.webp') !important;
+    background-size: cover !important;
+    background-position: 70% center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 100px 16px 36px 16px !important;
+    margin-top: 80px !important;
+  }
+
+  .zakat-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .zakat-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .zakat-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+    max-width: 330px !important;
+  }
+
+  .zakat-hero .hero-content-mobile .hero-title,
+  .zakat-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    margin: 0 0 12px 0 !important;
+  }
+
+  .zakat-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .zakat-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-top: 18px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .zakat-hero .hero-donate-btn .btn-donate-content {
+    width: 157px !important;
+    min-width: 157px !important;
+    max-width: 157px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 13px 5px 13px 5px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+    gap: 6px !important;
+  }
+
+  .zakat-hero .hero-secondary-btn .btn-donate-content {
+    width: 157px !important;
+    min-width: 157px !important;
+    max-width: 157px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 13px 5px 13px 5px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+  }
+
+  .zakat-hero .hero-donate-btn .btn-icon-badge {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .zakat-hero .hero-donate-btn .btn-donate-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SADAQAH HERO SECTION (Desktop & Mobile per Figma / Screenshots)
+   ═══════════════════════════════════════════════════════════ */
+.sadaqah-hero {
+  min-height: 600px !important;
+  background-size: cover !important;
+  background-position: center right !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 80px 40px !important;
+}
+
+.sadaqah-hero .hero-content-desktop {
+  width: 100% !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+}
+
+.sadaqah-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+}
+
+.sadaqah-hero .hero-content-desktop .hero-text-section {
+  max-width: 520px !important;
+}
+
+.sadaqah-hero .hero-title,
+.sadaqah-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 46px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin: 0 0 16px 0 !important;
+}
+
+.sadaqah-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 18px !important;
+  line-height: 26px !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
+}
+
+.sadaqah-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin-top: 24px !important;
+}
+
+.sadaqah-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sadaqah-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.sadaqah-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 170px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  box-sizing: border-box !important;
+  padding: 13px 24px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  clip-path: none !important;
+  color: #68101a !important;
+  border-radius: 6px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.sadaqah-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+.sadaqah-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sadaqah-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: invert(16%) sepia(75%) saturate(1869%) hue-rotate(328deg) brightness(87%) contrast(87%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.sadaqah-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media (max-width: 768px) {
+  .sadaqah-hero {
+    min-height: 440px !important;
+    background-image: url('../../assets/img/sadaqahJariyah/Sadaqah.webp') !important;
+    background-size: cover !important;
+    background-position: 70% center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 100px 16px 36px 16px !important;
+    margin-top: 80px !important;
+  }
+
+  .sadaqah-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .sadaqah-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .sadaqah-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+    max-width: 330px !important;
+  }
+
+  .sadaqah-hero .hero-content-mobile .hero-title,
+  .sadaqah-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    margin: 0 0 12px 0 !important;
+  }
+
+  .sadaqah-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .sadaqah-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-top: 18px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .sadaqah-hero .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 157px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 13px 18px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+    gap: 8px !important;
+  }
+
+  .sadaqah-hero .hero-donate-btn .btn-icon-badge {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .sadaqah-hero .hero-donate-btn .btn-donate-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   NEPAL FLOODS APPEAL HERO SECTION (Desktop & Mobile per Figma / Screenshots)
+   ═══════════════════════════════════════════════════════════ */
+.nepal-floods-hero {
+  min-height: 520px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/NepalFlood/Nepal-Hero-Banner.webp') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 60px 40px !important;
+}
+
+.nepal-floods-hero .hero-content-desktop {
+  width: 100% !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+}
+
+.nepal-floods-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+}
+
+.nepal-floods-hero .hero-content-desktop .hero-text-section {
+  max-width: 440px !important;
+}
+
+.nepal-floods-hero .hero-title,
+.nepal-floods-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 44px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin: 0 0 16px 0 !important;
+  letter-spacing: -0.01em !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45) !important;
+}
+
+.nepal-floods-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45) !important;
+}
+
+.nepal-floods-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin-top: 28px !important;
+}
+
+.nepal-floods-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nepal-floods-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.nepal-floods-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  box-sizing: border-box !important;
+  padding: 12px 26px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  clip-path: none !important;
+  color: #671019 !important;
+  border-radius: 6px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 22px !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.nepal-floods-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+.nepal-floods-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.nepal-floods-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: invert(16%) sepia(75%) saturate(1869%) hue-rotate(328deg) brightness(87%) contrast(87%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.nepal-floods-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media (max-width: 768px) {
+  .nepal-floods-hero {
+    min-height: 460px !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/NepalFlood/Nepal-Hero-Banner.webp') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 100px 16px 36px 16px !important;
+    margin-top: 80px !important;
+  }
+
+  .nepal-floods-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .nepal-floods-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .nepal-floods-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+    max-width: 330px !important;
+  }
+
+  .nepal-floods-hero .hero-content-mobile .hero-title,
+  .nepal-floods-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: 26px !important;
+    line-height: 1.15 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    margin: 0 0 12px 0 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .nepal-floods-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    margin: 0 !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .nepal-floods-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-top: 18px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .nepal-floods-hero .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 157px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 13px 18px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+    gap: 8px !important;
+  }
+
+  .nepal-floods-hero .hero-donate-btn .btn-icon-badge {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .nepal-floods-hero .hero-donate-btn .btn-donate-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}

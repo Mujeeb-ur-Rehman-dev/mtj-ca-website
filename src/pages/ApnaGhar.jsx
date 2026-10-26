@@ -103,7 +103,7 @@ const ApnaGhar = () => {
           { src: galleryImg5, alt: "..." },
           { src: galleryImg6, alt: "..." },
         ]}
-      />
+       />
 
       <OurStories
         title="OUR STORIES"

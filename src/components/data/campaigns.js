@@ -1,3 +1,4 @@
+import nepalPopup from '../../assets/img/NepalFlood/Nepal-Hero-Banner.webp';
 import lebanonPopup from '../../assets/img/EmergencyReliefLebanon/lebanon_popup.png';
 import quickDonateBanner from '../../assets/img/navbar/quick-donate-banner.jpg';
 import zakatDonateBtn from '../../assets/img/zakat/hero/zakat-donate.png';
@@ -324,6 +325,33 @@ export const campaigns = {
       { value: 20000, label: 'Rs 20K' },
       { value: 40000, label: 'Rs 40K' },
       { value: 60000, label: 'Rs 60K' },
+    ],
+  },
+
+  // ========== 7. Nepal Floods Appeal ==========
+  nepal: {
+    id: 'nepal',
+    title: 'Nepal Floods Appeal - Donate Today',
+    description:
+      'Help flood victims in Nepal with emergency relief, shelter, clean water, and essential food support. Your contributions provide critical survival supplies to displaced families in Bidur and surrounding affected communities.',
+    image: nepalPopup,
+
+    layoutOnce: 'vertical',
+    layoutMonthly: 'grid',
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,
+
+    amountsOnce: [
+      { value: 60, label: '$60', desc: "Provides a 2-week ration pack to a family" },
+      { value: 40, label: '$40', desc: "Provides an emergency hygiene kit" },
+      { value: 55, label: '$55', desc: "Provides shelter & bedding to a family" },
+    ],
+    amountsMonthly: [
+      { value: 25, label: '$25' },
+      { value: 50, label: '$50' },
+      { value: 100, label: '$100' },
+      { value: 250, label: '$250' },
     ],
   },
 };

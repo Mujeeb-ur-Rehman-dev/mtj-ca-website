@@ -424,3 +424,382 @@
     height: 390px;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   Static Grid Mode (Non-carousel) & Zakat Page Impact Cards
+   ═══════════════════════════════════════════════════════════ */
+.zi__static-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.zi__static-grid .zi__card {
+  opacity: 1;
+  animation: none;
+  min-height: auto;
+  height: 100%;
+}
+
+.zakat-impact-cards {
+  padding: 70px 24px;
+  background-color: #22582d;
+}
+
+.zakat-impact-cards .zi__title {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #fffaee;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 40px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.zakat-impact-cards .zi__card,
+.zi__static-grid .zi__card {
+  -webkit-mask: none !important;
+  mask: none !important;
+  border-radius: 12px !important;
+  background: #fffaee !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  min-height: 400px;
+}
+
+.zakat-impact-cards .zi__card-inner,
+.zi__static-grid .zi__card-inner {
+  padding: 38px 28px 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.zakat-impact-cards .zi__card-name,
+.zi__static-grid .zi__card-name {
+  font-family: var(--font-finder, "Finder"), "Arial", sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #1a4422 !important;
+  margin: 0 0 12px !important;
+  line-height: 1.3 !important;
+}
+
+.zakat-impact-cards .zi__card-amount,
+.zi__static-grid .zi__card-amount {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif !important;
+  font-size: 48px !important;
+  font-weight: 900 !important;
+  color: #1a4422 !important;
+  margin: 0 0 18px !important;
+  line-height: 1 !important;
+}
+
+.zakat-impact-cards .zi__card-desc,
+.zi__static-grid .zi__card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #2a2a2a !important;
+  margin: 0 0 24px !important;
+  padding-bottom: 0 !important;
+}
+
+.zakat-impact-cards .hero-donate-btn .btn-donate-content,
+.zi__static-grid .hero-donate-btn .btn-donate-content {
+  background-color: #68101a !important;
+  background-image: none !important;
+  color: #fffaee !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 12px 28px !important;
+  box-shadow: 0 3px 8px rgba(104, 16, 26, 0.25) !important;
+}
+
+@media (max-width: 900px) {
+  .zi__static-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .zakat-impact-cards {
+    padding: 50px 20px;
+  }
+
+  .zakat-impact-cards .zi__title {
+    font-size: 26px;
+    line-height: 1.2;
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
+
+  .zakat-impact-cards .zi__card,
+  .zi__static-grid .zi__card {
+    min-height: auto;
+  }
+
+  .zakat-impact-cards .zi__card-name,
+  .zi__static-grid .zi__card-name {
+    font-size: 20px !important;
+  }
+
+  .zakat-impact-cards .zi__card-amount,
+  .zi__static-grid .zi__card-amount {
+    font-size: 42px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .zakat-impact-cards .zi__card-desc,
+  .zi__static-grid .zi__card-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Sadaqah Impact Cards Styles
+   ═══════════════════════════════════════════════════════════ */
+.sadaqah-impact-cards {
+  background-color: #22582d;
+}
+
+.sadaqah-impact-cards .zi__title {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #fffaee;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 40px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.sadaqah-impact-cards .zi__card {
+  -webkit-mask: none !important;
+  mask: none !important;
+  border-radius: 12px !important;
+  background: #fffaee !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  min-height: 400px;
+}
+
+.sadaqah-impact-cards .zi__card-inner {
+  padding: 38px 28px 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.sadaqah-impact-cards .zi__card-name {
+  font-family: var(--font-finder, "Finder"), "Arial", sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #1a4422 !important;
+  margin: 0 0 12px !important;
+  line-height: 1.3 !important;
+}
+
+.sadaqah-impact-cards .zi__card-amount {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif !important;
+  font-size: 48px !important;
+  font-weight: 900 !important;
+  color: #1a4422 !important;
+  margin: 0 0 18px !important;
+  line-height: 1 !important;
+}
+
+.sadaqah-impact-cards .zi__card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #2a2a2a !important;
+  margin: 0 0 24px !important;
+  padding-bottom: 0 !important;
+}
+
+.sadaqah-impact-cards .hero-donate-btn .btn-donate-content {
+  background-color: #68101a !important;
+  background-image: none !important;
+  color: #fffaee !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 12px 28px !important;
+  box-shadow: 0 3px 8px rgba(104, 16, 26, 0.25) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.sadaqah-impact-cards .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .sadaqah-impact-cards {
+    padding: 50px 20px;
+  }
+
+  .sadaqah-impact-cards .zi__title {
+    font-size: 26px;
+    line-height: 1.2;
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
+
+  .sadaqah-impact-cards .zi__card {
+    min-height: auto;
+  }
+
+  .sadaqah-impact-cards .zi__card-name {
+    font-size: 20px !important;
+  }
+
+  .sadaqah-impact-cards .zi__card-amount {
+    font-size: 42px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .sadaqah-impact-cards .zi__card-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   Nepal Impact Cards Styles ("HELP FAMILIES WITH WHAT THEY NEED TO SURVIVE")
+   ═══════════════════════════════════════════════════════════ */
+.nepal-impact-cards {
+  background-color: #0b212a !important;
+}
+
+.nepal-impact-cards .zi__title {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #fffaee;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.nepal-impact-cards .zi__card {
+  -webkit-mask: none !important;
+  mask: none !important;
+  border-radius: 12px !important;
+  background: #fffaee !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  min-height: 400px;
+}
+
+.nepal-impact-cards .zi__card-inner {
+  padding: 38px 28px 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.nepal-impact-cards .zi__card-name {
+  font-family: var(--font-finder, "Finder"), "Arial", sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #1a4422 !important;
+  margin: 0 0 12px !important;
+  line-height: 1.3 !important;
+}
+
+.nepal-impact-cards .zi__card-amount {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif !important;
+  font-size: 48px !important;
+  font-weight: 900 !important;
+  color: #1a4422 !important;
+  margin: 0 0 18px !important;
+  line-height: 1 !important;
+}
+
+.nepal-impact-cards .zi__card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #2a2a2a !important;
+  margin: 0 0 24px !important;
+  padding-bottom: 0 !important;
+}
+
+.nepal-impact-cards .hero-donate-btn .btn-donate-content {
+  background-color: #68101a !important;
+  background-image: none !important;
+  color: #fffaee !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 12px 28px !important;
+  box-shadow: 0 3px 8px rgba(104, 16, 26, 0.25) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.nepal-impact-cards .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .nepal-impact-cards {
+    padding: 50px 20px;
+  }
+
+  .nepal-impact-cards .zi__title {
+    font-size: 26px;
+    line-height: 1.2;
+    max-width: 320px;
+    margin-bottom: 30px;
+  }
+
+  .nepal-impact-cards .zi__card {
+    min-height: auto;
+  }
+
+  .nepal-impact-cards .zi__card-name {
+    font-size: 20px !important;
+  }
+
+  .nepal-impact-cards .zi__card-amount {
+    font-size: 42px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .nepal-impact-cards .zi__card-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+  }
+}

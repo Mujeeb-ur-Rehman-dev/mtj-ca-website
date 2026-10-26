@@ -1,20 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
-import { FaHeart } from "react-icons/fa";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Button from "../../common/components/buttons/Button";
 import "./ImpactCards.css";
 import { impactCardsData } from "../data/impactCardsData";
 const DESKTOP_VISIBLE = 3;
 const MOBILE_VISIBLE = 1;
 
-const getVisibleCount = () => (window.innerWidth <= 768 ? MOBILE_VISIBLE : DESKTOP_VISIBLE);
-
 export default function ImpactCards({
-  title ="",
+  title = "",
   cards = impactCardsData,
   backgroundColor = "#22582d",
   autoplay = true,
   autoplayInterval = 4000,
   className = "",
+  isCarousel = true,
+  onDonate = null,
 }) {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth <= 768 : false
@@ -51,27 +50,36 @@ export default function ImpactCards({
     window.location.href = link;
   };
 
-  const resetToStart = () => {
+  const handleCardDonate = (card) => {
+    if (onDonate) {
+      onDonate(card);
+      return;
+    }
+    goToLink(card.donateLink || "#donate");
+  };
+
+  const resetToStart = useCallback(() => {
     clearTimeout(snapTimeout.current);
     setAnimate(false);
     setStart(0);
     setIndex(visibleCount);
     requestAnimationFrame(() => setAnimate(true));
-  };
+  }, [visibleCount]);
 
   // reset cleanly whenever the visible count or the list itself changes,
   // AND on every fresh mount (e.g. navigating back to this page) —
   // otherwise a stale index left over from before could stay stuck
   useEffect(() => {
+    if (!isCarousel) return;
     resetToStart();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visibleCount, total]);
+  }, [visibleCount, total, isCarousel, resetToStart]);
 
   // safety net for SPA routing setups where this section doesn't fully
   // unmount/remount between pages (e.g. it's kept alive in a shared
   // layout) — re-sync to a clean state every time it scrolls back into
   // view, so it can never stay permanently stuck after navigating away
   useEffect(() => {
+    if (!isCarousel) return;
     const node = sectionRef.current;
     if (!node || typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver(
@@ -82,13 +90,12 @@ export default function ImpactCards({
     );
     observer.observe(node);
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visibleCount, total]);
+  }, [isCarousel, resetToStart]);
 
   useEffect(() => () => clearTimeout(snapTimeout.current), []);
 
   // one card at a time; wraps forever in both directions (never "stops")
-  const step = (dir) => {
+  const step = useCallback((dir) => {
     setAnimate(true);
     setIndex((i) => i + dir);
     setStart((s) => (s + dir + total) % total);
@@ -104,17 +111,17 @@ export default function ImpactCards({
         return i;
       });
     }, 520); // CSS transition is 0.5s — small buffer added
-  };
+  }, [total, visibleCount]);
 
   // Autoplay functionality
-  const startAutoplay = () => {
-    if (!autoplay || isAutoplayPaused) return;
+  const startAutoplay = useCallback(() => {
+    if (!autoplay || isAutoplayPaused || !isCarousel) return;
     
     clearTimeout(autoplayTimer.current);
     autoplayTimer.current = setInterval(() => {
       step(1);
     }, autoplayInterval);
-  };
+  }, [autoplay, autoplayInterval, isAutoplayPaused, isCarousel, step]);
 
   const pauseAutoplay = () => {
     clearTimeout(autoplayTimer.current);
@@ -129,19 +136,21 @@ export default function ImpactCards({
 
   // Start autoplay on mount and when settings change
   useEffect(() => {
+    if (!isCarousel) return;
     startAutoplay();
     return () => {
       clearTimeout(autoplayTimer.current);
       clearTimeout(pauseTimeout.current);
     };
-  }, [autoplay, autoplayInterval, isAutoplayPaused, total]);
+  }, [isCarousel, startAutoplay]);
 
   // Resume autoplay after pause expires
   useEffect(() => {
+    if (!isCarousel) return;
     if (!isAutoplayPaused && autoplay) {
       startAutoplay();
     }
-  }, [isAutoplayPaused]);
+  }, [isAutoplayPaused, autoplay, isCarousel, startAutoplay]);
 
   const prev = () => {
     pauseAutoplay();
@@ -173,74 +182,99 @@ export default function ImpactCards({
       {/* ── Section heading ── */}
       <h2 className="zi__title">{title}</h2>
 
-      {/* ── Card grid with sliding ── */}
-      <div className="zi__grid-container">
-        <div
-          className="zi__grid"
-          style={{
-            width: `${(trackCount / visibleCount) * 100}%`,
-            transform: `translateX(-${index * (100 / trackCount)}%)`,
-            transition: animate ? "transform 0.5s ease" : "none",
-          }}
-        >
-          {track.map((card, i) => (
+      {isCarousel ? (
+        <>
+          {/* ── Card grid with sliding ── */}
+          <div className="zi__grid-container">
             <div
-              className="zi__slide"
-              key={`${card.title}-${i}`}
-              style={{ width: `${100 / trackCount}%` }}
+              className="zi__grid"
+              style={{
+                width: `${(trackCount / visibleCount) * 100}%`,
+                transform: `translateX(-${index * (100 / trackCount)}%)`,
+                transition: animate ? "transform 0.5s ease" : "none",
+              }}
             >
-              <div className="zi__card">
-                {/* card inner keeps content away from scalloped edges */}
-                <div className="zi__card-inner">
-                  <h3 className="zi__card-name">{card.title}</h3>
-                  <p className="zi__card-amount">{card.amount}</p>
-                  <p className="zi__card-desc">{card.description}</p>
-                  <Button
-                    text="Donate Now"
-                    onClick={() => goToLink(card.donateLink || "#donate")}
-                    size="md"
-                    wrapperClass="nav-btn-group hero-donate-btn-group"
-                    buttonClass="btn btn-donate-animated hero-donate-btn"
-                    variant="default"
-                  />
+              {track.map((card, i) => (
+                <div
+                  className="zi__slide"
+                  key={`${card.title}-${i}`}
+                  style={{ width: `${100 / trackCount}%` }}
+                >
+                  <div className="zi__card">
+                    {/* card inner keeps content away from scalloped edges */}
+                    <div className="zi__card-inner">
+                      <h3 className="zi__card-name">{card.title}</h3>
+                      <p className="zi__card-amount">{card.amount}</p>
+                      <p className="zi__card-desc">{card.description}</p>
+                      <Button
+                        text="Donate Now"
+                        onClick={() => handleCardDonate(card)}
+                        size="md"
+                        wrapperClass="nav-btn-group hero-donate-btn-group"
+                        buttonClass="btn btn-donate-animated hero-donate-btn"
+                        variant="default"
+                      />
+                    </div>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Pagination ── */}
+          <div className="zi__controls">
+            <button
+              className="zi__arrow"
+              onClick={prev}
+              aria-label="Previous"
+            >
+              ←
+            </button>
+
+            <div className="zi__dots">
+              {cards.map((c, i) => (
+                <span
+                  key={c.title}
+                  className={`zi__dot ${i === start ? "zi__dot--active" : ""}`}
+                  onClick={() => goTo(i)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Go to ${c.title}`}
+                />
+              ))}
+            </div>
+
+            <button
+              className="zi__arrow"
+              onClick={next}
+              aria-label="Next"
+            >
+              →
+            </button>
+          </div>
+        </>
+      ) : (
+        /* ── Static Grid (Non-carousel mode) ── */
+        <div className="zi__static-grid">
+          {cards.map((card, i) => (
+            <div className="zi__card" key={`${card.title}-${i}`}>
+              <div className="zi__card-inner">
+                <h3 className="zi__card-name">{card.title}</h3>
+                <p className="zi__card-amount">{card.amount}</p>
+                <p className="zi__card-desc">{card.description}</p>
+                <Button
+                  text="Donate Now"
+                  onClick={() => handleCardDonate(card)}
+                  size="md"
+                  wrapperClass="nav-btn-group hero-donate-btn-group"
+                  buttonClass="btn btn-donate-animated hero-donate-btn"
+                  variant="default"
+                />
               </div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* ── Pagination ── */}
-      <div className="zi__controls">
-        <button
-          className="zi__arrow"
-          onClick={prev}
-          aria-label="Previous"
-        >
-          ←
-        </button>
-
-        <div className="zi__dots">
-          {cards.map((c, i) => (
-            <span
-              key={c.title}
-              className={`zi__dot ${i === start ? "zi__dot--active" : ""}`}
-              onClick={() => goTo(i)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Go to ${c.title}`}
-            />
-          ))}
-        </div>
-
-        <button
-          className="zi__arrow"
-          onClick={next}
-          aria-label="Next"
-        >
-          →
-        </button>
-      </div>
+      )}
     </section>
   );
 }

@@ -864,3 +864,317 @@
     font-size: clamp(28px, 8vw, 36px);
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   Zakat Info Section ("WHY GIVE ZAKAT?") Styles
+   ═══════════════════════════════════════════════════════════ */
+.zakat-info-section {
+  background-color: #fffaee !important;
+  background-image: none !important;
+}
+
+.zakat-info-section .wzk__stamp,
+.zakat-info-section .wzk__photo {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+.zakat-info-section .hero-donate-btn .btn-donate-content {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  box-sizing: border-box !important;
+  padding: 13px 10px 13px 8px !important;
+  background-color: #68101a !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 3px 8px rgba(104, 16, 26, 0.25) !important;
+}
+
+@media (max-width: 900px) {
+  .zakat-info-section {
+    background-color: #fffaee !important;
+    background-image: none !important;
+    padding: 40px 20px 40px !important;
+  }
+  .zakat-info-section .wzk__stamp-wrap {
+    order: 1 !important;
+    margin-top: 20px !important;
+  }
+  .zakat-info-section .wzk__title {
+    text-align: left !important;
+  }
+  .zakat-info-section .hero-donate-btn-group {
+    justify-content: flex-start !important;
+  }
+  .zakat-info-section .hero-donate-btn .btn-donate-content {
+    width: 157px !important;
+    min-width: 157px !important;
+    max-width: 157px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    padding: 13px 5px 13px 5px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Sadaqah Info Section ("YOUR SADAQAH IS AN IMMEDIATE RELIEF")
+   ═══════════════════════════════════════════════════════════ */
+.sadaqah-info-section {
+  background-color: #fffaee !important;
+  background-image: none !important;
+}
+
+.sadaqah-info-section .wzk__inner {
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+}
+
+.sadaqah-info-section .wzk__title {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif !important;
+  font-size: clamp(28px, 3.2vw, 42px) !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+  color: #22582d !important;
+  text-transform: uppercase !important;
+  margin-bottom: 24px !important;
+  text-align: left !important;
+}
+
+.sadaqah-info-section .wzk__body {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: #2a2a2a !important;
+  margin-bottom: 16px !important;
+  text-align: left !important;
+}
+
+.sadaqah-info-section .wzk__body:last-of-type {
+  margin-bottom: 28px !important;
+}
+
+.sadaqah-info-section .wzk__stamp,
+.sadaqah-info-section .wzk__photo {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  -webkit-mask: none !important;
+  mask: none !important;
+  overflow: hidden !important;
+}
+
+.sadaqah-info-section .hero-donate-btn .btn-donate-content {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  box-sizing: border-box !important;
+  padding: 13px 10px 13px 8px !important;
+  background-color: #68101a !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 3px 8px rgba(104, 16, 26, 0.25) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.sadaqah-info-section .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  .sadaqah-info-section {
+    background-color: #fffaee !important;
+    background-image: none !important;
+    padding: 40px 20px 40px !important;
+  }
+
+  .sadaqah-info-section .wzk__stamp-wrap {
+    order: 1 !important;
+    margin-top: 24px !important;
+  }
+
+  .sadaqah-info-section .wzk__title {
+    font-size: 26px !important;
+    text-align: left !important;
+  }
+
+  .sadaqah-info-section .wzk__body {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .sadaqah-info-section .hero-donate-btn-group {
+    justify-content: flex-start !important;
+  }
+
+  .sadaqah-info-section .hero-donate-btn .btn-donate-content {
+    width: 157px !important;
+    min-width: 157px !important;
+    max-width: 157px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    padding: 13px 5px 13px 5px !important;
+    font-size: 14px !important;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   Nepal Info Section ("MTJF ON THE GROUND IN NEPAL")
+   ═══════════════════════════════════════════════════════════ */
+.nepal-info-section {
+  background-color: #fffaee !important;
+  background-image: none !important;
+  padding: 80px 40px !important;
+}
+
+.nepal-info-section .wzk__inner {
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+.nepal-info-section .wzk__text {
+  max-width: 700px !important;
+}
+
+.nepal-info-section .wzk__title {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif !important;
+  font-size: clamp(28px, 3.2vw, 42px) !important;
+  font-weight: 900 !important;
+  line-height: 1.2 !important;
+  color: #0b212a !important;
+  text-transform: uppercase !important;
+  margin-bottom: 12px !important;
+  text-align: left !important;
+}
+
+.nepal-info-section .wzk__subtitle {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: clamp(16px, 1.8vw, 20px) !important;
+  font-weight: 700 !important;
+  color: #0b212a !important;
+  text-transform: uppercase !important;
+  margin-bottom: 22px !important;
+  text-align: left !important;
+}
+
+.nepal-info-section .wzk__body {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  color: #2a2a2a !important;
+  margin-bottom: 16px !important;
+  text-align: left !important;
+}
+
+.nepal-info-section .wzk__list {
+  margin: 0 0 20px 0 !important;
+  padding-left: 20px !important;
+  color: #2a2a2a !important;
+}
+
+.nepal-info-section .wzk__list li {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 6px !important;
+}
+
+.nepal-info-section .hero-donate-btn-group {
+  margin-top: 28px !important;
+}
+
+.nepal-info-section .hero-donate-btn .btn-donate-content {
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  height: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  box-sizing: border-box !important;
+  padding: 13px 10px 13px 8px !important;
+  background-color: #68101a !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 3px 8px rgba(104, 16, 26, 0.25) !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.nepal-info-section .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  .nepal-info-section {
+    padding: 40px 20px !important;
+  }
+
+  .nepal-info-section .wzk__title {
+    font-size: 26px !important;
+  }
+
+  .nepal-info-section .wzk__subtitle {
+    font-size: 16px !important;
+  }
+
+  .nepal-info-section .wzk__body,
+  .nepal-info-section .wzk__list li {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .nepal-info-section .hero-donate-btn-group {
+    justify-content: flex-start !important;
+  }
+
+  .nepal-info-section .hero-donate-btn .btn-donate-content {
+    width: 157px !important;
+    min-width: 157px !important;
+    max-width: 157px !important;
+    height: 48px !important;
+    padding: 13px 5px 13px 5px !important;
+    font-size: 14px !important;
+  }
+}

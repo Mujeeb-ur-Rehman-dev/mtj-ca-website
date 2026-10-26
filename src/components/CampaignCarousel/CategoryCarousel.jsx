@@ -2,25 +2,23 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import "./CategoryCarousel.css";
+import HealthcareImg from "../../assets/img/campaigncarousel/healthcare.webp";
 import WaterReliefImg from "../../assets/img/campaigncarousel/water-relief.webp";
 import PalestineImg from "../../assets/img/campaigncarousel/palestine-emergency-relief.webp";
 import EducationImg from "../../assets/img/campaigncarousel/education.webp";
-import HealthcareImg from "../../assets/img/campaigncarousel/healthcare.webp";
 
-// Order matches live mtjfoundation.ca homepage: Healthcare, Water Relief, Palestine, Education
+// Order matches live mtjfoundation.ca homepage & design screenshot: Healthcare, Water Relief, Palestine, Education
 const CATEGORIES = [
+  { title: "Healthcare", image: HealthcareImg, path: "/medical-care-health" },
   { title: "Water Relief", image: WaterReliefImg, path: "/clean-water" },
   { title: "Palestine Emergency Relief", image: PalestineImg, path: "/palestine-relief" },
   { title: "Education", image: EducationImg, path: "/education" },
-  { title: "Healthcare", image: HealthcareImg, path: "/medical-care-health" },
 ];
 
 const VISIBLE = 3;
 const AUTOPLAY_MS = 4000; // mobile-only auto-advance interval, matches live site
 
 function Card({ c, onNavigate }) {
-  const [isHovering, setIsHovering] = useState(false);
-
   const handleViewClick = (e) => {
     e.stopPropagation();
     if (c?.path) {
@@ -37,36 +35,19 @@ function Card({ c, onNavigate }) {
   };
 
   return (
-    <div className="categories__card" onClick={handleCardClick}>
+    <div className="categories__card" onClick={handleCardClick} role="button" tabIndex={0}>
       <div className="categories__card-overlay"></div>
-      <img src={c.image} alt={c.title} />
+      <img src={c.image} alt={c.title} loading="lazy" />
       <div className="categories__label">
         <span>{c.title}</span>
         <button
+          type="button"
+          className="categories__cta-btn"
           aria-label={`View ${c.title}`}
-          onClick={(e) => handleViewClick(e)}
+          onClick={handleViewClick}
           onMouseDown={(e) => e.stopPropagation()}
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-          style={{
-            backgroundColor: "#fff",
-            color: "#0B212A",
-            width: "25px",
-            height: "25px",
-            borderRadius: "50%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "none",
-            padding: 0,
-            marginLeft: "10px",
-            cursor: "pointer",
-            transition: "transform 0.25s ease, box-shadow 0.25s ease",
-            transform: isHovering ? "translateX(3px)" : "translateX(0)",
-            boxShadow: isHovering ? "0 0 0 4px rgba(11, 33, 42, 0.08)" : "none",
-          }}
         >
-          <FiArrowRight size={25} />
+          <FiArrowRight size={15} />
         </button>
       </div>
     </div>
@@ -85,9 +66,6 @@ export default function CategoryCarousel({
   visibleDesktop = VISIBLE,
   visibleMobile = 1,
   useCarousel = true,
-  // the live site runs a single-card carousel with auto-play on mobile —
-  // this now defaults to true so mobile always gets that behaviour
-  // instead of falling back to a stacked static list
   mobileCarousel = true,
   showControls = true,
   autoplayMobile = true,
@@ -109,11 +87,6 @@ export default function CategoryCarousel({
   const total = categories.length;
   const canLoop = isCarouselActive && total > visibleCount;
 
-  // "start" = index (0..total-1) of the left-most visible card — this is
-  // what the dots reflect, and it always wraps so every dot is reachable.
-  // "index" = position inside the cloned track (start + visibleCount,
-  // to account for the head clones). It only ever moves by 1 per click,
-  // so only one card slides in/out instead of the whole set changing.
   const [start, setStart] = useState(0);
   const [index, setIndex] = useState(visibleCount);
   const [animate, setAnimate] = useState(true);
@@ -121,6 +94,31 @@ export default function CategoryCarousel({
   const autoplayTimer = useRef(null);
   const sectionRef = useRef(null);
   const navigate = useNavigate();
+
+  // Touch gesture support on mobile
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) {
+      next();
+    } else if (diff < -45) {
+      prev();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   const resetToStart = () => {
     clearTimeout(snapTimeout.current);
@@ -130,18 +128,11 @@ export default function CategoryCarousel({
     requestAnimationFrame(() => setAnimate(true));
   };
 
-  // reset cleanly whenever the visible count or the list itself changes,
-  // AND on every fresh mount (e.g. navigating back to this page) —
-  // otherwise a stale index left over from before could stay stuck
   useEffect(() => {
     resetToStart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visibleCount, total]);
 
-  // safety net for SPA routing setups where this section doesn't fully
-  // unmount/remount between pages (e.g. it's kept alive in a shared
-  // layout) — re-sync to a clean state every time it scrolls back into
-  // view, so it can never stay permanently stuck after navigating away
   useEffect(() => {
     const node = sectionRef.current;
     if (!node || typeof IntersectionObserver === "undefined") return;
@@ -158,14 +149,11 @@ export default function CategoryCarousel({
 
   useEffect(() => () => clearTimeout(snapTimeout.current), []);
 
-  // one card at a time; wraps forever in both directions (never "stops")
   const step = (dir) => {
     setAnimate(true);
     setIndex((i) => i + dir);
     setStart((s) => (s + dir + total) % total);
 
-    // guaranteed snap-back — doesn't rely on the transitionend event,
-    // which can silently fail to fire right after a remount
     clearTimeout(snapTimeout.current);
     snapTimeout.current = setTimeout(() => {
       setAnimate(false);
@@ -174,7 +162,7 @@ export default function CategoryCarousel({
         if (i < visibleCount) return i + total;
         return i;
       });
-    }, 520); // CSS transition is 0.5s — small buffer added
+    }, 520);
   };
 
   const prev = () => step(-1);
@@ -182,19 +170,12 @@ export default function CategoryCarousel({
 
   const goTo = (i) => {
     clearTimeout(snapTimeout.current);
-    const category = categories[i];
-    if (category?.path) {
-      navigate(category.path);
-      return;
-    }
     setAnimate(true);
     setIndex(visibleCount + i);
     setStart(i);
   };
 
-  // mobile-only auto-advance, matching the live site — pauses/restarts
-  // cleanly whenever the person manually navigates (start changes)
-  const autoplayActive = canLoop && autoplayMobile;
+  const autoplayActive = canLoop && autoplayMobile && isMobile;
   useEffect(() => {
     if (!autoplayActive) return;
     autoplayTimer.current = setInterval(() => {
@@ -215,16 +196,13 @@ export default function CategoryCarousel({
         <p>{description}</p>
         <div className="categories__grid">
           {categories.map((c) => (
-              <Card c={c} key={c.title} onNavigate={navigate} />
+            <Card c={c} key={c.title} onNavigate={navigate} />
           ))}
         </div>
       </section>
     );
   }
 
-  // seamless infinite loop: clone the last N cards onto the front and
-  // the first N cards onto the back, so sliding past either end always
-  // has a real-looking card to slide into — no dead stop at the edges
   const head = categories.slice(-visibleCount);
   const tail = categories.slice(0, visibleCount);
   const track = [...head, ...categories, ...tail];
@@ -239,7 +217,12 @@ export default function CategoryCarousel({
       <h2>{title}</h2>
       <p>{description}</p>
 
-      <div className="categories__viewport">
+      <div
+        className="categories__viewport"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           className="categories__track"
           style={{
@@ -262,8 +245,8 @@ export default function CategoryCarousel({
 
       {showControls && (
         <div className="categories__controls">
-          <button onClick={prev} aria-label="Previous">
-            <FiArrowLeft size={25} />
+          <button type="button" onClick={prev} aria-label="Previous">
+            <FiArrowLeft size={18} />
           </button>
           <div className="categories__dots">
             {categories.map((c, i) => (
@@ -277,8 +260,8 @@ export default function CategoryCarousel({
               />
             ))}
           </div>
-          <button onClick={next} aria-label="Next">
-            <FiArrowRight size={25} />
+          <button type="button" onClick={next} aria-label="Next">
+            <FiArrowRight size={18} />
           </button>
         </div>
       )}

@@ -250,3 +250,23 @@
     max-width: 260px;
   }
 }
+/* ═══════════════════════════════════════════════════════════
+   Nepal Impact Numbers Section ("THE NEED IN NUMBERS")
+   ═══════════════════════════════════════════════════════════ */
+.nepal-impact-numbers .impact__stamp {
+  min-height: clamp(380px, 32vw, 540px);
+}
+
+.nepal-impact-numbers .impact__value {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif;
+  font-size: clamp(36px, 4.2vw, 56px);
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.nepal-impact-numbers .impact__label {
+  font-size: clamp(14px, 1.2vw, 17px);
+  max-width: 260px;
+  line-height: 1.4;
+}

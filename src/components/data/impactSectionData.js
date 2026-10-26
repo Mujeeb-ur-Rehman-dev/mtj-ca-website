@@ -37,7 +37,13 @@ export const sadaqahImpactStats = [
   { icon: HelpImg,     value: "100,000+", label: "People helped during the floods in Pakistan" },
   { icon: Human, value: "500,000+", label: "Free tests and medicines provided" },
   { icon: WaterImg,    value: "250,000+", label: "People given access to clean water" },
-  { icon: RationImg,  value: "500,000+",  label: "Ration bags deliered" },
+  { icon: RationImg,  value: "500,000+",  label: "Ration bags delivered" },
+];
+
+export const nepalFloodsImpactStats = [
+  { value: "1,252", label: "People killed by the floods." },
+  { value: "4000+", label: "Displaced people staying in relief centres." },
+  { value: "22,000+", label: "Children urgently needing safe water, sanitation and hygiene support." },
 ];
 
 export const palestineImpactStats = [
