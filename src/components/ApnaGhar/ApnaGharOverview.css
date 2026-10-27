@@ -1,0 +1,169 @@
+.apna-ghar-overview-section {
+  background-color: #FFFAEE;
+  padding: 64px 24px 72px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.apna-ghar-overview-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  box-sizing: border-box;
+}
+
+.apna-ghar-overview-left {
+  flex: 1;
+  max-width: 680px;
+  box-sizing: border-box;
+}
+
+.apna-ghar-overview-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
+  color: #0B212A;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.apna-ghar-overview-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 15.5px;
+  line-height: 24px;
+  color: #333333;
+  margin: 0 0 36px 0;
+  font-weight: 500;
+}
+
+.apna-ghar-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 24px;
+  margin-bottom: 32px;
+}
+
+.apna-ghar-overview-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.apna-ghar-overview-icon-wrap {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apna-ghar-overview-icon {
+  width: 100%;
+  height: 100%;
+  max-width: 54px;
+  max-height: 54px;
+  object-fit: contain;
+}
+
+.apna-ghar-overview-card-body {
+  flex: 1;
+}
+
+.apna-ghar-overview-card-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0B212A;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.apna-ghar-overview-card-text {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 13.5px;
+  line-height: 20px;
+  color: #555555;
+  margin: 0;
+}
+
+/* Hadith Quote Box */
+.apna-ghar-hadith-box {
+  border-left: 4px solid #E5A83B;
+  padding: 12px 0 12px 20px;
+  margin-top: 10px;
+}
+
+.apna-ghar-hadith-text {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #0B212A;
+  margin: 0 0 6px 0;
+}
+
+.apna-ghar-hadith-source {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #E5A83B;
+  display: block;
+}
+
+.apna-ghar-overview-right {
+  flex-shrink: 0;
+  width: 440px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.apna-ghar-donation-box {
+  width: 100%;
+}
+
+@media (max-width: 960px) {
+  .apna-ghar-overview-section {
+    padding: 40px 16px 50px;
+  }
+
+  .apna-ghar-overview-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .apna-ghar-overview-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .apna-ghar-overview-title {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .apna-ghar-overview-desc {
+    font-size: 14.5px;
+    line-height: 22px;
+    margin-bottom: 28px;
+  }
+
+  .apna-ghar-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .apna-ghar-overview-right {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}

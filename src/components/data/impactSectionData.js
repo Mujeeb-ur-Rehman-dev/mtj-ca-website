@@ -110,9 +110,9 @@ export const apnaGharImpactStats = [
 ];
 
 export const lebanonImpactStats = [
-  { icon: OrphanImg,   value: "390,000",      label: "Of the displaced are children" },
-  { icon: Human,       value: "2.99 Million", label: "People in need of humanitarian assistance" },
-  { icon: HelpImg,     value: "1.1 Million",  label: "People forced from their homes" },
+  { icon: OrphanImg,   value: "390,000",      label: "Of the displaced are children." },
+  { icon: Human,       value: "2.99 Million", label: "People in need of humanitarian assistance." },
+  { icon: HelpImg,     value: "1.1 Million",  label: "People forced from their homes." },
 ];
 
 export const sriLankaImpactStats = [

@@ -201,6 +201,11 @@ export default function ImpactCards({
                   style={{ width: `${100 / trackCount}%` }}
                 >
                   <div className="zi__card">
+                    {card.image && (
+                      <div className="zi__card-image-wrap">
+                        <img src={card.image} alt={card.title} className="zi__card-image" />
+                      </div>
+                    )}
                     {/* card inner keeps content away from scalloped edges */}
                     <div className="zi__card-inner">
                       <h3 className="zi__card-name">{card.title}</h3>
@@ -258,6 +263,11 @@ export default function ImpactCards({
         <div className="zi__static-grid">
           {cards.map((card, i) => (
             <div className="zi__card" key={`${card.title}-${i}`}>
+              {card.image && (
+                <div className="zi__card-image-wrap">
+                  <img src={card.image} alt={card.title} className="zi__card-image" />
+                </div>
+              )}
               <div className="zi__card-inner">
                 <h3 className="zi__card-name">{card.title}</h3>
                 <p className="zi__card-amount">{card.amount}</p>

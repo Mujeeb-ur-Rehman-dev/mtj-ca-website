@@ -50,10 +50,14 @@ function App() {
             <Route path="/ration-program" element={<RationProgram />} />
             <Route path="/automated-giving" element={<AutomatedGiving />} />
             <Route path="/emergency-relief-lebanon" element={<EmergencyReliefLebanon />} />
+            <Route path="/emergency-relief-lebanon/" element={<EmergencyReliefLebanon />} />
+            <Route path="/emergency-relief-palestine" element={<PalestineRelief />} />
+            <Route path="/emergency-relief-palestine/" element={<PalestineRelief />} />
             <Route path="/palestine-relief" element={<PalestineRelief />} />
             <Route path="/nepal-floods" element={<NepalFloods />} />
             <Route path="/sri-lanka-floods" element={<SriLankaFloods />} />
             <Route path="/apna-ghar" element={<ApnaGhar />} />
+            <Route path="/apna-ghar/" element={<ApnaGhar />} />
             <Route path="/medical-care-health" element={<MedicalCareHealth />} />
             <Route path="/food-relief" element={<FoodRelief />} />
             <Route path="/kasb" element={<KASB />} />

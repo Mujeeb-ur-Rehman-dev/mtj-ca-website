@@ -596,48 +596,763 @@
   }
 }
 
-.lebanon-emergency-hero .hero-title {
-  white-space: nowrap;
+/* ═══════════════════════════════════════════════════════════
+   LEBANON EMERGENCY HERO SECTION (Desktop & Mobile per Live Site / Screenshots)
+   ═══════════════════════════════════════════════════════════ */
+.lebanon-emergency-hero {
+  position: relative !important;
+  min-height: 520px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/EmergencyReliefLebanon/Lebanon-Emergency-Hero.webp') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 60px 40px !important;
+}
+
+.lebanon-emergency-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.lebanon-emergency-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+}
+
+.lebanon-emergency-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+}
+
+.lebanon-emergency-hero .hero-content-desktop .hero-text-section {
+  max-width: 520px !important;
+}
+
+.lebanon-emergency-hero .hero-title,
+.lebanon-emergency-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 44px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin: 0 0 16px 0 !important;
+  letter-spacing: -0.01em !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.lebanon-emergency-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.lebanon-emergency-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin-top: 28px !important;
+}
+
+.lebanon-emergency-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.lebanon-emergency-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.lebanon-emergency-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  box-sizing: border-box !important;
+  padding: 12px 26px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  clip-path: none !important;
+  color: #671019 !important;
+  border-radius: 6px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 22px !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.lebanon-emergency-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+.lebanon-emergency-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-right: 4px !important;
+}
+
+.lebanon-emergency-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: none !important;
+}
+
+.lebanon-emergency-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
 }
 
 @media (max-width: 768px) {
-  .lebanon-emergency-hero .hero-title {
-    font-size: clamp(22px, 7vw, 32px);
+  .lebanon-emergency-hero {
+    min-height: 480px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/EmergencyReliefLebanon/Lebanon-Emergency-Hero.webp') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 100px 18px 36px 18px !important;
+    margin-top: 75px !important;
+  }
+
+  .lebanon-emergency-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+  }
+
+  .lebanon-emergency-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .lebanon-emergency-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .lebanon-emergency-hero .hero-content-mobile .hero-title,
+  .lebanon-emergency-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    margin: 0 0 14px 0 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .lebanon-emergency-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 15px !important;
+    line-height: 22px !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    margin: 0 0 20px 0 !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .lebanon-emergency-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-top: 0 !important;
+  }
+
+  .lebanon-emergency-hero .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 12px 22px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 20px !important;
+    background-color: #ffffff !important;
+    color: #671019 !important;
+    border-radius: 6px !important;
+    gap: 8px !important;
+  }
+
+  .lebanon-emergency-hero .hero-donate-btn .btn-icon-badge {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .lebanon-emergency-hero .hero-donate-btn .btn-donate-icon {
+    width: 14px !important;
+    height: 14px !important;
   }
 }
 
-.palestine-relief-hero .hero-image-section {
+
+/* ============================================================
+   PALESTINE RELIEF HERO — Matching live reference & Image 1 / Image 2
+   ============================================================ */
+.palestine-relief-hero {
+  position: relative !important;
+  min-height: 520px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/PalestineRelief/Palestine-Hero.webp') !important;
+  background-size: cover !important;
+  background-position: 70% center !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 60px 40px !important;
+}
+
+.palestine-relief-hero::before {
+  content: "";
   position: absolute;
-  top: 0;
-  bottom: -64px;
-  right: 50px;
-  z-index: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.2) 100%);
+  z-index: 1;
 }
 
-.palestine-relief-hero .hero-title {
-  font-size: clamp(20px, 2.6vw, 38px);
-  font-weight: 500;
-  white-space: nowrap;
+.palestine-relief-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
 }
 
-.apna-ghar-hero .hero-title {
-  font-size: clamp(38px, 4vw, 54px);
-  line-height: 1.1;
-  margin-bottom: 30px;
+.palestine-relief-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
 }
 
-.apna-ghar-hero .hero-title > span:first-child {
-  white-space: nowrap;
+.palestine-relief-hero .hero-content-desktop .hero-text-section {
+  max-width: 560px !important;
 }
 
-.apna-ghar-hero .apna-ghar-hero-subtitle {
-  display: block;
-  font-size: clamp(20px, 2.3vw, 28px);
-  line-height: 1.15;
-  white-space: nowrap;
+.palestine-relief-hero .hero-title,
+.palestine-relief-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 44px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin: 0 0 16px 0 !important;
+  letter-spacing: -0.01em !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.palestine-relief-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 24px !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.palestine-relief-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin-top: 28px !important;
+}
+
+.palestine-relief-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.palestine-relief-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.palestine-relief-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  box-sizing: border-box !important;
+  padding: 12px 28px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  clip-path: none !important;
+  color: #671019 !important;
+  border-radius: 6px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 22px !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.palestine-relief-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+.palestine-relief-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-right: 4px !important;
+}
+
+.palestine-relief-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: none !important;
+}
+
+.palestine-relief-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media (max-width: 768px) {
+  .palestine-relief-hero {
+    min-height: 480px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/PalestineRelief/Palestine-Hero.webp') !important;
+    background-size: cover !important;
+    background-position: 65% center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 100px 20px 40px 20px !important;
+    margin-top: 75px !important;
+  }
+
+  .palestine-relief-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.48) 50%,
+      rgba(0, 0, 0, 0.78) 100%
+    ) !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile .hero-title,
+  .palestine-relief-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+    line-height: 1.15 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    margin: 0 0 14px 0 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14.5px !important;
+    line-height: 22px !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    margin: 0 0 22px 0 !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-top: 0 !important;
+  }
+
+  .palestine-relief-hero .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 12px 22px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 20px !important;
+    background-color: #ffffff !important;
+    color: #671019 !important;
+    border-radius: 6px !important;
+    gap: 8px !important;
+  }
+
+  .palestine-relief-hero .hero-donate-btn .btn-icon-badge {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .palestine-relief-hero .hero-donate-btn .btn-donate-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .palestine-relief-hero {
+    min-height: 440px !important;
+    padding: 90px 16px 36px 16px !important;
+    background-position: 60% center !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile .hero-title,
+  .palestine-relief-hero .hero-content-mobile .hero-title--bold {
+    font-size: 24px !important;
+  }
+
+  .palestine-relief-hero .hero-content-mobile .hero-description {
+    font-size: 13.5px !important;
+    line-height: 20px !important;
+  }
+}
+
+/* ============================================================
+   APNA GHAR HERO — Matching live reference & Image 1 / Image 2
+   ============================================================ */
+.apna-ghar-hero {
+  position: relative !important;
+  min-height: 520px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/ApnaGhar/apna-ghar.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 60px 40px !important;
+}
+
+.apna-ghar-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.2) 100%);
+  z-index: 1;
+}
+
+.apna-ghar-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+}
+
+.apna-ghar-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+}
+
+.apna-ghar-hero .hero-content-desktop .hero-text-section {
+  max-width: 560px !important;
+}
+
+.apna-ghar-hero .hero-title,
+.apna-ghar-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 44px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin: 0 0 16px 0 !important;
+  letter-spacing: -0.01em !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+.apna-ghar-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 24px !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.apna-ghar-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  align-items: center !important;
+  margin-top: 28px !important;
+}
+
+.apna-ghar-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.apna-ghar-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+}
+
+.apna-ghar-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  box-sizing: border-box !important;
+  padding: 12px 28px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  clip-path: none !important;
+  color: #671019 !important;
+  border-radius: 6px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 22px !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.apna-ghar-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+.apna-ghar-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-right: 4px !important;
+}
+
+.apna-ghar-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: none !important;
+}
+
+.apna-ghar-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media (max-width: 768px) {
+  .apna-ghar-hero {
+    min-height: 480px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/ApnaGhar/apna-ghar.webp') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 100px 20px 40px 20px !important;
+    margin-top: 75px !important;
+  }
+
+  .apna-ghar-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.48) 50%,
+      rgba(0, 0, 0, 0.78) 100%
+    ) !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile .hero-title,
+  .apna-ghar-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+    line-height: 1.15 !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    text-transform: uppercase !important;
+    margin: 0 0 14px 0 !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14.5px !important;
+    line-height: 22px !important;
+    color: #ffffff !important;
+    text-align: left !important;
+    margin: 0 0 22px 0 !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    margin-top: 0 !important;
+  }
+
+  .apna-ghar-hero .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+    box-sizing: border-box !important;
+    padding: 12px 22px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 20px !important;
+    background-color: #ffffff !important;
+    color: #671019 !important;
+    border-radius: 6px !important;
+    gap: 8px !important;
+  }
+
+  .apna-ghar-hero .hero-donate-btn .btn-icon-badge {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .apna-ghar-hero .hero-donate-btn .btn-donate-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .apna-ghar-hero {
+    min-height: 440px !important;
+    padding: 90px 16px 36px 16px !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile .hero-title,
+  .apna-ghar-hero .hero-content-mobile .hero-title--bold {
+    font-size: 26px !important;
+  }
+
+  .apna-ghar-hero .hero-content-mobile .hero-description {
+    font-size: 13.5px !important;
+    line-height: 20px !important;
+  }
 }
 
 .kasb-hero .hero-title {

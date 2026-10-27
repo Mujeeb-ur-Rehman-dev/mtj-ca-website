@@ -321,48 +321,180 @@
   }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   LEBANON IMPACT CARDS ("HOW YOU CAN HELP")
+   ═══════════════════════════════════════════════════════════ */
 .lebanon-impact-cards {
-  padding-top: 48px;
-  padding-bottom: 42px;
+  padding: 70px 24px !important;
+  background-color: #0b212a !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .lebanon-impact-cards .zi__title {
-  max-width: 1000px;
-  font-size: clamp(38px, 2.6vw, 50px);
-  line-height: 1;
-  margin-bottom: 38px;
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif !important;
+  font-size: clamp(28px, 3.2vw, 42px) !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  color: #fffaee !important;
+  text-align: center !important;
+  max-width: 800px !important;
+  margin: 0 auto 40px !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
 }
 
-.lebanon-impact-cards .zi__card {
-  height: 410px;
-  min-height: 0;
+.lebanon-impact-cards .zi__static-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
 }
 
-.lebanon-impact-cards .zi__card-inner {
-  padding: 32px 28px 28px;
+.lebanon-impact-cards .zi__static-grid .zi__card {
+  -webkit-mask: none !important;
+  mask: none !important;
+  border-radius: 8px !important;
+  background: #fffaee !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+  min-height: 410px !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.lebanon-impact-cards .zi__card-name {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 12px;
+.lebanon-impact-cards .zi__static-grid .zi__card-inner {
+  padding: 38px 28px 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.lebanon-impact-cards .zi__card-amount {
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 18px;
+.lebanon-impact-cards .zi__static-grid .zi__card-name {
+  font-family: var(--font-finder, "Finder"), "Arial", sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #0b212a !important;
+  margin: 0 0 12px !important;
+  line-height: 1.3 !important;
 }
 
-.lebanon-impact-cards .zi__card-desc {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  padding-bottom: 24px;
+.lebanon-impact-cards .zi__static-grid .zi__card-amount {
+  font-family: var(--font-finder, "Finder"), "Arial Black", sans-serif !important;
+  font-size: 46px !important;
+  font-weight: 900 !important;
+  color: #22582d !important;
+  margin: 0 0 16px !important;
+  line-height: 1 !important;
 }
 
-.lebanon-impact-cards .hero-donate-btn .btn-donate-content {
-  margin-top: 8px;
+.lebanon-impact-cards .zi__static-grid .zi__card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #0b212a !important;
+  margin: 0 0 24px !important;
+  max-width: 280px !important;
+  padding-bottom: 0 !important;
+}
+
+.lebanon-impact-cards .zi__static-grid .hero-donate-btn .btn-donate-content {
+  background-color: #6b0f1a !important;
+  background-image: none !important;
+  color: #fffaee !important;
+  border-radius: 6px !important;
+  font-family: var(--font-rink, "Rink"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 12px 28px !important;
+  box-shadow: 0 3px 8px rgba(107, 15, 26, 0.25) !important;
+  transition: all 0.3s ease !important;
+}
+
+.lebanon-impact-cards .zi__static-grid .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+}
+
+/* MOBILE VIEW - matches Image 2 (vertical stacked cards, full width, centered) */
+@media (max-width: 900px) {
+  .lebanon-impact-cards {
+    padding: 48px 16px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .lebanon-impact-cards .zi__title {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 24px !important;
+    text-align: center !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    max-width: 440px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid .zi__card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid .zi__card-inner {
+    padding: 32px 20px 28px !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid .zi__card-name {
+    font-size: 22px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid .zi__card-amount {
+    font-size: 38px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid .zi__card-desc {
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+    margin-bottom: 22px !important;
+    max-width: 100% !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid .hero-donate-btn-group {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    width: auto !important;
+  }
+
+  .lebanon-impact-cards .zi__static-grid .hero-donate-btn .btn-donate-content {
+    font-size: 15px !important;
+    padding: 12px 28px !important;
+    min-width: 160px !important;
+    width: auto !important;
+  }
 }
 
 .palestine-impact-cards .zi__card {
@@ -384,38 +516,9 @@
   white-space: nowrap;
 }
 
-@media (max-width: 768px) {
-  .lebanon-impact-cards .zi__title {
-    font-size: 26px;
-  }
-}
+
 
 @media (max-width: 540px) {
-  .lebanon-impact-cards {
-    padding-top: 36px;
-    padding-bottom: 30px;
-  }
-
-  .lebanon-impact-cards .zi__title {
-    font-size: 22px;
-  }
-
-  .lebanon-impact-cards .zi__card {
-    height: 390px;
-  }
-
-  .lebanon-impact-cards .zi__card-name {
-    font-size: 20px;
-  }
-
-  .lebanon-impact-cards .zi__card-amount {
-    font-size: 44px;
-  }
-
-  .lebanon-impact-cards .zi__card-desc {
-    font-size: 14px;
-  }
-
   .palestine-impact-cards .zi__card {
     height: 390px;
   }
@@ -801,5 +904,339 @@
     font-size: 14px !important;
     line-height: 1.5 !important;
     margin-bottom: 20px !important;
+  }
+}
+
+
+/* ============================================================
+   Palestine Impact Cards Specific Styles
+   ============================================================ */
+.palestine-impact-cards {
+  background: #0B212A !important;
+  padding: 60px 24px 70px !important;
+}
+
+.palestine-impact-cards .zi__title {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 42px) !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.15 !important;
+  max-width: 900px !important;
+  margin: 0 auto 40px !important;
+}
+
+.palestine-impact-cards .zi__static-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.palestine-impact-cards .zi__card {
+  -webkit-mask: none !important;
+  mask: none !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #FFFDF9 !important;
+  min-height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.palestine-impact-cards .zi__card-image-wrap {
+  width: 100% !important;
+  height: 200px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.palestine-impact-cards .zi__card-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+}
+
+.palestine-impact-cards .zi__card:hover .zi__card-image {
+  transform: scale(1.04) !important;
+}
+
+.palestine-impact-cards .zi__card-inner {
+  padding: 24px 24px 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  flex: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.palestine-impact-cards .zi__card-name {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  color: #111111 !important;
+  margin: 0 0 8px 0 !important;
+  text-align: left !important;
+}
+
+.palestine-impact-cards .zi__card-amount {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  color: #1a5629 !important;
+  margin: 0 0 12px 0 !important;
+  text-align: left !important;
+}
+
+.palestine-impact-cards .zi__card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 22px !important;
+  color: #444444 !important;
+  margin: 0 0 24px 0 !important;
+  text-align: left !important;
+  flex: 1 !important;
+}
+
+.palestine-impact-cards .hero-donate-btn-group {
+  width: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.palestine-impact-cards .hero-donate-btn {
+  width: 100% !important;
+  display: block !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+.palestine-impact-cards .hero-donate-btn .btn-donate-content {
+  width: 100% !important;
+  background-color: #671019 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  max-height: 46px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.palestine-impact-cards .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+}
+
+@media (max-width: 900px) {
+  .palestine-impact-cards {
+    padding: 44px 16px 50px !important;
+  }
+
+  .palestine-impact-cards .zi__title {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 28px !important;
+  }
+
+  .palestine-impact-cards .zi__static-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+  }
+
+  .palestine-impact-cards .zi__card-image-wrap {
+    height: 190px !important;
+  }
+}
+
+
+/* ============================================================
+   Apna Ghar Impact Cards Specific Styles
+   ============================================================ */
+.apna-ghar-impact-cards {
+  background: #0B212A !important;
+  padding: 60px 24px 70px !important;
+}
+
+.apna-ghar-impact-cards .zi__title {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: clamp(26px, 3.2vw, 42px) !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.15 !important;
+  max-width: 900px !important;
+  margin: 0 auto 40px !important;
+}
+
+.apna-ghar-impact-cards .zi__static-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 28px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.apna-ghar-impact-cards .zi__card {
+  -webkit-mask: none !important;
+  mask: none !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: #FFFDF9 !important;
+  min-height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.apna-ghar-impact-cards .zi__card-image-wrap {
+  width: 100% !important;
+  height: 200px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+.apna-ghar-impact-cards .zi__card-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.4s ease !important;
+}
+
+.apna-ghar-impact-cards .zi__card:hover .zi__card-image {
+  transform: scale(1.04) !important;
+}
+
+.apna-ghar-impact-cards .zi__card-inner {
+  padding: 24px 24px 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+  flex: 1 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.apna-ghar-impact-cards .zi__card-name {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  color: #111111 !important;
+  margin: 0 0 8px 0 !important;
+  text-align: left !important;
+}
+
+.apna-ghar-impact-cards .zi__card-amount {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  color: #1a5629 !important;
+  margin: 0 0 12px 0 !important;
+  text-align: left !important;
+}
+
+.apna-ghar-impact-cards .zi__card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 22px !important;
+  color: #444444 !important;
+  margin: 0 0 24px 0 !important;
+  text-align: left !important;
+  flex: 1 !important;
+}
+
+.apna-ghar-impact-cards .hero-donate-btn-group {
+  width: 100% !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.apna-ghar-impact-cards .hero-donate-btn {
+  width: 100% !important;
+  display: block !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+.apna-ghar-impact-cards .hero-donate-btn .btn-donate-content {
+  width: 100% !important;
+  background-color: #671019 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  max-height: 46px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.apna-ghar-impact-cards .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+}
+
+@media (max-width: 900px) {
+  .apna-ghar-impact-cards {
+    padding: 44px 16px 50px !important;
+  }
+
+  .apna-ghar-impact-cards .zi__title {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 28px !important;
+  }
+
+  .apna-ghar-impact-cards .zi__static-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+  }
+
+  .apna-ghar-impact-cards .zi__card-image-wrap {
+    height: 190px !important;
   }
 }

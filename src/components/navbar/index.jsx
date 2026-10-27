@@ -23,7 +23,7 @@ const navItems = [
     submenu: [
       { name: "Nepal Floods", path: "/nepal-floods" },
       { name: "Emergency Relief – Lebanon", path: "/emergency-relief-lebanon" },
-      { name: "Palestine Relief", path: "/palestine-relief" },
+      { name: "Palestine Relief", path: "/emergency-relief-palestine" },
       { name: "Sri Lanka Floods", path: "/sri-lanka-floods" },
     ],
   },

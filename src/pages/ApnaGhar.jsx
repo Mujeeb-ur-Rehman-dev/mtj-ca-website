@@ -1,134 +1,143 @@
 import React from "react";
 import Hero from "../components/hero/Hero";
-import VideoSection from "../components/VideoSection/VideoSection";
-import Footer from "../components/Footer/Footer";
-import backgroundImage from "../assets/img/ApnaGhar/background.png";
+import ApnaGharOverview from "../components/ApnaGhar/ApnaGharOverview";
 import ImpactCards from "../components/impactCards/ImpactCards";
-import DonatinCards from "../components/DonatinCards/DonatinCards";
-import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
-import InfoSection from "../components/InfoSection/InfoSection";
+import VideoSection from "../components/VideoSection/VideoSection";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
 import MediaGallery from "../components/Mediagallery/Mediagallery";
-import { impactSectionData, apnaGharImpactStats } from "../components/data/impactSectionData";
+import ApnaGharImpactStats from "../components/ApnaGhar/ApnaGharImpactStats";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
-import galleryImg2 from "../assets/img/ApnaGhar/galleryImg2.jpg";
-import galleryImg3 from "../assets/img/ApnaGhar/galleryImg3.jpg";
-import galleryImg4 from "../assets/img/ApnaGhar/galleryImg4.jpg";
-import galleryImg5 from "../assets/img/ApnaGhar/galleryImg5.jpg";
-import galleryImg6 from "../assets/img/ApnaGhar/galleryImg6.jpg";
-import OurStories from "../components/Ourstories/Ourstories";
-import backgroundStories from "../assets/img/ApnaGhar/background-stories.png";
-import stories1 from "../assets/img/ApnaGhar/stories1.png";
-import stories2 from "../assets/img/ApnaGhar/stories2.png";
+import Footer from "../components/Footer/Footer";
 import { useDonation } from "../context/DonationContext";
+import "./ApnaGhar.css";
 
+// Assets
+import heroBgImage from "../assets/img/ApnaGhar/apna-ghar.webp";
+import image4Img from "../assets/img/ApnaGhar/Image-4.webp";
+import dsc3883Thumb from "../assets/img/ApnaGhar/DSC03883-thumb.webp";
+import dji0013Thumb from "../assets/img/ApnaGhar/DJI_0013-thumb.webp";
+import dji0019Stat from "../assets/img/ApnaGhar/DJI_0019-stat.webp";
+import dsc3901Stat from "../assets/img/ApnaGhar/DSC03901-stat.webp";
+import dsc3883Stat from "../assets/img/ApnaGhar/DSC03883-stat.webp";
+import dji0013Stat from "../assets/img/ApnaGhar/DJI_0013-stat.webp";
 
+const impactCardsData = [
+  {
+    image: image4Img,
+    title: "Lay the First Bricks",
+    amount: "$100",
+    description: "Provide 20 bricks to lay the foundation and start building a home.",
+    donateLink: "#donate-section"
+  },
+  {
+    image: dsc3883Thumb,
+    title: "Build the Walls",
+    amount: "$500",
+    description: "Provide 100 bricks to help raise the walls of a home.",
+    donateLink: "#donate-section"
+  },
+  {
+    image: dji0013Thumb,
+    title: "Build a Full Home",
+    amount: "$10,000",
+    description: "Build a complete 2-bedroom home with solar energy, water, and skill training for a mother.",
+    donateLink: "#donate-section"
+  }
+];
+
+const galleryImages = [
+  { src: dsc3883Stat, alt: "Worker finishing ceiling" },
+  { src: dji0019Stat, alt: "Aerial view of Apna Ghar village" },
+  { src: dsc3901Stat, alt: "Front entrance of finished home" },
+  { src: dji0013Stat, alt: "Aerial view of completed housing rows" }
+];
 
 const ApnaGhar = () => {
   const { openDonation } = useDonation();
 
+  const handleHeroDonate = () => {
+    const el = document.getElementById("donate-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      openDonation("apnaGhar");
+    }
+  };
+
   return (
-    <>
+    <div className="apna-ghar-page-wrapper">
+      {/* 1. Hero */}
       <Hero
         className="apna-ghar-hero"
-        backgroundImage={backgroundImage}
-        mobileImage={backgroundImage}
-        heroImage={null}
-        title={
-          <>
-            <span>APNA GHAR</span>
-            <span className="apna-ghar-hero-subtitle">KEEP FAMILIES TOGETHER</span>
-          </>
-        }
+        backgroundImage={heroBgImage}
+        mobileImage={heroBgImage}
+        showRightImage={false}
+        title="APNA GHAR"
         boldTitle={true}
-        titleColor="#FFFFFF"
-        description=""
-        descriptionColor="#FFFFFF"
-        buttonText=""
-        buttonLink=""
-        showDescriptionWithCard={true}
-        cardContent={
-          <DonatinCards
-            campaignKey="apnaGhar"
-            campaignTitle="Support Widows & Orphans By donating to the Apna Ghar Project"
-            defaultSelectedIndex={0}
-            onDonate={({ frequency, amount }) => {
-              openDonation("apnaGhar", { frequency, amount });
-            }}
-          />
-        }
+        titleColor="#ffffff"
+        description="Building homes that offer sustainable relief to widows and orphans in Pakistan, empowering them to break free from the cycle of vulnerability and build a brighter future."
+        descriptionColor="#ffffff"
+        mobileDescriptionColor="#ffffff"
+        buttonText="Donate Now"
+        onButtonClick={handleHeroDonate}
       />
-      <InfoSection
-        className="apna-ghar-info-section"
-        title="A HOME THAT KEEPS FAMILIES TOGETHER"
-        paragraphs={[
-          "When a widow loses her home, she faces a choice no mother should make:",
-          "Keep her children, or keep them safe at an orphanage.",
-          "Apna Ghar exists, so she never has to make this choice.",
-          "We’re building 102 homes in Tulamba, South Punjab, with clean water, solar energy, and skill training that helps a mother earn her own income.",
-          "That’s everything she needs to raise her children herself, under a roof that is truly theirs.",
-          "20 homes are standing. 50 more are counting on you.",
-          `“The one who looks after a widow or a poor person is like a Mujahid in the cause of Allah.”
-— Sahih Bukhari 6006`,
-          'Help build their home today.'
-        ]}
-        image=''
+
+      {/* 2. Overview: A Home That Keeps Families Together (4 Icons + Hadith + Donation Card) */}
+      <ApnaGharOverview
+        onDonate={({ frequency, amount }) => {
+          openDonation("apnaGhar", { frequency, amount });
+        }}
       />
-      <VideoSection
-        videoId="xN6Gdwjg8cU"
-        title="Together for Humanity | Support Those in Need"
-        channel="MTJ Foundation Canada"
-      />
+
+      {/* 3. How You Can Help (3 Impact Cards) */}
       <ImpactCards
+        className="apna-ghar-impact-cards"
         title="HOW YOU CAN HELP"
         backgroundColor="#0B212A"
-        cards={[
-          { title: "Orphan Support", amount: "$120", description: "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.", donateLink: "#donate" },
-          { title: "Family Pack", amount: "$250", description: "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.", donateLink: "#donate" },
-          { title: "Food Distribution", amount: "$35", description: "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.", donateLink: "#donate" },
-        ]}
+        isCarousel={false}
+        cards={impactCardsData}
+        onDonate={(card) => {
+          const amt = parseInt(card.amount.replace(/[^0-9]/g, ""), 10) || 100;
+          openDonation("apnaGhar", { amount: amt });
+        }}
       />
-      <ImpactSection1
-        stats={apnaGharImpactStats}
-        eyebrow="Apna Ghar"
-        title="BUILDING HOMES, REBUILDING LIVES"
+
+      {/* 4. Video Section */}
+      <section className="apna-ghar-video-section">
+        <div className="apna-ghar-video-container">
+          <VideoSection
+            videoId="cKKrE2S7Zu8"
+            title="Together for Humanity | Support Those in Need"
+            channel="MTJ Foundation Canada"
+          />
+        </div>
+      </section>
+
+      {/* 5. Frequently Asked Questions */}
+      <FAQAccordion
+        faqKey="apnaGhar"
+        title="FREQUENTLY ASKED QUESTIONS"
+        titleAlign="center"
+        defaultOpenIndex={0}
       />
-      <FAQAccordion faqKey="apnaGhar" />
+
+      {/* 6. Media Gallery */}
       <MediaGallery
         title="MEDIA GALLERY"
-        images={[
-          { src: galleryImg2, alt: "Worker painting ceiling" },
-          { src: galleryImg3, alt: "Empty room with window" },
-          { src: galleryImg4, alt: "..." },
-          { src: galleryImg5, alt: "..." },
-          { src: galleryImg6, alt: "..." },
-        ]}
-       />
-
-      <OurStories
-        title="OUR STORIES"
-        borderImage={backgroundStories}
-        tabs={["Blogs", "News", "Stories", "Updates"]}
-        posts={[
-          {
-            image: stories1,
-            title: "First 10 Days of Dhul Hijjah and Their Importance",
-            author: "umar arif",
-            date: "June 5, 2025",
-            link: "/blog/first-10-days-dhul-hijjah",
-          },
-          {
-            image: stories2,
-            title: "Significance of Eid Al Adha – A Complete Guide",
-            author: "umar arif",
-            date: "June 5, 2025",
-            link: "/blog/significance-eid-al-adha",
-          },
-        ]}
+        images={galleryImages}
       />
+
+      {/* 7. Every Brick Counts (4 Photo-Stat Cards) */}
+      <ApnaGharImpactStats
+        onDonateClick={handleHeroDonate}
+      />
+
+      {/* 8. Newsletter */}
       <Newsletter />
+
+      {/* 9. Footer */}
       <Footer />
-    </>
+    </div>
   );
 };
 

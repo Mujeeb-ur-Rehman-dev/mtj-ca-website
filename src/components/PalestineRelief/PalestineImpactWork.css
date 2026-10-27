@@ -1,0 +1,193 @@
+.palestine-impact-work-section {
+  background-color: #FFFAEE;
+  padding: 60px 24px 70px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.palestine-impact-work-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.palestine-impact-work-header {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.palestine-impact-work-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
+  color: #0B212A;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.palestine-impact-work-subtitle {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 16px;
+  color: #555555;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.palestine-impact-work-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #671019;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 30px;
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(103, 16, 25, 0.25);
+}
+
+.palestine-impact-work-btn:hover {
+  background-color: #22582d;
+  box-shadow: 0 6px 18px rgba(34, 88, 45, 0.3);
+}
+
+.palestine-impact-btn-icon {
+  width: 18px;
+  height: 15px;
+}
+
+/* ── Grid of 3 Stat Cards ── */
+.palestine-impact-work-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.palestine-stat-card {
+  position: relative;
+  min-height: 250px;
+  width: calc(50% - 12px);
+  border-radius: 10px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 32px 36px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.palestine-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* Card 3 sits on the next row with 48-50% width like in the original */
+.palestine-stat-card-3 {
+  width: calc(50% - 12px);
+}
+
+.palestine-stat-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(280deg, rgba(11, 33, 42, 0.45) 0%, rgba(11, 33, 42, 0.92) 100%);
+  z-index: 1;
+}
+
+.palestine-stat-card-3 .palestine-stat-card-overlay {
+  background: linear-gradient(300deg, rgba(11, 33, 42, 0.45) 0%, rgba(11, 33, 42, 0.92) 100%);
+}
+
+.palestine-stat-card-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.palestine-stat-value {
+  display: block;
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+
+.palestine-stat-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.palestine-stat-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .palestine-impact-work-section {
+    padding: 40px 16px 50px;
+  }
+
+  .palestine-impact-work-title {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .palestine-impact-work-subtitle {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .palestine-impact-work-header {
+    margin-bottom: 30px;
+  }
+
+  .palestine-impact-work-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .palestine-stat-card {
+    width: 100%;
+    max-width: 440px;
+    min-height: 220px;
+    padding: 24px 24px;
+    margin: 0 auto;
+  }
+
+  .palestine-stat-card-3 {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .palestine-stat-value {
+    font-size: 36px;
+  }
+}

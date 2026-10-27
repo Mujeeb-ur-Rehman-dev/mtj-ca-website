@@ -60,7 +60,6 @@ export const sadaqahImpactCardsData = [
   },
 ];
 
-
 export const nepalFloodsImpactCardsData = [
   {
     title: "2-Week Ration Pack",
@@ -81,6 +80,30 @@ export const nepalFloodsImpactCardsData = [
     amount: "$55",
     description:
       "Give a family a safer, more comfortable place to sleep after being forced from home.",
+    donateLink: "#donate",
+  },
+];
+
+export const lebanonImpactCardsData = [
+  {
+    title: "Food Distribution",
+    amount: "$35",
+    description:
+      "Providing nutritious meals to families struggling with food insecurity. Your contribution helps ensure no one goes hungry.",
+    donateLink: "#donate",
+  },
+  {
+    title: "Orphan Support",
+    amount: "$120",
+    description:
+      "Support our efforts to deliver essentials like food, clothing, and basic medical aid to orphans and their families in dire need.",
+    donateLink: "#donate",
+  },
+  {
+    title: "Family Pack",
+    amount: "$250",
+    description:
+      "Help provide food packs, hygiene kits, gas stoves, and floor mats for families.",
     donateLink: "#donate",
   },
 ];
