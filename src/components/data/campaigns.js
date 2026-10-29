@@ -5,6 +5,11 @@ import zakatDonateBtn from '../../assets/img/zakat/hero/zakat-donate.png';
 import sadaqahDonateBtn from '../../assets/img/sadaqahJariyah/sadqa-donate-btn.png';
 import apnaGharPopup from '../../assets/img/ApnaGhar/galleryImg11.png';
 import palestinePopup from '../../assets/img/PalestineRelief/popup-image.png';
+import aasLabPopup from '../../assets/img/MedicalCareHealth/aas-lab.webp';
+import foodReliefPopup from '../../assets/img/FoodRelief/Food-Relief.webp';
+import kasbPopup from '../../assets/img/KASB/kasb-hero.webp';
+import hotMealsPopup from '../../assets/img/HotMeals/hot-meals-hero.webp';
+import educationPopup from '../../assets/img/Education/education-hero.webp';
 // import generalPopup from '...';
 
 export const campaigns = {
@@ -352,6 +357,150 @@ export const campaigns = {
       { value: 50, label: '$50' },
       { value: 100, label: '$100' },
       { value: 250, label: '$250' },
+    ],
+  },
+
+  // ========== 8. Medical & Healthcare (AAS Labs) ==========
+  medicalCare: {
+    id: 'medicalCare',
+    title: 'Provide Medical Care - AAS Labs',
+    description:
+      'Providing life-saving healthcare and diagnostic services to communities across Pakistan. Early diagnosis saves lives.',
+    image: aasLabPopup,
+
+    layoutOnce: 'vertical',
+    layoutMonthly: 'grid',
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,
+
+    amountsOnce: [
+      { value: 15000, label: 'Rs 15K', desc: "Sponsor a Patient's Test" },
+      { value: 30000, label: 'Rs 30K', desc: "Maintain Diagnostic Equipment" },
+      { value: 50000, label: 'Rs 50K', desc: "Expand Healthcare Services" },
+    ],
+    amountsMonthly: [
+      { value: 5000,  label: 'Rs 5,000' },
+      { value: 10000, label: 'Rs 10K' },
+      { value: 15000, label: 'Rs 15K' },
+      { value: 20000, label: 'Rs 20K' },
+      { value: 30000, label: 'Rs 30K' },
+      { value: 50000, label: 'Rs 50K' },
+    ],
+  },
+
+  // ========== 9. Food Relief ==========
+  foodRelief: {
+    id: 'foodRelief',
+    title: 'Provide Food Security',
+    description:
+      'Provide essential food packs to struggling families in Pakistan. Help nourish lives and bring dignity to those in need.',
+    image: foodReliefPopup,
+
+    layoutOnce: 'vertical',
+    layoutMonthly: 'grid',
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,
+
+    amountsOnce: [
+      { value: 20000, label: 'Rs 20K', desc: "Provide food packs for 1 month for 1 family" },
+      { value: 40000, label: 'Rs 40K', desc: "Provide food packs for struggling families." },
+      { value: 100000, label: 'Rs 100K', desc: "Deliver food aid to multiple households." },
+    ],
+    amountsMonthly: [
+      { value: 5000,  label: 'Rs 5,000' },
+      { value: 10000, label: 'Rs 10K' },
+      { value: 20000, label: 'Rs 20K' },
+      { value: 40000, label: 'Rs 40K' },
+      { value: 60000, label: 'Rs 60K' },
+      { value: 100000, label: 'Rs 100K' },
+    ],
+  },
+
+  // ========== 10. KASB Vocational Program ==========
+  kasb: {
+    id: 'kasb',
+    title: 'Support KASB Vocational Program',
+    description:
+      'Empower vulnerable women and youth in Pakistan with vocational skills to earn a living wage and build self-sufficiency.',
+    image: kasbPopup,
+
+    layoutOnce: 'vertical',
+    layoutMonthly: 'grid',
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,
+
+    amountsOnce: [
+      { value: 15000, label: 'Rs 15K', desc: "Essential Tools & Materials" },
+      { value: 30000, label: 'Rs 30K', desc: "Vocational Training Session" },
+      { value: 45000, label: 'Rs 45K', desc: "Skill Development for Women" },
+    ],
+    amountsMonthly: [
+      { value: 5000,  label: 'Rs 5,000' },
+      { value: 10000, label: 'Rs 10K' },
+      { value: 15000, label: 'Rs 15K' },
+      { value: 20000, label: 'Rs 20K' },
+      { value: 30000, label: 'Rs 30K' },
+      { value: 45000, label: 'Rs 45K' },
+    ],
+  },
+
+  // ========== 11. Hot Meals ==========
+  hotMeals: {
+    id: 'hotMeals',
+    title: 'Provide Food Security',
+    description:
+      'Support the $10 Hot Meal initiative to make sure vulnerable neighbours in Canada do not go to bed on an empty stomach.',
+    image: hotMealsPopup,
+
+    layoutOnce: 'vertical',
+    layoutMonthly: 'grid',
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,
+
+    amountsOnce: [
+      { value: 2000, label: 'Rs 2,000', desc: "Provide 1 Hot Meal to someone in need" },
+      { value: 10000, label: 'Rs 10K', desc: "Serve 5 fresh, nourishing meals" },
+      { value: 20000, label: 'Rs 20K', desc: "Feed 10 people battling hunger" },
+    ],
+    amountsMonthly: [
+      { value: 1000, label: 'Rs 1,000' },
+      { value: 2000, label: 'Rs 2,000' },
+      { value: 5000, label: 'Rs 5,000' },
+      { value: 10000, label: 'Rs 10K' },
+      { value: 20000, label: 'Rs 20K' },
+      { value: 50000, label: 'Rs 50K' },
+    ],
+  },
+
+  // ========== 12. Education ==========
+  education: {
+    id: 'education',
+    title: 'Support Education for Pakistan’s Children',
+    description:
+      'Help build schools, fund scholarships, and provide learning materials so children in Pakistan have a real chance to escape poverty.',
+    image: educationPopup,
+
+    layoutOnce: 'vertical',
+    layoutMonthly: 'grid',
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,
+
+    amountsOnce: [
+      { value: 60, label: '$60', desc: 'Provide Learning Materials (Books, Uniforms, Kit)' },
+      { value: 120, label: '$120', desc: 'Fund a Student Scholarship' },
+      { value: 180, label: '$180', desc: 'Help Build or Renovate a School' },
+    ],
+    amountsMonthly: [
+      { value: 10, label: '$10' },
+      { value: 25, label: '$25' },
+      { value: 50, label: '$50' },
+      { value: 100, label: '$100' },
+      { value: 200, label: '$200' },
     ],
   },
 };

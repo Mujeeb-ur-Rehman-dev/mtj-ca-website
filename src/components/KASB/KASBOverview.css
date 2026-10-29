@@ -1,0 +1,249 @@
+.kasb-overview-section {
+  background-color: #FFFAEE;
+  padding: 64px 24px 72px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.kasb-overview-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.kasb-overview-left {
+  flex: 1;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.kasb-overview-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
+  color: #0B212A;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.kasb-overview-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 15.5px;
+  line-height: 24px;
+  color: #333333;
+  margin: 0 0 36px 0;
+  font-weight: 500;
+}
+
+.kasb-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 20px;
+  margin-top: auto;
+}
+
+.kasb-overview-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.kasb-overview-icon-wrap {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: #f7ebe1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.kasb-overview-icon {
+  width: 100%;
+  height: 100%;
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+.kasb-overview-card-body {
+  flex: 1;
+}
+
+.kasb-overview-card-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0B212A;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.kasb-overview-card-text {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 13px;
+  line-height: 19px;
+  color: #555555;
+  margin: 0;
+}
+
+/* ── Right Column: Embedded Donation Card ── */
+.kasb-overview-right {
+  flex-shrink: 0;
+  width: 430px;
+  max-width: 100%;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.kasb-donation-box {
+  width: 100%;
+  display: flex;
+}
+
+/* Override default narrow / heavy-bordered .dcard styles for KASB */
+.kasb-overview-section .dcard {
+  width: 100% !important;
+  max-width: 100% !important;
+  background: #ffffff !important;
+  border: 1.5px solid #d4ded7 !important;
+  border-radius: 16px !important;
+  padding: 24px 22px !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.kasb-overview-section .dcard__tabs {
+  gap: 12px !important;
+  margin-bottom: 18px !important;
+}
+
+.kasb-overview-section .dcard__tab {
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
+.kasb-overview-section .dcard__tab--active {
+  background: #ffffff !important;
+  border: 2px solid #22c55e !important;
+  color: #166534 !important;
+}
+
+.kasb-overview-section .dcard__campaign {
+  font-size: 13.5px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+  margin: 0 0 16px 0 !important;
+  text-align: center !important;
+}
+
+.kasb-overview-section .dcard__options {
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.kasb-overview-section .dcard__option {
+  padding: 11px 14px !important;
+  min-height: 48px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  transition: all 0.2s ease !important;
+}
+
+.kasb-overview-section .dcard__option--selected {
+  background: #f0fdf4 !important;
+  border-color: #22c55e !important;
+}
+
+.kasb-overview-section .dcard__amount {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+}
+
+.kasb-overview-section .dcard__desc {
+  font-size: 12.5px !important;
+  color: #64748b !important;
+}
+
+.kasb-overview-section .dcard__check {
+  color: #22c55e !important;
+}
+
+.kasb-overview-section .dcard__other-row {
+  padding: 10px 14px !important;
+}
+
+.kasb-overview-section .dcard__btn {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 14px 20px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  margin-top: 18px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.kasb-overview-section .dcard__btn:hover {
+  background-color: #194623 !important;
+}
+
+@media (max-width: 960px) {
+  .kasb-overview-section {
+    padding: 40px 16px 50px;
+  }
+
+  .kasb-overview-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .kasb-overview-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .kasb-overview-title {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .kasb-overview-desc {
+    font-size: 14.5px;
+    line-height: 22px;
+    margin-bottom: 28px;
+  }
+
+  .kasb-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .kasb-overview-right {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,32 @@
+.food-relief-page-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.food-relief-video-section {
+  background-color: #FFFAEE;
+  padding: 60px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.food-relief-video-container {
+  width: 100%;
+  max-width: 1040px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .food-relief-video-section {
+    padding: 36px 16px;
+  }
+
+  .food-relief-video-container {
+    border-radius: 8px;
+  }
+}

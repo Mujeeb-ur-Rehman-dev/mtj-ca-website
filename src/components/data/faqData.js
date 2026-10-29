@@ -188,7 +188,7 @@ export const educationFaqItems = [
   {
     question: "How much does it cost to keep a child in school?",
     answer:
-      " varies, but even a small donation helps cover uniforms, books, and fees. For example, $60 provides a full learning kit for one child for a year.",
+      "It varies, but even a small donation helps cover uniforms, books, and fees. For example, $60 provides a full learning kit for one child for a year.",
   },
 ];
 

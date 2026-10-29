@@ -1,0 +1,32 @@
+.medical-care-page-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.medical-care-video-section {
+  background-color: #FFFAEE;
+  padding: 60px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.medical-care-video-container {
+  width: 100%;
+  max-width: 1040px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .medical-care-video-section {
+    padding: 36px 16px;
+  }
+
+  .medical-care-video-container {
+    border-radius: 8px;
+  }
+}

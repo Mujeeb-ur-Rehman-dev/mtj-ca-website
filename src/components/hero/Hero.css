@@ -560,39 +560,849 @@
 }
 
 /* ============================================================
-   MedicalCareHealth page — desktop-only right-side image
-   (className="medical-care-hero" passed to <Hero /> on that
-   page only; every other Hero instance is fully untouched)
+   MEDICAL CARE HEALTH HERO — AAS LABS (Desktop & Mobile per Screenshot / Live Site)
    ============================================================ */
-@media (min-width: 769px) {
-  .medical-care-hero .hero-image-section {
-    top: 66%;
-    bottom: auto;
-    right: 30px;
-    width: 55%;
-    max-width: 720px;
-    height: auto;
-    transform: translateY(-41%);
-    align-items: center;
-    justify-content: flex-end;
+.medical-care-hero {
+  position: relative !important;
+  min-height: 520px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/MedicalCareHealth/aas-lab.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.medical-care-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.5) 55%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  z-index: 1;
+}
+
+.medical-care-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.medical-care-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.medical-care-hero .hero-content-desktop .hero-text-section {
+  max-width: 580px !important;
+}
+
+.medical-care-hero .hero-title,
+.medical-care-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 44px !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+
+.medical-care-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #ffffff !important;
+  margin-bottom: 24px !important;
+}
+
+.medical-care-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.medical-care-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+}
+
+.medical-care-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+}
+
+.medical-care-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #68101a !important;
+  border-radius: 999px !important;
+  padding: 11px 26px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+.medical-care-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+
+.medical-care-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+}
+
+.medical-care-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: invert(13%) sepia(58%) saturate(3500%) hue-rotate(335deg) brightness(85%) contrast(100%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.medical-care-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media (max-width: 768px) {
+  .medical-care-hero {
+    min-height: 480px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/MedicalCareHealth/aas-lab.webp') !important;
+    background-size: cover !important;
+    background-position: center center !important;
   }
 
-  .medical-care-hero .hero-main-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    display: block;
+  .medical-care-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.45) 55%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  .medical-care-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 110px 20px 40px !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-title,
+  .medical-care-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: clamp(26px, 7vw, 34px) !important;
+    color: #ffffff !important;
+    margin-bottom: 12px !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14.5px !important;
+    line-height: 22px !important;
+    color: #ffffff !important;
+    margin-bottom: 20px !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #68101a !important;
+    border-radius: 999px !important;
+    padding: 10px 22px !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover {
+    background-color: #22582d !important;
+    background-image: none !important;
+    color: #ffffff !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-donate-btn .btn-donate-icon {
+    filter: invert(13%) sepia(58%) saturate(3500%) hue-rotate(335deg) brightness(85%) contrast(100%) !important;
+  }
+
+  .medical-care-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+    filter: brightness(0) invert(1) !important;
   }
 }
 
-/* Belt-and-suspenders: ensure the right-side heroImage is
-   definitely hidden on mobile (the JSX already renders it
-   only inside .hero-content-desktop which is display:none
-   below 768px — this rule is extra insurance) */
+/* ============================================================
+   FOOD RELIEF HERO (Desktop & Mobile per Screenshot / Live Site)
+   ============================================================ */
+.food-relief-hero {
+  position: relative !important;
+  min-height: 520px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/FoodRelief/Food-Relief.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.food-relief-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  z-index: 1;
+}
+
+.food-relief-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.food-relief-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.food-relief-hero .hero-content-desktop .hero-text-section {
+  max-width: 580px !important;
+}
+
+.food-relief-hero .hero-title,
+.food-relief-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 44px !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+
+.food-relief-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #ffffff !important;
+  margin-bottom: 24px !important;
+}
+
+.food-relief-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.food-relief-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+}
+
+.food-relief-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+}
+
+.food-relief-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #68101a !important;
+  border-radius: 999px !important;
+  padding: 11px 26px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+.food-relief-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+
+.food-relief-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+}
+
+.food-relief-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: invert(13%) sepia(58%) saturate(3500%) hue-rotate(335deg) brightness(85%) contrast(100%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.food-relief-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
 @media (max-width: 768px) {
-  .medical-care-hero .hero-image-section,
-  .medical-care-hero .hero-image-section .hero-main-image {
+  .food-relief-hero {
+    min-height: 480px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/FoodRelief/Food-Relief.webp') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .food-relief-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.45) 55%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  .food-relief-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 110px 20px 40px !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-image-wrapper {
     display: none !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-title,
+  .food-relief-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: clamp(26px, 7vw, 34px) !important;
+    color: #ffffff !important;
+    margin-bottom: 12px !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14.5px !important;
+    line-height: 22px !important;
+    color: #ffffff !important;
+    margin-bottom: 20px !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #68101a !important;
+    border-radius: 999px !important;
+    padding: 10px 22px !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover {
+    background-color: #22582d !important;
+    background-image: none !important;
+    color: #ffffff !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-donate-btn .btn-donate-icon {
+    filter: invert(13%) sepia(58%) saturate(3500%) hue-rotate(335deg) brightness(85%) contrast(100%) !important;
+  }
+
+  .food-relief-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+    filter: brightness(0) invert(1) !important;
+  }
+}
+
+/* ============================================================
+   KASB HERO (Desktop & Mobile per Screenshot / Live Site)
+   ============================================================ */
+.kasb-hero {
+  position: relative !important;
+  min-height: 520px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/KASB/kasb-hero.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.kasb-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  z-index: 1;
+}
+
+.kasb-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.kasb-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.kasb-hero .hero-content-desktop .hero-text-section {
+  max-width: 580px !important;
+  transform: none !important;
+}
+
+.kasb-hero .hero-title,
+.kasb-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 44px !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  margin-bottom: 14px !important;
+}
+
+.kasb-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #ffffff !important;
+  margin-bottom: 24px !important;
+}
+
+.kasb-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.kasb-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+}
+
+.kasb-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+}
+
+.kasb-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #68101a !important;
+  border-radius: 999px !important;
+  padding: 11px 26px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+.kasb-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582d !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+
+.kasb-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+}
+
+.kasb-hero .hero-donate-btn .btn-donate-icon {
+  width: 18px !important;
+  height: 18px !important;
+  filter: invert(13%) sepia(58%) saturate(3500%) hue-rotate(335deg) brightness(85%) contrast(100%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.kasb-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media (max-width: 768px) {
+  .kasb-hero {
+    min-height: 480px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/KASB/kasb-hero.webp') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+
+  .kasb-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.45) 55%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  .kasb-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 110px 20px 40px !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    text-align: left !important;
+    transform: none !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-title,
+  .kasb-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: clamp(26px, 7vw, 34px) !important;
+    color: #ffffff !important;
+    margin-bottom: 12px !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 14.5px !important;
+    line-height: 22px !important;
+    color: #ffffff !important;
+    margin-bottom: 20px !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #68101a !important;
+    border-radius: 999px !important;
+    padding: 10px 22px !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover {
+    background-color: #22582d !important;
+    background-image: none !important;
+    color: #ffffff !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-donate-btn .btn-donate-icon {
+    filter: invert(13%) sepia(58%) saturate(3500%) hue-rotate(335deg) brightness(85%) contrast(100%) !important;
+  }
+
+  .kasb-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+    filter: brightness(0) invert(1) !important;
+  }
+}
+
+/* ============================================================
+   HOT MEALS HERO (Desktop & Mobile per Screenshot / Live Site)
+   ============================================================ */
+.hot-meals-hero {
+  position: relative !important;
+  min-height: 540px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/HotMeals/hot-meals-hero.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  padding: 140px 24px 120px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.hot-meals-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  ) !important;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hot-meals-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+}
+
+.hot-meals-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+.hot-meals-hero .hero-content-desktop .hero-text-section,
+.hot-meals-hero .hero-content-inner--no-image .hero-text-section,
+.hot-meals-hero .hero-text-section--emergency {
+  max-width: 620px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  text-align: left !important;
+}
+
+.hot-meals-hero .hero-title,
+.hot-meals-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 46px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  color: #FFFAEE !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  letter-spacing: 0.5px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+}
+
+.hot-meals-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 19px !important;
+  line-height: 28px !important;
+  font-weight: 600 !important;
+  color: #FFFAEE !important;
+  margin-bottom: 26px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  max-width: 620px !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hot-meals-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin: 0 !important;
+  gap: 12px !important;
+}
+
+.hot-meals-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
+}
+
+.hot-meals-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.hot-meals-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  background-color: #FFFAEE !important;
+  background-image: none !important;
+  color: #6B0F1A !important;
+  border-radius: 6px !important;
+  padding: 13px 22px !important;
+  font-family: var(--font-rink, "Rink"), "Inter", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.hot-meals-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582D !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
+}
+
+.hot-meals-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.hot-meals-hero .hero-donate-btn .btn-donate-icon {
+  width: 20px !important;
+  height: 16px !important;
+  filter: invert(12%) sepia(85%) saturate(3800%) hue-rotate(336deg) brightness(85%) contrast(100%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+.hot-meals-hero .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+  filter: brightness(0) invert(1) !important;
+}
+
+@media (max-width: 768px) {
+  .hot-meals-hero {
+    min-height: 480px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/HotMeals/hot-meals-hero.webp') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .hot-meals-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.30) 45%,
+      rgba(0, 0, 0, 0.55) 100%
+    ) !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 110px 20px 45px !important;
+    box-sizing: border-box !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-content-inner {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-title,
+  .hot-meals-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 400 !important;
+    line-height: 1.25 !important;
+    color: #FFFAEE !important;
+    margin-bottom: 14px !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 18px !important;
+    line-height: 24px !important;
+    font-weight: 600 !important;
+    color: #FFFAEE !important;
+    margin-bottom: 22px !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    margin: 0 !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    background-color: #FFFAEE !important;
+    background-image: none !important;
+    color: #6B0F1A !important;
+    border-radius: 6px !important;
+    padding: 12px 18px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 22px !important;
+    text-transform: none !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover {
+    background-color: #22582D !important;
+    background-image: none !important;
+    color: #FFFFFF !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-donate-btn .btn-donate-icon {
+    width: 18px !important;
+    height: 15px !important;
+    filter: invert(12%) sepia(85%) saturate(3800%) hue-rotate(336deg) brightness(85%) contrast(100%) !important;
+  }
+
+  .hot-meals-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover .btn-donate-icon {
+    filter: brightness(0) invert(1) !important;
   }
 }
 
@@ -1355,88 +2165,6 @@
   }
 }
 
-.kasb-hero .hero-title {
-  color: #0d2130 !important;
-  font-size: clamp(26px, 2vw, 36px);
-  font-weight: 900;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.hot-meals-hero {
-  background-size: 100% 100%;
-}
-
-.hot-meals-hero .hero-content {
-  max-width: 1320px;
-}
-
-.hot-meals-hero .hero-content-inner {
-  justify-content: flex-start;
-}
-
-.hot-meals-hero .hero-text-section--emergency {
-  flex: 0 0 455px;
-  max-width: 455px;
-  margin: 30px 0 0 50px;
-  transform: translateY(-44px);
-}
-
-.hot-meals-hero .hero-title {
-  margin: 60px 31px 29px;
-  color: #0d2130 !important;
-  font-family: "Finder", "Inter", Arial, sans-serif !important;
-  font-size: clamp(26px, 1.1vw, 36px);
-  font-weight: 900;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
-.hot-meals-hero .hero-card-wrapper {
-  margin: 0 0 0 8px;
-}
-
-.hot-meals-hero .hot-meals-hero-donation-card {
-  max-width: 350px;
-  padding: 18px 18px;
-  border-radius: 8px;
-}
-
-.hot-meals-hero .hot-meals-hero-donation-card .dcard__campaign {
-  font-size: 16px;
-  margin-bottom: 28px;
-}
-
-.hot-meals-hero .hot-meals-hero-donation-card .dcard__option {
-  padding: 11px 12px;
-}
-
-.hot-meals-hero .hot-meals-hero-donation-card .dcard__option-amount {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.hot-meals-hero .hot-meals-hero-donation-card .dcard__option-desc {
-  font-size: 16px;
-}
-
-.hot-meals-hero .hot-meals-hero-donation-card .dcard__btn {
-  margin-top: 27px;
-  padding: 18px 12px;
-  border-radius: 8px;
-  font-size: 18px;
-}
-
-@media (min-width: 769px) {
-  .kasb-hero .hero-text-section {
-    transform: translateY(-80px);
-  }
-
-  .kasb-hero .hero-image-section {
-    bottom: -61px;
-  }
-}
-
 @media (max-width: 768px) {
   .apna-ghar-hero .hero-title {
     font-size: 32px;
@@ -1444,72 +2172,6 @@
 
   .apna-ghar-hero .apna-ghar-hero-subtitle {
     font-size: 22px;
-  }
-
-  .kasb-hero .hero-title {
-    font-size: 28px;
-  }
-
-  .hot-meals-hero {
-    padding: 0 20px 30px;
-    min-height: auto;
-    background-color: #ffffff;
-    background-image: none !important;
-  }
-
-  .hot-meals-hero .hero-content-inner {
-    gap: 0;
-  }
-
-  .hot-meals-hero .hero-text-section--emergency {
-    flex: 1 1 auto;
-    max-width: 100%;
-    transform: none;
-    text-align: center;
-  }
-
-  .hot-meals-hero .hero-title {
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-    font-size: clamp(34px, 8.4vw, 42px);
-    line-height: 1.3;
-    white-space: normal;
-    margin: 70px 0 60px;
-  }
-
-  .hot-meals-hero .hero-card-wrapper {
-    margin: 0 auto;
-  }
-
-  .hot-meals-hero .hot-meals-hero-donation-card {
-    width: 100%;
-    max-width: 380px;
-    padding: 22px 24px;
-  }
-
-  .hot-meals-hero .hot-meals-hero-donation-card .dcard__campaign {
-    margin-bottom: 16px;
-  }
-
-  .hot-meals-hero .hot-meals-hero-donation-card .dcard__option {
-    padding: 8px 10px;
-  }
-
-  .hot-meals-hero .hot-meals-hero-donation-card .dcard__btn {
-    margin-top: 16px;
-    padding: 13px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hot-meals-hero {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-
-  .hot-meals-hero .hero-card-wrapper {
-    margin-left: 0;
   }
 }
 
@@ -1622,95 +2284,277 @@
   }
 }
 
-.education-hero .hero-content {
-  max-width: 1280px;
+/* ============================================================
+   EDUCATION HERO (Desktop & Mobile per Screenshot / Live Site)
+   ============================================================ */
+.education-hero {
+  position: relative !important;
+  min-height: 540px !important;
+  background-color: #1a1a1a !important;
+  background-image: url('../../assets/img/Education/education-hero.webp') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  padding: 140px 24px 120px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
-.education-hero .hero-content-inner {
-  justify-content: flex-start;
+.education-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.60) 0%,
+    rgba(0, 0, 0, 0.40) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  ) !important;
+  z-index: 1;
+  pointer-events: none;
 }
 
+.education-hero .hero-content-desktop {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+}
+
+.education-hero .hero-content-desktop .hero-content-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+.education-hero .hero-content-desktop .hero-text-section,
+.education-hero .hero-content-inner--no-image .hero-text-section,
 .education-hero .hero-text-section--emergency {
-  flex: 0 0 440px;
-  max-width: 440px;
-  margin: 0 0 0 15px;
-  transform: translateY(32px);
+  max-width: 620px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  text-align: left !important;
 }
 
-.education-hero .hero-title {
-  max-width: 430px;
-  margin-bottom: 28px;
-  color: #0d2130;
-  font-size: clamp(28px, 2vw, 36px);
-  font-weight: 900;
-  line-height: 1.25;
-  text-transform: uppercase;
+.education-hero .hero-title,
+.education-hero .hero-title--bold {
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 46px !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  color: #FFFAEE !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  letter-spacing: 0.5px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
 }
 
-.education-hero .education-donation-card {
-  width: 100%;
-  max-width: 390px;
-  padding: 24px 22px;
-  border-radius: 6px;
+.education-hero .hero-description {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+  font-size: 19px !important;
+  line-height: 28px !important;
+  font-weight: 600 !important;
+  color: #FFFAEE !important;
+  margin-bottom: 26px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  max-width: 620px !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35) !important;
 }
 
-.education-hero .education-donation-card .dcard__campaign {
-  margin-bottom: 26px;
+.education-hero .hero-button-group {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  margin: 0 !important;
+  gap: 12px !important;
 }
 
-.education-hero .education-donation-card .dcard__option {
-  padding: 14px 12px;
+.education-hero .hero-donate-btn-group {
+  display: inline-flex !important;
+  margin: 0 !important;
 }
 
-.education-hero .education-donation-card .dcard__option-amount {
-  font-size: 16px;
-  font-weight: 600;
+.education-hero .hero-donate-btn {
+  display: inline-flex !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
-.education-hero .education-donation-card .dcard__option-desc {
-  font-size: 16px;
+.education-hero .hero-donate-btn .btn-donate-content {
+  width: auto !important;
+  min-width: 165px !important;
+  background-color: #6B0F1A !important;
+  background-image: none !important;
+  color: #FFFAEE !important;
+  border-radius: 6px !important;
+  padding: 13px 22px !important;
+  font-family: var(--font-rink, "Rink"), "Inter", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 14px rgba(107, 15, 26, 0.35) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
 }
 
-.education-hero .education-donation-card .dcard__btn {
-  margin-top: 26px;
-  padding: 16px 12px;
-  border-radius: 6px;
+.education-hero .hero-donate-btn .btn-donate-content:hover {
+  background-color: #22582D !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
 }
 
-@media (min-width: 769px) {
-  .education-hero .hero-card-wrapper {
-    margin: 0 0 0 8px;
-  }
+.education-hero .hero-donate-btn .btn-icon-badge {
+  background: transparent !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
 
-  .education-hero .hero-image-section {
-    top: -35px;
-    right: 0;
-    bottom: -115px;
-    width: 60%;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-
-  .education-hero .hero-image-section .hero-main-image {
-    width: min(740px, 100%);
-    max-width: 100%;
-  }
+.education-hero .hero-donate-btn .btn-donate-icon {
+  width: 20px !important;
+  height: 16px !important;
+  filter: brightness(0) invert(1) !important;
+  transition: filter 0.3s ease !important;
 }
 
 @media (max-width: 768px) {
-  .education-hero .hero-text-section--emergency {
-    margin: 0;
-    transform: none;
+  .education-hero {
+    min-height: 675px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    background-color: #1a1a1a !important;
+    background-image: url('../../assets/img/Education/education-hero.webp') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    padding: 0 !important;
+    display: block !important;
   }
 
-  .education-hero .hero-title {
-    max-width: 100%;
-    color: #0d2130;
+  .education-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.40) 0%,
+      rgba(0, 0, 0, 0.25) 45%,
+      rgba(0, 0, 0, 0.55) 100%
+    ) !important;
   }
 
-  .education-hero .education-donation-card {
-    max-width: 390px;
-    margin: 0 auto;
+  .education-hero .hero-content-mobile {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 105px 20px 45px !important;
+    box-sizing: border-box !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-image-wrapper {
+    display: none !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-content-inner {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-text-section {
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+    transform: none !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-title,
+  .education-hero .hero-content-mobile .hero-title--bold {
+    font-family: var(--font-finder, "Finder"), sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 400 !important;
+    line-height: 1.22 !important;
+    color: #FFFFFF !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    text-transform: uppercase !important;
+    max-width: 100% !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-description {
+    font-family: var(--font-neueleiden, "Neueleiden"), sans-serif !important;
+    font-size: 19px !important;
+    line-height: 26px !important;
+    font-weight: 600 !important;
+    color: #FFFFFF !important;
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4) !important;
+    max-width: 375px !important;
+    padding: 0 !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-button-group {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-donate-btn .btn-donate-content {
+    width: auto !important;
+    min-width: 155px !important;
+    background-color: #68101A !important;
+    background-image: none !important;
+    color: #FFFFFF !important;
+    border-radius: 6px !important;
+    padding: 12px 20px !important;
+    font-family: var(--font-rink, "Rink"), "Inter", sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    line-height: 22px !important;
+    text-transform: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-donate-btn .btn-donate-content:hover {
+    background-color: #22582D !important;
+    background-image: none !important;
+    color: #FFFFFF !important;
+  }
+
+  .education-hero .hero-content-mobile .hero-donate-btn .btn-donate-icon {
+    width: 18px !important;
+    height: 15px !important;
+    filter: brightness(0) invert(1) !important;
   }
 }
 

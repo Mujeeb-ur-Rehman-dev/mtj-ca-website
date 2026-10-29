@@ -7,7 +7,7 @@ import { impactSectionData } from "../data/impactSectionData";
 // live site's 4 / 2 / 1 column layout at desktop / tablet / mobile
 function getVisibleCount(width, desktopVisibleCount = 4) {
   if (width <= 768) return 1;
-  if (width <= 960) return 2;
+  if (width <= 960) return Math.min(2, desktopVisibleCount);
   return desktopVisibleCount;
 }
 

@@ -20,6 +20,7 @@ export default function MediaGallery({
   title,
   images = [],
   showDots = true,
+  desktopVisible = DESKTOP_VISIBLE,
 }) {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth <= 768 : false
@@ -32,7 +33,7 @@ export default function MediaGallery({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const visibleCount = isMobile ? MOBILE_VISIBLE : DESKTOP_VISIBLE;
+  const visibleCount = isMobile ? MOBILE_VISIBLE : desktopVisible;
   const total = images.length;
   const canLoop = total > visibleCount;
 

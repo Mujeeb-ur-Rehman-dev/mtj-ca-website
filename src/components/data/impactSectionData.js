@@ -7,6 +7,8 @@ import WomenImg from "../../assets/img/impacts/icons/icon-women.svg";
 import OrphanImg from "../../assets/img/impacts/icons/icon-orphan.svg";
 import HealthImg from "../../assets/img/impacts/icons/icon-medicine.svg";
 import Human from "../../assets/img/impacts/icons/icon-human.svg";
+import shelterBuiltSvg from "../../assets/img/Education/shelter-built.svg";
+import educationSvg from "../../assets/img/Education/education.svg";
 
 export const impactSectionData = [
   { icon: HelpImg,     value: "100,000+", label: "People helped during the floods in Pakistan" },
@@ -54,10 +56,8 @@ export const palestineImpactStats = [
 ];
 
 export const educationImpactStats = [
-  { icon: ScholarImg,  value: "10,000+", label: "Students given scholarships" },
-  { icon: WomenImg,    value: "600+",    label: "Women trained in new skills" },
-  { icon: HelpImg,     value: "5,000+",  label: "Vocational training graduates" },
-  { icon: RationImg,   value: "50,000+", label: "Families supported with education aid" },
+  { icon: shelterBuiltSvg, value: "9", label: "DREAM SCHOOLS" },
+  { icon: educationSvg, value: "205+", label: "STUDENTS ENROLLED" },
 ];
 
 export const cleanWaterImpactStats = [

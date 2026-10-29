@@ -1,0 +1,32 @@
+.hot-meals-page-wrapper {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.hot-meals-video-section {
+  background-color: #FFFAEE;
+  padding: 60px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.hot-meals-video-container {
+  width: 100%;
+  max-width: 1040px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .hot-meals-video-section {
+    padding: 36px 16px;
+  }
+
+  .hot-meals-video-container {
+    border-radius: 8px;
+  }
+}
