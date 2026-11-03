@@ -1,12 +1,12 @@
 .different-section {
-  background-color: #1b4d2e;
-  padding: 80px 32px;
+  background-color: #22582D;
+  padding: 70px 24px 80px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .different-container {
-  max-width: 1320px;
+  max-width: 1288px;
   margin: 0 auto;
 }
 
@@ -21,78 +21,92 @@
   text-transform: uppercase;
 }
 
-/* Desktop Grid (4 Cards Side-by-Side) */
+/* Desktop Grid (4 Solid Cream Cards) */
 .different-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 24px;
   align-items: stretch;
 }
 
-/* Genuine Scalloped Postage Stamp Card using downloaded asset */
-.stamp-card {
-  position: relative;
-  background-image: url('../../assets/img/AboutUs/stamp-card-cream.webp');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  padding: 32px 20px 32px;
+/* Solid Cream Rounded Card matched exactly to live site */
+.different-card {
+  background-color: #fffaee;
+  border-radius: 6px;
+  padding: 36px 20px 38px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-  min-height: 375px;
-  transition: transform 0.25s ease;
+  min-height: 390px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.stamp-card:hover {
+.different-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
-.stamp-card-content {
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100%;
-  width: 100%;
-}
-
-/* Title Case with Neueleiden font */
-.stamp-card-title {
-  color: #081d28;
-  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-  line-height: 1.25;
-  margin: 0 0 16px 0;
+/* Title in Rink / Neueleiden font */
+.different-card-title {
+  color: #0b212a;
+  font-family: var(--font-rink, "Rink"), var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin: 0 0 22px 0;
   white-space: pre-line;
   text-align: center;
-  text-transform: none;
 }
 
-.stamp-card-icon {
-  color: #1b4d2e;
-  margin-bottom: 18px;
+/* Icon Container */
+.different-card-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 65px;
+  margin-bottom: 24px;
   flex-shrink: 0;
 }
 
-.stamp-card-desc {
-  color: #1a3224;
+/* Authentic Icon Sizes */
+.different-card-icon--profit {
+  width: 70px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.different-card-icon--trust {
+  width: 52px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.different-card-icon--costs {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.different-card-icon--global {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Description Text */
+.different-card-desc {
+  color: #0b212a;
   font-family: var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.48;
-  margin: 0 auto;
+  font-size: 16px;
   font-weight: 500;
+  line-height: 22px;
+  margin: 0 auto;
   text-align: center;
-  max-width: 250px;
+  max-width: 255px;
 }
 
 /* Mobile Utilities */
@@ -148,31 +162,33 @@
 /* Responsive Breakpoints */
 @media (max-width: 1100px) and (min-width: 769px) {
   .different-grid {
-    gap: 12px;
+    gap: 16px;
   }
 
-  .stamp-card {
-    padding: 28px 16px 28px;
-    min-height: 385px;
+  .different-card {
+    padding: 30px 16px 32px;
+    min-height: 390px;
   }
 
-  .stamp-card-title {
-    font-size: 1.2rem;
+  .different-card-title {
+    font-size: 20px;
+    line-height: 26px;
   }
 
-  .stamp-card-desc {
-    font-size: 0.84rem;
+  .different-card-desc {
+    font-size: 15px;
+    line-height: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .different-section {
-    padding: 48px 20px;
+    padding: 48px 16px 56px;
   }
 
   .different-title {
     font-size: 1.85rem;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .different-grid {
@@ -181,20 +197,22 @@
 
   .different-mobile-wrapper {
     display: block;
-    max-width: 350px;
+    max-width: 340px;
     margin: 0 auto;
   }
 
-  .stamp-card {
+  .different-card {
     min-height: 375px;
-    padding: 32px 20px 32px;
+    padding: 32px 20px 34px;
   }
 
-  .stamp-card-title {
-    font-size: 1.3rem;
+  .different-card-title {
+    font-size: 21px;
+    line-height: 26px;
   }
 
-  .stamp-card-desc {
-    font-size: 0.88rem;
+  .different-card-desc {
+    font-size: 15px;
+    line-height: 21px;
   }
 }

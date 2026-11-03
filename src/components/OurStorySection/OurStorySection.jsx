@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './OurStorySection.css';
 
 const storyData = [
@@ -42,8 +42,19 @@ const storyData = [
 
 const OurStorySection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth <= 768 : false
+  );
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? storyData.length - 1 : prev - 1));
@@ -75,6 +86,8 @@ const OurStorySection = () => {
   };
 
   const currentData = storyData[activeIndex];
+  const mobileSlideIndex = Math.floor(activeIndex / 3);
+  const totalDots = isMobile ? Math.ceil(storyData.length / 3) : storyData.length;
 
   return (
     <section className="story-section" aria-label="Our Story Timeline">
@@ -89,23 +102,31 @@ const OurStorySection = () => {
 
         {/* Timeline Navigation */}
         <div className="timeline-wrapper">
-          <div className="timeline-line"></div>
-          <div className="timeline-nodes">
-            {storyData.map((item, index) => {
-              const isActive = activeIndex === index;
-              return (
-                <button
-                  type="button"
-                  key={item.year}
-                  className={`timeline-node ${isActive ? 'active' : ''}`}
-                  onClick={() => setActiveIndex(index)}
-                  aria-label={`View year ${item.year}`}
-                >
-                  <span className="timeline-year">{item.year}</span>
-                  <div className="timeline-circle" />
-                </button>
-              );
-            })}
+          <div className="years-wrapper">
+            <div
+              className="years"
+              style={{
+                transform: isMobile ? `translateX(-${mobileSlideIndex * 100}%)` : 'none'
+              }}
+            >
+              {storyData.map((item, index) => {
+                const isActive = activeIndex === index;
+                return (
+                  <button
+                    type="button"
+                    key={item.year}
+                    className={`year ${isActive ? 'active' : ''}`}
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`View year ${item.year}`}
+                  >
+                    <span>{item.year}</span>
+                    <div className="circle-wrap">
+                      <div className="circle" />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -122,23 +143,38 @@ const OurStorySection = () => {
 
         {/* Bottom Carousel Controls */}
         <div className="story-carousel-controls">
-          <button className="story-nav-btn" onClick={handlePrev} aria-label="Previous Year">
-            &larr;
-          </button>
+          <button
+            type="button"
+            className="story-nav-btn story-nav-btn--prev"
+            onClick={handlePrev}
+            aria-label="Previous Year"
+          />
           <div className="story-dots">
-            {storyData.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                className={`story-dot ${activeIndex === idx ? 'active' : ''}`}
-                onClick={() => setActiveIndex(idx)}
-                aria-label={`Go to year ${storyData[idx].year}`}
-              />
-            ))}
+            {Array.from({ length: totalDots }).map((_, idx) => {
+              const isDotActive = isMobile ? mobileSlideIndex === idx : activeIndex === idx;
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  className={`story-dot ${isDotActive ? 'active' : ''}`}
+                  onClick={() => {
+                    if (isMobile) {
+                      setActiveIndex(idx * 3);
+                    } else {
+                      setActiveIndex(idx);
+                    }
+                  }}
+                  aria-label={isMobile ? `Go to slide ${idx + 1}` : `Go to year ${storyData[idx].year}`}
+                />
+              );
+            })}
           </div>
-          <button className="story-nav-btn" onClick={handleNext} aria-label="Next Year">
-            &rarr;
-          </button>
+          <button
+            type="button"
+            className="story-nav-btn story-nav-btn--next"
+            onClick={handleNext}
+            aria-label="Next Year"
+          />
         </div>
       </div>
     </section>

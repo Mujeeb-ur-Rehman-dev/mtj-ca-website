@@ -1,54 +1,48 @@
 import React, { useRef, useState } from 'react';
 import './WhyChooseUsSection.css';
 
+import iconProfit from '../../assets/img/AboutUs/icon-profit.png';
+import iconTrust from '../../assets/img/AboutUs/icon-trust.svg';
+import iconCosts from '../../assets/img/AboutUs/icon-costs.svg';
+import iconGlobal from '../../assets/img/AboutUs/icon-global.svg';
+
 const cardsData = [
   {
     id: 1,
     title: 'We Are Not\nHere For Profit',
     description:
       "We serve for Allah's sake alone. Every project is built on sincerity, without any profit or agenda. We are driven by the mission to serve humanity, helping those who can't help themselves.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="46" height="46" aria-hidden="true">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      </svg>
-    )
+    icon: iconProfit,
+    iconAlt: 'We Are Not Here For Profit',
+    iconClass: 'different-card-icon--profit',
   },
   {
     id: 2,
     title: 'Projects You\nCan Trust',
     description:
       'What you see is what we do. From local volunteers to on-the-ground delivery, every step is honest, transparent and focused on real change.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="46" height="46" aria-hidden="true">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
-      </svg>
-    )
+    icon: iconTrust,
+    iconAlt: 'Projects You Can Trust',
+    iconClass: 'different-card-icon--trust',
   },
   {
     id: 3,
     title: 'No Hidden\nCosts',
     description:
       'We believe in transparency, ensuring your contribution is used responsibly to support the people you choose to help, making a meaningful difference for those facing crisis, poverty, and hardship.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="46" height="46" aria-hidden="true">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-    )
+    icon: iconCosts,
+    iconAlt: 'No Hidden Costs',
+    iconClass: 'different-card-icon--costs',
   },
   {
     id: 4,
     title: 'We Are\nTruly Global',
     description:
       'From Pakistan to Gaza, Sudan to Canada, our teams work where help is needed most, bringing relief and compassion to every corner we can reach.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="46" height="46" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="2" y1="12" x2="22" y2="12"></line>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"></path>
-      </svg>
-    )
-  }
+    icon: iconGlobal,
+    iconAlt: 'We Are Truly Global',
+    iconClass: 'different-card-icon--global',
+  },
 ];
 
 const WhyChooseUsSection = () => {
@@ -90,15 +84,20 @@ const WhyChooseUsSection = () => {
       <div className="different-container">
         <h2 className="different-title">WHAT MAKES US DIFFERENT?</h2>
 
-        {/* Desktop Grid (4 Cards Side-by-Side) */}
+        {/* Desktop Grid (4 Solid Cream Rounded Rectangular Cards) */}
         <div className="different-grid">
           {cardsData.map((card) => (
-            <div key={card.id} className="stamp-card">
-              <div className="stamp-card-content">
-                <h3 className="stamp-card-title">{card.title}</h3>
-                <div className="stamp-card-icon">{card.icon}</div>
-                <p className="stamp-card-desc">{card.description}</p>
+            <div key={card.id} className="different-card">
+              <h3 className="different-card-title">{card.title}</h3>
+              <div className="different-card-icon-wrap">
+                <img
+                  src={card.icon}
+                  alt={card.iconAlt}
+                  className={`different-card-icon ${card.iconClass}`}
+                  loading="lazy"
+                />
               </div>
+              <p className="different-card-desc">{card.description}</p>
             </div>
           ))}
         </div>
@@ -110,12 +109,16 @@ const WhyChooseUsSection = () => {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="stamp-card">
-            <div className="stamp-card-content">
-              <h3 className="stamp-card-title">{cardsData[currentIndex].title}</h3>
-              <div className="stamp-card-icon">{cardsData[currentIndex].icon}</div>
-              <p className="stamp-card-desc">{cardsData[currentIndex].description}</p>
+          <div className="different-card">
+            <h3 className="different-card-title">{cardsData[currentIndex].title}</h3>
+            <div className="different-card-icon-wrap">
+              <img
+                src={cardsData[currentIndex].icon}
+                alt={cardsData[currentIndex].iconAlt}
+                className={`different-card-icon ${cardsData[currentIndex].iconClass}`}
+              />
             </div>
+            <p className="different-card-desc">{cardsData[currentIndex].description}</p>
           </div>
 
           <div className="different-carousel-controls">
