@@ -63,14 +63,15 @@ export default function HotMealsOverview({ onDonate }) {
             <DonatinCards
               campaignKey="hotMeals"
               campaignTitle="Provide Food Security"
-              currencyPrefix="Rs"
-              currencyCode="PKR"
+              currencyPrefix="$"
+              currencyCode="CAD"
+              oneTimeTabLabel="Give Once"
               options={[
-                { amount: "2,000", description: "Provide 1 Hot Meal to someone in need" },
-                { amount: "10K", description: "Serve 5 fresh, nourishing meals" },
-                { amount: "20K", description: "Feed 10 people battling hunger" },
+                { amount: "10", description: "Provide 1 Hot Meal to someone in need" },
+                { amount: "50", description: "Serve 5 fresh, nourishing meals" },
+                { amount: "100", description: "Feed 10 people battling hunger" },
               ]}
-              monthlyOptions={["1,000", "2,000", "5,000", "10K", "20K", "50K"]}
+              monthlyOptions={["10", "25", "50", "100", "250", "500"]}
               defaultSelectedIndex={0}
               onDonate={onDonate}
             />

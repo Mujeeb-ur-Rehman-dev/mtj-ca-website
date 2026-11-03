@@ -1,0 +1,153 @@
+.hot-meals-help-section {
+  background-color: #0B212A;
+  padding: 60px 24px 70px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hot-meals-help-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hot-meals-help-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
+  color: #FFFAEE;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 36px 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.hot-meals-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hot-meals-help-card {
+  background-color: #FFFAEE;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hot-meals-help-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.hot-meals-help-image-wrap {
+  width: 100%;
+  aspect-ratio: 500 / 293;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+
+.hot-meals-help-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hot-meals-help-card-body {
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hot-meals-help-card-title {
+  font-family: var(--font-rink, "Rink"), sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #0B212A;
+  margin: 0 0 4px 0;
+}
+
+.hot-meals-help-card-amount {
+  font-family: var(--font-rink, "Rink"), sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 50px;
+  color: #22582B;
+  margin: 0 0 12px 0;
+}
+
+.hot-meals-help-card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 15.5px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #0B212A;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+.hot-meals-help-btn {
+  background-color: #6B0F1A;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 20px;
+  font-family: var(--font-rink, "Rink"), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(107, 15, 26, 0.25);
+}
+
+.hot-meals-help-btn:hover {
+  background-color: #22582B;
+  box-shadow: 0 4px 14px rgba(34, 88, 45, 0.3);
+}
+
+.hot-meals-help-btn-icon {
+  width: 18px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .hot-meals-help-section {
+    padding: 40px 16px 50px;
+  }
+
+  .hot-meals-help-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+    gap: 22px;
+  }
+
+  .hot-meals-help-title {
+    font-size: 28px;
+    margin-bottom: 26px;
+  }
+
+  .hot-meals-help-card-title {
+    font-size: 20px;
+  }
+
+  .hot-meals-help-card-amount {
+    font-size: 34px;
+    line-height: 42px;
+  }
+}

@@ -53,6 +53,7 @@ const DonatinCards = ({
   showMonthlyTab = true,
   className = '',
   defaultFrequency = 'one-time',
+  oneTimeTabLabel = 'One-time',
   defaultSelectedIndex = 0,
   monthlyUsesOneTimeOptions = false,
   monthlyListOptions,
@@ -221,7 +222,7 @@ const DonatinCards = ({
             className={`dcard__tab${frequency === 'one-time' ? ' dcard__tab--active' : ''}`}
             onClick={() => handleFrequencyChange('one-time')}
           >
-            One-time
+            {oneTimeTabLabel}
           </button>
           <button
             type="button"

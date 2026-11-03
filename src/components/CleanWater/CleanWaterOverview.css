@@ -1,0 +1,180 @@
+.cleanwater-overview-section {
+  background-color: #FFFAEE;
+  padding: 64px 24px 72px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cleanwater-overview-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.cleanwater-overview-left {
+  flex: 1;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.cleanwater-overview-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
+  color: #0B212A;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.cleanwater-overview-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 15.5px;
+  line-height: 24px;
+  color: #333333;
+  margin: 0 0 36px 0;
+  font-weight: 500;
+}
+
+.cleanwater-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px 22px;
+  margin-top: auto;
+}
+
+.cleanwater-overview-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.cleanwater-overview-icon-wrap {
+  flex-shrink: 0;
+  width: 50px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: transparent;
+  padding: 0;
+}
+
+.cleanwater-overview-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cleanwater-overview-card-body {
+  flex: 1;
+}
+
+.cleanwater-overview-card-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0B212A;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.cleanwater-overview-card-text {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 13.5px;
+  line-height: 19px;
+  color: #555555;
+  margin: 0;
+}
+
+/* Right Column / Donation Card Box */
+.cleanwater-overview-right {
+  width: 100%;
+  max-width: 440px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.cleanwater-donation-box {
+  width: 100%;
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+  .cleanwater-overview-section {
+    padding: 48px 20px 56px;
+  }
+
+  .cleanwater-overview-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .cleanwater-overview-left {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .cleanwater-overview-right {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cleanwater-overview-section {
+    padding: 36px 16px 44px;
+  }
+
+  .cleanwater-overview-title {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .cleanwater-overview-desc {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 24px;
+  }
+
+  .cleanwater-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cleanwater-overview-card {
+    gap: 14px;
+  }
+
+  .cleanwater-overview-icon-wrap {
+    width: 44px;
+    height: 48px;
+  }
+
+  .cleanwater-overview-card-title {
+    font-size: 15px;
+  }
+
+  .cleanwater-overview-card-text {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .cleanwater-overview-right {
+    max-width: 100%;
+  }
+}

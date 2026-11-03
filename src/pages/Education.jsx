@@ -1,52 +1,46 @@
 import React from "react";
 import Hero from "../components/hero/Hero";
 import EducationOverview from "../components/Education/EducationOverview";
-import ImpactCards from "../components/impactCards/ImpactCards";
-import ImpactSection1 from "../components/ImpactSection/ImpactSection1";
+import EducationHelpSection from "../components/Education/EducationHelpSection";
+import VideoSection from "../components/VideoSection/VideoSection";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
+import MediaGallery from "../components/Mediagallery/Mediagallery";
+import EducationImpactStats from "../components/Education/EducationImpactStats";
 import Newsletter from "../components/NewsletterSignup/Newsletter";
 import Footer from "../components/Footer/Footer";
 import { useDonation } from "../context/DonationContext";
-import { educationImpactStats } from "../components/data/impactSectionData";
 import "./Education.css";
 
 // Assets
 import educationHeroImg from "../assets/img/Education/education-hero.webp";
 
-const impactCardsData = [
-  {
-    title: "Learning Materials",
-    amount: "$60",
-    description:
-      "Provides learning materials to children from low-income families. The kit contains books, uniforms, and school supplies.",
-    donateLink: "#donate",
-  },
-  {
-    title: "Scholarship Program",
-    amount: "$120",
-    description:
-      "Fund the education of a student from a struggling family so they are not forced to drop out before finishing school.",
-    donateLink: "#donate",
-  },
-  {
-    title: "School Construction",
-    amount: "$180",
-    description:
-      "Help build or renovate a school in a remote community so every child has a school to learn and grow.",
-    donateLink: "#donate",
-  },
+// Media Gallery Assets
+import galleryImg1 from "../assets/img/Education/gallery-1.webp";
+import galleryImg2 from "../assets/img/Education/gallery-2.webp";
+import galleryImg3 from "../assets/img/Education/gallery-3.webp";
+import galleryImg4 from "../assets/img/Education/gallery-4.webp";
+import galleryImg5 from "../assets/img/Education/gallery-5.webp";
+import galleryImg6 from "../assets/img/Education/gallery-6.webp";
+
+const galleryImages = [
+  { src: galleryImg1, alt: "MTJF dream school building Pakistan" },
+  { src: galleryImg2, alt: "Students learning with books in classroom" },
+  { src: galleryImg3, alt: "Students studying together with teachers" },
+  { src: galleryImg4, alt: "MTJF dream school entrance and students" },
+  { src: galleryImg5, alt: "Classroom activities at dream school" },
+  { src: galleryImg6, alt: "Aerial view of dream school complex" },
 ];
 
 const Education = () => {
   const { openDonation } = useDonation();
 
   const handleHeroDonate = () => {
-    openDonation("education");
-  };
-
-  const handleCardDonate = (card) => {
-    const amount = parseInt(card.amount.replace(/\D/g, ""), 10) || 60;
-    openDonation("education", { amount });
+    const el = document.getElementById("donate-section");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      openDonation("education");
+    }
   };
 
   return (
@@ -74,29 +68,33 @@ const Education = () => {
         onButtonClick={handleHeroDonate}
       />
 
-      {/* 2. Overview Section */}
-      <EducationOverview onDonate={() => openDonation("education")} />
-
-      {/* 3. How You Can Help (3 Impact Cards) */}
-      <ImpactCards
-        className="education-impact-cards"
-        title="HOW YOU CAN HELP"
-        backgroundColor="#0B212A"
-        isCarousel={false}
-        cards={impactCardsData}
-        onDonate={handleCardDonate}
+      {/* 2. Overview: Help Rewrite the Story of Pakistan’s Children (4 Features + Donation Card) */}
+      <EducationOverview
+        onDonate={({ frequency, amount } = {}) => {
+          openDonation("education", { frequency, amount });
+        }}
       />
 
-      {/* 4. The Impact of Our Work (Stamp Carousel) */}
-      <ImpactSection1
-        className="education-impact-section"
-        eyebrow="How Your Donation Helps"
-        title="THE IMPACT OF OUR WORK"
-        stats={educationImpactStats}
-        desktopVisibleCount={1}
+      {/* 3. How You Can Help (3 Cards with Photos) */}
+      <EducationHelpSection
+        onDonate={(card) => {
+          const amt = parseInt(card.amount.replace(/[^0-9]/g, ""), 10) || 60;
+          openDonation("education", { amount: amt });
+        }}
       />
 
-      {/* 5. Frequently Asked Questions */}
+      {/* 4. Video Section */}
+      <section className="education-video-section">
+        <div className="education-video-container">
+          <VideoSection
+            videoId="7-oiIcqfvnY"
+            title="Pakistan Independence Day Celebrations | MTJ Foundation Dream Schools | MTJF | DONATE NOW"
+            channel="MTJ Foundation Canada"
+          />
+        </div>
+      </section>
+
+      {/* 5. Frequently Asked Questions (6 Accordions) */}
       <FAQAccordion
         faqKey="education"
         title="FREQUENTLY ASKED QUESTIONS"
@@ -104,10 +102,22 @@ const Education = () => {
         defaultOpenIndex={0}
       />
 
-      {/* 6. Newsletter */}
+      {/* 6. Media Gallery (Deep Wine Background, 4 Visible on Desktop) */}
+      <MediaGallery
+        title="MEDIA GALLERY"
+        images={galleryImages}
+        desktopVisible={4}
+      />
+
+      {/* 7. Every Brick Counts (2 Photo-Stat Cards) */}
+      <EducationImpactStats
+        onDonateClick={handleHeroDonate}
+      />
+
+      {/* 8. Newsletter */}
       <Newsletter />
 
-      {/* 7. Footer */}
+      {/* 9. Footer */}
       <Footer />
     </div>
   );

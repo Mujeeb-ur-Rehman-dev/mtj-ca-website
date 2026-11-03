@@ -1,145 +1,248 @@
 .education-overview-section {
   background-color: #FFFAEE;
-  padding: 70px 24px 65px;
+  padding: 64px 24px 72px;
+  width: 100%;
   box-sizing: border-box;
 }
 
 .education-overview-container {
-  max-width: 860px;
+  max-width: 1220px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+.education-overview-left {
+  flex: 1;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .education-overview-title {
   font-family: var(--font-finder, "Finder"), sans-serif;
-  font-size: 38px;
-  font-weight: 400;
-  line-height: 1.25;
-  letter-spacing: 0.5px;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
   color: #0B212A;
-  margin: 0 0 24px 0;
   text-transform: uppercase;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
-.education-overview-content p {
+.education-overview-desc {
   font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 26px;
-  color: #0B212A;
-  margin: 0 0 18px 0;
+  font-size: 15.5px;
+  line-height: 24px;
+  color: #333333;
+  margin: 0 0 36px 0;
+  font-weight: 500;
 }
 
-.education-overview-lead {
-  font-weight: 600 !important;
-  margin-bottom: 12px !important;
+.education-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 20px;
+  margin-top: auto;
 }
 
-.education-overview-list {
-  list-style: disc;
-  padding-left: 24px;
-  margin: 0 0 22px 0;
+.education-overview-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
 }
 
-.education-overview-list li {
-  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 25px;
-  color: #0B212A;
-  margin-bottom: 8px;
-}
-
-.education-overview-btn-wrap {
-  margin-top: 32px;
-}
-
-.education-overview-btn-group {
-  display: inline-flex;
-}
-
-.education-overview-btn {
-  display: inline-flex;
+.education-overview-icon-wrap {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   background: transparent;
-  border: none;
   padding: 0;
 }
 
-.education-overview-btn .btn-donate-content {
-  width: auto !important;
-  min-width: 165px !important;
-  background-color: #6B0F1A !important;
-  background-image: none !important;
-  color: #FFFAEE !important;
-  border-radius: 6px !important;
-  padding: 13px 22px !important;
-  font-family: var(--font-rink, "Rink"), "Inter", sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
-  text-transform: none !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 14px rgba(107, 15, 26, 0.25) !important;
-  cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 10px !important;
+.education-overview-icon {
+  width: 100%;
+  height: 100%;
+  max-width: 42px;
+  max-height: 42px;
+  object-fit: contain;
 }
 
-.education-overview-btn .btn-donate-content:hover {
-  background-color: #22582D !important;
-  background-image: none !important;
-  color: #FFFFFF !important;
+.education-overview-card-body {
+  flex: 1;
 }
 
-.education-overview-btn .btn-icon-badge {
-  background: transparent !important;
-  width: auto !important;
-  height: auto !important;
-  margin: 0 !important;
-  padding: 0 !important;
+.education-overview-card-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0B212A;
+  margin: 0 0 4px 0;
+  line-height: 1.25;
+}
+
+.education-overview-card-text {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 13.5px;
+  line-height: 19px;
+  color: #555555;
+  margin: 0;
+}
+
+/* ── Right Column: Embedded Donation Card ── */
+.education-overview-right {
+  flex-shrink: 0;
+  width: 430px;
+  max-width: 100%;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.education-donation-box {
+  width: 100%;
+  display: flex;
+}
+
+/* Override default narrow / heavy-bordered .dcard styles for Education */
+.education-overview-section .dcard {
+  width: 100% !important;
+  max-width: 100% !important;
+  background: #ffffff !important;
+  border: 1.5px solid #d4ded7 !important;
+  border-radius: 16px !important;
+  padding: 24px 22px !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05) !important;
   display: flex !important;
-  align-items: center !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
 }
 
-.education-overview-btn .btn-donate-icon {
-  width: 20px !important;
-  height: 16px !important;
-  filter: brightness(0) invert(1) !important;
-  transition: filter 0.3s ease !important;
+.education-overview-section .dcard__tabs {
+  gap: 12px !important;
+  margin-bottom: 18px !important;
 }
 
-@media (max-width: 768px) {
+.education-overview-section .dcard__tab {
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+}
+
+.education-overview-section .dcard__tab--active {
+  background: #ffffff !important;
+  border: 2px solid #22c55e !important;
+  color: #166534 !important;
+}
+
+.education-overview-section .dcard__campaign {
+  font-size: 13.5px !important;
+  color: #64748b !important;
+  font-weight: 500 !important;
+  margin: 0 0 16px 0 !important;
+  text-align: center !important;
+}
+
+.education-overview-section .dcard__options {
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.education-overview-section .dcard__option {
+  padding: 11px 14px !important;
+  min-height: 48px !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+  transition: all 0.2s ease !important;
+}
+
+.education-overview-section .dcard__option--selected {
+  background: #f0fdf4 !important;
+  border-color: #22c55e !important;
+}
+
+.education-overview-section .dcard__option-amount {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+}
+
+.education-overview-section .dcard__option-desc {
+  font-size: 12.5px !important;
+  color: #64748b !important;
+}
+
+.education-overview-section .dcard__check {
+  color: #22c55e !important;
+}
+
+.education-overview-section .dcard__other-row {
+  padding: 10px 14px !important;
+}
+
+.education-overview-section .dcard__btn {
+  background-color: #22582d !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 14px 20px !important;
+  font-family: var(--font-finder, "Finder"), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  margin-top: 18px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.education-overview-section .dcard__btn:hover {
+  background-color: #194623 !important;
+}
+
+@media (max-width: 960px) {
   .education-overview-section {
-    padding: 45px 20px 40px;
+    padding: 40px 16px 50px;
+  }
+
+  .education-overview-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+  }
+
+  .education-overview-left {
+    max-width: 100%;
+    width: 100%;
   }
 
   .education-overview-title {
     font-size: 28px;
-    line-height: 1.25;
-    margin-bottom: 18px;
-  }
-
-  .education-overview-content p {
-    font-size: 16px;
-    line-height: 23px;
     margin-bottom: 14px;
   }
 
-  .education-overview-list {
-    padding-left: 20px;
-    margin-bottom: 18px;
+  .education-overview-desc {
+    font-size: 14.5px;
+    line-height: 22px;
+    margin-bottom: 28px;
   }
 
-  .education-overview-list li {
-    font-size: 16px;
-    line-height: 23px;
-    margin-bottom: 6px;
+  .education-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .education-overview-btn .btn-donate-content {
-    width: auto !important;
-    min-width: 155px !important;
-    padding: 12px 18px !important;
-    font-size: 15px !important;
+  .education-overview-right {
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
   }
 }

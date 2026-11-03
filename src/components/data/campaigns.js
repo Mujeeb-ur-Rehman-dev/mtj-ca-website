@@ -10,6 +10,7 @@ import foodReliefPopup from '../../assets/img/FoodRelief/Food-Relief.webp';
 import kasbPopup from '../../assets/img/KASB/kasb-hero.webp';
 import hotMealsPopup from '../../assets/img/HotMeals/hot-meals-hero.webp';
 import educationPopup from '../../assets/img/Education/education-hero.webp';
+import cleanWaterPopup from '../../assets/img/CleanWater/hero.webp';
 // import generalPopup from '...';
 
 export const campaigns = {
@@ -462,17 +463,17 @@ export const campaigns = {
     showImpactText: true,
 
     amountsOnce: [
-      { value: 2000, label: 'Rs 2,000', desc: "Provide 1 Hot Meal to someone in need" },
-      { value: 10000, label: 'Rs 10K', desc: "Serve 5 fresh, nourishing meals" },
-      { value: 20000, label: 'Rs 20K', desc: "Feed 10 people battling hunger" },
+      { value: 10, label: '$10', desc: "Provide 1 Hot Meal to someone in need" },
+      { value: 50, label: '$50', desc: "Serve 5 fresh, nourishing meals" },
+      { value: 100, label: '$100', desc: "Feed 10 people battling hunger" },
     ],
     amountsMonthly: [
-      { value: 1000, label: 'Rs 1,000' },
-      { value: 2000, label: 'Rs 2,000' },
-      { value: 5000, label: 'Rs 5,000' },
-      { value: 10000, label: 'Rs 10K' },
-      { value: 20000, label: 'Rs 20K' },
-      { value: 50000, label: 'Rs 50K' },
+      { value: 10, label: '$10' },
+      { value: 25, label: '$25' },
+      { value: 50, label: '$50' },
+      { value: 100, label: '$100' },
+      { value: 250, label: '$250' },
+      { value: 500, label: '$500' },
     ],
   },
 
@@ -501,6 +502,35 @@ export const campaigns = {
       { value: 50, label: '$50' },
       { value: 100, label: '$100' },
       { value: 200, label: '$200' },
+    ],
+  },
+
+  // ========== 13. Clean Water ==========
+  cleanWater: {
+    id: 'cleanWater',
+    title: 'Support Clean Water',
+    description:
+      'Help provide access to clean and safe drinking water through MTJ Foundation’s clean water projects that improve health and quality of life.',
+    image: cleanWaterPopup,
+
+    layoutOnce: 'vertical',
+    layoutMonthly: 'grid',
+    showDesignation: false,
+    showDedicate: false,
+    showImpactText: true,
+
+    amountsOnce: [
+      { value: 655, label: '$655', desc: 'Provide a Hand Pump for 1 Family' },
+      { value: 815, label: '$815', desc: 'Community Hand Pump (no zakat)' },
+      { value: 16240, label: '$16,240', desc: 'RO Filtration Plant (no zakat)' },
+    ],
+    amountsMonthly: [
+      { value: 10, label: '$10' },
+      { value: 25, label: '$25' },
+      { value: 50, label: '$50' },
+      { value: 100, label: '$100' },
+      { value: 250, label: '$250' },
+      { value: 500, label: '$500' },
     ],
   },
 };

@@ -154,7 +154,7 @@ export default function MediaGallery({
 
       <div className="mg__controls">
         <button type="button" className="mg__arrow" onClick={prev} aria-label="Previous">
-          ←
+          ‹
         </button>
 
         {showDots && (
@@ -172,7 +172,7 @@ export default function MediaGallery({
         )}
 
         <button type="button" className="mg__arrow" onClick={next} aria-label="Next">
-          →
+          ›
         </button>
       </div>
     </section>

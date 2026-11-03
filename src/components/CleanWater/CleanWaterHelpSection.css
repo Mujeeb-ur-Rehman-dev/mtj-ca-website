@@ -1,0 +1,184 @@
+.cleanwater-help-section {
+  background-color: #0B212A;
+  padding: 68px 24px 80px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cleanwater-help-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.cleanwater-help-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 900;
+  color: #FFFAEE;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 48px 0;
+  letter-spacing: -0.01em;
+}
+
+.cleanwater-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.cleanwater-help-card {
+  background-color: #FFFAEE;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cleanwater-help-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.cleanwater-help-image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #e5dfd2;
+}
+
+.cleanwater-help-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cleanwater-help-card-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cleanwater-help-card-title {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0B212A;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+  text-transform: none;
+}
+
+.cleanwater-help-card-amount {
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: #22582B;
+  margin: 0 0 12px 0;
+  line-height: 1.1;
+}
+
+.cleanwater-help-card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), sans-serif;
+  font-size: 14.5px;
+  line-height: 21px;
+  color: #333333;
+  margin: 0 0 24px 0;
+  flex: 1;
+}
+
+.cleanwater-help-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #6B0F1A;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 13px 28px;
+  font-family: var(--font-finder, "Finder"), sans-serif;
+  font-size: 14.5px;
+  font-weight: 800;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.cleanwater-help-btn:hover {
+  background-color: #550B14;
+  transform: scale(1.01);
+}
+
+.cleanwater-help-btn-icon {
+  width: 18px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .cleanwater-help-section {
+    padding: 56px 20px 64px;
+  }
+
+  .cleanwater-help-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .cleanwater-help-card:last-child {
+    grid-column: span 2;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .cleanwater-help-section {
+    padding: 40px 16px 48px;
+  }
+
+  .cleanwater-help-title {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  .cleanwater-help-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cleanwater-help-card:last-child {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+
+  .cleanwater-help-card-body {
+    padding: 20px 18px 24px;
+  }
+
+  .cleanwater-help-card-title {
+    font-size: 18px;
+  }
+
+  .cleanwater-help-card-amount {
+    font-size: 30px;
+  }
+
+  .cleanwater-help-card-desc {
+    font-size: 13.5px;
+    line-height: 19px;
+    margin-bottom: 20px;
+  }
+}
