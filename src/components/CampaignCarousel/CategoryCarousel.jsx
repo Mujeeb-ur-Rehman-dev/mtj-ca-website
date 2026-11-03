@@ -36,19 +36,21 @@ function Card({ c, onNavigate }) {
 
   return (
     <div className="categories__card" onClick={handleCardClick} role="button" tabIndex={0}>
-      <div className="categories__card-overlay"></div>
-      <img src={c.image} alt={c.title} loading="lazy" />
-      <div className="categories__label">
-        <span>{c.title}</span>
-        <button
-          type="button"
-          className="categories__cta-btn"
-          aria-label={`View ${c.title}`}
-          onClick={handleViewClick}
-          onMouseDown={(e) => e.stopPropagation()}
-        >
-          <FiArrowRight size={15} />
-        </button>
+      <div className="categories__card-inner">
+        <div className="categories__card-overlay"></div>
+        <img src={c.image} alt={c.title} loading="lazy" />
+        <div className="categories__label">
+          <span>{c.title}</span>
+          <button
+            type="button"
+            className="categories__cta-btn"
+            aria-label={`View ${c.title}`}
+            onClick={handleViewClick}
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            <FiArrowRight size={15} />
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,293 @@
+/* ========================================================
+   CounsellingStatsCarousel.css
+   "CREATE MEANINGFULL CHANGE" Stamp Section & Carousel
+   Matches Image 1 (Desktop) and Image 2 (Mobile)
+   ======================================================== */
+
+.counselling-stats {
+  background-color: var(--color-cream-bg, #fffaee);
+  width: 100%;
+  padding: 30px 24px 80px 24px;
+  box-sizing: border-box;
+}
+
+.counselling-stats__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ── STAMP CARD CONTAINER (Deep Maroon with Scalloped Edges) ── */
+.counselling-stats__stamp {
+  position: relative;
+  background-color: #68101a;
+  background-image: url("../../assets/img/counselling/stamp-maroon.png");
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 55px 40px 45px 40px;
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* ── TITLE ── */
+.counselling-stats__title {
+  font-family: var(--font-finder, "Finder"), "Inter", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #fffaee;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-align: center;
+  margin: 0 0 36px 0;
+}
+
+/* ── STATS WRAPPER ── */
+.counselling-stats__track {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* ── DESKTOP GRID (Shows 3 items side-by-side) ── */
+.counselling-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.counselling-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.counselling-stats__number {
+  font-family: var(--font-rink, "Rink"), sans-serif;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fffaee;
+  margin: 0 0 10px 0;
+}
+
+.counselling-stats__label {
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #fffaee;
+  margin: 0;
+}
+
+/* ── NAVIGATION CONTROLS (Arrows & Dots) ── */
+.counselling-stats__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.counselling-stats__arrow {
+  background: transparent;
+  border: none;
+  color: #fffaee;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.counselling-stats__arrow:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.counselling-stats__arrow:focus-visible {
+  outline: 2px solid #fffaee;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.counselling-stats__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.counselling-stats__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: rgba(255, 250, 238, 0.35);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.counselling-stats__dot:hover {
+  background-color: rgba(255, 250, 238, 0.75);
+}
+
+.counselling-stats__dot--active {
+  background-color: #fffaee;
+  transform: scale(1.15);
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (Tablet & Mobile)
+   Matches Image 2 (Mobile UI view)
+   ======================================================== */
+
+@media (max-width: 991px) {
+  .counselling-stats__stamp {
+    background-size: cover;
+    padding: 48px 24px 38px 24px;
+  }
+
+  .counselling-stats__title {
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+
+  .counselling-stats__number {
+    font-size: 38px;
+  }
+
+  .counselling-stats__label {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .counselling-stats {
+    padding: 20px 0 50px 0;
+  }
+
+  .counselling-stats__container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  /* Full-bleed stamp card on mobile with scalloped top & bottom */
+  .counselling-stats__stamp {
+    width: 100%;
+    border-radius: 0;
+    padding: 40px 16px 36px 16px;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+  }
+
+  /* Scalloped top edge mask overlay on mobile */
+  .counselling-stats__stamp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: radial-gradient(circle 6px at 12px -2px, #fffaee 98%, transparent 100%);
+    background-size: 24px 12px;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Scalloped bottom edge mask overlay on mobile */
+  .counselling-stats__stamp::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: radial-gradient(circle 6px at 12px 14px, #fffaee 98%, transparent 100%);
+    background-size: 24px 12px;
+    background-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .counselling-stats__title {
+    font-size: 26px;
+    line-height: 1.25;
+    margin-bottom: 24px;
+    padding: 0 12px;
+  }
+
+  /* Mobile: Single visible card with smooth transition */
+  .counselling-stats__grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90px;
+  }
+
+  .counselling-stats__item {
+    display: none;
+    width: 100%;
+    animation: fadeInSlide 0.35s ease forwards;
+  }
+
+  .counselling-stats__item--active {
+    display: flex;
+  }
+
+  .counselling-stats__number {
+    font-size: 34px;
+    margin-bottom: 8px;
+  }
+
+  .counselling-stats__label {
+    font-size: 16px;
+    line-height: 1.35;
+    padding: 0 16px;
+  }
+
+  .counselling-stats__nav {
+    margin-top: 26px;
+    gap: 28px;
+  }
+
+  .counselling-stats__arrow {
+    padding: 8px;
+    opacity: 0.8;
+  }
+
+  .counselling-stats__arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .counselling-stats__dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

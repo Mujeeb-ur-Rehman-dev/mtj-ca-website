@@ -1,105 +1,98 @@
 .different-section {
   background-color: #1b4d2e;
-  padding: 60px 20px;
+  padding: 80px 32px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .different-container {
-  max-width: 1240px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
 .different-title {
-  color: #fcf9ee;
+  color: #fffaee;
   text-align: center;
-  font-size: 2.2rem;
+  font-family: var(--font-finder, "Finder"), "Inter", Arial, sans-serif;
+  font-size: clamp(2rem, 2.5vw, 2.8rem);
   font-weight: 900;
-  letter-spacing: 0.8px;
-  margin-bottom: 48px;
+  letter-spacing: 0.5px;
+  margin: 0 0 48px 0;
   text-transform: uppercase;
 }
 
-/* Desktop Grid */
+/* Desktop Grid (4 Cards Side-by-Side) */
 .different-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
+  align-items: stretch;
 }
 
-/* Perfect Stamp Card Edge Styling */
+/* Genuine Scalloped Postage Stamp Card using downloaded asset */
 .stamp-card {
   position: relative;
-  background-color: #fcf9ee;
-  padding: 12px;
+  background-image: url('../../assets/img/AboutUs/stamp-card-cream.webp');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  padding: 32px 20px 32px;
   box-sizing: border-box;
-
-  /* Semicircular Cutouts on Borders */
-  --circle-radius: 7px;
-  --circle-spacing: 18px;
-
-  /* Top, Bottom, Left & Right Scalloped Stamp Edge */
-  background-image: 
-    radial-gradient(circle at top, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px)),
-    radial-gradient(circle at bottom, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px)),
-    radial-gradient(circle at left, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px)),
-    radial-gradient(circle at right, #1b4d2e var(--circle-radius), transparent calc(var(--circle-radius) + 0.5px));
-  
-  background-position: 
-    top center, 
-    bottom center, 
-    left center, 
-    right center;
-
-  background-size: 
-    var(--circle-spacing) var(--circle-radius), 
-    var(--circle-spacing) var(--circle-radius), 
-    var(--circle-radius) var(--circle-spacing), 
-    var(--circle-radius) var(--circle-spacing);
-
-  background-repeat: 
-    repeat-x, 
-    repeat-x, 
-    repeat-y, 
-    repeat-y;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  min-height: 375px;
+  transition: transform 0.25s ease;
 }
 
-/* Inner Content Area (Solid Background) */
+.stamp-card:hover {
+  transform: translateY(-4px);
+}
+
 .stamp-card-content {
-  background-color: #fcf9ee;
-  padding: 24px 16px;
-  text-align: center;
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 380px;
-  box-sizing: border-box;
+  justify-content: flex-start;
   height: 100%;
+  width: 100%;
 }
 
+/* Title Case with Neueleiden font */
 .stamp-card-title {
-  color: #1a3224;
+  color: #081d28;
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
   font-size: 1.35rem;
   font-weight: 800;
   line-height: 1.25;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   white-space: pre-line;
+  text-align: center;
+  text-transform: none;
 }
 
 .stamp-card-icon {
   color: #1b4d2e;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .stamp-card-desc {
   color: #1a3224;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  margin: 0;
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.48;
+  margin: 0 auto;
   font-weight: 500;
+  text-align: center;
+  max-width: 250px;
 }
 
 /* Mobile Utilities */
@@ -107,7 +100,7 @@
   display: none;
 }
 
-.carousel-controls {
+.different-carousel-controls {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,49 +108,71 @@
   margin-top: 24px;
 }
 
-.nav-btn {
+.different-nav-btn {
   background: transparent;
   border: none;
   color: #719e83;
   font-size: 1.8rem;
   cursor: pointer;
   padding: 0 8px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.nav-btn:hover {
-  color: #fcf9ee;
+.different-nav-btn:hover {
+  color: #fffaee;
+  transform: scale(1.15);
 }
 
-.carousel-dots {
+.different-carousel-dots {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
+.different-dot {
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  border: none;
   background-color: #5c836c;
   cursor: pointer;
+  padding: 0;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.dot.active {
-  background-color: #fcf9ee;
-  transform: scale(1.2);
+.different-dot.active {
+  background-color: #fffaee;
+  transform: scale(1.3);
 }
 
-/* Mobile Responsive Rule: Hide Grid and Show 1 Card Slider */
+/* Responsive Breakpoints */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .different-grid {
+    gap: 12px;
+  }
+
+  .stamp-card {
+    padding: 28px 16px 28px;
+    min-height: 385px;
+  }
+
+  .stamp-card-title {
+    font-size: 1.2rem;
+  }
+
+  .stamp-card-desc {
+    font-size: 0.84rem;
+  }
+}
+
 @media (max-width: 768px) {
   .different-section {
-    padding: 40px 16px;
+    padding: 48px 20px;
   }
 
   .different-title {
-    font-size: 1.75rem;
-    margin-bottom: 30px;
+    font-size: 1.85rem;
+    margin-bottom: 32px;
   }
 
   .different-grid {
@@ -166,12 +181,20 @@
 
   .different-mobile-wrapper {
     display: block;
-    max-width: 340px;
+    max-width: 350px;
     margin: 0 auto;
   }
 
-  .stamp-card-content {
-    min-height: 350px;
-    padding: 20px 12px;
+  .stamp-card {
+    min-height: 375px;
+    padding: 32px 20px 32px;
+  }
+
+  .stamp-card-title {
+    font-size: 1.3rem;
+  }
+
+  .stamp-card-desc {
+    font-size: 0.88rem;
   }
 }

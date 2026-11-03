@@ -1,64 +1,99 @@
 import React from "react";
-import Hero from "../components/hero/Hero";
-import Footer from "../components/Footer/Footer";
-import backgroundImage from "../assets/img/zakat/hero/background-img.png";
-import mobileImg from "../assets/img/AboutUs/mobileImg.png";
-import heroImage from "../assets/img/AboutUs/heroImage.png";
-import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
-import Newsletter from "../components/NewsletterSignup/Newsletter";
+import AboutHero from "../components/AboutUs/AboutHero";
 import AboutVisionMission from "../components/AboutVisionMission/AboutVisionMission";
 import WhyChooseUsSection from "../components/WhyChooseUsSection/WhyChooseUsSection";
 import OurStorySection from "../components/OurStorySection/OurStorySection";
+import CategoryCarousel from "../components/CampaignCarousel/CategoryCarousel";
 import FAQAccordion from "../components/FAQAccordion/FAQAccordion";
+import Newsletter from "../components/NewsletterSignup/Newsletter";
+import Footer from "../components/Footer/Footer";
 import { aboutUsFaqItems } from "../components/data/faqData";
+
+// Action section images downloaded directly from live site
+import palestineImg from "../assets/img/AboutUs/Palestine-Emergency-Relief.png";
+import educationImg from "../assets/img/AboutUs/Education.png";
+import healthcareImg from "../assets/img/AboutUs/Healthcare.png";
+import waterReliefImg from "../assets/img/AboutUs/Water-Relief.png";
+
+const aboutCategories = [
+  {
+    title: "Healthcare",
+    image: healthcareImg,
+    path: "/medical-care-health",
+  },
+  {
+    title: "Water Relief",
+    image: waterReliefImg,
+    path: "/clean-water",
+  },
+  {
+    title: "Palestine Emergency Relief",
+    image: palestineImg,
+    path: "/palestine-relief",
+  },
+  {
+    title: "Education",
+    image: educationImg,
+    path: "/education",
+  },
+];
 
 const AboutUs = () => {
   return (
-    <>
-      <Hero
-        className="about-us-hero"
-        backgroundImage={backgroundImage}
-        mobileImage={mobileImg}  
-        heroImage={heroImage}
+    <main className="about-us-page">
+      {/* 1. Hero Section */}
+      <AboutHero
         title={
           <>
-            Guided by Faith.
-            <br />
-            Driven by
-            <br />
-            Compassion.
-            <br />
-            Serving Humanity.
+            GUIDED BY FAITH. DRIVEN BY<br />
+            COMPASSION. SERVING<br />
+            HUMANITY.
           </>
         }
-        description="MTJ Foundation was born from a lifelong mission to serve humanity through faith and kindness. From disaster relief to education, healthcare, and clean water, we help families rebuild, restore dignity, and believe in a better tomorrow."
-        buttonText="Donate Now"
+        subtitle="MTJ Foundation serves humanity through faith and kindness, providing disaster relief, education, healthcare, and clean water to restore dignity and hope."
+        buttonText="Support Our Mission"
         buttonLink="#donate"
       />
+
+      {/* 2. Vision & Mission Section */}
       <AboutVisionMission />
-      <WhyChooseUsSection/>
-       <OurStorySection/>
+
+      {/* 3. What Makes Us Different Section */}
+      <WhyChooseUsSection />
+
+      {/* 4. Our Story Timeline Section */}
+      <OurStorySection />
+
+      {/* 5. Ready to Take Action Section */}
       <CategoryCarousel
         className="about-category-carousel"
-        title={
-          <>
-            Ready to take action?
-          </>
-        }
+        title="READY TO TAKE ACTION?"
         description="Every act of giving matters. You could put food on a table, send a child to school, or bring hope back to someone who’s lost everything through emergency relief."
+        categories={aboutCategories}
         sectionStyle={{
           "--category-section-bg": "#68101A",
-          "--category-heading-color": "#fff5f4",
-          "--category-copy-color": "#fff5f4",
-          "--category-control-color": "#fff5f4",
-          "--category-dot-color": "rgba(255, 245, 244, 0.45)",
-          "--category-active-dot-color": "#fff5f4",
+          "--category-heading-color": "#FFFAEE",
+          "--category-copy-color": "#FFFAEE",
+          "--category-control-color": "#FFFAEE",
+          "--category-dot-color": "rgba(255, 250, 238, 0.45)",
+          "--category-active-dot-color": "#FFFAEE",
         }}
       />
-       <FAQAccordion items={aboutUsFaqItems}/>
+
+      {/* 6. Frequently Asked Questions Section */}
+      <FAQAccordion
+        items={aboutUsFaqItems}
+        defaultOpenIndex={0}
+        titleAlign="left"
+        backgroundColor="#FFFAEE"
+      />
+
+      {/* 7. Newsletter Section */}
       <Newsletter />
+
+      {/* 8. Footer */}
       <Footer />
-    </>
+    </main>
   );
 };
 

@@ -65,6 +65,7 @@ function App() {
             <Route path="/education" element={<Education />} />
             <Route path="/clean-water" element={<CleanWater />} />
             <Route path="/online-islamic-counselling" element={<OnlineIslamicCounselling />} />
+            <Route path="/online-islamic-counselling/" element={<OnlineIslamicCounselling />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/about-us" element={<AboutUs />} />

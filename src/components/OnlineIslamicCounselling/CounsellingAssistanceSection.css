@@ -1,0 +1,109 @@
+/* ========================================================
+   CounsellingAssistanceSection.css
+   "YOU DON'T HAVE TO CARRY THIS ALONE" Section
+   Matches Image 1 (Desktop) and Image 2 (Mobile)
+   ======================================================== */
+
+.counselling-assist {
+  background-color: var(--color-cream-bg, #fffaee);
+  width: 100%;
+  padding: 85px 24px 65px 24px;
+  box-sizing: border-box;
+}
+
+.counselling-assist__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.counselling-assist__content {
+  max-width: 820px;
+  text-align: left;
+}
+
+.counselling-assist__title {
+  font-family: var(--font-finder, "Finder"), "Inter", sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-dark-ink, #0b212a);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 24px 0;
+}
+
+.counselling-assist__text {
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-dark-ink, #0b212a);
+  margin: 0 0 18px 0;
+}
+
+.counselling-assist__link-wrapper {
+  margin-top: 24px;
+}
+
+.counselling-assist__link {
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a56db;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.counselling-assist__link:hover {
+  color: #0b3aa8;
+  opacity: 0.9;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (Tablet & Mobile)
+   Matches Image 2 (Mobile UI view)
+   ======================================================== */
+
+@media (max-width: 1024px) {
+  .counselling-assist {
+    padding: 70px 24px 50px 24px;
+  }
+
+  .counselling-assist__title {
+    font-size: 34px;
+  }
+
+  .counselling-assist__text,
+  .counselling-assist__link {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .counselling-assist {
+    padding: 50px 18px 40px 18px;
+  }
+
+  .counselling-assist__title {
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .counselling-assist__text {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .counselling-assist__link-wrapper {
+    margin-top: 20px;
+  }
+
+  .counselling-assist__link {
+    font-size: 15px;
+  }
+}

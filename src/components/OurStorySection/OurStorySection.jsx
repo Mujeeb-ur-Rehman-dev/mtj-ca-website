@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './OurStorySection.css';
 
 const storyData = [
@@ -42,6 +42,8 @@ const storyData = [
 
 const OurStorySection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? storyData.length - 1 : prev - 1));
@@ -51,10 +53,31 @@ const OurStorySection = () => {
     setActiveIndex((prev) => (prev === storyData.length - 1 ? 0 : prev + 1));
   };
 
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 40) {
+      handleNext();
+    } else if (diff < -40) {
+      handlePrev();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const currentData = storyData[activeIndex];
 
   return (
-    <section className="story-section">
+    <section className="story-section" aria-label="Our Story Timeline">
       <div className="story-container">
         {/* Section Header */}
         <h2 className="story-main-title">OUR STORY</h2>
@@ -71,23 +94,28 @@ const OurStorySection = () => {
             {storyData.map((item, index) => {
               const isActive = activeIndex === index;
               return (
-                <div
+                <button
+                  type="button"
                   key={item.year}
                   className={`timeline-node ${isActive ? 'active' : ''}`}
                   onClick={() => setActiveIndex(index)}
+                  aria-label={`View year ${item.year}`}
                 >
                   <span className="timeline-year">{item.year}</span>
-                  <div className="timeline-circle">
-                    {isActive && <div className="timeline-circle-inner" />}
-                  </div>
-                </div>
+                  <div className="timeline-circle" />
+                </button>
               );
             })}
           </div>
         </div>
 
-        {/* Dynamic Story Content */}
-        <div className="story-content-box">
+        {/* Dynamic Story Content with Swipe */}
+        <div
+          className="story-content-box"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <h3 className="story-content-title">{currentData.subtitle}</h3>
           <p className="story-content-desc">{currentData.description}</p>
         </div>
@@ -99,10 +127,12 @@ const OurStorySection = () => {
           </button>
           <div className="story-dots">
             {storyData.map((_, idx) => (
-              <span
+              <button
                 key={idx}
+                type="button"
                 className={`story-dot ${activeIndex === idx ? 'active' : ''}`}
                 onClick={() => setActiveIndex(idx)}
+                aria-label={`Go to year ${storyData[idx].year}`}
               />
             ))}
           </div>

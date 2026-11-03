@@ -1,0 +1,197 @@
+/* ========================================================
+   CounsellingHero.css
+   Pixel-perfect replication of Online Islamic Counselling Hero
+   Matches Image 1 (Desktop) and Image 2 (Mobile)
+   ======================================================== */
+
+.counselling-hero {
+  position: relative;
+  width: 100%;
+  min-height: 540px;
+  background-color: #0b1f27;
+  background-image: url("../../assets/img/counselling/hero-desktop.png");
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Dark gradient overlay on the left to ensure high contrast for text */
+.counselling-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 15, 18, 0.88) 0%,
+    rgba(10, 15, 18, 0.78) 35%,
+    rgba(10, 15, 18, 0.45) 55%,
+    rgba(10, 15, 18, 0.1) 80%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.counselling-hero__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  box-sizing: border-box;
+}
+
+.counselling-hero__content {
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.counselling-hero__title {
+  font-family: var(--font-finder, "Finder"), "Inter", sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.counselling-hero__description {
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #ffffff;
+  margin: 0 0 22px 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.counselling-hero__tagline {
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+  margin: 0 0 28px 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.counselling-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 30px;
+  background-color: var(--color-primary-green, #22582d);
+  color: #ffffff;
+  font-family: var(--font-rink, "Rink"), sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.counselling-hero__btn:hover {
+  background-color: #1a4523;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.counselling-hero__btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (Tablet & Mobile)
+   Matches Image 2 (Mobile UI view)
+   ======================================================== */
+
+@media (max-width: 1024px) {
+  .counselling-hero {
+    min-height: 500px;
+    background-position: 70% center;
+  }
+
+  .counselling-hero__container {
+    padding: 70px 24px;
+  }
+
+  .counselling-hero__content {
+    max-width: 520px;
+  }
+
+  .counselling-hero__title {
+    font-size: 38px;
+  }
+
+  .counselling-hero__description,
+  .counselling-hero__tagline {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .counselling-hero {
+    min-height: 560px;
+    background-image: url("../../assets/img/counselling/hero-mobile.png");
+    background-position: center top;
+    background-size: cover;
+    align-items: flex-start;
+  }
+
+  /* Full vertical darkening overlay on mobile for clear text readability */
+  .counselling-hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 15, 18, 0.85) 0%,
+      rgba(10, 15, 18, 0.78) 50%,
+      rgba(10, 15, 18, 0.6) 80%,
+      rgba(10, 15, 18, 0.45) 100%
+    );
+  }
+
+  .counselling-hero__container {
+    padding: 45px 18px 55px 18px;
+  }
+
+  .counselling-hero__content {
+    max-width: 100%;
+  }
+
+  .counselling-hero__title {
+    font-size: 29px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .counselling-hero__description {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .counselling-hero__tagline {
+    font-size: 15px;
+    line-height: 1.45;
+    margin-bottom: 24px;
+  }
+
+  .counselling-hero__btn {
+    padding: 11px 26px;
+    font-size: 15px;
+    border-radius: 6px;
+  }
+}
