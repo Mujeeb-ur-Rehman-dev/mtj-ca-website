@@ -1,0 +1,384 @@
+/* ══════════════════════════════════════════════════════════════════
+   MTJ FOUNDATION - REPORTS PAGE STYLES
+   Exact 1:1 replica of https://mtjfoundation.ca/reports/
+   ══════════════════════════════════════════════════════════════════ */
+
+.reports-page {
+  width: 100%;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   HERO SECTION - DESKTOP (>767px)
+   ────────────────────────────────────────────────────────────────── */
+.reports-hero-desktop {
+  position: relative;
+  width: 100%;
+  min-height: 770px;
+  margin-top: 92px;
+  background-color: #FFFFFF;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 25px solid #FFFFFF;
+  padding: 40px 40px 40px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.reports-hero-box-area {
+  max-width: 1220px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.reports-hero-card {
+  width: 380px;
+  max-width: 100%;
+  background-color: #FFFAEE;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.reports-hero-title {
+  font-family: var(--font-finder, "Finder"), "Inter", Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 25px;
+  color: #0B212A;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  letter-spacing: normal;
+}
+
+.reports-hero-text {
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  color: #0B212A;
+  margin: 0 0 24px;
+}
+
+.reports-hero-btn {
+  width: 170px;
+  max-width: 170px;
+  height: 50px;
+  background-color: #22582D;
+  font-family: var(--font-rink, "Rink"), "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #FFFAEE;
+  border-radius: 6px;
+  padding: 13px 10px 13px 8px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.reports-hero-btn:hover,
+.reports-hero-btn:focus {
+  background-color: #6B0F1A;
+  color: #FFFAEE;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   HERO SECTION - MOBILE (<=767px)
+   ────────────────────────────────────────────────────────────────── */
+.reports-hero-mobile {
+  display: none;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.reports-hero-mobile-img-wrap {
+  width: 100%;
+  border: 15px solid #FFFFFF;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.reports-hero-mobile-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.reports-hero-mobile-card {
+  background-color: #FFFAEE;
+  padding: 24px 20px 28px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   OUR REPORTS SECTION
+   ────────────────────────────────────────────────────────────────── */
+.reports-list-section {
+  position: relative;
+  width: 100%;
+  background-color: #0A212A;
+  padding: 60px 20px 80px;
+  box-sizing: border-box;
+}
+
+.reports-list-inner {
+  max-width: 1220px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.reports-section-title {
+  font-family: var(--font-finder, "Finder"), "Inter", Arial, sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 45px;
+  color: #FFFAEE;
+  text-align: center;
+  margin: 0 0 45px;
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+
+/* Reports Grid */
+.reports-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.reports-card {
+  flex: 1;
+  max-width: 380px;
+  width: 31%;
+  background-color: #FFFAEE;
+  border-radius: 6px;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reports-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.reports-card-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+.reports-card-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.reports-card-title {
+  font-family: var(--font-rink, "Rink"), "Inter", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #0B212A;
+  margin: 0 0 12px;
+}
+
+.reports-card-desc {
+  font-family: var(--font-neueleiden, "Neueleiden"), "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #0B212A;
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+.reports-card-btn {
+  width: 170px;
+  max-width: 170px;
+  height: 50px;
+  background-color: #6B0F1A;
+  font-family: var(--font-rink, "Rink"), "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #FFFAEE;
+  border-radius: 6px;
+  padding: 13px 10px 13px 8px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.reports-card-btn:hover,
+.reports-card-btn:focus {
+  background-color: #22582D;
+  color: #FFFFFF;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (Laptop <= 1200px)
+   ────────────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .reports-hero-desktop {
+    min-height: 650px;
+    padding: 30px 30px 30px 50px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (Tablets <= 991px)
+   ────────────────────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .reports-hero-desktop {
+    min-height: 500px;
+    border-width: 20px;
+    padding: 20px;
+  }
+
+  .reports-hero-card {
+    padding: 24px 20px;
+    width: 340px;
+  }
+
+  .reports-hero-title {
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .reports-hero-text {
+    font-size: 17px;
+    line-height: 23px;
+  }
+
+  .reports-list-section {
+    padding: 45px 20px 60px;
+  }
+
+  .reports-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .reports-card {
+    width: calc(50% - 15px);
+    max-width: 420px;
+    min-width: 280px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (Mobile <= 767px)
+   ────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .reports-hero-desktop {
+    display: none;
+  }
+
+  .reports-hero-mobile {
+    display: block;
+    margin-top: 70px;
+  }
+
+  .reports-hero-btn {
+    width: 157px;
+    max-width: 157px;
+    height: 46px;
+    font-size: 14px;
+    padding: 13px 5px;
+  }
+
+  .reports-hero-title {
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .reports-hero-text {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 18px;
+  }
+
+  /* Our Reports on Mobile */
+  .reports-list-section {
+    padding: 35px 16px 50px;
+  }
+
+  .reports-section-title {
+    font-size: 35px;
+    line-height: 35px;
+    margin: 0 0 25px;
+  }
+
+  .reports-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .reports-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .reports-card-title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .reports-card-desc {
+    font-size: 15px;
+    line-height: 21px;
+    margin-bottom: 20px;
+  }
+
+  .reports-card-btn {
+    width: 157px;
+    max-width: 157px;
+    height: 46px;
+    font-size: 14px;
+    padding: 13px 5px;
+  }
+}
