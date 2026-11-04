@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Newsletter.css";
+import envelopeIcon from "../../assets/img/newsletter/envelope-icon.png";
 
 export default function Newsletter({ className = "" }) {
   const [form, setForm] = useState({
@@ -37,21 +38,23 @@ export default function Newsletter({ className = "" }) {
     <section className={`nl ${className}`.trim()}>
       <div className="nl__inner">
 
-        {/* ── LEFT: stamp icon + title ── */}
+        {/* ── LEFT: smooth rounded icon box + title ── */}
         <div className="nl__left">
-          <img
-            className="nl__icon"
-            src={require("../../assets/img/newsletter/img-bg.png")}
-            alt="Newsletter icon"
-            width="130"
-            height="130"
-          />
+          <div className="nl__icon-box">
+            <img
+              className="nl__icon"
+              src={envelopeIcon}
+              alt="Newsletter icon"
+              width="54"
+              height="53"
+            />
+          </div>
           <h2 className="nl__title">
             ADD IMPACT<br />TO YOUR INBOX
           </h2>
         </div>
 
-        {/* ── RIGHT: scalloped stamp form card ── */}
+        {/* ── RIGHT: form card ── */}
         <div className="nl__card">
           <form onSubmit={handleSubmit}>
 
@@ -92,16 +95,6 @@ export default function Newsletter({ className = "" }) {
                 required
               />
             </div>
-
-            {/* <label className="nl__checkbox">
-              <input
-                type="checkbox"
-                  name="optIn"
-                checked={form.optIn}
-                onChange={handleChange}
-              />
-              <span>Yes, keep me informed about MTJF programs and upcoming campaigns</span>
-            </label> */}
 
             <button className="nl__submit" type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Submitting..." : "Sign Up Now"}

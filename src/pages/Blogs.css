@@ -1,0 +1,499 @@
+/* ══════════════════════════════════════════════════════════════════
+   MTJ FOUNDATION - BLOGS PAGE STYLES
+   Exact 1:1 replica of https://mtjfoundation.ca/blogs/
+   ══════════════════════════════════════════════════════════════════ */
+
+.blogs-page {
+  width: 100%;
+  background-color: #FFFAEE;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   HERO SECTION - DESKTOP (>767px)
+   ────────────────────────────────────────────────────────────────── */
+.blogs-hero-desktop {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  margin-top: 92px;
+  background-color: #FFFAEE;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 30px solid #FFFAEE;
+  padding: 50px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.blogs-hero-box-area {
+  max-width: 1220px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.blogs-hero-card {
+  max-width: 380px;
+  width: 100%;
+  background-color: #FFFAEE;
+  padding: 40px 20px 40px 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.blogs-hero-date {
+  font-family: var(--font-neueleiden, "Neueleiden"), Sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgba(11, 33, 42, 0.5);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.blogs-hero-text {
+  font-family: var(--font-neueleiden, "Neueleiden"), Sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #312D2D;
+  margin: 0 0 20px;
+  letter-spacing: normal;
+}
+
+.blogs-hero-btn {
+  width: 170px;
+  max-width: 170px;
+  background-color: #6B0F1A;
+  font-family: var(--font-rink, "Rink"), Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #FFFAEE;
+  border-radius: 6px;
+  padding: 13px 10px 13px 8px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.blogs-hero-btn:hover,
+.blogs-hero-btn:focus {
+  background-color: #22582D;
+  color: #FFFFFF;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   HERO SECTION - MOBILE (<=767px)
+   ────────────────────────────────────────────────────────────────── */
+.blogs-hero-mobile {
+  display: none;
+  width: 100%;
+  background-color: #FFFAEE;
+}
+
+.blogs-hero-mobile-img-wrap {
+  width: 100%;
+  border: 20px solid #FFFAEE;
+  background-color: #FFFAEE;
+  box-sizing: border-box;
+}
+
+.blogs-hero-mobile-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.blogs-hero-mobile-card {
+  background-color: #FFFAEE;
+  padding: 20px 10px 20px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   OUR STORIES SECTION
+   ────────────────────────────────────────────────────────────────── */
+.blogs-stories-section {
+  position: relative;
+  width: 100%;
+  background-color: #FFFAEE;
+  border: 30px solid #22582D;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.blogs-stories-inner {
+  max-width: 1220px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.blogs-stories-heading {
+  font-family: var(--font-finder, "Finder"), Sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 45px;
+  color: #22582D;
+  text-align: center;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+/* Desktop Filter Buttons */
+.blogs-post-filters {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.blogs-filter-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0 17px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0B212A;
+  font-family: var(--font-rink, "Rink"), Sans-serif;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.blogs-filter-btn:hover,
+.blogs-filter-btn.active {
+  text-decoration: underline !important;
+  color: #0B212A;
+}
+
+/* Mobile Dropdown (Hidden on Desktop) */
+.blogs-filter-dropdown-wrap {
+  display: none;
+}
+
+.blogs-filter-dropdown {
+  display: block;
+  width: 100%;
+  max-width: 310px;
+  margin: 10px auto 20px;
+  padding: 10px 20px;
+  border: 1px solid #22582D;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0B212A;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2322582D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: var(--font-rink, "Rink"), Sans-serif;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Posts Grid */
+.blogs-posts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 -15px;
+}
+
+.blogs-post-card {
+  width: 33.333%;
+  padding: 15px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.blogs-card-img-link {
+  display: block;
+  text-decoration: none;
+}
+
+.blogs-card-img-mask {
+  width: 100%;
+  overflow: hidden;
+  --r: 18px;
+  -webkit-mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 99%, #000) top left,
+    radial-gradient(circle var(--r) at 100% 0, transparent 99%, #000) top right,
+    radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+    radial-gradient(circle var(--r) at 0 100%, transparent 99%, #000) bottom left,
+    linear-gradient(#000 0 0);
+  -webkit-mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-composite: destination-out, destination-out, destination-out, destination-out, source-over;
+  mask:
+    radial-gradient(circle var(--r) at 0 0, transparent 99%, #000) top left,
+    radial-gradient(circle var(--r) at 100% 0, transparent 99%, #000) top right,
+    radial-gradient(circle var(--r) at 100% 100%, transparent 99%, #000) bottom right,
+    radial-gradient(circle var(--r) at 0 100%, transparent 99%, #000) bottom left,
+    linear-gradient(#000 0 0);
+  mask-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, cover;
+  mask-repeat: no-repeat;
+  mask-composite: exclude, exclude, exclude, exclude, add;
+  background-size: 100% 100%;
+  border: 1px solid #FFFAEE;
+}
+
+.blogs-card-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.blogs-post-card:hover .blogs-card-img {
+  transform: scale(1.04);
+}
+
+.blogs-card-title {
+  margin: 12px 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-rink, "Rink"), Sans-serif;
+  line-height: 1.35;
+}
+
+.blogs-card-title a {
+  text-decoration: none;
+  color: #0B212A;
+  font-family: var(--font-rink, "Rink"), Sans-serif;
+  transition: color 0.2s ease;
+}
+
+.blogs-card-title a:hover {
+  color: #22582D;
+}
+
+/* Meta Data */
+.blogs-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.blogs-meta-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Desktop Meta Visibility: Molana Tariq Jamil & bullet are hidden, only Date shown */
+.blogs-meta-author {
+  display: none;
+}
+
+.blogs-meta-bullet {
+  display: none;
+}
+
+.blogs-meta-date {
+  font-family: var(--font-neueleiden, "Neueleiden"), Sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #0B212A;
+  opacity: 0.5;
+  margin: 0;
+  display: inline-block;
+}
+
+/* Show More Button */
+.blogs-loadmore-wrap {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.blogs-loadmore-btn {
+  width: 170px;
+  max-width: 170px;
+  background-color: #22582D;
+  font-family: var(--font-rink, "Rink"), Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #FFFAEE;
+  border-radius: 6px;
+  padding: 13px 10px 13px 8px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.blogs-loadmore-btn:hover,
+.blogs-loadmore-btn:focus {
+  background-color: #6B0F1A;
+  color: #FFFAEE;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (Tablets <= 991px)
+   ────────────────────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .blogs-hero-desktop {
+    min-height: 400px;
+    border: 20px solid #FFFAEE;
+    padding: 30px 15px 0;
+  }
+
+  .blogs-hero-box-area {
+    display: none;
+  }
+
+  .blogs-stories-section {
+    padding: 30px 20px;
+  }
+
+  .blogs-post-card {
+    width: 50%;
+    flex: 1 1 calc(50% - 10px);
+  }
+
+  .blogs-card-img {
+    height: 300px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS (Mobile <= 767px)
+   ────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .blogs-hero-desktop {
+    display: none;
+  }
+
+  .blogs-hero-mobile {
+    display: block;
+    margin-top: 70px;
+  }
+
+  .blogs-hero-mobile-img-wrap {
+    border-width: 20px;
+  }
+
+  .blogs-hero-mobile-card {
+    padding: 20px 10px 20px 20px;
+  }
+
+  .blogs-hero-btn {
+    width: 157px;
+    max-width: 157px;
+    font-size: 14px;
+    padding: 13px 5px;
+  }
+
+  /* Our Stories Section on Mobile */
+  .blogs-stories-section {
+    border-width: 20px;
+    padding: 20px 10px 30px;
+  }
+
+  .blogs-stories-inner {
+    padding: 0;
+  }
+
+  .blogs-stories-heading {
+    font-size: 35px;
+    line-height: 45px;
+    margin: 0 0 10px;
+  }
+
+  .blogs-post-filters .blogs-filter-btn {
+    display: none;
+  }
+
+  .blogs-filter-dropdown-wrap {
+    display: block;
+  }
+
+  .blogs-posts-grid {
+    margin: 0;
+  }
+
+  .blogs-post-card {
+    width: 100%;
+    flex: 1 1 100%;
+    padding: 10px 0;
+  }
+
+  .blogs-card-img {
+    height: 240px;
+  }
+
+  .blogs-card-title {
+    font-size: 18px;
+    margin: 10px 0 6px;
+  }
+
+  /* Mobile Meta Visibility: Molana Tariq Jamil on top line, Date below, bullet hidden */
+  .blogs-meta-text {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blogs-meta-author {
+    display: block;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0B212A;
+    opacity: 0.5;
+    font-family: var(--font-neueleiden, "Neueleiden"), Sans-serif;
+    margin: 0 0 2px 0;
+  }
+
+  .blogs-meta-bullet {
+    display: none;
+  }
+
+  .blogs-meta-date {
+    display: block;
+    font-size: 18px;
+    line-height: 22px;
+    color: #0B212A;
+    opacity: 0.5;
+    font-family: var(--font-neueleiden, "Neueleiden"), Sans-serif;
+    margin: 0;
+  }
+
+  .blogs-loadmore-btn {
+    width: 157px;
+    max-width: 157px;
+    font-size: 14px;
+    padding: 13px 5px;
+    margin-top: 15px;
+  }
+}
