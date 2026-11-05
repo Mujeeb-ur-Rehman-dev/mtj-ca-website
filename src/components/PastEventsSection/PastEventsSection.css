@@ -1,118 +1,202 @@
+/* ===================================================
+   Past Events Section Styles
+   100% Faithful to Live MTJF Canada Events Page
+   =================================================== */
+
 .past-events-section {
-  background-color: #0f2c3a; /* deep navy from image */
-  padding: 80px 20px 100px;
+  background-color: #0A212A;
+  margin-top: 80px;
+  padding: 60px 20px 80px 20px;
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
 }
 
 .past-events-container {
-  max-width: 1200px;
+  max-width: 1220px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.section-title {
+/* Heading: Past Events */
+.past-events-heading-wrap {
   text-align: center;
-  color: #ffffff;
-  font-size: 42px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin: 0 0 60px 0;
-  text-transform: uppercase;
+  margin-bottom: 35px;
 }
 
-.events-grid {
+.past-events-title {
+  font-family: "Finder", Sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 45px;
+  color: #FFFAEE;
+  margin: 0;
+  text-align: center;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Grid matching Elementor flex-wrap */
+.past-events-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
-  justify-content: flex-start; /* Desktop pe left side se start */
+  margin: 0 -15px;
+}
+
+/* 3 columns on desktop (33.333%) */
+.past-event-col {
+  width: 33.333%;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 /* Event Card */
-.event-card {
-  background: #fdf8f0;
-  width: 340px;
-  padding: 40px 32px 36px;
-  border-radius: 4px;
+.past-event-card {
+  background-color: #FFFAEE;
+  border-radius: 6px;
+  padding: 40px 32px 36px 32px;
+  box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.event-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #1a2e35;
-  margin: 0 0 12px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.past-event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
 }
 
-.event-date {
-  font-size: 15px;
-  color: #4a5568;
-  margin: 0 0 18px 0;
-}
-
-.event-description {
-  font-size: 15px;
-  line-height: 1.65;
-  color: #2d3748;
-  margin: 0 0 30px 0;
-}
-
-/* Button with cut corners (ticket style) */
-.event-btn {
-  display: inline-block;
-  background-color: #1a5c3a;
-  color: white;
-  text-decoration: none;
-  font-size: 15px;
+.past-event-title {
+  font-family: "Finder", Sans-serif;
+  font-size: 25px;
   font-weight: 600;
-  padding: 12px 32px;
-  border-radius: 4px;
-  position: relative;
-  transition: background 0.2s ease;
-  
-  /* Ticket style cut corners */
-  clip-path: polygon(
-    8px 0%,
-    calc(100% - 8px) 0%,
-    100% 8px,
-    100% calc(100% - 8px),
-    calc(100% - 8px) 100%,
-    8px 100%,
-    0% calc(100% - 8px),
-    0% 8px
-  );
+  line-height: 25px;
+  letter-spacing: 0.4px;
+  color: #0B212A;
+  margin: 0 0 12px 0;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.event-btn:hover {
-  background-color: #14472d;
+.past-event-date {
+  font-family: "Neueleiden", Sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #0B212A;
+  margin: 0 0 16px 0;
+  text-align: center;
 }
 
-/* ========== MOBILE ========== */
-@media (max-width: 768px) {
+.past-event-description {
+  font-family: "Neueleiden", Sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  color: #0B212A;
+  margin: 0 0 28px 0;
+  text-align: center;
+}
+
+.past-event-btn-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Event Page Button */
+.past-event-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #22582D;
+  color: #FFFAEE;
+  font-family: "Rink", Sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  border-radius: 6px;
+  width: 170px;
+  max-width: 170px;
+  padding: 13px 10px 13px 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.past-event-btn:hover,
+.past-event-btn:focus {
+  background-color: #6B0F1A;
+  color: #FFFAEE;
+  transform: translateY(-2px);
+}
+
+/* ===================================================
+   RESPONSIVENESS (Tablet & Mobile)
+   =================================================== */
+
+@media (max-width: 991px) {
+  .past-event-col {
+    width: 50%;
+  }
+
   .past-events-section {
-    padding: 60px 16px 80px;
+    padding: 50px 18px 70px 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .past-events-section {
+    padding: 40px 15px 60px 15px;
+    margin-top: 70px;
   }
 
-  .section-title {
-    font-size: 32px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+  .past-events-heading-wrap {
+    margin-bottom: 25px;
   }
 
-  .events-grid {
-    justify-content: center;
+  .past-events-title {
+    font-size: 35px;
+    line-height: 35px;
   }
 
-  .event-card {
+  .past-events-grid {
+    margin: 0;
+  }
+
+  .past-event-col {
     width: 100%;
-    max-width: 360px;
-    padding: 36px 28px 32px;
+    padding: 0;
   }
 
-  .event-title {
-    font-size: 20px;
+  .past-event-card {
+    padding: 36px 24px 32px 24px;
+  }
+
+  .past-event-title {
+    font-size: 22px;
+    line-height: 22px;
+  }
+
+  .past-event-date {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .past-event-description {
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 24px;
+  }
+
+  .past-event-btn {
+    font-size: 14px;
+    width: 157px;
+    max-width: 157px;
+    padding: 13px 5px;
   }
 }

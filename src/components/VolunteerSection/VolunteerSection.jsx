@@ -27,21 +27,26 @@ const initialFormState = {
   donorConsent: "",
 };
 
+const GOOGLE_FORM_ACTION_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfJ9wBP8384qaTDGMAgZdiDNMQqp6h5_fvQDfa-CRc9PcDR6Q/formResponse";
+
 const VolunteerSection = () => {
   const [formData, setFormData] = useState(initialFormState);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const formScrollRef = useRef(null);
+  const otherExpertiseInputRef = useRef(null);
+  const otherHearAboutInputRef = useRef(null);
 
-  // Always ensure form starts at top on initial mount
+  // Ensure form starts at top on initial mount
   useEffect(() => {
     if (formScrollRef.current) {
       formScrollRef.current.scrollTop = 0;
     }
   }, []);
 
-  // Field change handlers
+  // Text inputs handler
   const handleTextChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -50,6 +55,7 @@ const VolunteerSection = () => {
     }
   };
 
+  // Radio button handler
   const handleRadioChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
@@ -57,6 +63,7 @@ const VolunteerSection = () => {
     }
   };
 
+  // Checkbox group handler
   const handleCheckboxChange = (group, value) => {
     setFormData((prev) => {
       const current = prev[group];
@@ -70,6 +77,7 @@ const VolunteerSection = () => {
     }
   };
 
+  // Clear form handler
   const handleClearForm = () => {
     setFormData(initialFormState);
     setErrors({});
@@ -122,35 +130,87 @@ const VolunteerSection = () => {
     return newErrors;
   };
 
-  // Submit Handler - Pure React Form
-  const handleSubmit = (e) => {
+  // Submit Handler - Pure React Form with background submission to Google Forms backend
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length > 0) {
-      const firstErrorField = document.querySelector(".form-card--error");
-      if (firstErrorField && formScrollRef.current) {
-        firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+      setTimeout(() => {
+        const firstErrorField = document.querySelector(".form-card--error");
+        if (firstErrorField) {
+          firstErrorField.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
+      }, 50);
       return;
     }
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      console.log("Volunteer application submitted successfully:", formData);
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      if (formScrollRef.current) {
-        formScrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    // Build payload matching exact Google Form entry IDs
+    try {
+      const payload = new FormData();
+      payload.append("emailAddress", formData.email.trim());
+      payload.append("entry.62865334", formData.firstName.trim());
+      payload.append("entry.213108694", formData.lastName.trim());
+      payload.append("entry.1750271096", formData.phoneNumber.trim());
+      payload.append("entry.37112357", formData.age);
+      payload.append("entry.782639679", formData.location.trim());
+
+      formData.expertise.forEach((item) => {
+        payload.append("entry.1005196212", item);
+      });
+      if (formData.otherExpertise.trim()) {
+        payload.append("entry.1005196212", "__other_option__");
+        payload.append(
+          "entry.1005196212.other_option_response",
+          formData.otherExpertise.trim()
+        );
       }
-    }, 450);
+
+      formData.availability.forEach((item) => {
+        payload.append("entry.743672833", item);
+      });
+
+      if (formData.hearAboutUs === "Other") {
+        payload.append("entry.92937047", "__other_option__");
+        payload.append(
+          "entry.92937047.other_option_response",
+          formData.otherHearAboutUs.trim()
+        );
+      } else if (formData.hearAboutUs) {
+        payload.append("entry.92937047", formData.hearAboutUs);
+      }
+
+      if (formData.donorConsent) {
+        payload.append("entry.2132805951", formData.donorConsent);
+      }
+
+      // Background submission to Google Form response sheet
+      await fetch(GOOGLE_FORM_ACTION_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: payload,
+      });
+    } catch (err) {
+      console.warn("Volunteer form background sync:", err);
+    }
+
+    // Finish submission and display confirmation
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    if (formScrollRef.current) {
+      formScrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
     <section className="volunteer-section">
       <div className="volunteer-container">
-        {/* LEFT SIDE - Pure React Form */}
+        {/* LEFT COLUMN - Pure React Volunteer Form */}
         <div className="volunteer-left">
           <h2 className="volunteer-title">Volunteer Form</h2>
 
@@ -164,10 +224,12 @@ const VolunteerSection = () => {
                   </div>
                   <h3 className="form-success-title">MTJ Volunteer Sign Up</h3>
                   <p className="form-success-message">
-                    Your response has been recorded. Thank you for signing up to volunteer with the Molana Tariq Jamil Foundation!
+                    Your response has been recorded.
                   </p>
                   <p className="form-success-subtext">
-                    Our team will review your application and reach out with next steps, insha’Allah.
+                    Thank you for signing up to volunteer with the Molana Tariq
+                    Jamil Foundation! Our team will review your application and
+                    reach out with next steps, insha’Allah.
                   </p>
                   <button
                     type="button"
@@ -182,7 +244,11 @@ const VolunteerSection = () => {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className="volunteer-react-form">
+              <form
+                onSubmit={handleSubmit}
+                noValidate
+                className="volunteer-react-form"
+              >
                 {/* Header Card */}
                 <div className="form-card form-header-card">
                   <div className="form-header-bar" />
@@ -190,32 +256,53 @@ const VolunteerSection = () => {
                     <h1 className="form-heading">MTJ Volunteer Sign Up</h1>
                     <div className="form-intro-text">
                       <p>
-                        Interested in Volunteering with the Molana Tariq Jamil Foundation? Look no further!
+                        Interested in Volunteering with the Molana Tariq Jamil
+                        Foundation? Look no further!
                       </p>
                       <p>
-                        Fill out this form and stay up to date with upcoming events held by MTJF and events we will be present at!
+                        Fill out this form and stay up to date with upcoming
+                        events held by MTJF and events we will be present at!
                       </p>
                       <p>
-                        For more information about MTJF and our vision, you can visit our{" "}
-                        <a href="https://mtjfoundation.ca" target="_blank" rel="noopener noreferrer">
+                        For more information about MTJF and our vision, you can
+                        visit our{" "}
+                        <a
+                          href="https://mtjfoundation.ca"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           website
                         </a>{" "}
                         as well as follow us on{" "}
-                        <a href="https://www.instagram.com/mtjf_canada/" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://www.instagram.com/mtjfoundationca/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           Instagram
                         </a>{" "}
                         and{" "}
-                        <a href="https://www.facebook.com/mtjfcanada/" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://www.facebook.com/mtjfcanada/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           Facebook!
                         </a>
                       </p>
                     </div>
-                    <div className="form-required-note">* Indicates required question</div>
+                    <div className="form-required-note">
+                      * Indicates required question
+                    </div>
                   </div>
                 </div>
 
                 {/* 1. Email */}
-                <div className={`form-card ${errors.email ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.email ? "form-card--error" : ""
+                  }`}
+                >
                   <label htmlFor="field-email" className="form-label">
                     Email <span className="required-star">*</span>
                   </label>
@@ -225,9 +312,10 @@ const VolunteerSection = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleTextChange}
-                    placeholder="Your email"
+                    placeholder="Your email address"
                     className="form-underline-input"
                     aria-required="true"
+                    autoComplete="email"
                   />
                   {errors.email && (
                     <div className="form-error-msg">
@@ -237,7 +325,11 @@ const VolunteerSection = () => {
                 </div>
 
                 {/* 2. First Name */}
-                <div className={`form-card ${errors.firstName ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.firstName ? "form-card--error" : ""
+                  }`}
+                >
                   <label htmlFor="field-firstName" className="form-label">
                     First Name <span className="required-star">*</span>
                   </label>
@@ -250,6 +342,7 @@ const VolunteerSection = () => {
                     placeholder="Your answer"
                     className="form-underline-input"
                     aria-required="true"
+                    autoComplete="given-name"
                   />
                   {errors.firstName && (
                     <div className="form-error-msg">
@@ -259,7 +352,11 @@ const VolunteerSection = () => {
                 </div>
 
                 {/* 3. Last Name */}
-                <div className={`form-card ${errors.lastName ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.lastName ? "form-card--error" : ""
+                  }`}
+                >
                   <label htmlFor="field-lastName" className="form-label">
                     Last Name <span className="required-star">*</span>
                   </label>
@@ -272,6 +369,7 @@ const VolunteerSection = () => {
                     placeholder="Your answer"
                     className="form-underline-input"
                     aria-required="true"
+                    autoComplete="family-name"
                   />
                   {errors.lastName && (
                     <div className="form-error-msg">
@@ -281,7 +379,11 @@ const VolunteerSection = () => {
                 </div>
 
                 {/* 4. Phone Number */}
-                <div className={`form-card ${errors.phoneNumber ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.phoneNumber ? "form-card--error" : ""
+                  }`}
+                >
                   <label htmlFor="field-phoneNumber" className="form-label">
                     Phone Number <span className="required-star">*</span>
                   </label>
@@ -294,6 +396,7 @@ const VolunteerSection = () => {
                     placeholder="Your answer"
                     className="form-underline-input"
                     aria-required="true"
+                    autoComplete="tel"
                   />
                   {errors.phoneNumber && (
                     <div className="form-error-msg">
@@ -303,7 +406,11 @@ const VolunteerSection = () => {
                 </div>
 
                 {/* 5. Age */}
-                <div className={`form-card ${errors.age ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.age ? "form-card--error" : ""
+                  }`}
+                >
                   <div className="form-label">
                     Age <span className="required-star">*</span>
                   </div>
@@ -331,7 +438,11 @@ const VolunteerSection = () => {
                 </div>
 
                 {/* 6. City / Country */}
-                <div className={`form-card ${errors.location ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.location ? "form-card--error" : ""
+                  }`}
+                >
                   <label htmlFor="field-location" className="form-label">
                     What city/country are you located in? (eg. Toronto, Canada){" "}
                     <span className="required-star">*</span>
@@ -354,10 +465,16 @@ const VolunteerSection = () => {
                 </div>
 
                 {/* 7. Area of Expertise */}
-                <div className={`form-card ${errors.expertise ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.expertise ? "form-card--error" : ""
+                  }`}
+                >
                   <div className="form-label">
                     Area of Expertise: <br />
-                    <span className="form-sublabel">(Please select all that apply)</span>{" "}
+                    <span className="form-sublabel">
+                      (Please select all that apply)
+                    </span>{" "}
                     <span className="required-star">*</span>
                   </div>
                   <div className="form-checkbox-group">
@@ -374,7 +491,9 @@ const VolunteerSection = () => {
                           name="expertise"
                           value={option}
                           checked={formData.expertise.includes(option)}
-                          onChange={() => handleCheckboxChange("expertise", option)}
+                          onChange={() =>
+                            handleCheckboxChange("expertise", option)
+                          }
                           className="form-native-checkbox"
                         />
                         <span className="form-custom-checkbox" />
@@ -390,7 +509,14 @@ const VolunteerSection = () => {
                           checked={formData.otherExpertise.trim() !== ""}
                           onChange={(e) => {
                             if (!e.target.checked) {
-                              setFormData((prev) => ({ ...prev, otherExpertise: "" }));
+                              setFormData((prev) => ({
+                                ...prev,
+                                otherExpertise: "",
+                              }));
+                            } else {
+                              if (otherExpertiseInputRef.current) {
+                                otherExpertiseInputRef.current.focus();
+                              }
                             }
                           }}
                           className="form-native-checkbox"
@@ -399,10 +525,16 @@ const VolunteerSection = () => {
                         <span className="form-checkbox-label">Other:</span>
                       </label>
                       <input
+                        ref={otherExpertiseInputRef}
                         type="text"
                         name="otherExpertise"
                         value={formData.otherExpertise}
-                        onChange={handleTextChange}
+                        onChange={(e) => {
+                          handleTextChange(e);
+                          if (errors.expertise) {
+                            setErrors((prev) => ({ ...prev, expertise: null }));
+                          }
+                        }}
                         className="form-underline-input form-inline-input"
                         placeholder=""
                       />
@@ -419,7 +551,9 @@ const VolunteerSection = () => {
                 <div className="form-card">
                   <div className="form-label">
                     General Availability: <br />
-                    <span className="form-sublabel">(Select all that apply)</span>
+                    <span className="form-sublabel">
+                      (Select all that apply)
+                    </span>
                   </div>
                   <div className="form-checkbox-group">
                     {[
@@ -435,7 +569,9 @@ const VolunteerSection = () => {
                           name="availability"
                           value={option}
                           checked={formData.availability.includes(option)}
-                          onChange={() => handleCheckboxChange("availability", option)}
+                          onChange={() =>
+                            handleCheckboxChange("availability", option)
+                          }
                           className="form-native-checkbox"
                         />
                         <span className="form-custom-checkbox" />
@@ -447,25 +583,32 @@ const VolunteerSection = () => {
 
                 {/* 9. How did you hear about MTJF? */}
                 <div className="form-card">
-                  <div className="form-label">How did you hear about MTJF?</div>
+                  <div className="form-label">
+                    How did you hear about MTJF?
+                  </div>
                   <div className="form-radio-group">
-                    {["Social Media", "Email", "Friends/Family"].map((option) => (
-                      <label key={option} className="form-radio-item">
-                        <input
-                          type="radio"
-                          name="hearAboutUs"
-                          value={option}
-                          checked={formData.hearAboutUs === option}
-                          onChange={() => {
-                            handleRadioChange("hearAboutUs", option);
-                            setFormData((prev) => ({ ...prev, otherHearAboutUs: "" }));
-                          }}
-                          className="form-native-radio"
-                        />
-                        <span className="form-custom-radio" />
-                        <span className="form-radio-label">{option}</span>
-                      </label>
-                    ))}
+                    {["Social Media", "Email", "Friends/Family"].map(
+                      (option) => (
+                        <label key={option} className="form-radio-item">
+                          <input
+                            type="radio"
+                            name="hearAboutUs"
+                            value={option}
+                            checked={formData.hearAboutUs === option}
+                            onChange={() => {
+                              handleRadioChange("hearAboutUs", option);
+                              setFormData((prev) => ({
+                                ...prev,
+                                otherHearAboutUs: "",
+                              }));
+                            }}
+                            className="form-native-radio"
+                          />
+                          <span className="form-custom-radio" />
+                          <span className="form-radio-label">{option}</span>
+                        </label>
+                      )
+                    )}
 
                     {/* Other option */}
                     <div className="form-other-item">
@@ -475,13 +618,19 @@ const VolunteerSection = () => {
                           name="hearAboutUs"
                           value="Other"
                           checked={formData.hearAboutUs === "Other"}
-                          onChange={() => handleRadioChange("hearAboutUs", "Other")}
+                          onChange={() => {
+                            handleRadioChange("hearAboutUs", "Other");
+                            if (otherHearAboutInputRef.current) {
+                              otherHearAboutInputRef.current.focus();
+                            }
+                          }}
                           className="form-native-radio"
                         />
                         <span className="form-custom-radio" />
                         <span className="form-radio-label">Other:</span>
                       </label>
                       <input
+                        ref={otherHearAboutInputRef}
                         type="text"
                         name="otherHearAboutUs"
                         value={formData.otherHearAboutUs}
@@ -492,6 +641,9 @@ const VolunteerSection = () => {
                             otherHearAboutUs: e.target.value,
                           }));
                         }}
+                        onFocus={() => {
+                          handleRadioChange("hearAboutUs", "Other");
+                        }}
                         className="form-underline-input form-inline-input"
                         placeholder=""
                       />
@@ -500,7 +652,11 @@ const VolunteerSection = () => {
                 </div>
 
                 {/* 10. Consent to Donor Database */}
-                <div className={`form-card ${errors.donorConsent ? "form-card--error" : ""}`}>
+                <div
+                  className={`form-card ${
+                    errors.donorConsent ? "form-card--error" : ""
+                  }`}
+                >
                   <div className="form-label">
                     Do you consent to being added to our Donor Database?{" "}
                     <span className="required-star">*</span>
@@ -513,7 +669,9 @@ const VolunteerSection = () => {
                           name="donorConsent"
                           value={option}
                           checked={formData.donorConsent === option}
-                          onChange={() => handleRadioChange("donorConsent", option)}
+                          onChange={() =>
+                            handleRadioChange("donorConsent", option)
+                          }
                           className="form-native-radio"
                         />
                         <span className="form-custom-radio" />
@@ -550,18 +708,20 @@ const VolunteerSection = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE - Content */}
+        {/* RIGHT COLUMN - Info Column (100% matched to live mtjfoundation.ca/volunteer/) */}
         <div className="volunteer-right">
           <h2 className="right-heading">
-            Serve with compassion.<br />
+            Serve with compassion.
+            <br />
             Give with sincerity.
           </h2>
 
           <p>
             At <strong>Molana Tariq Jamil Foundation</strong>, we believe true
-            change begins when hearts come together for the sake of Allah. Our
-            volunteers are the backbone of our mission — helping deliver food,
-            water, education, and hope to families in need.
+            change begins when hearts come together for the sake of Allah.
+            <br />
+            Our volunteers are the backbone of our mission – helping deliver
+            food, water, education, and hope to families in need.
           </p>
 
           <p>
@@ -569,34 +729,47 @@ const VolunteerSection = () => {
             dedicated to:
           </p>
 
-          <ul>
-            <li>Spreading compassion and care across communities</li>
-            <li>Supporting life-changing humanitarian projects</li>
-            <li>Uplifting those most in need with dignity and respect</li>
+          <ul className="volunteer-bullets">
+            <li>
+              <span>Spreading compassion and care across communities</span>
+            </li>
+            <li>
+              <span>Supporting life-changing humanitarian projects</span>
+            </li>
+            <li>
+              <span>Uplifting those most in need with dignity and respect</span>
+            </li>
           </ul>
 
           <p>
-            Please complete the form below carefully. Once submitted, our team
-            will review your application and reach out with next steps,
-            insha’Allah.
+            Please complete the form below carefully.
+            <br />
+            Once submitted, our team will review your application and reach out
+            with next steps, insha’Allah.
           </p>
 
           <div className="contact-info">
-            <p>
-              <span className="contact-icon"><FaEnvelope /></span>
-              info@mtjfoundation.ca
-            </p>
-            <p>
-              <span className="contact-icon"><FaPhone /></span>
-              905-783-1MTJ
-            </p>
-            <p className="contact-row contact-row--align-top">
-              <span className="contact-icon contact-icon--top"><FaLocationDot /></span>
-              <span className="contact-address">
-                Skyward business Center 312 - 2255 Dundas St W,
-                Mississauga, ON L5K 1R6
+            <a href="mailto:info@mtjfoundation.ca" className="contact-row">
+              <span className="contact-icon">
+                <FaEnvelope />
               </span>
-            </p>
+              <span className="contact-text">info@mtjfoundation.ca</span>
+            </a>
+            <a href="tel:9057831685" className="contact-row">
+              <span className="contact-icon">
+                <FaPhone />
+              </span>
+              <span className="contact-text">905-783-1MTJ</span>
+            </a>
+            <div className="contact-row contact-row--align-top">
+              <span className="contact-icon contact-icon--top">
+                <FaLocationDot />
+              </span>
+              <span className="contact-address">
+                Skyward business Center 312 - 2255 Dundas St W, Mississauga, ON
+                L5K 1R6
+              </span>
+            </div>
           </div>
 
           <div className="follow-us">
@@ -611,7 +784,7 @@ const VolunteerSection = () => {
                 <FaFacebookF />
               </a>
               <a
-                href="https://www.instagram.com/mtjf_canada/"
+                href="https://www.instagram.com/mtjfoundationca"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -619,7 +792,7 @@ const VolunteerSection = () => {
                 <FaInstagram />
               </a>
               <a
-                href="https://x.com/mtjfcanada"
+                href="https://twitter.com/mtjfcanada"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"
