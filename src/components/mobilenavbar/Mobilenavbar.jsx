@@ -49,7 +49,7 @@ const links = [
     submenu: [
       { name: "Volunteer", path: "/volunteer" },
       { name: "Events", path: "/events" },
-      { name: "Careers", path: "/careers" },
+      { name: "Careers", path: "/work-with-us" },
       { name: "Contact Us", path: "/contact-us" },
     ],
   },

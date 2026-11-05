@@ -73,6 +73,8 @@ function App() {
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/events" element={<Events />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/work-with-us" element={<Careers />} />
+            <Route path="/work-with-us/" element={<Careers />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>

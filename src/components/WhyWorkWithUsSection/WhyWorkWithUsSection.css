@@ -1,0 +1,290 @@
+.why-work-outer-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 35px 15px 40px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ================= DESKTOP SECTION ================= */
+.why-work-section-desktop {
+  display: block;
+  max-width: 1320px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: 100% 100% !important;
+  background-position: center center;
+  padding: 65px 30px 75px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.why-work-inner-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-work-eyebrow {
+  font-family: "Rink", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fffaee;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.why-work-title {
+  font-family: "Finder", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #fffaee;
+  text-transform: uppercase;
+  margin: 0 0 45px 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.why-work-grid-desktop {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: start;
+  justify-content: center;
+}
+
+.why-work-card-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.why-work-icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 165px;
+  margin-bottom: 16px;
+}
+
+.why-work-icon {
+  width: 156px;
+  height: 165px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.why-work-card-desktop:hover .why-work-icon {
+  transform: translateY(-4px);
+}
+
+.why-work-card-title {
+  font-family: "Rink", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 34px;
+  color: #fffaee;
+  margin: 0;
+  text-align: center;
+}
+
+/* ================= MOBILE SECTION ================= */
+.why-work-section-mobile {
+  display: none;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: center center;
+  padding: 95px 15px 105px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 4px;
+}
+
+.why-work-mobile-inner {
+  width: 100%;
+  text-align: center;
+}
+
+.why-work-eyebrow-mobile {
+  font-family: "Rink", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #fffaee;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.why-work-title-mobile {
+  font-family: "Finder", sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 36px;
+  color: #fffaee;
+  text-transform: uppercase;
+  margin: 0 0 25px 0;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.why-work-slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 280px;
+  animation: fadeInSlide 0.3s ease;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.why-work-slide-icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+  margin-bottom: 12px;
+}
+
+.why-work-slide-icon {
+  width: 125px;
+  height: 135px;
+  object-fit: contain;
+  display: block;
+}
+
+.why-work-slide-title {
+  font-family: "Rink", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 29px;
+  color: #fffaee;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.why-work-slide-desc {
+  font-family: "Neueleiden", sans-serif;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #fffaee;
+  max-width: 290px;
+  margin: 0 auto 20px;
+  text-align: center;
+  opacity: 0.95;
+}
+
+/* Slider Controls (Arrows & Dots) */
+.why-work-slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.why-work-arrow-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.why-work-arrow-btn:hover {
+  opacity: 0.8;
+  transform: scale(1.08);
+}
+
+.why-work-arrow-btn img {
+  width: 24px;
+  height: 13px;
+  object-fit: contain;
+  display: block;
+}
+
+.why-work-dots-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.why-work-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background-color: #858d8c;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  outline: none;
+}
+
+.why-work-dot.active {
+  background-color: #fffaee;
+  transform: scale(1.15);
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+@media (max-width: 991px) {
+  .why-work-section-desktop {
+    padding: 55px 20px 65px;
+  }
+
+  .why-work-title {
+    font-size: 34px;
+    margin-bottom: 35px;
+  }
+
+  .why-work-card-title {
+    font-size: 25px;
+    line-height: 29px;
+  }
+
+  .why-work-icon {
+    width: 130px;
+    height: 140px;
+  }
+
+  .why-work-icon-wrap {
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 767px) {
+  .why-work-outer-wrapper {
+    padding: 25px 10px 30px;
+  }
+
+  .why-work-section-desktop {
+    display: none;
+  }
+
+  .why-work-section-mobile {
+    display: block;
+  }
+}
